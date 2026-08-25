@@ -1,6 +1,8 @@
 # Working data — contains full third-party app descriptions (copyrighted).
 # Publish data/public/ instead; regenerate the rest with the scripts.
 sample/data/*.json
+# Generated capture sheets — working files that may hold unpublished answers.
+sample/data/*.md
 !sample/data/public/
 sample/data/public/*.json
 !sample/data/public/
