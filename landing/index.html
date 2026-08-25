@@ -1,0 +1,412 @@
+<title>openAPPindex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#12120f; --ink:#f7f4ec; --accent:#c98a57; --ink-dark:#0a0a0a; --paper:#f7f4ec;
+  --surface:#1a1a15; --surface-2:#212119; --rule:#2e2e24; --muted:#9c968a; --faint:#6d6960;
+  --s1:#6e6e63; --s2:#8a6440; --s3:#a8763f; --s4:#c98a57; --s5:#dda372; --s6:#f0c396;
+  --sans:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.w{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+a{color:inherit}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.04em;line-height:1.02;text-wrap:balance}
+h1{font-size:clamp(40px,7.4vw,92px)}
+h2{font-size:clamp(30px,4.6vw,54px)}
+h3{font-size:clamp(19px,2vw,23px);letter-spacing:-.02em;line-height:1.15}
+p{margin:0 0 1em}
+.lede{font-size:clamp(17px,1.7vw,21px);color:var(--muted);max-width:62ch}
+strong.hl{color:var(--ink);font-weight:700}
+
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+nav .w{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:20px;padding-top:10px;padding-bottom:10px}
+.brandwrap{display:flex;flex-direction:column;gap:1px}
+.brand{font-weight:800;letter-spacing:-.03em;font-size:19px;text-decoration:none;line-height:1}
+.brand b{color:var(--accent)}
+.tagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--faint);text-transform:lowercase}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+@media(max-width:760px){nav ul{display:none}}
+
+header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:1px solid var(--rule)}
+.hero h1 span{color:var(--accent)}
+.hero .lede{margin-top:26px;font-size:clamp(17px,1.8vw,22px)}
+.stamp{margin-top:32px;font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;gap:10px;flex-wrap:wrap}
+.stamp b{color:var(--accent);font-weight:500}
+
+.fig{margin-top:52px;border:1px solid var(--rule);background:var(--surface);padding:clamp(20px,3vw,32px)}
+.fig h3{margin-bottom:6px}
+.fig .sub{font-size:14px;color:var(--muted);margin:0 0 24px}
+.bar{margin:18px 0}
+.bar .lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:7px;gap:12px}
+.bar .lbl b{color:var(--ink);font-weight:500}
+.track{height:14px;background:var(--surface-2);overflow:hidden}
+.fill{height:100%;width:0;background:var(--accent);border-radius:0 3px 3px 0;animation:grow 1.1s cubic-bezier(.2,.8,.25,1) forwards}
+.fill.dim{background:var(--rule)}
+@keyframes grow{to{width:var(--pct)}}
+@media(prefers-reduced-motion:reduce){.fill{animation:none;width:var(--pct)}}
+.src{margin:22px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.5}
+
+section{padding:clamp(60px,8.5vw,108px) 0;border-bottom:1px solid var(--rule)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:44px}
+.cell{background:var(--bg);padding:28px 26px}
+.cell .n{font-family:var(--mono);font-size:clamp(34px,4.4vw,50px);font-weight:500;letter-spacing:-.03em;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.cell p{margin:14px 0 0;font-size:14.5px;color:var(--muted);line-height:1.45}
+
+.ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
+.card{background:var(--surface);border:1px solid var(--rule);padding:24px}
+.card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px}
+.card h3{margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.card .stat{font-family:var(--mono);color:var(--ink);font-size:13px;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule)}
+
+/* distribution chart */
+.dist{margin-top:8px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:5px 0;position:relative}
+.row:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.rl{font-size:14px;color:var(--muted);text-align:right}
+.rt{position:relative;display:flex;align-items:center;gap:12px}
+.rf{height:26px;width:0;background:var(--c);border-radius:0 3px 3px 0;animation:grow2 1s cubic-bezier(.2,.8,.25,1) forwards}
+@keyframes grow2{to{width:var(--w)}}
+@media(prefers-reduced-motion:reduce){.rf{animation:none;width:var(--w)}}
+.rv{font-size:13px;color:var(--ink);white-space:nowrap}
+.rv i{color:var(--faint);font-style:normal;margin-left:4px}
+.tip{position:absolute;left:166px;bottom:calc(100% - 4px);background:var(--paper);color:var(--ink-dark);font-size:12px;padding:6px 10px;opacity:0;pointer-events:none;transition:opacity .12s;white-space:nowrap;z-index:5}
+.row:hover .tip,.row:focus-visible .tip{opacity:1}
+@media(max-width:620px){.row{grid-template-columns:1fr}.rl{text-align:left}.tip{left:0}}
+details{margin-top:24px;border-top:1px solid var(--rule);padding-top:16px}
+summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--muted)}
+summary:hover{color:var(--ink)}
+table{border-collapse:collapse;width:100%;margin-top:14px;font-size:14px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule)}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:400}
+
+/* revenue chart */
+.rev{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.rrow{display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:center}
+.rrow .who{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.rrow .rt2{display:flex;align-items:center;gap:12px}
+.rbar{height:30px;background:var(--c);border-radius:0 3px 3px 0;width:0;animation:grow2 1.1s cubic-bezier(.2,.8,.25,1) forwards}
+.rnum{font-family:var(--mono);font-size:14px;color:var(--ink);white-space:nowrap}
+.meter{margin-top:34px;padding-top:26px;border-top:1px solid var(--rule)}
+.meter .mt{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:10px;gap:16px}
+.meter .mt b{color:var(--accent);font-family:var(--mono);font-weight:500}
+.mtrack{height:18px;background:var(--surface-2);display:flex}
+.mfill{background:var(--accent);width:0;animation:grow2 1.2s cubic-bezier(.2,.8,.25,1) forwards}
+
+.chain{margin-top:48px;display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.step{background:var(--bg);padding:24px 26px;display:grid;grid-template-columns:56px 1fr;gap:22px;align-items:start}
+.step .no{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:4px}
+.step h3{margin-bottom:7px}
+.step p{margin:0;font-size:15px;color:var(--muted);max-width:66ch}
+.step:last-child{background:var(--surface-2)}
+.step:last-child h3{color:var(--accent)}
+@media(max-width:600px){.step{grid-template-columns:1fr;gap:8px}}
+
+.lines{margin-top:44px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.line{background:var(--bg);padding:22px 26px;display:grid;grid-template-columns:230px 1fr;gap:26px}
+.line strong{font-weight:700;letter-spacing:-.01em}
+.line p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:700px){.line{grid-template-columns:1fr;gap:6px}}
+
+.invert{background:var(--paper);color:var(--ink-dark);border-bottom:none}
+.invert h2{color:var(--ink-dark)} .invert .lede{color:#4a463e} .invert .eyebrow{color:#8a5a2b}
+.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:44px}
+.meth h3{color:var(--ink-dark);margin-bottom:8px}
+.meth p{color:#4a463e;font-size:14.5px;margin:0}
+.cta{margin-top:52px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--ink-dark);transition:transform .12s ease}
+.btn.primary{background:var(--ink-dark);color:var(--paper)}
+.btn.ghost{color:var(--ink-dark)}
+.btn:hover{transform:translateY(-2px)}
+footer{padding:56px 0 72px;font-size:13.5px;color:var(--faint)}
+footer a{color:var(--muted)}
+footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<nav><div class="w">
+  <div class="brandwrap">
+    <a class="brand" href="#top">open<b>APP</b>index</a>
+    <span class="tagline">working toward a better app ecosystem</span>
+  </div>
+  <ul>
+    <li><a href="#finding">The finding</a></li>
+    <li><a href="#mechanism">The mechanism</a></li>
+    <li><a href="#economics">Who pays</a></li>
+    <li><a href="#method">Method</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="w">
+  <p class="eyebrow">An independent, open index of mobile apps</p>
+  <h1>The map is missing<br>most of the<br><span>streets.</span></h1>
+  <p class="lede">We measured one category of one app store completely — recipe apps in Germany.
+  The finding is not that the store ranks badly. It is that most of what exists never appears
+  at all.</p>
+  <div class="stamp">
+    <span>Measured <b>19&ndash;21 August 2026</b></span><span>&middot;</span>
+    <span>951 apps</span><span>&middot;</span>
+    <span>every figure dated and sourced</span>
+  </div>
+
+  <div class="fig">
+    <h3>Search &bdquo;Rezepte&ldquo; &mdash; what the store returns, and what exists</h3>
+    <p class="sub">The same category, counted two ways.</p>
+    <div class="bar">
+      <div class="lbl"><span>Results the store's search returns</span><b class="mono">168</b></div>
+      <div class="track"><div class="fill dim" style="--pct:11.1%"></div></div>
+    </div>
+    <div class="bar">
+      <div class="lbl"><span>Cooking apps we could find in the same store</span><b class="mono">951</b></div>
+      <div class="track"><div class="fill" style="--pct:100%"></div></div>
+    </div>
+    <p class="src">951 is a lower bound: one step along the store's own &bdquo;you might also like&ldquo;
+    links, and every further step finds more. Apps whose listing is about medical prescriptions
+    rather than cooking are excluded &mdash; in German, <em>Rezept</em> means both.<br>
+    Source: iTunes Search API + App Store product pages, German storefront, read 19&ndash;21 Aug 2026.</p>
+  </div>
+</div></header>
+
+<section id="finding"><div class="w">
+  <p class="eyebrow">The finding</p>
+  <h2>Four numbers from one<br>fully measured category.</h2>
+  <div class="grid4">
+    <div class="cell"><div class="n">81%</div>
+      <p>of the cooking apps we found &mdash; 579 of 715 &mdash; never appear in the store's own
+      results for the obvious query.</p></div>
+    <div class="cell"><div class="n">14%</div>
+      <p>is the coverage of the single best search query, measured against what 25 different
+      queries find together.</p></div>
+    <div class="cell"><div class="n">77%</div>
+      <p>of cooking apps listed as &bdquo;free&ldquo; charge money once opened &mdash; 706 of 916.
+      The median app's highest in-app price is &euro;39.99.</p></div>
+    <div class="cell"><div class="n">&euro;599.99</div>
+      <p>is the largest single in-app purchase we found behind the word &bdquo;free&ldquo;, in one
+      AI recipe generator. Twenty-six apps sit above &euro;100.</p></div>
+  </div>
+  <p class="lede" style="margin-top:40px">Two of these figures count different things, deliberately.
+  The 81% is measured against the 715 apps a search sweep found, because an app discovered by
+  following the store's own links was never in a search result to begin with &mdash; counting it
+  would be circular. The price figures use all 951 apps we know of, because a price is a price
+  however we found the app.</p>
+  <p class="lede">We measured Germany because you cannot measure what
+  you cannot see completely, and one country in one language is small enough to see completely.
+  <strong class="hl">The mechanism is not German.</strong> It is how the store is built, in every
+  market it operates.</p>
+</div></section>
+
+<section id="mechanism"><div class="w">
+  <p class="eyebrow">The mechanism</p>
+  <h2>About 160 characters<br>decide who exists.</h2>
+  <p class="lede" style="margin-top:24px">No conspiracy &mdash; ordinary engineering. Search eligibility on iOS comes from an app's
+  <strong class="hl">name</strong> (30 characters), its <strong class="hl">subtitle</strong>
+  (30), and a hidden <strong class="hl">keyword field</strong> (100). A few smaller surfaces are
+  indexed too &mdash; in-app purchase names, in-app event titles, and since 2025 the text inside
+  screenshots. What an app actually does is written in its description, and
+  <strong class="hl">the description is not indexed at all</strong>. If the word is not in those
+  fields, the app is not eligible for that search.</p>
+  <div class="ev">
+    <div class="card"><span class="tag">First gate &middot; not indexed</span>
+      <h3>Backen macht gl&uuml;cklich</h3>
+      <p>Says &bdquo;Rezept&ldquo; sixteen times in its own description. The word appears in
+      neither its name nor its subtitle.</p>
+      <div class="stat">1,879 ratings &middot; 0 of 168 results &middot; 19 Aug 2026</div></div>
+    <div class="card"><span class="tag">Second gate &middot; truncated</span>
+      <h3>ZauberMix f&uuml;r Monsieur&nbsp;Cuisine</h3>
+      <p>Its subtitle is &bdquo;Rezepte f&uuml;r Monsieur Cuisine&ldquo;. The word is in the
+      indexed field &mdash; and that still is not enough.</p>
+      <div class="stat">5,507 ratings &middot; 0 of 168 results &middot; 19 Aug 2026</div></div>
+    <div class="card"><span class="tag">The control</span>
+      <h3>Kochbuch &ndash; Rezepte speichern</h3>
+      <p>Sits at position 8. Nothing about the app explains that placement &mdash; its name is
+      simply, exactly, the search query.</p>
+      <div class="stat">12 ratings &middot; position 8 &middot; 19 Aug 2026</div></div>
+  </div>
+  <p class="lede" style="margin-top:36px">Twelve ratings at position eight. Five thousand
+  ratings nowhere at all. That is what eligibility measures &mdash; not quality, not upkeep,
+  not price. These are single measurements taken on 19 August 2026; store results change, and
+  ours are timestamped so you can check them against today's.</p>
+</div></section>
+
+<section id="economics"><div class="w">
+  <p class="eyebrow">Who pays for this</p>
+  <h2>Everyone pays.<br>Except four companies.</h2>
+  <p class="lede" style="margin-top:24px">If the search is three results deep and the best of
+  the three is auctioned, being found is no longer earned. It is bought &mdash; and the bill
+  travels.</p>
+
+  <div class="fig">
+    <h3>What &bdquo;free&ldquo; actually costs</h3>
+    <p class="sub">916 cooking apps listed as &bdquo;free&ldquo; in the German App Store, by the
+    highest single in-app purchase Apple publishes on each product page.</p>
+    <div class="dist">
+      <div class="row" tabindex="0" aria-label="No in-app purchase: 210 apps, 22.9 percent">
+        <div class="rl">No in-app purchase</div>
+        <div class="rt"><div class="rf" style="--w:71.7%;--c:#6e6e63"></div>
+          <span class="rv mono">210 <i>23%</i></span></div>
+        <div class="tip mono">210 of 916 apps &middot; 22.9%</div>
+      </div>
+      <div class="row" tabindex="0" aria-label="Up to €10: 131 apps, 14.3 percent">
+        <div class="rl">Up to €10</div>
+        <div class="rt"><div class="rf" style="--w:44.7%;--c:#8a6440"></div>
+          <span class="rv mono">131 <i>14%</i></span></div>
+        <div class="tip mono">131 of 916 apps &middot; 14.3%</div>
+      </div>
+      <div class="row" tabindex="0" aria-label="€10–30: 152 apps, 16.6 percent">
+        <div class="rl">€10–30</div>
+        <div class="rt"><div class="rf" style="--w:51.9%;--c:#a8763f"></div>
+          <span class="rv mono">152 <i>17%</i></span></div>
+        <div class="tip mono">152 of 916 apps &middot; 16.6%</div>
+      </div>
+      <div class="row" tabindex="0" aria-label="€30–60: 293 apps, 32.0 percent">
+        <div class="rl">€30–60</div>
+        <div class="rt"><div class="rf" style="--w:100.0%;--c:#c98a57"></div>
+          <span class="rv mono">293 <i>32%</i></span></div>
+        <div class="tip mono">293 of 916 apps &middot; 32.0%</div>
+      </div>
+      <div class="row" tabindex="0" aria-label="€60–100: 104 apps, 11.4 percent">
+        <div class="rl">€60–100</div>
+        <div class="rt"><div class="rf" style="--w:35.5%;--c:#dda372"></div>
+          <span class="rv mono">104 <i>11%</i></span></div>
+        <div class="tip mono">104 of 916 apps &middot; 11.4%</div>
+      </div>
+      <div class="row" tabindex="0" aria-label="Over €100: 26 apps, 2.8 percent">
+        <div class="rl">Over €100</div>
+        <div class="rt"><div class="rf" style="--w:8.9%;--c:#f0c396"></div>
+          <span class="rv mono">26 <i>3%</i></span></div>
+        <div class="tip mono">26 of 916 apps &middot; 2.8%</div>
+      </div>
+    </div>
+    <details><summary>View as table</summary>
+      <table><thead><tr><th>Highest in-app purchase</th><th>Apps</th><th>Share</th></tr></thead>
+      <tbody><tr><td>No in-app purchase</td><td class='mono'>210</td><td class='mono'>22.9%</td></tr><tr><td>Up to €10</td><td class='mono'>131</td><td class='mono'>14.3%</td></tr><tr><td>€10–30</td><td class='mono'>152</td><td class='mono'>16.6%</td></tr><tr><td>€30–60</td><td class='mono'>293</td><td class='mono'>32.0%</td></tr><tr><td>€60–100</td><td class='mono'>104</td><td class='mono'>11.4%</td></tr><tr><td>Over €100</td><td class='mono'>26</td><td class='mono'>2.8%</td></tr></tbody></table></details>
+    <p class="src">Median highest price &euro;39.99 &middot; largest found &euro;599.99 &middot;
+    Source: App Store product pages, read 20 Aug 2026. Prices are as Apple publishes them.
+    Billing periods are not published reliably, so nothing here is annualised &mdash; a
+    &euro;599.99 purchase is a single listed price, not a yearly cost.</p>
+  </div>
+
+  <div class="fig" style="margin-top:24px">
+    <h3>The companies on the receiving end</h3>
+    <p class="sub"><strong class="hl">Total</strong> advertising revenue across all products,
+    2025, in billions of US dollars &mdash; app-install advertising is one part of it, not the
+    whole. Shown for scale, not as app-marketing revenue.</p>
+    <div class="rev">
+      <div class="rrow"><span class="who">Google</span><div class="rt2">
+        <div class="rbar" style="--w:100%;--c:var(--s6)"></div><span class="rnum">$295bn</span></div></div>
+      <div class="rrow"><span class="who">Meta</span><div class="rt2">
+        <div class="rbar" style="--w:66.4%;--c:var(--s5)"></div><span class="rnum">$196bn</span></div></div>
+      <div class="rrow"><span class="who">TikTok</span><div class="rt2">
+        <div class="rbar" style="--w:10.8%;--c:var(--s4)"></div><span class="rnum">$32bn</span></div></div>
+      <div class="rrow"><span class="who">Apple</span><div class="rt2">
+        <div class="rbar" style="--w:2.5%;--c:var(--s3)"></div><span class="rnum">$7.4bn</span></div></div>
+    </div>
+    <div class="meter">
+      <div class="mt"><span>Estimated share of mobile advertising spend going to Google, Meta and
+      TikTok together</span><b>~67%</b></div>
+      <div class="mtrack"><div class="mfill" style="--w:67%"></div></div>
+    </div>
+    <p class="src">Apple sells the top position in its own search results and also takes commission
+    on sales made through the store &mdash; two revenue streams from the same transaction.<br>
+    Sources: company financial reporting; TikTok and Apple advertising revenue are third-party
+    estimates (eMarketer), not reported figures. Figures we did not measure ourselves are marked
+    as estimates throughout.</p>
+  </div>
+
+  <div class="chain">
+    <div class="step"><span class="no">01</span><div>
+      <h3>The store makes finding hard</h3>
+      <p>Two signals decide: a star average and a price word. Search is three results deep in
+      practice, and the top slot is sold &mdash; Apple markets it to advertisers with
+      &bdquo;conversion rates over 60%&ldquo;.</p></div></div>
+    <div class="step"><span class="no">02</span><div>
+      <h3>So visibility gets bought</h3>
+      <p>An estimated $78 billion went into user acquisition in 2025 and $109 billion into app
+      marketing overall (AppsFlyer). For scale, consumers spent roughly $166 billion across both
+      app stores that year. Set side by side: for every $2 a person spends inside the stores,
+      something close to $1 is spent by somebody trying to be found. The two figures are
+      differently scoped, so read it as an order of magnitude, not a ratio.</p></div></div>
+    <div class="step"><span class="no">03</span><div>
+      <h3>The money lands in very few places</h3>
+      <p>Industry estimates put roughly two thirds of all mobile advertising spend with Google,
+      Meta and TikTok. None of that spending makes a single app better.</p></div></div>
+    <div class="step"><span class="no">04</span><div>
+      <h3>And it has to be earned back</h3>
+      <p>There are two ways: a higher price, or more advertising inside the app. In-app advertising
+      was worth an estimated $151 billion in 2025 &mdash; the second invoice, paid in attention.
+      Then the store takes its published 15&ndash;30% commission on the subscription that the
+      advertising produced.</p></div></div>
+    <div class="step"><span class="no">05</span><div>
+      <h3>Everyone else pays</h3>
+      <p>The developer, who spends a year building and learns the year was the cheap part. And
+      the user, once in money and once in attention, for an app that had to get worse in order
+      to afford being found. This is not a market failure. The market is working exactly as it
+      was built.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="eyebrow">What we build</p>
+  <h2>Not a better ranking.<br>The list the store<br>cannot show you.</h2>
+  <p class="lede" style="margin-top:24px">The important word is <em>index</em>, not ranking. We
+  do not re-sort the store's answer &mdash; we build the candidate set ourselves, then order it
+  by how well an app is cared for and what it truly costs.</p>
+  <div class="lines">
+    <div class="line"><strong>Care, not reach</strong>
+      <p>Maintenance and honesty decide the order. Never downloads, never advertising budget.</p></div>
+    <div class="line"><strong>Recall before ranking</strong>
+      <p>An app that never enters the list cannot be ranked fairly. Finding what exists is the
+      harder half of the job, and the half nobody does.</p></div>
+    <div class="line"><strong>Evidence, not verdicts</strong>
+      <p>We publish dated facts with their source. We do not score apps and we do not call
+      anyone a fraud.</p></div>
+    <div class="line"><strong>Neutral, always</strong>
+      <p>We take no money from any app, ever. There is no placement to buy &mdash; for anyone,
+      at any price.</p></div>
+    <div class="line"><strong>Open</strong>
+      <p>Open source, open data, open method &mdash; including the parts that did not work. A
+      public good has to be inspectable to be trusted.</p></div>
+  </div>
+</div></section>
+
+<section class="invert" id="method"><div class="w">
+  <p class="eyebrow">Method</p>
+  <h2>Every number here<br>can be recomputed.</h2>
+  <p class="lede">That is the condition, not a promise. Anyone claiming a market is opaque has
+  to be checkable themselves.</p>
+  <div class="meth">
+    <div><h3>Sources</h3><p>The public iTunes Search API and App Store product pages. No paid
+      tooling, no access anybody else lacks.</p></div>
+    <div><h3>Dated</h3><p>Every figure carries the date it was read. Where a value is missing,
+      it says so &mdash; nothing is estimated to fill a gap.</p></div>
+    <div><h3>No ratings, no reviews</h3><p>We publish neither user reviews nor scores of our own.
+      Facts with sources. You draw the conclusion.</p></div>
+    <div><h3>Reproducible</h3><p>The scripts are open. Anyone who thinks we are wrong can run
+      them and say so.</p></div>
+    <div><h3>We correct</h3><p>Our first count of this category was wrong: it swept in pharmacy
+      apps, because <em>Rezept</em> is German for both recipe and prescription. We found it,
+      fixed it, and the figures here are the corrected ones. Errors get published, dated.</p></div>
+    <div><h3>Tell us we're wrong</h3><p>If you build an app named here and something is
+      inaccurate, write to korrektur@openappindex.org. We check every notice and correct with a
+      dated note.</p></div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="#">Read the manifesto</a>
+    <a class="btn ghost" href="https://openappindex.org/de/">Search the index</a>
+    <a class="btn ghost" href="https://openappindex.org/methode.html">Method &amp; raw data</a>
+  </div>
+</div></section>
+
+<footer><div class="w"><div class="row2">
+  <span>openAPPindex &middot; working toward a better app ecosystem &middot; openappindex.org</span>
+  <span><a href="https://openappindex.org/impressum.html">Impressum</a> &middot; <a href="mailto:korrektur@openappindex.org">Corrections</a> &middot; <a href="#">Source code</a></span>
+</div></div></footer>

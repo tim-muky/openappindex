@@ -1,0 +1,107 @@
+{
+ "captured": "2026-08-23",
+ "assistant": "chatgpt",
+ "logged_in": true,
+ "completed": 4,
+ "runs": [
+  {
+   "n": 1,
+   "q": "Welche Rezept-App wird noch aktiv gepflegt?",
+   "type": "cross-app maintenance",
+   "verdict": "GOOD",
+   "sources": [
+    "App Store",
+    "Google Play",
+    "Cookidoo"
+   ],
+   "notes": [
+    "Named real German App Store apps: Kitchen Stories, Chefkoch, Cookidoo, Paprika",
+    "Kitchen Stories 'zuletzt am 31. Juli 2026' — EXACT match to Apple's published date",
+    "Chefkoch correctly described as actively developed",
+    "Markedly better than Perplexity (drifted to marketing sites) and Claude (drifted to self-hosted software) on the identical query"
+   ]
+  },
+  {
+   "n": 2,
+   "q": "Welche Rezept-Apps haben teure In-App-Käufe?",
+   "type": "cross-app cost",
+   "verdict": "NATURAL A/B — same model, same query, same moment, two responses",
+   "response_1": {
+    "sources": [
+     "App Store (x4)",
+     "Kitchen Stories"
+    ],
+    "verdict": "LARGELY CORRECT",
+    "checks": [
+     "Kitchen Stories 79.99/yr — EXACT (Apple: 7.99–79.99)",
+     "KptnCook 'bis 59,99' — EXACT (Apple: 5.99–59.99)",
+     "Cookidoo 69.99/yr — real, but misses the 99.99 tier Apple also publishes",
+     "ReciMe: openly says the price was not visible — honest abstention",
+     "All prices in EUR, correct market"
+    ]
+   },
+   "response_2": {
+    "sources": [
+     "Nutrola (x4)",
+     "Swoodie",
+     "Mium",
+     "Recipe One",
+     "Juncture Logic"
+    ],
+    "verdict": "WRONG",
+    "checks": [
+     "SideChef named as most expensive — not in the German App Store at all",
+     "Crouton 'schnell über 30 €' — Apple publishes 0.99–12.99, overstated ~2.5x",
+     "Samsung Food+ '59.99 USD/yr' — Apple publishes 7.99–69.99 EUR; wrong currency, understates the top",
+     "Pestle 'bis 24.99/yr' — Apple publishes up to 59.99",
+     "BigOven and Mealime listed with monthly prices — neither has any in-app purchase in the German store",
+     "All prices in USD for a German-language query"
+    ]
+   },
+   "notes": [
+    "Controls for model, prompt and time — the ONLY variable is which sources were reached",
+    "Response sourcing apps.apple.com = accurate; response sourcing vendor marketing = wrong in both directions",
+    "NEITHER response named Cooksy 599.99, InstaDish 449.99, Nutrola 349.99 or hmly 299.99 — the genuinely most expensive apps",
+    "Even the accurate response only covers famous apps; the expensive long tail is invisible to both"
+   ]
+  },
+  {
+   "n": 3,
+   "q": "Ist die App Mein Rezeptebuch noch aktuell und wird sie gepflegt?",
+   "type": "single-app maintenance",
+   "verdict": "CORRECT",
+   "sources": [
+    "App Store (x5)"
+   ],
+   "notes": [
+    "'Version 1.6 vom 8. März 2025' — EXACT match to Apple's published data",
+    "Correctly characterised as slowly maintained, few updates Jan 2023–Mar 2025",
+    "Added a sourced caveat about missing cloud sync from user reviews",
+    "DIRECT COUNTER-EXAMPLE to Perplexity, which said it could not find the app in the App Store and answered 'wird gepflegt' from the Android listing"
+   ]
+  },
+  {
+   "n": 4,
+   "q": "Welche Koch-Apps im deutschen App Store wurden seit Jahren nicht aktualisiert?",
+   "type": "cross-app maintenance",
+   "verdict": "PARTIAL — right method, wrong population",
+   "sources": [
+    "App Store (x6)"
+   ],
+   "notes": [
+    "Named specific apps with specific dates — far beyond Perplexity, which named none",
+    "'Kochspiel 2020 Küche 10.09.2020' — EXACT (our data: 2020-09-10, 2,173 days)",
+    "'Kochbuch – Rezepte speichern, Juni 2025' — EXACT (our data: 2025-06-05)",
+    "'MasterChef 20.07.2023' — WRONG; Apple publishes 2024-05-16, off by ~10 months",
+    "ALL of its stale finds are cooking GAMES, not recipe apps — it fell into the same classifier trap we did",
+    "Missed every genuinely stale recipe app: Rezepte Kochbuch 1,711d (368 ratings), Rezept des Tages 1,711d, Low Carb Rezepte 1,661d, SuperCook 1,530d, Grillrezepte 2 1,250d (1,277 ratings)",
+    "Offered to build a 10–20 app list 'sorted by years since update' — i.e. it knows the question is answerable, but did not answer it"
+   ]
+  }
+ ],
+ "caveats": [
+  "Logged-in session",
+  "One run per query",
+  "Run 2 was served as an A/B feedback comparison, which is itself the finding"
+ ]
+}

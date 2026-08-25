@@ -1,0 +1,37 @@
+# Working data — contains full third-party app descriptions (copyrighted).
+# Publish data/public/ instead; regenerate the rest with the scripts.
+sample/data/*.json
+!sample/data/public/
+sample/data/public/*.json
+!sample/data/public/
+
+# Generated site (951+ files) — rebuild with build_site.py
+sample/site/
+
+# Local
+__pycache__/
+*.pyc
+.DS_Store
+.env
+
+# ...but do track the publishable export
+!sample/data/public/*.json
+
+# galleybook material — a separate commercial product. Its store strategy has no
+# place in a public repo for a project whose central claim is neutrality.
+galleybook/
+galleybook-aso-report.md
+
+# Superseded manifesto drafts — only docs/manifesto-{en,de}.md are published
+openappindex-manifesto-v0.*.md
+openappindex-manifest-v0.*.md
+openappindex-gate-protocol.md
+openappindex-assistant-baseline-report.md
+openappindex-spam-filter-findings.md
+gate-baseline-capture.md
+nlnet-application-draft.md
+
+# Generated artefacts and the galleybook-specific analysis script
+sample/showcase.html
+sample/aso_analysis.py
+prototypefund-antrag-entwurf.md

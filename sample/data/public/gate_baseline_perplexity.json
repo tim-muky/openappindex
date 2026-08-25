@@ -1,0 +1,248 @@
+{
+ "captured": "2026-08-23",
+ "assistant": "perplexity",
+ "logged_in": true,
+ "completed": 13,
+ "planned": 18,
+ "stopped_because": "Free search quota exhausted twice; the reset grants roughly 3 further searches",
+ "not_captured": [
+  "Kostenlose Rezept-App ohne versteckte Kosten",
+  "Rezepte sammeln App Deutschland",
+  "Rezepte-App einmalig bezahlen statt Abo",
+  "Beste App um eigene Rezepte zu verwalten",
+  "galleybook App",
+  "CONTROL: Rezept für Lasagne",
+  "CONTROL: Wie lange muss ein Ei kochen?",
+  "CONTROL: Chefkoch Rezept Käsekuchen"
+ ],
+ "caveats": [
+  "Logged-in session — an anonymous visitor may see different results",
+  "One run per query; the protocol asks for two on different days",
+  "Pro 'free preview of advanced search' was active for early runs, which may have varied model quality"
+ ],
+ "runs": [
+  {
+   "n": 1,
+   "q": "Welche Rezept-App wird noch aktiv gepflegt?",
+   "type": "cross-app maintenance",
+   "verdict": "MISS",
+   "sources": [
+    "foodiejournal",
+    "nutrola",
+    "healthymenu"
+   ],
+   "notes": [
+    "Drifted to self-hosted open-source software (Mealie, Tandoor, KitchenOwl) — 3 of 4 not in the App Store",
+    "Nutrola priced '~2,50 EUR/Monat'; Apple publishes 9 IAPs 1.99–349.99 incl. two Lifetime tiers 229.99/349.99",
+    "Cites nutrola (the app's own site) as evidence Nutrola is well maintained",
+    "Chefkoch — 264,708 ratings, updated 6 days prior — never mentioned",
+    "CORRECT: Paprika 'Einmalkauf ohne Abo' (5.99 EUR, zero IAP)"
+   ]
+  },
+  {
+   "n": 2,
+   "q": "Rezept-App ohne Abo",
+   "type": "cross-app cost",
+   "verdict": "MISS",
+   "sources": [
+    "play.google",
+    "futurezone",
+    "reddit",
+    "it-boltwise",
+    "rezeptsuite",
+    "deine-kochwelt"
+   ],
+   "notes": [
+    "Samsung Food listed under 'komplett kostenlos (ohne Abo)' as 'Vollständig kostenlos'; Apple publishes IAPs 7.99–69.99",
+    "Answers a subscription question from reddit and vendor sites"
+   ]
+  },
+  {
+   "n": 3,
+   "q": "Was kostet Chefkoch wirklich?",
+   "type": "single-app price",
+   "verdict": "MOSTLY CORRECT",
+   "sources": [
+    "steelmonks (x8)",
+    "kundenservice.chefkoch"
+   ],
+   "notes": [
+    "PUR monthly 1.99 / yearly 14.99 — CORRECT",
+    "PLUS monthly given 4.99; Apple publishes 5.99",
+    "Omits the 49.99 PLUS yearly tier Apple publishes",
+    "8 of 9 citations are a single SEO content site"
+   ]
+  },
+  {
+   "n": 4,
+   "q": "Welche Rezept-Apps haben teure In-App-Käufe?",
+   "type": "cross-app cost",
+   "verdict": "TOTAL MISS",
+   "sources": [
+    "blinner (x3)",
+    "unstar",
+    "vimafitness",
+    "fond",
+    "nutrola"
+   ],
+   "notes": [
+    "ALL 8 named apps absent from the German App Store corpus",
+    "All prices in USD for a German-language query",
+    "Lists Yummly Pro as expensive — it told us in run 1 that Yummly was discontinued in 2024",
+    "Misses every genuinely expensive German app: Cooksy 599.99, InstaDish 449.99, Nutrola 349.99, hmly 299.99",
+    "SideChef's price sourced from nutrola — a competitor's marketing site"
+   ]
+  },
+  {
+   "n": 5,
+   "q": "App zum Speichern von Rezepten von Webseiten",
+   "type": "cross-app discovery",
+   "verdict": "PLAUSIBLE",
+   "sources": [
+    "foodieprep",
+    "recipeone",
+    "eathealthy365"
+   ],
+   "notes": [
+    "'Recipe One is best overall' sourced from recipeone — the app's own site",
+    "Paprika priced 'ca. 5 USD' for a German query; German store price is 5.99 EUR",
+    "Repeats the Samsung Food 'kostenlos' claim"
+   ]
+  },
+  {
+   "n": 6,
+   "q": "KptnCook Kosten In-App-Käufe",
+   "type": "single-app price",
+   "verdict": "MOSTLY CORRECT",
+   "sources": [
+    "apps.apple (x4+)"
+   ],
+   "notes": [
+    "Cites the App Store product page directly — accuracy jumps",
+    "Premium monthly 5.99 and Pro yearly 59.90–59.99 match Apple's published range",
+    "Meal planner yearly quoted up to 66.99; Apple's published maximum is 59.99"
+   ]
+  },
+  {
+   "n": 7,
+   "q": "Kitchen Stories Abo Preis",
+   "type": "single-app price",
+   "verdict": "CORRECT",
+   "sources": [
+    "pages.kitchenstories",
+    "kitchenstories",
+    "pann-app"
+   ],
+   "notes": [
+    "7.99/month and 79.99/year — EXACTLY matches Apple's published 7.99–79.99 range"
+   ]
+  },
+  {
+   "n": 8,
+   "q": "Ist die App Mein Rezeptebuch noch aktuell und wird sie gepflegt?",
+   "type": "single-app maintenance",
+   "verdict": "WRONG",
+   "sources": [
+    "play.google"
+   ],
+   "notes": [
+    "Answers 'ist noch aktuell und wird gepflegt'",
+    "Explicitly states it found no matching app in the Apple App Store — it exists: id1582999186, 327 ratings, ranked #1 for a core query",
+    "iOS version last updated 2025-03-08 — 532 days stale",
+    "Substituted the Android listing's date (16.10.2025) to conclude 'maintained'",
+    "Recall failure and maintenance failure in a single answer"
+   ]
+  },
+  {
+   "n": 9,
+   "q": "Rezept-App die noch Updates bekommt",
+   "type": "cross-app maintenance",
+   "verdict": "GOOD",
+   "sources": [
+    "apps.apple",
+    "play.google",
+    "appgefahren"
+   ],
+   "notes": [
+    "Concrete version numbers: Taste v1.2.15, RecipeChef v14.5, Mela v2.4–2.6",
+    "Chefkoch 'Mitte August 2026 aktualisiert' — CORRECT (2026-08-17)",
+    "Phrasing 'die noch Updates bekommt' produced far better results than 'wird noch aktiv gepflegt' in run 1"
+   ]
+  },
+  {
+   "n": 10,
+   "q": "Welche Koch-Apps im App Store wurden seit Jahren nicht aktualisiert?",
+   "type": "cross-app maintenance",
+   "verdict": "CANNOT ANSWER",
+   "sources": [
+    "appwanderer",
+    "pann-app",
+    "linkedin",
+    "mwm"
+   ],
+   "notes": [
+    "Named no German app with a specific date",
+    "Fell back to generic patterns ('Recipe Keeper clones, last updated 2020–2022')",
+    "Closed by telling the user to open each App Store page and check the version history manually",
+    "Output contained a Chinese-character glitch ('nichts更新了')",
+    "Our data answers this exactly: Rezepte Kochbuch 1,707 days, Mein Rezeptebuch 532 days, across 715 dated apps"
+   ]
+  },
+  {
+   "n": 11,
+   "q": "Kostenlose Rezept-App ohne versteckte Kosten",
+   "type": "cross-app cost",
+   "verdict": "WORST RESULT OF THE RUN",
+   "sources": [
+    "nutrola (x4)",
+    "myrecinote",
+    "play.google",
+    "aldente",
+    "apps.apple"
+   ],
+   "notes": [
+    "Samsung Food listed as 'Komplett kostenlos, kein Abo, keine versteckten Kosten' — Apple publishes 7.99–69.99 EUR. THIRD time this false claim appears.",
+    "Nutrola listed as 'beste kostenlose Rezept-App 2026', sourced from nutrola's own site — Apple publishes 1.99–349.99 EUR incl. a 349.99 Lifetime tier",
+    "The query literally asks to avoid hidden costs; the two top recommendations carry the highest hidden costs in the category",
+    "Flavorish and Aldenté are not in the German App Store at all",
+    "Paprika given as ~4.99 EUR; Apple publishes 5.99",
+    "My ReciNote 'kein Account, 100% kostenlos' — actually carries 2.99–7.99 EUR in-app"
+   ]
+  },
+  {
+   "n": 12,
+   "q": "Rezepte-App einmalig bezahlen statt Abo",
+   "type": "cross-app cost",
+   "verdict": "BEST PERPLEXITY RESULT",
+   "sources": [
+    "apps.apple",
+    "teltarif",
+    "iphone-ticker",
+    "play.google"
+   ],
+   "notes": [
+    "Cites apps.apple and real German tech press (teltarif, iphone-ticker) rather than vendor marketing — quality visibly rises",
+    "Paprika '5–6 EUR mobil' — correct (5.99)",
+    "Crouton '9,99 Plus einmalig' — consistent with Apple's 0.99–12.99 range",
+    "Recipe Keeper 22.99 Pro upgrade — EXACT match to Apple's published 22.99",
+    "Samsung Food NOW described as 'Werbefreiheit + KI nur im Abo' — contradicts its own claims in runs 2 and 11. Three different characterisations of the same app across one session."
+   ]
+  },
+  {
+   "n": 13,
+   "q": "CONTROL: Rezept für Lasagne",
+   "type": "control",
+   "verdict": "CORRECT — no app recommendations",
+   "sources": [
+    "stmelf.bayern",
+    "gutekueche",
+    "rewe"
+   ],
+   "notes": [
+    "Returned an actual lasagne recipe with ingredients and method",
+    "No app recommendations of any kind — correct control behaviour",
+    "Baseline for detecting false-positive citation after launch"
+   ]
+  }
+ ]
+}
