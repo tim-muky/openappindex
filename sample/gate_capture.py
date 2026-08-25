@@ -307,6 +307,32 @@ def cmd_ingest():
     cmd_status(doc)
 
 
+def cmd_record(assistant, qid):
+    """Fill one block in a sheet from stdin: 'SOURCES: ...', a '---' line, then the answer.
+
+    Capturing by hand through the sheet is the documented path; this is the same
+    write, for when the answer is already in hand and retyping it would only add a
+    chance to mistype it.
+    """
+    raw = sys.stdin.read()
+    head, _, ans = raw.partition("\n---\n")
+    srcs = re.sub(r"^SOURCES:\s*", "", head.strip(), flags=re.I)
+    ans = ans.strip()
+    if not ans:
+        sys.exit("no answer text after the --- line")
+    path = f"{DATA}/capture-{assistant}.md"
+    s = open(path, encoding="utf-8").read()
+    for run in (1, 2):
+        old = f"DATE:\nSOURCES:\nANSWER:\n\nEND-{qid}-RUN{run}"
+        if old in s:
+            new = (f"DATE: {datetime.date.today().isoformat()}\nSOURCES: {srcs}\n"
+                   f"ANSWER:\n{ans}\n\nEND-{qid}-RUN{run}")
+            open(path, "w", encoding="utf-8").write(s.replace(old, new, 1))
+            print(f"recorded {qid} run {run} -> {path}")
+            return
+    sys.exit(f"no empty {qid} block in {path} (already filled, or not in this sheet)")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
     if cmd == "build":
@@ -317,5 +343,7 @@ if __name__ == "__main__":
         cmd_sheet(force="--force" in sys.argv)
     elif cmd == "ingest":
         cmd_ingest()
+    elif cmd == "record":
+        cmd_record(sys.argv[2], sys.argv[3])
     else:
         print(__doc__)
