@@ -105,4 +105,4 @@ def main(path):
 
 
 main(sys.argv[1] if len(sys.argv) > 1 else
-     "/Users/timmeyerdierks/Claude/BAS/sample/data/rezepte_de.json")
+     "data/rezepte_de.json")

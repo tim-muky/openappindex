@@ -135,7 +135,7 @@ def main(term, country="de", limit=15):
                       "search ranking. It excludes paid placements and personalisation, so the "
                       "live in-app ranking may differ."),
            "results": rows}
-    path = f"/Users/timmeyerdierks/Claude/BAS/sample/data/{term.replace(' ','_')}_{country}.json"
+    path = f"data/{term.replace(' ','_')}_{country}.json"
     with open(path, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
     print(f"wrote {path}  ({len(rows)} apps)")

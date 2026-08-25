@@ -31,7 +31,11 @@ openappindex-spam-filter-findings.md
 gate-baseline-capture.md
 nlnet-application-draft.md
 
-# Generated artefacts and the galleybook-specific analysis script
+# Generated artefacts and the galleybook-specific analysis scripts. build_showcase.py
+# renders a section about the maintainer's own commercial app; it is disclosed on the
+# showcase page, but it does not belong in the repo of an index that promises no
+# pay-to-play. It also reads gitignored working data, so it cannot run from a clone.
 sample/showcase.html
 sample/aso_analysis.py
+sample/build_showcase.py
 prototypefund-antrag-entwurf.md

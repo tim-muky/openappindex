@@ -29,11 +29,12 @@ tooling, no access anyone else lacks.
 ## Reproduce it
 
 ```bash
-python3 sample/build_corpus.py        # 25-query sweep  -> data/corpus_de.json
-python3 sample/enrich_prices.py       # product pages   -> data/prices_de.json
-python3 sample/closure_crawl.py       # similar-apps graph closure
-python3 sample/build_site.py          # generate the site
-python3 sample/export_public.py       # publishable dataset
+cd sample                             # every script resolves data/ relative to here
+python3 build_corpus.py               # 25-query sweep  -> data/corpus_de.json
+python3 enrich_prices.py              # product pages   -> data/prices_de.json
+python3 closure_crawl.py              # similar-apps graph closure
+python3 build_site.py                 # generate the site
+python3 export_public.py              # publishable dataset
 ```
 
 Nothing needs an API key. Product pages rate-limit at roughly one request per 2.5s — the
