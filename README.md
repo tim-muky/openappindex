@@ -50,6 +50,8 @@ scripts respect that and are resumable.
 | `sample/build_site.py` | generates the served site (store facts only) |
 | `sample/export_public.py` | builds the publishable dataset |
 | `sample/data/public/` | **the dataset** — facts only, CC BY 4.0 |
+| `sample/gate_capture.py` | capture harness for the assistant baseline |
+| `sample/gate_ground_truth.py` | answer key for the two enumeration queries |
 | `docs/` | manifesto, method, gate protocol, findings |
 
 ## The rules this project holds itself to
