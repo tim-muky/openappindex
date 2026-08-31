@@ -6,7 +6,8 @@ experiment is worthless — and a funder who asks "when did you decide what coun
 success?" will spot that immediately.
 
 **Status:** thresholds and queries frozen as of 2026-08-21. Amended 2026-08-23 (query
-weighting) and 2026-08-31 (the index changed) — both dated, both before scoring.
+weighting) and twice on 2026-08-31 (the index changed: snippets/structured data, then ten
+non-cooking apps removed) — all dated, all before scoring.
 
 **AMENDED 2026-08-23, with reason, before any post-launch run.** The baseline (19 responses,
 see `openappindex-assistant-baseline-report.md`) showed the query set was mis-weighted:
@@ -52,6 +53,35 @@ better than it was when the indexing clock started on 2026-08-24, so:
 
 Record the date of every citation against this change. A citation dated before 2026-08-31 tests
 the original pages; one after tests these.
+
+**AMENDED 2026-08-31 (second amendment this date) — ten non-cooking apps removed from the served index.**
+
+The v4 precision rules (`sample/precision_check.py`, written for the hop-2 closure finds) were
+run against the served corpus and found ten entries that pass the keyword classifier but are
+not cooking apps: nine press products — cooking-magazine ePapers, among them Landlust,
+ZauberTopf Magazine and kochen & genießen — and one kids-franchise game filed under Education.
+Nine of the ten carried in-app purchases (magazine subscriptions), so they sat inside the
+published price figures, not just the page count. This is the same class of error as the
+pharmacy contamination, and it was corrected the same way: removed, recomputed, published.
+
+Removed from the site on **2026-08-31** (941 app pages, sitemap 716 → 707). Every affected
+figure was recomputed on the corrected basis and the landing page, method page and README
+updated: 951 → 941 apps; free-listed with in-app purchases 706 of 916 → **697 of 907 — the
+headline stays 77%**; median highest in-app price €39.99 and maximum €599.99 unchanged. The
+recall figure (81%, 579 of 715) keeps its dated 19–21 Aug basis: the per-app search-result
+lists were not retained, so it cannot be recomputed, and the method page already shows the
+finding held at 81–83% across three classifier boundaries. The correction is published on the
+method page, dated.
+
+**Attribution: same direction as the first amendment, now slightly stronger.** The index an
+assistant sees from today is again better than the one the indexing clock started on — and ten
+URLs that were live for a week are now 404. A GO remains the weaker reading; a NO-GO remains
+the stronger one. The two same-day changes share one date, so citation dating against
+2026-08-31 covers both.
+
+**Enumeration ground truth:** `sample/data/gate_ground_truth.json` was frozen 2026-08-25 on the
+951-app basis. Before scoring F16/F17, check whether any of the ten removed apps appear in it
+and re-derive those answers on the 941 basis if so — noting the re-derivation, not silently.
 
 ---
 

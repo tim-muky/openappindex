@@ -16,15 +16,21 @@ as we could reach it — cooking apps in the German App Store.
 
 | | |
 |---|---|
-| Cooking apps found | **951** (lower bound) |
+| Cooking apps found | **941** (lower bound) |
 | Absent from the store's own results for the obvious query | **81%** (579 of 715) |
 | Coverage of the single best search query | **14%** of what 25 queries find |
-| Listed "free" but charging in-app | **77%** (706 of 916) |
+| Listed "free" but charging in-app | **77%** (697 of 907) |
 | Median highest in-app purchase | **€39.99** |
 | Largest single in-app purchase found | **€599.99** |
 
 Every figure is reproducible from the scripts here against public Apple endpoints. No paid
 tooling, no access anyone else lacks.
+
+*Corrected 2026-08-31: ten entries that passed the keyword classifier but are press products
+(nine cooking-magazine ePapers) or a kids game were removed, and every affected figure was
+recomputed on the corrected basis — the correction moved no headline percentage. The rules
+that caught them are in `sample/precision_check.py`; the correction is published on the
+[method page](https://openappindex.org/methode.html).*
 
 ## Reproduce it
 
