@@ -1,0 +1,20 @@
+DATA LICENCE — Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The dataset in sample/data/public/ is published separately from the code, under
+Creative Commons Attribution 4.0 (CC BY 4.0):
+
+    https://creativecommons.org/licenses/by/4.0/
+
+It consists of factual records about publicly listed apps — names, developers,
+dates, prices, categories and rating counts — gathered from public Apple
+endpoints and dated at the time of reading.
+
+It deliberately excludes app descriptions and release-note text, which remain
+the copyright of their respective developers. Only derived measurements of that
+text are published (for example its length, or whether release notes are
+present). Regenerate the full records locally with the scripts in sample/ if you
+need them.
+
+Attribution: openAPPindex — https://openappindex.org
+
+The code in this repository is licensed separately under AGPL-3.0; see LICENSE.
