@@ -5,7 +5,8 @@ impossible to rationalise afterwards. If the thresholds are set after seeing the
 experiment is worthless — and a funder who asks "when did you decide what counted as
 success?" will spot that immediately.
 
-**Status:** thresholds and queries frozen as of 2026-08-21.
+**Status:** thresholds and queries frozen as of 2026-08-21. Amended 2026-08-23 (query
+weighting) and 2026-08-31 (the index changed) — both dated, both before scoring.
 
 **AMENDED 2026-08-23, with reason, before any post-launch run.** The baseline (19 responses,
 see `openappindex-assistant-baseline-report.md`) showed the query set was mis-weighted:
@@ -23,6 +24,34 @@ weighting of what counts toward the GO threshold changes.
 
 The GO/NO-GO thresholds themselves are **unchanged**. This amendment was made before any
 post-launch data existed; had it been made afterwards it would have invalidated the experiment.
+
+**AMENDED 2026-08-31 — the index itself changed mid-window, recorded before scoring.**
+
+Search Console data for 2026-08-23→29 (192 impressions, 3 clicks, 65 distinct pages) showed two
+things worth fixing: the app pages were ranking for cost queries at around position 9 and never
+being clicked, because the title answered a maintenance question while the query asked what the
+app costs; and the JSON-LD emitted `price: "0"` for every free-to-download app, including apps
+with in-app purchases up to €49.99 — the exact claim this index exists to correct, in the one
+layer machines actually read.
+
+Both were changed on **2026-08-31**: titles and descriptions now lead with the measured in-app
+price range, and free-with-IAP apps emit an `AggregateOffer` spanning the download price to the
+highest measured in-app purchase. Source lines were corrected at the same time to carry each
+app's recorded read date instead of the build date.
+
+**Queries, thresholds and scoring are unchanged.** The baseline is unaffected — it measures
+unaided assistants and never depended on what this site serves.
+
+**What it changes is attribution, and only in one direction.** The machine-readable layer is
+better than it was when the indexing clock started on 2026-08-24, so:
+
+- a **GO** is weaker evidence than a clean run would have given: it cannot be separated from
+  "the structured data got better on 2026-08-31";
+- a **NO-GO** is *stronger* evidence, because it would mean assistants ignored the index in its
+  improved form.
+
+Record the date of every citation against this change. A citation dated before 2026-08-31 tests
+the original pages; one after tests these.
 
 ---
 
@@ -50,6 +79,15 @@ Do not score the gate until all four are true:
 
 If the indexation checks fail, the result is **INCONCLUSIVE — CRAWLING**, not NO-GO. Fix the
 crawling problem and restart the clock. Record which precondition failed.
+
+**Precondition status, checked 2026-08-31.** Google is indexing: Search Console reports
+impressions from **2026-08-25**, one day after submission, across 65 distinct pages — 192
+impressions and 3 clicks in the first week, concentrated on German cost queries. Bing is not:
+`site:openappindex.org` returned nothing in Bing or in DuckDuckGo (Bing-backed) on 2026-08-31,
+seven days after submission. The ≥ 100-pages-in-**both** check is therefore **not met**, and the
+authoritative counts — Search Console's Indexing → Pages report and Bing Webmaster Tools — are
+still outstanding. On today's evidence the gate would score **INCONCLUSIVE — CRAWLING**, which
+is why the Bing side is the thing to fix first.
 
 ---
 
@@ -160,6 +198,9 @@ page) — this decides where to invest next.
   both. Count a citation if it appears in either run — but say so.
 - **We cannot separate "assistants don't cite small indexes" from "assistants don't cite
   *this* index yet."** A NO-GO at six weeks is evidence about this attempt, not a law.
+- **The index changed on 2026-08-31**, after the baseline and after indexing began — see the
+  amendment at the top. Any citation must be dated against that change, and a GO cannot be
+  reported as though the pages had been in their improved form throughout.
 
 ---
 
