@@ -79,8 +79,8 @@ on the method page rather than hidden.
 
 ## Data and licences
 
-- **Code**: AGPL-3.0
-- **Dataset** (`sample/data/public/`): CC BY 4.0 — factual records about publicly listed
+- **Code**: AGPL-3.0 ([LICENSE](LICENSE))
+- **Dataset** (`sample/data/public/`): CC BY 4.0 ([LICENSE-DATA](LICENSE-DATA)) — factual records about publicly listed
   apps. **App descriptions and release-note text are deliberately excluded**: they are the
   copyright of their developers, and republishing them wholesale would contradict the rule
   this project applies to its own pages. Regenerate them locally if you need them.
