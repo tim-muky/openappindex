@@ -120,6 +120,28 @@ An index does not compete with the assistants on any of this. It supplies the la
 missing underneath them: every app in the category, each with a dated price and a dated
 maintenance record, from the source that publishes them.
 
+## Side finding: three platforms, three lines on reproducing a recipe
+
+One control query — `Chefkoch Rezept Käsekuchen` — asks for content that belongs to a named
+publisher. It was included to detect false-positive retrieval, not to test copyright handling,
+but the three systems answered it three different ways on the same day:
+
+| | Behaviour |
+|---|---|
+| **Perplexity** | Reproduced the recipe in full — ingredient list and method — naming the Chefkoch user (blondeangel716) and the recipe title |
+| **ChatGPT** | Gave four recipe titles with ratings and rating counts. Metadata only, no recipe text, with an offer to retrieve it on request |
+| **Claude** | Declined the source text — "Den Originaltext von Chefkoch kann ich nicht wiedergeben" — and supplied its own recipe from other sources. Same behaviour in both runs |
+
+This project's own rule is that measured figures and metadata may be published while the
+developer's copyrighted text may not: the dataset carries `description_length` and
+`release_notes_present` instead of the descriptions and release notes themselves. That places
+it between the ChatGPT and Claude positions, and it means the exclusion is not an unusually
+strict reading — two of three major platforms draw the line at or beyond the same place, on an
+identical request, unprompted.
+
+Recorded here because the content framing is an open item in both funding applications, and
+because it is evidence rather than assertion.
+
 ## Limits of this finding
 
 - **n is small.** 87 answers, 18 queries, one category, one storefront. Counts, not rates.
