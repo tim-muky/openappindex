@@ -40,6 +40,13 @@ if os.path.isdir(OUT):
 TODAY = datetime.date.today().isoformat()
 NOW = datetime.datetime.now(datetime.timezone.utc)
 
+# The clock says when this ran, never when a fact was read. Rebuilding must not
+# re-date a measurement nobody took again: source lines carry the recorded read
+# date, and the build date is used only for sitemap lastmod.
+BUILD_DATE = TODAY
+CORPUS_READ = datetime.date.fromtimestamp(
+    os.path.getmtime("data/corpus_de.json")).isoformat()
+
 C = json.load(open("data/corpus_de.json", encoding="utf-8"))
 
 # --- classification v3 -------------------------------------------------------
@@ -110,6 +117,10 @@ def de_elapsed(d):
 
 def eur(v): return ("%.2f" % v).replace(".", ",") + " €"
 
+def eur_range(lo, hi):
+    if lo == hi: return eur(lo)
+    return ("%.2f" % lo).replace(".", ",") + "–" + ("%.2f" % hi).replace(".", ",") + " €"
+
 def parse_eur(s):
     m = re.search(r"(\d+(?:[.,]\d+)?)", (s or "").replace("\xa0"," "))
     return float(m.group(1).replace(",", ".")) if m else None
@@ -124,6 +135,10 @@ for a in apps:
     vals = sorted(v for v in (parse_eur(i["price"]) for i in (iaps or [])) if v is not None)
     a["iap_min"], a["iap_max"] = (vals[0], vals[-1]) if vals else (None, None)
     a["price_known"] = bool(p.get("read_ok"))
+    a["read_at"] = (p.get("read_at") or "")[:10] or None
+
+# "Stand" of the dataset is the most recent recorded read, not today.
+DATA_STAND = max([a["read_at"] for a in apps if a["read_at"]] or [CORPUS_READ])
 
 SHELL = """<!doctype html>
 <html lang="de">
@@ -195,7 +210,7 @@ def app_page(a):
     if a["iaps"]:
         iap_rows = "<h2>Ausgewiesene In-App-Käufe</h2><table><tbody>" + "".join(
             f"<tr><th>{esc(i['name'])}</th><td>{esc(i['price'])}</td></tr>" for i in a["iaps"]
-        ) + f"</tbody></table><p class='src'>Quelle: Produktseite im App Store, erhoben am {TODAY}.</p>"
+        ) + f"</tbody></table><p class='src'>Quelle: Produktseite im App Store, erhoben am {a['read_at'] or CORPUS_READ}.</p>"
 
     notes = ""
     n = re.sub(r"\s+", " ", (a.get("releaseNotes") or "")).strip()
@@ -205,12 +220,30 @@ def app_page(a):
                  f"<p class='src'>Eigene Versionshinweise des Anbieters zu Version {esc(a.get('version'))}, "
                  f"veröffentlicht am {de_date(a.get('currentVersionReleaseDate'))}.</p>")
 
+    dl = float(a.get("price") or 0)
+    if a["iaps"] and a["iap_min"] is not None:
+        # Download and each in-app purchase are separate offers; the range is measured,
+        # never annualised and never inferred.
+        offers = {"@type":"AggregateOffer","priceCurrency":"EUR",
+                  "lowPrice":"%.2f" % dl, "highPrice":"%.2f" % max(dl, a["iap_max"]),
+                  "offerCount":len(a["iaps"]) + 1,
+                  "description":(f"Download {a.get('formattedPrice')}; {len(a['iaps'])} auf der "
+                                 f"Produktseite ausgewiesene In-App-Käufe von {eur(a['iap_min'])} "
+                                 f"bis {eur(a['iap_max'])}, erhoben am {a['read_at']}.")}
+    elif a["price_known"]:
+        offers = {"@type":"Offer","price":"%.2f" % dl,"priceCurrency":"EUR",
+                  "description":(f"Download {a.get('formattedPrice')}; auf der Produktseite sind "
+                                 f"keine In-App-Käufe ausgewiesen (erhoben am {a['read_at']}).")}
+    else:
+        offers = {"@type":"Offer","price":"%.2f" % dl,"priceCurrency":"EUR",
+                  "description":(f"Download {a.get('formattedPrice')}; In-App-Käufe nicht erhoben — "
+                                 f"dieser Wert wird nicht geschätzt.")}
+
     ld = json.dumps({"@context":"https://schema.org","@type":"MobileApplication",
         "name":name,"applicationCategory":a.get("primaryGenreName"),"operatingSystem":"iOS",
         "softwareVersion":a.get("version"),"dateModified":(a.get("currentVersionReleaseDate") or "")[:10],
         "author":{"@type":"Organization","name":a.get("sellerName")},
-        "offers":{"@type":"Offer","price":str(a.get("price") or 0),"priceCurrency":"EUR",
-                  "description":("Kostenloser Download; In-App-Käufe ausgewiesen" if a["iaps"] else "Kostenloser Download")},
+        "offers":offers,
         "url":f"{BASE}/de/app/{a['slug']}/","sameAs":a.get("trackViewUrl")}, ensure_ascii=False)
 
     body = f"""<nav class="bc"><a href="{BASE}/">openAPPindex</a> › <a href="{BASE}/de/">Deutschland</a> › Apps</nav>
@@ -231,12 +264,27 @@ sprechen wir nicht aus.</p>
 <tr><th>Preisangabe im Store</th><td>{esc(a.get('formattedPrice'))}</td></tr>
 <tr><th>Im App Store ansehen</th><td><a href="{esc(a.get('trackViewUrl'))}" rel="nofollow">Produktseite</a></td></tr>
 </tbody></table>
-<p class="src">Quelle: iTunes Search API und Produktseite im App Store (Storefront Deutschland), erhoben am {TODAY}.</p>
+<p class="src">Quelle: iTunes Search API (erhoben am {CORPUS_READ}) und Produktseite im App Store
+(Storefront Deutschland, erhoben am {a['read_at'] or 'nicht erhoben'}).</p>
 {iap_rows}{notes}
 <div class="rule">Diese Seite enthält bewusst <strong>keine Nutzerrezensionen und keine Bewertung</strong>.
 Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen Sie.</div>"""
-    page(f"de/app/{a['slug']}/index.html", f"{name} — zuletzt aktualisiert {de_date(a.get('currentVersionReleaseDate'))} | openAPPindex",
-         f"{name}: Datum der letzten Aktualisierung, Version und ausgewiesene In-App-Käufe — datiert und mit Quelle.",
+    upd_de = de_date(a.get("currentVersionReleaseDate"))
+    if a["iaps"] and a["iap_min"] is not None:
+        ttl = f"{name}: In-App-Käufe {eur_range(a['iap_min'], a['iap_max'])} | openAPPindex"
+        dsc = (f"Im Store als „{a.get('formattedPrice')}“ gelistet, tatsächlich {len(a['iaps'])} "
+               f"In-App-Käufe von {eur_range(a['iap_min'], a['iap_max'])}. Zuletzt aktualisiert am "
+               f"{upd_de}. Datierte Store-Fakten, keine Bewertung.")
+    elif a["price_known"]:
+        ttl = f"{name}: keine In-App-Käufe ausgewiesen | openAPPindex"
+        dsc = (f"Im Store als „{a.get('formattedPrice')}“ gelistet; auf der Produktseite sind keine "
+               f"In-App-Käufe ausgewiesen. Zuletzt aktualisiert am {upd_de}. Datierte Store-Fakten, "
+               f"keine Bewertung.")
+    else:
+        ttl = f"{name} — zuletzt aktualisiert {upd_de} | openAPPindex"
+        dsc = (f"{name}: zuletzt aktualisiert am {upd_de}, Version {a.get('version')}. In-App-Käufe "
+               f"nicht erhoben — nicht geschätzt. Datierte Store-Fakten, keine Bewertung.")
+    page(f"de/app/{a['slug']}/index.html", ttl, dsc,
          body, f'<script type="application/ld+json">{ld}</script>')
 
 for a in apps: app_page(a)
@@ -255,7 +303,7 @@ def qpage(fn, title, h1, question, rule, items, desc):
             f"<div class='rule'><strong>Sortierregel:</strong> {rule}</div>"
             f"<ol>{''.join(items)}</ol>"
             f"<p class='src'>Grundlage: {len(apps)} Apps im deutschen App Store, deren eigene Beschreibung sie als "
-            f"Rezept- oder Koch-App ausweist. Erhoben am {TODAY}.</p>")
+            f"Rezept- oder Koch-App ausweist. Erhoben am {DATA_STAND}.</p>")
     page(f"de/frage/{fn}.html", title, desc, body, f'<script type="application/ld+json">{ld}</script>')
 
 maintained = sorted([a for a in apps if a["days"] is not None], key=lambda x: x["days"])[:60]
@@ -318,7 +366,7 @@ Dieser Index trägt die öffentlich verfügbaren Antworten zusammen, mit Datum u
 <h2>Datenbestand</h2>
 <p><strong>{len(apps)} Apps</strong> im deutschen App Store, deren eigene Store-Beschreibung sie als Rezept- oder
 Koch-App ausweist. Für <strong>{withiap}</strong> davon sind die auf der Produktseite ausgewiesenen In-App-Käufe
-erfasst. Stand: {TODAY}.</p>
+erfasst. Stand: {DATA_STAND}.</p>
 <div class="rule">Wir nehmen von keiner App Geld an. Es gibt keine bezahlte Platzierung.
 Diese Seiten enthalten keine Nutzerrezensionen und keine Bewertungen — nur datierte Tatsachen mit Quellenangabe.</div>"""
 page("de/index.html", "openAPPindex — Deutschland",
@@ -416,7 +464,7 @@ open(f"{OUT}/llms.txt","w",encoding="utf-8").write(f"""# openAPPindex
 > Unabhängiger, offener Index mobiler Apps. Sortiert nach Pflegezustand und tatsächlichen
 > Kosten, nie nach Downloadzahlen oder Werbebudget. Keine bezahlte Platzierung.
 
-Datenbestand: {len(apps)} Rezept- und Koch-Apps im deutschen App Store, Stand {TODAY}.
+Datenbestand: {len(apps)} Rezept- und Koch-Apps im deutschen App Store, Stand {DATA_STAND}.
 Für {withiap} davon sind die von Apple ausgewiesenen In-App-Käufe erfasst.
 
 Alle Angaben stammen aus öffentlichen App-Store-Daten und tragen das Datum ihrer Erhebung.
@@ -429,11 +477,11 @@ Fehlende Angaben werden als fehlend ausgewiesen und nicht geschätzt.
 - [Methode und Quellen]({BASE}/methode.html)
 
 ## Nutzung
-Zitierfähig mit Quellenangabe „openAPPindex, Stand {TODAY}“.
+Zitierfähig mit Quellenangabe „openAPPindex, Stand {DATA_STAND}“.
 """)
 
 with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
-    f.write(f"# openAPPindex — vollständiger Datenbestand (Stand {TODAY})\n\n")
+    f.write(f"# openAPPindex — vollständiger Datenbestand (Stand {DATA_STAND})\n\n")
     f.write("Quelle: iTunes Search API + App-Store-Produktseiten, Storefront Deutschland.\n")
     f.write("Keine Rezensionen, keine Bewertungen. Fehlende Angaben sind als solche ausgewiesen.\n\n")
     for a in sorted(apps, key=lambda x: x["days"] if x["days"] is not None else 99999):
@@ -457,7 +505,7 @@ with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
             .replace("www.sitemap.org","www.sitemaps.org"))
     for u in urls:
-        f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{TODAY}</lastmod></url>\n")
+        f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{BUILD_DATE}</lastmod></url>\n")
     f.write("</urlset>\n")
 
 # The landing page is the root. Copied in last, so no rebuild can overwrite it.
