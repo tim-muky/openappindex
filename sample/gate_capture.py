@@ -159,11 +159,13 @@ def cmd_status(doc=None):
                          and x["assistant"] == a and x["run"] == r)
                 marks.append({"MISSING": "·", "CAPTURED-FULL": "#",
                               "CAPTURED-SUMMARY": "~",
-                              "CAPTURED-SUMMARY-WORDING-DRIFT": "!"}[s["capture_status"]])
+                              "CAPTURED-SUMMARY-WORDING-DRIFT": "!",
+                              "WINDOW-CLOSED": "x"}[s["capture_status"]])
             cells += f"{''.join(marks):>18}"
         flag = " " if scored else "-"
         print(f"{flag}{qid:<5}{cells}   {text[:44]}")
-    print("\n  # verbatim   ~ summary only   ! summary, wording drifted   · missing")
+    print("\n  # verbatim   ~ summary only   ! summary, wording drifted   · missing"
+          "   x window closed")
     print("  - not scored (retired query or control)\n")
 
     tot = len(runs)
