@@ -7,6 +7,12 @@ sample/data/*.md
 sample/data/public/*.json
 !sample/data/public/
 
+# Sleep-category working data — same rule as sample/data: full third-party app
+# descriptions are copyrighted; a public/ export will be tracked when it exists.
+sleep/data/*.json
+!sleep/data/public/
+!sleep/data/public/*.json
+
 # Generated site (951+ files) — rebuild with build_site.py
 sample/site/
 
