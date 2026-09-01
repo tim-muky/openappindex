@@ -1,13 +1,17 @@
 <title>openAPPindex</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap">
 <style>
 :root{
-  --bg:#12120f; --ink:#f7f4ec; --accent:#c98a57; --ink-dark:#0a0a0a; --paper:#f7f4ec;
-  --surface:#1a1a15; --surface-2:#212119; --rule:#2e2e24; --muted:#9c968a; --faint:#6d6960;
-  --s1:#6e6e63; --s2:#8a6440; --s3:#a8763f; --s4:#c98a57; --s5:#dda372; --s6:#f0c396;
+  --bg:#12120f; --ink:#f1f0e9; --paper:#f1f0e9; --ink-dark:#0a0a0a;
+  --accent:#996559; --accent-hi:#c79a7f;
+  --green:#1b4d3e; --sage:#61b19a;
+  --surface:#171b17; --surface-2:#1d231d; --rule:#2b312a;
+  --muted:#a9a79c; --faint:#6f7069; --greige:#daccc1;
+  --s1:#6b7069; --s2:#6f4636; --s3:#845544; --s4:#996559; --s5:#b98a72; --s6:#d9b193;
   --sans:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{box-sizing:border-box}
@@ -16,11 +20,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font
 .w{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 a{color:inherit}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
-h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.04em;line-height:1.02;text-wrap:balance}
-h1{font-size:clamp(40px,7.4vw,92px)}
-h2{font-size:clamp(30px,4.6vw,54px)}
-h3{font-size:clamp(19px,2vw,23px);letter-spacing:-.02em;line-height:1.15}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0 0 20px}
+h1,h2{margin:0;font-family:var(--serif);font-weight:560;letter-spacing:-.015em;line-height:1.05;text-wrap:balance;font-variation-settings:"opsz" 90}
+h3{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(40px,7.2vw,90px)}
+h2{font-size:clamp(30px,4.5vw,52px)}
+h3{font-size:clamp(19px,2vw,23px)}
 p{margin:0 0 1em}
 .lede{font-size:clamp(17px,1.7vw,21px);color:var(--muted);max-width:62ch}
 strong.hl{color:var(--ink);font-weight:700}
@@ -29,7 +34,7 @@ nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,
 nav .w{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:20px;padding-top:10px;padding-bottom:10px}
 .brandwrap{display:flex;flex-direction:column;gap:1px}
 .brand{font-weight:800;letter-spacing:-.03em;font-size:19px;text-decoration:none;line-height:1}
-.brand b{color:var(--accent)}
+.brand b{color:var(--sage)}
 .tagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--faint);text-transform:lowercase}
 nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px}
 nav a{color:var(--muted);text-decoration:none}
@@ -37,10 +42,10 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 @media(max-width:760px){nav ul{display:none}}
 
 header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:1px solid var(--rule)}
-.hero h1 span{color:var(--accent)}
+.hero h1 span{color:var(--sage);font-style:italic;font-variation-settings:"opsz" 144}
 .hero .lede{margin-top:26px;font-size:clamp(17px,1.8vw,22px)}
 .stamp{margin-top:32px;font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;gap:10px;flex-wrap:wrap}
-.stamp b{color:var(--accent);font-weight:500}
+.stamp b{color:var(--accent-hi);font-weight:500}
 
 .fig{margin-top:52px;border:1px solid var(--rule);background:var(--surface);padding:clamp(20px,3vw,32px)}
 .fig h3{margin-bottom:6px}
@@ -58,12 +63,12 @@ header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:
 section{padding:clamp(60px,8.5vw,108px) 0;border-bottom:1px solid var(--rule)}
 .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:44px}
 .cell{background:var(--bg);padding:28px 26px}
-.cell .n{font-family:var(--mono);font-size:clamp(34px,4.4vw,50px);font-weight:500;letter-spacing:-.03em;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.cell .n{font-family:var(--mono);font-size:clamp(34px,4.4vw,50px);font-weight:500;letter-spacing:-.03em;color:var(--accent-hi);line-height:1;font-variant-numeric:tabular-nums}
 .cell p{margin:14px 0 0;font-size:14.5px;color:var(--muted);line-height:1.45}
 
 .ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
 .card{background:var(--surface);border:1px solid var(--rule);padding:24px}
-.card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px}
+.card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:14px}
 .card h3{margin-bottom:10px}
 .card p{font-size:14.5px;color:var(--muted);margin:0}
 .card .stat{font-family:var(--mono);color:var(--ink);font-size:13px;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule)}
@@ -71,7 +76,7 @@ section{padding:clamp(60px,8.5vw,108px) 0;border-bottom:1px solid var(--rule)}
 /* distribution chart */
 .dist{margin-top:8px}
 .row{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:5px 0;position:relative}
-.row:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.row:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
 .rl{font-size:14px;color:var(--muted);text-align:right}
 .rt{position:relative;display:flex;align-items:center;gap:12px}
 .rf{height:26px;width:0;background:var(--c);border-radius:0 3px 3px 0;animation:grow2 1s cubic-bezier(.2,.8,.25,1) forwards}
@@ -98,17 +103,17 @@ th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:u
 .rnum{font-family:var(--mono);font-size:14px;color:var(--ink);white-space:nowrap}
 .meter{margin-top:34px;padding-top:26px;border-top:1px solid var(--rule)}
 .meter .mt{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:10px;gap:16px}
-.meter .mt b{color:var(--accent);font-family:var(--mono);font-weight:500}
+.meter .mt b{color:var(--accent-hi);font-family:var(--mono);font-weight:500}
 .mtrack{height:18px;background:var(--surface-2);display:flex}
 .mfill{background:var(--accent);width:0;animation:grow2 1.2s cubic-bezier(.2,.8,.25,1) forwards}
 
 .chain{margin-top:48px;display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
 .step{background:var(--bg);padding:24px 26px;display:grid;grid-template-columns:56px 1fr;gap:22px;align-items:start}
-.step .no{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:4px}
+.step .no{font-family:var(--mono);font-size:13px;color:var(--sage);padding-top:4px}
 .step h3{margin-bottom:7px}
 .step p{margin:0;font-size:15px;color:var(--muted);max-width:66ch}
 .step:last-child{background:var(--surface-2)}
-.step:last-child h3{color:var(--accent)}
+.step:last-child h3{color:var(--sage)}
 @media(max-width:600px){.step{grid-template-columns:1fr;gap:8px}}
 
 .lines{margin-top:44px;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
@@ -118,19 +123,19 @@ th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:u
 @media(max-width:700px){.line{grid-template-columns:1fr;gap:6px}}
 
 .invert{background:var(--paper);color:var(--ink-dark);border-bottom:none}
-.invert h2{color:var(--ink-dark)} .invert .lede{color:#4a463e} .invert .eyebrow{color:#8a5a2b}
-.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:44px}
+.invert h2{color:var(--green)} .invert .lede{color:#44514a} .invert .eyebrow{color:#2f6f58}
 .meth h3{color:var(--ink-dark);margin-bottom:8px}
-.meth p{color:#4a463e;font-size:14.5px;margin:0}
+.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:44px}
+.meth p{color:#44514a;font-size:14.5px;margin:0}
 .cta{margin-top:52px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--ink-dark);transition:transform .12s ease}
-.btn.primary{background:var(--ink-dark);color:var(--paper)}
-.btn.ghost{color:var(--ink-dark)}
+.btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--green);transition:transform .12s ease}
+.btn.primary{background:var(--green);color:var(--paper)}
+.btn.ghost{color:var(--green)}
 .btn:hover{transform:translateY(-2px)}
 footer{padding:56px 0 72px;font-size:13.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
 </style>
 
 <nav><div class="w">
@@ -149,7 +154,7 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 <header class="hero" id="top"><div class="w">
   <p class="eyebrow">An independent, open index of mobile apps</p>
   <h1>The map is missing<br>most of the<br><span>streets.</span></h1>
-  <p class="lede">We measured one category of one app store completely — recipe apps in Germany.
+  <p class="lede">We measured one category of one app store completely &mdash; recipe apps in Germany.
   The finding is not that the store ranks badly. It is that most of what exists never appears
   at all.</p>
   <div class="stamp">
@@ -254,37 +259,37 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
     <div class="dist">
       <div class="row" tabindex="0" aria-label="No in-app purchase: 210 apps, 23.2 percent">
         <div class="rl">No in-app purchase</div>
-        <div class="rt"><div class="rf" style="--w:72.2%;--c:#6e6e63"></div>
+        <div class="rt"><div class="rf" style="--w:72.2%;--c:var(--s1)"></div>
           <span class="rv mono">210 <i>23%</i></span></div>
         <div class="tip mono">210 of 907 apps &middot; 23.2%</div>
       </div>
       <div class="row" tabindex="0" aria-label="Up to €10: 128 apps, 14.1 percent">
         <div class="rl">Up to €10</div>
-        <div class="rt"><div class="rf" style="--w:44.0%;--c:#8a6440"></div>
+        <div class="rt"><div class="rf" style="--w:44.0%;--c:var(--s2)"></div>
           <span class="rv mono">128 <i>14%</i></span></div>
         <div class="tip mono">128 of 907 apps &middot; 14.1%</div>
       </div>
       <div class="row" tabindex="0" aria-label="€10–30: 148 apps, 16.3 percent">
         <div class="rl">€10–30</div>
-        <div class="rt"><div class="rf" style="--w:50.9%;--c:#a8763f"></div>
+        <div class="rt"><div class="rf" style="--w:50.9%;--c:var(--s3)"></div>
           <span class="rv mono">148 <i>16%</i></span></div>
         <div class="tip mono">148 of 907 apps &middot; 16.3%</div>
       </div>
       <div class="row" tabindex="0" aria-label="€30–60: 291 apps, 32.1 percent">
         <div class="rl">€30–60</div>
-        <div class="rt"><div class="rf" style="--w:100.0%;--c:#c98a57"></div>
+        <div class="rt"><div class="rf" style="--w:100.0%;--c:var(--s4)"></div>
           <span class="rv mono">291 <i>32%</i></span></div>
         <div class="tip mono">291 of 907 apps &middot; 32.1%</div>
       </div>
       <div class="row" tabindex="0" aria-label="€60–100: 104 apps, 11.5 percent">
         <div class="rl">€60–100</div>
-        <div class="rt"><div class="rf" style="--w:35.7%;--c:#dda372"></div>
+        <div class="rt"><div class="rf" style="--w:35.7%;--c:var(--s5)"></div>
           <span class="rv mono">104 <i>11%</i></span></div>
         <div class="tip mono">104 of 907 apps &middot; 11.5%</div>
       </div>
       <div class="row" tabindex="0" aria-label="Over €100: 26 apps, 2.9 percent">
         <div class="rl">Over €100</div>
-        <div class="rt"><div class="rf" style="--w:8.9%;--c:#f0c396"></div>
+        <div class="rt"><div class="rf" style="--w:8.9%;--c:var(--s6)"></div>
           <span class="rv mono">26 <i>3%</i></span></div>
         <div class="tip mono">26 of 907 apps &middot; 2.9%</div>
       </div>
