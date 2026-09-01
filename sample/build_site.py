@@ -170,6 +170,7 @@ body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-ap
 a{{color:var(--acc)}}
 h1{{font-size:1.9rem;line-height:1.2;margin:.2em 0}}
 h2{{font-size:1.25rem;margin:2em 0 .5em}}
+h3{{font-size:1.05rem;margin:1.6em 0 .4em}}
 .lede{{font-size:1.05rem;color:var(--mut)}}
 nav.bc{{font-size:.85rem;color:var(--mut);margin-bottom:1.5em}}
 table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}}
@@ -196,7 +197,8 @@ Nutzerrezensionen — nur datierte Tatsachen und deren Quelle.</p>
 <p>Fehler gefunden? Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a> —
 wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">Impressum &amp; Kontakt</a> ·
 <a href="{base}/methode.html">Methode</a> &middot;
-<a href="{base}/manifest.html">Manifest</a></p>
+<a href="{base}/manifest.html">Manifest</a> &middot;
+<a href="{base}/paper.html">Working Paper</a></p>
 </footer>
 </div></body></html>"""
 
@@ -536,7 +538,7 @@ with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
 # App pages without in-app price data stay on the site and stay linked, but are
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
-urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
+urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
@@ -556,13 +558,22 @@ def md_html(md):
         t = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", t)
         t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
         return t
+    # A heading written directly above its subtitle or text shares a block with
+    # it, and everything after the heading line was silently dropped (the
+    # manifesto's subtitle never rendered). Give every heading its own block.
+    md = re.sub(r"(?m)^(#{1,6} .*)\n(?!\n)", r"\1\n\n", md)
     out = []
-    for block in re.split(r"\n\s*\n", md.strip()):
+    for i, block in enumerate(re.split(r"\n\s*\n", md.strip())):
         lines = block.strip().split("\n")
         if block.strip() == "---":
             out.append("<hr>")
         elif lines[0].startswith("### "):
-            out.append(f"<p class='lede'>{inline(lines[0][4:])}</p>")
+            # A ### directly under the title is a subtitle (the manifesto's use);
+            # anywhere else it is an ordinary subsection heading (the paper's use).
+            if i == 1:
+                out.append(f"<p class='lede'>{inline(lines[0][4:])}</p>")
+            else:
+                out.append(f"<h3>{inline(lines[0][4:])}</h3>")
         elif lines[0].startswith("## "):
             out.append(f"<h2>{inline(lines[0][3:])}</h2>")
         elif lines[0].startswith("# "):
@@ -588,7 +599,13 @@ for _fn, _out, _title, _desc, _other in (
      '<p class="src"><a href="/manifesto.html">Read this in English</a></p>'),
     ("manifesto-en.md", "manifesto.html", "The Manifesto — openAPPindex",
      "Why an independent, open app index is necessary — every figure dated and sourced.",
-     '<p class="src"><a href="/manifest.html">Auf Deutsch lesen</a></p>')):
+     '<p class="src"><a href="/manifest.html">Auf Deutsch lesen</a></p>'),
+    ("working-paper.md", "paper.html", "Search Without Recall — openAPPindex working paper",
+     "Preliminary evidence on discovery failure and price opacity in a mobile app market: "
+     "81% of a category invisible to search, 77% of „free“ apps that charge. "
+     "Method, data and limits stated.",
+     '<p class="src"><a href="/manifesto.html">The manifesto</a> · '
+     '<a href="/methode.html">Method &amp; data</a></p>')):
     _md = open(os.path.join(_docs, _fn), encoding="utf-8").read()
     page(_out, _title, _desc, _other + md_html(_md))
 
