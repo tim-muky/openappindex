@@ -195,7 +195,8 @@ Alle Angaben stammen aus öffentlich zugänglichen Daten des App Store und trage
 Nutzerrezensionen — nur datierte Tatsachen und deren Quelle.</p>
 <p>Fehler gefunden? Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a> —
 wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">Impressum &amp; Kontakt</a> ·
-<a href="{base}/methode.html">Methode</a></p>
+<a href="{base}/methode.html">Methode</a> &middot;
+<a href="{base}/manifest.html">Manifest</a></p>
 </footer>
 </div></body></html>"""
 
@@ -519,7 +520,7 @@ with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
 # App pages without in-app price data stay on the site and stay linked, but are
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
-urls = ["", "de/", "methode.html", "impressum.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
+urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
@@ -527,6 +528,53 @@ with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
     for u in urls:
         f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{BUILD_DATE}</lastmod></url>\n")
     f.write("</urlset>\n")
+
+# ---------------- manifesto pages ----------------
+# docs/manifesto-{de,en}.md rendered through a deliberately small converter —
+# the manifesto uses headings, bold/italic, lists, one table and rules, nothing
+# more, and a dependency for that is not worth a clean clone breaking.
+def md_html(md):
+    def inline(t):
+        t = esc(t)
+        t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+        t = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", t)
+        t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
+        return t
+    out = []
+    for block in re.split(r"\n\s*\n", md.strip()):
+        lines = block.strip().split("\n")
+        if block.strip() == "---":
+            out.append("<hr>")
+        elif lines[0].startswith("### "):
+            out.append(f"<p class='lede'>{inline(lines[0][4:])}</p>")
+        elif lines[0].startswith("## "):
+            out.append(f"<h2>{inline(lines[0][3:])}</h2>")
+        elif lines[0].startswith("# "):
+            out.append(f"<h1>{inline(lines[0][2:])}</h1>")
+        elif all(l.lstrip().startswith("- ") for l in lines):
+            out.append("<ul>" + "".join(f"<li>{inline(l.lstrip()[2:])}</li>" for l in lines) + "</ul>")
+        elif all(l.startswith("|") for l in lines):
+            rows = [[c.strip() for c in l.strip("|").split("|")] for l in lines
+                    if not set(l.replace("|","").strip()) <= set("- :")]
+            head, body = rows[0], rows[1:]
+            out.append("<div style='overflow-x:auto'><table><thead><tr>"
+                       + "".join(f"<th>{inline(c)}</th>" for c in head) + "</tr></thead><tbody>"
+                       + "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in body)
+                       + "</tbody></table></div>")
+        else:
+            out.append(f"<p>{inline(' '.join(l.strip() for l in lines))}</p>")
+    return "\n".join(out)
+
+_docs = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs")
+for _fn, _out, _title, _desc, _other in (
+    ("manifesto-de.md", "manifest.html", "Das Manifest — openAPPindex",
+     "Warum ein unabhängiger, offener App-Index nötig ist — mit jeder Zahl datiert und belegt.",
+     '<p class="src"><a href="/manifesto.html">Read this in English</a></p>'),
+    ("manifesto-en.md", "manifesto.html", "The Manifesto — openAPPindex",
+     "Why an independent, open app index is necessary — every figure dated and sourced.",
+     '<p class="src"><a href="/manifest.html">Auf Deutsch lesen</a></p>')):
+    _md = open(os.path.join(_docs, _fn), encoding="utf-8").read()
+    page(_out, _title, _desc, _other + md_html(_md))
 
 # IndexNow ownership key (Bing et al.). Stable across rebuilds by design — a
 # changed key reads as a change of ownership. Submission itself happens out of

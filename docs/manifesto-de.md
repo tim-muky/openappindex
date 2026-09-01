@@ -56,6 +56,33 @@ unsere tragen ein Datum, damit jede und jeder sie gegen den heutigen Stand prüf
 
 ---
 
+**Egal, was man fragt: dasselbe Regal.**
+
+Vielleicht erreichen unterschiedliche Fragen ja unterschiedliche Apps? Wir haben es geprüft.
+Über alle fünfundzwanzig Suchen hinweg gibt es 674 Plätze unter den ersten dreißig Ergebnissen.
+**Zehn Apps halten 39 % jedes ersten Bildschirms.** Eine von ihnen taucht in sechzehn der
+fünfundzwanzig Listen auf — auch bei Suchen nach Essensplanern und nach Backen, Fragen, auf die
+sie nicht die Antwort ist — und steht bei sechs verschiedenen Suchen auf Platz 1. Um diesen
+festen Kern herum gibt es nur Rauschen: Die ersten dreißig Ergebnisse zweier Suchen teilen im
+Median **5 %** ihrer Apps, und 63 % von allem, was je unter die ersten dreißig kommt, schafft
+das bei genau einer Suche. Wer seine Suche ändert, ändert das Rauschen. Tiefer ins Regal
+kommt er nicht.
+
+Dreizehn Tage später haben wir alle fünfundzwanzig Suchen wiederholt. **Im Median waren 92 %
+jedes ersten Bildschirms identisch**, und der feste Kern bestand aus exakt denselben sieben
+Apps. Und was die übrigen Plätze füllt, ist ein eigener Befund: Am 1. September 2026 war das
+sechste Ergebnis für „rezepte app" ein **Wecker**, das zehnte die App einer Zahnarztpraxis —
+während 885 tatsächliche Rezept-Apps in keinem ersten Dutzend von irgendetwas auftauchten.
+
+Beide Messungen zusammengenommen: **92 von 991 Koch-Apps erreichen je irgendeinen ersten
+Bildschirm** — und das ist die großzügige Zählung, allein aus der organischen Liste. Der
+gerenderte Store setzt zwei oder mehr versteigerte Anzeigenplätze darüber (Apples eigene
+Dokumentation; die Plätze sind personalisiert und lassen sich von niemandem unabhängig
+beobachten — auch von uns nicht). Neun Prozent der Kategorie sind sichtbar. Der Rest existiert
+so, wie eine unbeleuchtete Straße nachts existiert.
+
+---
+
 **Eine so enge Suche bringt Menschen bei, nicht weiterzusuchen.**
 
 Nutzerinnen und Nutzer sind nicht faul, sie sind geeicht. Rund 61 % der über die Suche
@@ -179,7 +206,7 @@ Wir halten fünf Linien:
 - **Offen.** Offener Quellcode, offene Daten, offene Methode — auch die Teile, die nicht
   funktioniert haben.
 
-**Warum zwei dieser Zahlen Unterschiedliches zählen.** Die 81 % beziehen sich auf die 715 Apps,
+**Warum diese Zahlen Unterschiedliches zählen.** Die 81 % beziehen sich auf die 715 Apps,
 die ein Sucharmlauf gefunden hat. Eine App, die wir über die „Ähnliche Apps"-Verweise des Stores
 entdeckt haben, stand von vornherein in keinem Suchergebnis — sie in eine Aussage über
 „taucht in der Suche nicht auf" einzurechnen, wäre ein Zirkelschluss. Die Preisangaben beziehen
@@ -215,4 +242,6 @@ Jetzt kann es jede und jeder.
 
 *— openAPPindex · openappindex.org*
 
-*Entwurf v0.7 (DE).*
+*Entwurf v0.8 (DE). Jede Zahl ist entweder unsere eigene, aus veröffentlichten Skripten
+reproduzierbare Messung oder die eigene veröffentlichte Zahl eines Unternehmens, korrekt
+zitiert und zugeordnet. Quellen und Daten: openappindex.org/methode*
