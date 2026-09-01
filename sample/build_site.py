@@ -476,6 +476,22 @@ User-agent: Google-Extended
 Allow: /
 User-agent: CCBot
 Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: MistralAI-User
+Allow: /
 
 Sitemap: %s/sitemap.xml
 """ % BASE)
