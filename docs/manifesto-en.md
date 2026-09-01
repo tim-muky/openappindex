@@ -14,10 +14,14 @@ Nearly two thirds of the apps we found are reachable by exactly **one** of the t
 change a word and they vanish.
 
 Then we stopped searching and walked the store's own „you might also like" links instead.
-That one step found **248 more cooking apps** nobody's search had surfaced: the category grew
-by **35% in a single hop**, and it has not stopped growing.
+The first hop found **243 more cooking apps** nobody's search had surfaced — the category grew
+by a third. The second hop, from those, found **50 more**. Growth collapsed from +35% to +5%
+in one step, which means we can finally see the edge: the German App Store holds **at least
+991 cooking apps**, and each hop reached deeper into the invisible — the median app found by
+search has a handful of ratings; the median app found only by following links has **zero**.
 
-The map is not badly drawn. Most of the streets are not on it.
+The map is not badly drawn. Most of the streets are not on it — and now we know roughly how
+many streets there are.
 
 ---
 
@@ -47,6 +51,30 @@ ranking is measuring — not quality, not upkeep, not price. Roughly 160 charact
 These are single measurements taken on 19 August 2026; store results move, and ours are
 timestamped so anyone can check them against today's.
 
+**Whatever you ask, the same shelf.**
+
+Perhaps different questions reach different apps? We checked. Across all twenty-five searches
+there are 674 first-30 result slots. **Ten apps hold 39% of every first screen.** One of them
+appears in sixteen of the twenty-five lists — including searches for meal planners and for
+baking, questions it is not the answer to — and is the #1 result for six different queries.
+Around that fixed core there is only churn: two searches' first-30 lists share a median of
+**5%** of their apps, and 63% of everything that ever enters a first-30 does so for exactly
+one query. Changing your search changes the noise. It does not reach deeper into the shelf.
+
+We ran all twenty-five searches again thirteen days later. **A median 92% of every first
+screen was identical**, and the fixed core was exactly the same seven apps. And what fills the
+remaining slots is its own finding: on 1 September 2026 the sixth result for „rezepte app" was
+an **alarm clock**, and the tenth was an app for a dental practice — while 885 actual recipe
+apps appeared in no first dozen of anything.
+
+Put the two measurements together. **92 of 991 cooking apps ever reach any first screen** —
+and that is the generous count, from the organic list alone. The rendered store places two or
+more auctioned ad slots above it (Apple's own documentation; the slots are personalised and
+cannot be independently observed — by us or by anyone). Nine percent of the category is
+visible. The rest exists the way an unlit street exists at night.
+
+---
+
 **A search this narrow teaches people to stop looking.**
 
 Users are not lazy. They are calibrated. Roughly 61% of search-driven installs go to the top
@@ -66,10 +94,10 @@ And once bought, the results get worse — which teaches people, correctly, not 
 
 **And the price on the label is not the price.**
 
-While we had the whole category open, we read what each app actually charges. Of 916 cooking
+While we had the whole category open, we read what each app actually charges. Of 907 cooking
 apps listed as **„Gratis"** in the German App Store:
 
-- **706 — 77% — charge money once opened.**
+- **697 — 77% — charge money once opened.**
 - The median app's **highest** in-app purchase is **€39.99**.
 - Twenty-six have a single in-app purchase over **€100**. Four are over **€200**.
 - The largest we found is **€599.99**.
@@ -170,32 +198,42 @@ Now anyone can.
 
 ---
 
-**Three corrections, published.** Deciding what counts as a cooking app turned out to be the
-hardest part, and we got it wrong twice before this draft. First we matched the German word
-*Rezept* — which means both **recipe** and **medical prescription** — and swept in pharmacy apps:
-Shop Apotheke, DocMorris, Doctolib. Then we found that *Kochen* and *Backen* also match cooking
-**games** — Cooking Fever, Pizza Ready — and that children's cooking games are filed under
-Education rather than Games, so a third pass was needed.
+**Four corrections, published.** Deciding what counts as a cooking app turned out to be the
+hardest part, and we got it wrong three times before this draft. First we matched the German
+word *Rezept* — which means both **recipe** and **medical prescription** — and swept in pharmacy
+apps: Shop Apotheke, DocMorris, Doctolib. Then we found that *Kochen* and *Backen* also match
+cooking **games** — Cooking Fever, Pizza Ready — and that children's cooking games are filed
+under Education rather than Games, so a third pass was needed. The fourth pass, on 31 August,
+caught cooking-magazine **ePapers** — Landlust, ZauberTopf — being counted as cooking apps,
+their subscription prices sitting inside our price figures.
 
-Each pass was caught in a pre-publication check, and every figure here is from the third.
-What matters is what happened to the headline across all three: **82.4% → 82.8% → 81.0%.**
-The finding does not depend on where we drew the line. Keyword classification has limits and
-we state them on the method page rather than hiding them. We publish our errors because a
-project claiming honest measurement has no other option.
+Each pass was caught by our own checks, and every figure here is from the fourth. What matters
+is what happened to the headlines across all four: the search figure moved **82.4% → 82.8% →
+81.0%** and the price figure stayed at **77%** through the last correction. The findings do not
+depend on where we drew the line. Keyword classification has limits and we state them on the
+method page rather than hiding them — where we also note, in fairness and without symmetry of
+blame, that the store's own results commit the same *Rezept* error at position one. We publish
+our errors because a project claiming honest measurement has no other option.
 
-**Why two of these figures count different things.** The 81% is measured against the 715 apps
-a search sweep found. An app we discovered by following the store's own "similar apps" links was
-never in a search result to begin with, so counting it in a "never appears in search" statistic
-would be circular. The price figures use all 951 apps we know of, because a price is a price
-however we came across the app. Both denominators are stated wherever the figures appear.
+**Why these figures count different things.** The 81% is measured against the 715 apps a
+search sweep found on 19 August, with that day's category boundary. An app we discovered by
+following the store's own "similar apps" links was never in a search result to begin with, so
+counting it in a "never appears in search" statistic would be circular. The price figures use
+the 941 apps the index serves, because a price is a price however we came across the app. The
+991 is the category's lower bound including 50 verified apps whose price pages we have not yet
+read. Every denominator is stated where its figure appears.
 
 ## Where every number comes from
 
 | Claim | Source | Read |
 |---|---|---|
 | 81% of cooking apps absent from „Rezepte" (579 of 715); 14% single-query coverage; 62.5% reachable by one query | Our measurement, 25-query sweep, DE storefront | 19 Aug 2026 |
-| +248 apps (+35%) from one hop over the similar-apps graph | Our measurement, closure crawl, 866 seed pages | 21 Aug 2026 |
-| 77% of „Gratis" apps charge in-app (706 of 916); median top price €39.99; max €599.99 | Our measurement, App Store product pages | 20–24 Aug 2026 |
+| +243 apps (hop 1), +50 (hop 2); growth +35% → +5%; category ≥ 991 | Our measurement, closure crawl over the similar-apps graph | 21 Aug – 1 Sep 2026 |
+| 77% of „Gratis" apps charge in-app (697 of 907); median top price €39.99; max €599.99 | Our measurement, App Store product pages (basis corrected 31 Aug) | 20–23 Aug 2026 |
+| Ten apps hold 39% of every first screen; one app in 16 of 25 first-30 lists and #1 for six queries; median 5% overlap between two lists; 63% one-list-only | Our measurement, per-query result positions | 19 Aug 2026 |
+| 92 of 991 cooking apps ever reach any first screen (organic); 897 never do | Our measurement; ad displacement modelled from Apple's published slot count, never observed | 19 Aug – 1 Sep 2026 |
+| Median 92% of each first-12 list identical after 13 days; the same seven-app core on both dates | Our measurement, identical queries re-run | 19 Aug + 1 Sep 2026 |
+| An alarm clock at position 6 and a dental-practice app at position 10 for „rezepte app" | Our measurement, organic API result list | 1 Sep 2026 |
 | iOS search eligibility comes from name (30) + subtitle (30) + keyword field (100); the description is not indexed | Industry-documented ASO mechanics; verified across our corpus | 19 Aug 2026 |
 | Named apps absent from the 168 results for „Rezepte" (ZauberMix 5,507 ratings; Backen macht glücklich 1,879; Krautkopf 827; Air Fryer Club 814) | Our measurement, DE storefront | 19 Aug 2026 |
 | $78bn user acquisition, $109bn app marketing, 2025 | AppsFlyer | — |
@@ -213,7 +251,7 @@ Method, scripts and raw data: **openappindex.org/methode**
 
 ---
 
-*Draft v0.7. Every figure is either our own measurement, reproducible from published scripts,
+*Draft v0.8. Every figure is either our own measurement, reproducible from published scripts,
 or a company's own published number quoted accurately and attributed. The manifesto attacks
 the **system** and names a company only when quoting that company's own figures. Apps are named only as measured
 examples of what the search does or does not return — never as an accusation against the app.*
