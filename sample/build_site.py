@@ -528,6 +528,12 @@ with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
         f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{BUILD_DATE}</lastmod></url>\n")
     f.write("</urlset>\n")
 
+# IndexNow ownership key (Bing et al.). Stable across rebuilds by design — a
+# changed key reads as a change of ownership. Submission itself happens out of
+# band; this only serves the proof file the protocol requires.
+INDEXNOW_KEY = "e595dfb6a3164c1a641ee51f09b7262e"
+open(f"{OUT}/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
+
 # The landing page is the root. Copied in last, so no rebuild can overwrite it.
 _landing = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "landing", "index.html")
 if os.path.exists(_landing):
