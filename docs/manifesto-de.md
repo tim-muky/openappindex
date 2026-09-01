@@ -15,10 +15,15 @@ verschiedene Suchanfragen fördern zusammen 1.312 Apps zutage; die beste einzeln
 fünfundzwanzig erreichbar — ein Wort anders, und sie verschwinden.
 
 Dann haben wir aufgehört zu suchen und sind stattdessen den „Ähnliche Apps"-Verweisen des Stores
-gefolgt. Dieser eine Schritt fand **248 weitere Koch-Apps**, die keine Suche zutage gefördert
-hatte: Die Kategorie wuchs um **35 % in einem einzigen Sprung**, und sie hört nicht auf zu wachsen.
+gefolgt. Der erste Schritt fand **243 weitere Koch-Apps**, die keine Suche zutage gefördert
+hatte — die Kategorie wuchs um ein Drittel. Der zweite Schritt, von diesen aus, fand **50
+weitere**. Das Wachstum fiel von +35 % auf +5 % in einem Schritt — wir sehen also endlich den
+Rand: Der deutsche App Store enthält **mindestens 991 Koch-Apps**, und jeder Schritt reichte
+tiefer ins Unsichtbare — die mittlere per Suche gefundene App hat eine Handvoll Bewertungen,
+die mittlere nur über Verweise gefundene App hat **null**.
 
-Die Karte ist nicht schlecht gezeichnet. Die meisten Straßen stehen nicht darauf.
+Die Karte ist nicht schlecht gezeichnet. Die meisten Straßen stehen nicht darauf — und wir
+wissen jetzt ungefähr, wie viele Straßen es gibt.
 
 ---
 
@@ -74,9 +79,9 @@ den Menschen zu Recht beibringt, nicht zu scrollen.
 **Und der Preis auf dem Etikett ist nicht der Preis.**
 
 Solange wir die ganze Kategorie offen hatten, haben wir gelesen, was jede App tatsächlich
-verlangt. Von 916 Koch-Apps, die im deutschen App Store als **„Gratis"** gelistet sind:
+verlangt. Von 907 Koch-Apps, die im deutschen App Store als **„Gratis"** gelistet sind:
 
-- **706 — 77 % — verlangen Geld, sobald man sie öffnet.**
+- **697 — 77 % — verlangen Geld, sobald man sie öffnet.**
 - Der höchste In-App-Kauf der mittleren App liegt bei **39,99 €**.
 - Sechsundzwanzig haben einen einzelnen In-App-Kauf über **100 €**. Vier liegen über **200 €**.
 - Der größte, den wir gefunden haben, liegt bei **599,99 €**.
@@ -178,19 +183,24 @@ Wir halten fünf Linien:
 die ein Sucharmlauf gefunden hat. Eine App, die wir über die „Ähnliche Apps"-Verweise des Stores
 entdeckt haben, stand von vornherein in keinem Suchergebnis — sie in eine Aussage über
 „taucht in der Suche nicht auf" einzurechnen, wäre ein Zirkelschluss. Die Preisangaben beziehen
-sich auf alle 951 Apps, die wir kennen, denn ein Preis ist ein Preis, unabhängig davon, wie wir
-auf die App gestoßen sind. Beide Bezugsgrößen stehen überall dort, wo die Zahlen auftauchen.
+sich auf die 941 Apps, die der Index führt, denn ein Preis ist ein Preis, unabhängig davon, wie
+wir auf die App gestoßen sind. Die 991 sind die Untergrenze der Kategorie einschließlich 50
+verifizierter Apps, deren Preisseiten wir noch nicht gelesen haben. Jede Bezugsgröße steht dort,
+wo ihre Zahl auftaucht.
 
-**Drei Korrekturen, veröffentlicht.** Zu entscheiden, was als Koch-App zählt, war der schwierigste
-Teil, und wir haben es zweimal falsch gemacht, bevor dieser Entwurf stand. Zuerst haben wir auf
+**Vier Korrekturen, veröffentlicht.** Zu entscheiden, was als Koch-App zählt, war der schwierigste
+Teil, und wir haben es dreimal falsch gemacht, bevor dieser Entwurf stand. Zuerst haben wir auf
 das Wort *Rezept* gematcht — das im Deutschen sowohl Kochrezept als auch ärztliche Verordnung
 bedeutet — und dabei Apotheken-Apps eingesammelt: Shop Apotheke, DocMorris, Doctolib. Dann fiel
 auf, dass *Kochen* und *Backen* auch Kochspiele treffen, und dass Kochspiele für Kinder unter
-Bildung statt unter Spiele einsortiert sind, sodass ein dritter Durchgang nötig war.
+Bildung statt unter Spiele einsortiert sind, sodass ein dritter Durchgang nötig war. Der vierte
+Durchgang, am 31. August, fand **ePaper-Ausgaben von Kochzeitschriften** — Landlust, ZauberTopf —
+als Koch-Apps mitgezählt, ihre Abo-Preise mitten in unseren Preiszahlen.
 
-Jeder Fehler fiel in einer Prüfung vor der Veröffentlichung auf, und alle Zahlen hier stammen aus
-dem dritten Durchgang. Entscheidend ist, was mit der Kernaussage über alle drei geschah:
-**82,4 % → 82,8 % → 81,0 %.** Das Ergebnis hängt nicht davon ab, wo wir die Grenze ziehen.
+Jeder Fehler fiel durch unsere eigenen Prüfungen auf, und alle Zahlen hier stammen aus dem
+vierten Durchgang. Entscheidend ist, was mit den Kernaussagen über alle vier geschah: Die
+Suchzahl bewegte sich **82,4 % → 82,8 % → 81,0 %**, und die Preiszahl blieb durch die letzte
+Korrektur bei **77 %**. Die Ergebnisse hängen nicht davon ab, wo wir die Grenze ziehen.
 Schlüsselwort-Zuordnung hat Grenzen, und wir benennen sie auf der Methodenseite, statt sie zu
 verstecken. Wir veröffentlichen unsere Fehler, weil ein Projekt, das ehrliche Messung
 beansprucht, keine andere Wahl hat.
