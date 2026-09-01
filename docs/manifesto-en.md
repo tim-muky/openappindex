@@ -77,17 +77,18 @@ visible. The rest exists the way an unlit street exists at night.
 
 **A search this narrow teaches people to stop looking.**
 
-Users are not lazy. They are calibrated. Roughly 61% of search-driven installs go to the top
-three results; past rank 30 an app collects under 4% of what a keyword has to give. So a store
-with 2.17 million apps is, in practice, three results deep.
-
-And the best of those three is for sale. Apple markets top-of-search placement to advertisers
-with **"conversion rates over 60%"** — its own figure, in its own sales material, for the single
-most valuable position in mobile software, auctioned by the hour. Since March 2026 it is no
-longer one slot but several inside the same result page.
+Users are not lazy. They are calibrated. Apple's own sales material states that **almost 65%
+of downloads happen directly after a search** — and Apple sells the top of that result list to
+advertisers with **"conversion rates over 60%"**: its own figure, in its own sales material,
+for the single most valuable position in mobile software, auctioned by the hour, and since
+March 2026 no longer one slot but several inside the same result page. A market does not price
+the first position like that unless everything below it barely exists. Our measurements say
+the same from the supply side: ten apps hold 39% of every first screen, and 91% of the
+category never reaches one. So a store with 2.17 million apps is, in practice, one screen
+deep.
 
 That is the loop, and it is self-sealing. A narrow search stops people scrolling. Nobody
-scrolling makes the top three worth everything. Being worth everything makes them worth buying.
+scrolling makes the first screen worth everything. Being worth everything makes it worth buying.
 And once bought, the results get worse — which teaches people, correctly, not to scroll.
 
 ---
@@ -245,7 +246,6 @@ read. Every denominator is stated where its figure appears.
 | 2,172,472 apps on the App Store | Apple, 2025 App Store Transparency Report | — |
 | 70% of visitors use search; ~65% of downloads follow a search; "conversion rates over 60%" for top-of-search ads | Apple Ads, "Ads on the App Store" — Apple's own sales material | — |
 | Multiple ad slots inside one result page from 3 March 2026 | Apple developer communication, reported January 2026 | — |
-| ~61% of search installs to the top three; under 4% past rank 30 | Sensor Tower, *State of ASO* | — |
 
 Method, scripts and raw data: **openappindex.org/methode**
 

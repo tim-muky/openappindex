@@ -85,19 +85,18 @@ so, wie eine unbeleuchtete Straße nachts existiert.
 
 **Eine so enge Suche bringt Menschen bei, nicht weiterzusuchen.**
 
-Nutzerinnen und Nutzer sind nicht faul, sie sind geeicht. Rund 61 % der über die Suche
-ausgelösten Installationen entfallen auf die ersten drei Treffer; jenseits von Rang 30 bleibt
-unter 4 % dessen übrig, was ein Suchbegriff hergibt. Ein Store mit 2,17 Millionen Apps ist in der
-Praxis drei Treffer tief.
-
-Und der beste dieser drei steht zum Verkauf. Apple bewirbt die Spitzenposition in den
-Suchergebnissen gegenüber Werbekunden mit **„Conversion-Raten über 60 %"** — die eigene Zahl, im
-eigenen Verkaufsmaterial, für die wertvollste Position der mobilen Softwarewelt, im Stundentakt
-versteigert. Seit März 2026 ist es nicht mehr ein Platz, sondern mehrere in derselben
-Ergebnisliste.
+Nutzerinnen und Nutzer sind nicht faul, sie sind geeicht. Apples eigenes Verkaufsmaterial
+sagt, dass **fast 65 % der Downloads direkt auf eine Suche folgen** — und Apple verkauft die
+Spitze eben dieser Ergebnisliste an Werbekunden mit **„Conversion-Raten über 60 %"**: die
+eigene Zahl, im eigenen Verkaufsmaterial, für die wertvollste Position der mobilen
+Softwarewelt, im Stundentakt versteigert, und seit März 2026 nicht mehr ein Platz, sondern
+mehrere in derselben Ergebnisliste. Ein Markt bepreist die erste Position nicht so, wenn
+alles darunter noch zählt. Unsere Messungen sagen dasselbe von der Angebotsseite: Zehn Apps
+halten 39 % jedes ersten Bildschirms, und 91 % der Kategorie erreichen nie einen. Ein Store
+mit 2,17 Millionen Apps ist in der Praxis einen Bildschirm tief.
 
 Das ist der Kreislauf, und er schließt sich selbst. Eine enge Suche bringt Menschen dazu, nicht
-zu scrollen. Dass niemand scrollt, macht die ersten drei Plätze unbezahlbar. Dass sie unbezahlbar
+zu scrollen. Dass niemand scrollt, macht den ersten Bildschirm unbezahlbar. Dass sie unbezahlbar
 sind, macht sie kaufenswert. Und sobald sie gekauft sind, werden die Ergebnisse schlechter — was
 den Menschen zu Recht beibringt, nicht zu scrollen.
 
