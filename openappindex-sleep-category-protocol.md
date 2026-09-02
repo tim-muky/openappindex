@@ -141,6 +141,24 @@ sit on the same shelf as the kept anxiety-relief and breathing tail, and the
 frozen self-description rule does not cleanly separate them. Revisiting them is
 a future dated decision, before any publication.
 
+## AMENDED 2026-09-02 — the gray zone decided: rule MH, precision v3
+
+The 2026-09-01 amendment documented a residual gray zone: mood/anxiety
+companions without prescription language (MindDoc, 7 Cups, DARE). It was sized
+before deciding: a condition-dominance rule (clinical-condition vocabulary ≥4
+hits AND outnumbering sleep/relaxation vocabulary in the app's own description)
+isolates **32 of the 3,114 apps then classified (1.0%)**, with no false
+positives observed in review. No headline figure moves by more than rounding.
+
+**Decision (maintainer, 2026-09-02): exclude.** The frozen category definition
+asks what an app's own description identifies it as; a description dominated by
+condition vocabulary identifies a mental-health app. The rule ships as
+`sleep/precision_v3.py` (v2 + MH), and `sleep/apply_v3.py` applies it uniformly
+across the sweep slice and every closure hop **after** all hops' finishing
+passes complete — no hop is classified under different rules than another, and
+the v2-classified files stay on disk as run evidence. Every MH exclusion is
+printed by name when applied.
+
 ## Pipeline & artifacts
 
 Scripts live in `sleep/`, data in `sleep/data/` — the cooking scripts under `sample/`
