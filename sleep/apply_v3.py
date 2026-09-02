@@ -16,7 +16,8 @@ from precision_v3 import v3_excluded
 SETS=[("data/sleep_slice_v2.json","data/sleep_slice_v3.json","sweep"),
       ("data/new_apps_sleep.json","data/hop1_sleep_v3.json","hop-1"),
       ("data/hop2_sleep.json","data/hop2_sleep_v3.json","hop-2"),
-      ("data/hop3_sleep.json","data/hop3_sleep_v3.json","hop-3")]
+      ("data/hop3_sleep.json","data/hop3_sleep_v3.json","hop-3"),
+      ("data/hop4_sleep.json","data/hop4_sleep_v3.json","hop-4")]
 
 total=0; out_total=0
 for src,dst,label in SETS:
