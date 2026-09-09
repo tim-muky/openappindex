@@ -133,6 +133,16 @@ crawl clock: the sitemap's 710 URLs were submitted via IndexNow (HTTP 200, logge
 `sample/data/indexnow_log.json`) — a crawl-visibility step, not a change to what the index
 serves.
 
+**Precondition observation added 2026-09-09 (later same day) — authoritative Bing count.** Bing
+Webmaster Tools was verified for the domain today, so the count the entries above kept deferring
+to "outstanding" is now read directly: BWT **Site Explorer reports 1 indexed URL** (the
+homepage; last crawled 2026-09-02, discovered 2026-08-21), 0 errors, 0 excluded. This
+supersedes the `site:` probe as the authoritative Bing-side signal and confirms the Bing leg
+sits at **1 of the required ≥100 — INCONCLUSIVE — CRAWLING** — unchanged since 2026-09-07. The
+crawl pipeline underneath is healthy and active: sitemap read 2026-09-07 (710 URLs, status
+Success) and Bingbot fetching normally. This is ordinary indexation lag on a new domain, not a
+serving fault. Precondition observation only; queries, thresholds and scoring unchanged.
+
 ---
 
 ## 2. The query set (frozen)
