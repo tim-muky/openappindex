@@ -119,6 +119,20 @@ authoritative counts — Search Console's Indexing → Pages report and Bing Web
 still outstanding. On today's evidence the gate would score **INCONCLUSIVE — CRAWLING**, which
 is why the Bing side is the thing to fix first.
 
+**Precondition observation added 2026-09-09 — Brave Search.** Claude's web search retrieves
+via Brave Search, which the preconditions above never monitored: they check Google and Bing
+only, so one of the three scored assistants runs on an index this protocol was not watching.
+Checked 2026-09-09: `site:openappindex.org` on search.brave.com returns **zero results**
+("too few matches"), and Bing likewise still returns no pages, 16 days after sitemap
+submission — while Bingbot-user-agent fetches of every tested URL return HTTP 200, so nothing
+on our side blocks the crawler. Recorded as a precondition observation only; queries,
+thresholds and scoring are unchanged. It sharpens the attribution note: a zero-citation
+result from Claude cannot be separated from Brave never having indexed the site, exactly as
+a zero from ChatGPT cannot be separated from Bing's empty index. Same date, recorded for the
+crawl clock: the sitemap's 710 URLs were submitted via IndexNow (HTTP 200, logged in
+`sample/data/indexnow_log.json`) — a crawl-visibility step, not a change to what the index
+serves.
+
 ---
 
 ## 2. The query set (frozen)

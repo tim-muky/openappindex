@@ -610,8 +610,8 @@ for _fn, _out, _title, _desc, _other in (
     page(_out, _title, _desc, _other + md_html(_md))
 
 # IndexNow ownership key (Bing et al.). Stable across rebuilds by design — a
-# changed key reads as a change of ownership. Submission itself happens out of
-# band; this only serves the proof file the protocol requires.
+# changed key reads as a change of ownership. This only serves the proof file
+# the protocol requires; run indexnow_submit.py after each deploy to submit.
 INDEXNOW_KEY = "e595dfb6a3164c1a641ee51f09b7262e"
 open(f"{OUT}/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
 
