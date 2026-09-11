@@ -236,24 +236,35 @@ def app_page(a):
                  f"<p class='src'>Eigene Versionshinweise des Anbieters zu Version {esc(a.get('version'))}, "
                  f"veröffentlicht am {de_date(a.get('currentVersionReleaseDate'))}.</p>")
 
-    dl = float(a.get("price") or 0)
+    # The download price is read from the store's own price string. Apple's Search API
+    # returns no numeric price field for this corpus, so any number here has to come from
+    # formattedPrice. It must never be defaulted: `or 0` published "free" for 22 paid apps
+    # until 2026-09-11. Where the store price was not captured at all, no number is emitted.
+    fp = (a.get("formattedPrice") or "").strip()
+    dl = 0.0 if fp.lower() in ("gratis", "free") else parse_eur(fp)
+    dl_txt = fp or "nicht erhoben"
     if a["iaps"] and a["iap_min"] is not None:
         # Download and each in-app purchase are separate offers; the range is measured,
-        # never annualised and never inferred.
+        # never annualised and never inferred. An unknown download price narrows the
+        # range to the measured in-app purchases rather than assuming a free download.
+        lo = a["iap_min"] if dl is None else min(dl, a["iap_min"])
         offers = {"@type":"AggregateOffer","priceCurrency":"EUR",
-                  "lowPrice":"%.2f" % dl, "highPrice":"%.2f" % max(dl, a["iap_max"]),
-                  "offerCount":len(a["iaps"]) + 1,
-                  "description":(f"Download {a.get('formattedPrice')}; {len(a['iaps'])} auf der "
+                  "lowPrice":"%.2f" % lo,
+                  "highPrice":"%.2f" % (a["iap_max"] if dl is None else max(dl, a["iap_max"])),
+                  "offerCount":len(a["iaps"]) + (0 if dl is None else 1),
+                  "description":(f"Download {dl_txt}; {len(a['iaps'])} auf der "
                                  f"Produktseite ausgewiesene In-App-Käufe von {eur(a['iap_min'])} "
                                  f"bis {eur(a['iap_max'])}, erhoben am {a['read_at']}.")}
     elif a["price_known"]:
-        offers = {"@type":"Offer","price":"%.2f" % dl,"priceCurrency":"EUR",
-                  "description":(f"Download {a.get('formattedPrice')}; auf der Produktseite sind "
+        offers = {"@type":"Offer","priceCurrency":"EUR",
+                  "description":(f"Download {dl_txt}; auf der Produktseite sind "
                                  f"keine In-App-Käufe ausgewiesen (erhoben am {a['read_at']}).")}
+        if dl is not None: offers["price"] = "%.2f" % dl
     else:
-        offers = {"@type":"Offer","price":"%.2f" % dl,"priceCurrency":"EUR",
-                  "description":(f"Download {a.get('formattedPrice')}; In-App-Käufe nicht erhoben — "
+        offers = {"@type":"Offer","priceCurrency":"EUR",
+                  "description":(f"Download {dl_txt}; In-App-Käufe nicht erhoben — "
                                  f"dieser Wert wird nicht geschätzt.")}
+        if dl is not None: offers["price"] = "%.2f" % dl
 
     ld = json.dumps({"@context":"https://schema.org","@type":"MobileApplication",
         "name":name,"applicationCategory":a.get("primaryGenreName"),"operatingSystem":"iOS",
@@ -421,6 +432,19 @@ der Anteil bleibt 77&nbsp;%).</p>
 lag &uuml;ber drei verschiedene Abgrenzungen hinweg zwischen 81 und 83 Prozent. Das Ergebnis
 h&auml;ngt also nicht an der Abgrenzung. Wo wir dennoch falsch liegen:
 <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a>.</p>
+<h2>Korrektur an den maschinenlesbaren Daten <em>(11.09.2026)</em></h2>
+<p>Jede App-Seite enth&auml;lt neben dem sichtbaren Text auch strukturierte Daten
+(JSON-LD), die Suchmaschinen und Sprachmodelle auslesen. Dort stand f&uuml;r den
+Download-Preis bis zum 11.09.2026 <strong>bei jeder App <code>0.00&nbsp;&euro;</code></strong>,
+weil ein nicht vorhandener Zahlenwert stillschweigend durch Null ersetzt wurde. F&uuml;r
+die 919 gratis angebotenen Apps stimmte das zuf&auml;llig &mdash; f&uuml;r
+<strong>22 kostenpflichtige Apps war es falsch</strong>: Ihre Seite nannte im Text
+korrekt etwa &bdquo;5,99&nbsp;&euro;&ldquo;, w&auml;hrend die maschinenlesbare Ebene
+&bdquo;kostenlos&ldquo; meldete. Das ist genau der Fehler, den dieser Index sichtbar
+machen soll, und er stand in der einen Schicht, die wir selbst nicht lesen.</p>
+<p>Seit dem 11.09.2026 wird der Download-Preis aus der Preisangabe des Stores gelesen.
+Ist dort keine Angabe erfasst, wird <strong>gar kein Zahlenwert ver&ouml;ffentlicht</strong>
+&mdash; gesch&auml;tzt wird nichts. Alle 941 App-Seiten wurden neu erzeugt und gepr&uuml;ft.</p>
 <h2>Wie sortiert wird</h2>
 <p>Jede Liste nennt ihre Sortierregel auf der Seite selbst. Downloadzahlen, Bewertungssterne und Werbebudget
 fließen in keine Sortierung ein.</p>
