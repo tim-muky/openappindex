@@ -184,6 +184,33 @@ through the question page, so the enumeration stays answerable, but the per-app 
 it is not separately indexable. Both are recorded, not changed: the sitemap inclusion rule is
 frozen with the rest of the index until the gate closes.
 
+**AMENDED 2026-09-11 (fourth amendment) — a false price was corrected in the served index.**
+
+An audit of the machine-readable layer found that every app page published a **fabricated
+download price**. `build_site.py` read a numeric `price` field that Apple's Search API does not
+return for this corpus — no record of 1,312 carries it — and a `or 0` fallback silently
+substituted `0.00`. For the 919 free apps the value was coincidentally right. For **22 paid
+apps it was false**: the visible page correctly said, for example, `5,99 €`, while the JSON-LD
+in the same document announced `"price": "0.00"`. That is the precise failure this index exists
+to expose — "free" asserted for an app that charges — and it stood in the one layer we do not
+read ourselves. It is also the same defect class as the 2026-08-31 amendment, which fixed the
+free-with-in-app-purchase case and left the paid-download case behind.
+
+The download price is now read from the store's own price string. Where no store price was
+captured, **no number is emitted at all** rather than a default — nothing is estimated to fill a
+gap. All 941 app pages were regenerated and checked: no published price now contradicts its own
+page. The correction is published and dated on the method page.
+
+**Attribution: the same direction as every previous amendment.** The index an assistant sees
+from today is more accurate than the one the indexing clock started on, so a **GO** remains the
+weaker reading — it cannot be separated from "the data got more accurate on 2026-09-11" — and a
+**NO-GO** remains the stronger one. Queries, thresholds and scoring are unchanged. This is
+recorded before any post-launch data has been seen, and before the gate is scored.
+
+A correction is not an improvement withheld by the freeze: leaving a known false price in the
+served index while asking anyone to trust the evidence rules would cost more than the amendment
+does.
+
 ---
 
 ## 2. The query set (frozen)
