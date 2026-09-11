@@ -143,6 +143,47 @@ crawl pipeline underneath is healthy and active: sitemap read 2026-09-07 (710 UR
 Success) and Bingbot fetching normally. This is ordinary indexation lag on a new domain, not a
 serving fault. Precondition observation only; queries, thresholds and scoring unchanged.
 
+**2026-09-11 — the 09-09 reading above was wrong, and the gate date is moved.** Bing held at 1
+indexed URL across four checks (09-07, 09-09, 09-10, 09-11) and Brave at 0. BWT URL Inspection
+was then run per URL, and it contradicts the "ordinary indexation lag" characterisation recorded
+on 09-09: a representative app page and a question page both return **"Discovered but not
+crawled — URL cannot appear on Bing"** (discovered 2026-09-01). That verdict rules out the two
+explanations that mattered. It is **not** a content-quality rejection — Bing has never fetched
+the pages, so it cannot have judged them thin or duplicative, and the near-identical-app-page
+worry does not apply. It is **not** technical — `www` 308-redirects to the apex, the canonical
+is self-referential, Bingbot receives HTTP 200 on app and question pages alike, and BWT reports
+0 errors and 0 excluded. What remains is **crawl-budget starvation**, which on a new domain is
+largely trust allocation. Waiting would not have fixed it.
+
+**Decision, same date: the crawl clock is extended and the ~2026-09-15 gate date is dropped.**
+Scoring on the 15th would have returned INCONCLUSIVE — CRAWLING on the ChatGPT (Bing) and Claude
+(Brave) legs, which §1 already provides for: fix the crawling problem and restart the clock.
+Indexation is re-assessed ~2026-09-29, with a backstop of **2026-10-13** — score what is
+testable then and report the rest as INCONCLUSIVE — CRAWLING, leaving margin before the funding
+deadlines. **Queries, thresholds and scoring are unchanged; this moves only the clock, and it is
+recorded before any post-launch data has been seen.**
+
+**Action taken 2026-09-11 — 16 URLs explicitly requested for indexing** through BWT URL
+Inspection: the four question pages, and twelve app pages chosen from the frozen ground truth
+rather than by hand — the ten highest published in-app purchases (the F17 answer set, headed by
+Cooksy at €599.99) and two of the oldest unmaintained apps (the F16 answer set). All returned
+"URL submitted successfully". The daily request quota is 100 URLs, so this is a lever at scale.
+Like the IndexNow submission, it is a crawl-visibility step: no page content changed and the
+freeze is untouched. If these URLs index, the blocker was budget; if Bing still declines after
+an explicit request, the constraint is authority and that is a different problem.
+
+**Two limitations found while doing it, recorded because they qualify figures published
+elsewhere.** First, the app pages returned *two* states, not one: most read "Discovered but not
+crawled", but one URL present in the submitted `sitemap.xml` read **"Not discovered — the
+inspected URL is not known to Bing"**. So the Sitemaps report's "710 URLs discovered" does not
+mean all 710 entered Bing's discovery set; discovery is partial, and any claim about how much of
+this index an engine has seen must rest on per-URL inspection rather than that figure. Second,
+the submitted sitemap includes an app page only where in-app purchases were captured, which
+excludes most of the 96 stale apps — the evidence base for F16. The F16 answer remains served
+through the question page, so the enumeration stays answerable, but the per-app evidence behind
+it is not separately indexable. Both are recorded, not changed: the sitemap inclusion rule is
+frozen with the rest of the index until the gate closes.
+
 ---
 
 ## 2. The query set (frozen)
