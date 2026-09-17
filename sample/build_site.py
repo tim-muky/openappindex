@@ -11,9 +11,11 @@ STORE FACTS ONLY (GAL-517 resolution 2026-08-20):
 Every figure carries its source and the date it was read. Lists state their
 ordering rule inline, because an unexplained order reads as a judgement.
 """
-import json, re, html, datetime, os, shutil, unicodedata
-
-BASE = "https://openappindex.org"
+import json, re, datetime, os, shutil
+from classify import is_cooking_app
+from site_common import (BASE, NOW, esc, slug, days_since, de_date, de_elapsed, eur, eur_range,
+                         parse_eur, SHELL, write_page)
+import build_changelog
 
 # ---------------------------------------------------------------------------
 # IMPRESSUM (§ 5 DDG) - fill these in before the site goes live.
@@ -38,7 +40,6 @@ OUT = "site"
 if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 TODAY = datetime.date.today().isoformat()
-NOW = datetime.datetime.now(datetime.timezone.utc)
 
 # The clock says when this ran, never when a fact was read. Rebuilding must not
 # re-date a measurement nobody took again: source lines carry the recorded read
@@ -49,46 +50,7 @@ CORPUS_READ = datetime.date.fromtimestamp(
 
 C = json.load(open("data/corpus_de.json", encoding="utf-8"))
 
-# --- classification v4 -------------------------------------------------------
-# Three corrections, all found by our own checks and all documented on the
-# methods page:
-#   1. German "Rezept" means recipe AND medical prescription -> pharmacy apps
-#   2. "Kochen/Backen" also matches cooking GAMES, which are not recipe apps
-#   3. (2026-08-31) press products (ePaper/magazines that print recipes), a
-#      kids-franchise title in Education, and single-venue apps also pass the
-#      keyword test. Rules M and K below; the venue rule is not yet precise
-#      enough to apply here (see sample/precision_check.py).
-# Keyword classification has known limits; they are stated publicly rather than
-# hidden. See methode.html.
-RECIPE = re.compile(r"rezept|kochbuch|kochen|backen", re.I)
-PHARMA = re.compile(r"apothek|e-?rezept|medikament|arzt|ärzt|verschreib|krankenkasse", re.I)
-COOK   = re.compile(r"koch|back|zutat|essen|mahlzeit|gericht|k[üu]che|ern[äa]hrung|"
-                    r"lebensmittel|einkaufsliste|men[üu]|speise|food|recipe", re.I)
-EXCLUDE_GENRE = {"Games", "Entertainment", "Utilities", "Photo & Video", "Travel",
-                 "Finance", "Business",
-                 # v4 rule M: press products are not apps about cooking,
-                 # however many recipes they print
-                 "Magazines & Newspapers", "News", "Book"}
-
-# Children's cooking games are filed under Education, not Games — a third
-# classifier correction, found 2026-08-24.
-KIDS_GAME = re.compile(r"spiel|kinder|kids|kleinkind|toddler|kiddo", re.I)
-# v4 rule K (2026-08-31): franchise titles avoid the word "Spiel" ("Baby Pandas
-# Stadt", "Vorschulwissen"). Education only — a Lifestyle app named "Beikost -
-# Baby BLW & Brei" is a genuine baby-food recipe app.
-KIDS_V4 = re.compile(r"spiel|kinder|kids|kleinkind|toddler|kiddo|baby|panda|vorschul", re.I)
-
-def is_cooking_app(name, desc, genre):
-    t = (name or "") + " " + (desc or "")
-    if not RECIPE.search(t):            return False
-    if genre in EXCLUDE_GENRE:          return False
-    if genre in ("Education", "Medical") and KIDS_GAME.search(name or ""):
-        return False
-    if genre == "Education" and KIDS_V4.search(name or ""):
-        return False
-    ph, ck = len(PHARMA.findall(t)), len(COOK.findall(t))
-    if ph >= 3 and ph > ck:             return False
-    return ck >= 2
+# --- classification v4: one classifier for every script that counts -> classify.py
 
 apps = [a for a in C["apps"]
         if is_cooking_app(a.get("trackName"), a.get("description"), a.get("primaryGenreName"))]
@@ -105,39 +67,6 @@ for _f in ("data/prices_de.json", "data/new_apps_prices.json"):
         for r in json.load(open(_f, encoding="utf-8")):
             prices[r["track_id"]] = r
 
-def esc(s): return html.escape(s or "", quote=True)
-
-def slug(s):
-    s = unicodedata.normalize("NFKD", (s or "").lower())
-    s = s.replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss")
-    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
-    return (s or "app")[:60]
-
-def days_since(iso):
-    if not iso: return None
-    return (NOW - datetime.datetime.fromisoformat(iso.replace("Z","+00:00"))).days
-
-def de_date(iso):
-    return datetime.datetime.fromisoformat(iso.replace("Z","+00:00")).strftime("%d.%m.%Y") if iso else "unbekannt"
-
-def de_elapsed(d):
-    if d is None: return "unbekannt"
-    if d == 0: return "heute"
-    if d == 1: return "gestern"
-    if d < 60: return f"vor {d} Tagen"
-    if d < 730: return f"vor {d//30} Monaten"
-    return f"vor {d//365} Jahren und {(d%365)//30} Monaten"
-
-def eur(v): return ("%.2f" % v).replace(".", ",") + " €"
-
-def eur_range(lo, hi):
-    if lo == hi: return eur(lo)
-    return ("%.2f" % lo).replace(".", ",") + "–" + ("%.2f" % hi).replace(".", ",") + " €"
-
-def parse_eur(s):
-    m = re.search(r"(\d+(?:[.,]\d+)?)", (s or "").replace("\xa0"," "))
-    return float(m.group(1).replace(",", ".")) if m else None
-
 for a in apps:
     a["slug"] = f"{slug(a['trackName'])}-{a['trackId']}"
     a["days"] = days_since(a.get("currentVersionReleaseDate"))
@@ -153,61 +82,8 @@ for a in apps:
 # "Stand" of the dataset is the most recent recorded read, not today.
 DATA_STAND = max([a["read_at"] for a in apps if a["read_at"]] or [CORPUS_READ])
 
-SHELL = """<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title}</title>
-<meta name="description" content="{desc}">
-<link rel="canonical" href="{canon}">
-<style>
-:root{{--bg:#fbfcfd;--ink:#10161d;--mut:#5a6673;--rule:#cfd6dd;--acc:#26389c;--card:#fff}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#0e1216;--ink:#e8edf2;--mut:#96a3af;--rule:#2a343d;--acc:#93a5ff;--card:#161c22}}}}
-*{{box-sizing:border-box}}
-body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}}
-.w{{max-width:820px;margin:0 auto;padding:28px 20px 80px}}
-a{{color:var(--acc)}}
-h1{{font-size:1.9rem;line-height:1.2;margin:.2em 0}}
-h2{{font-size:1.25rem;margin:2em 0 .5em}}
-h3{{font-size:1.05rem;margin:1.6em 0 .4em}}
-.lede{{font-size:1.05rem;color:var(--mut)}}
-nav.bc{{font-size:.85rem;color:var(--mut);margin-bottom:1.5em}}
-table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}}
-th,td{{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}}
-th{{font-weight:600;width:38%;color:var(--mut)}}
-.src{{font-size:.78rem;color:var(--mut)}}
-.card{{background:var(--card);border:1px solid var(--rule);padding:16px;margin:10px 0}}
-.card h3{{margin:0 0 .3em;font-size:1.05rem}}
-.meta{{font-size:.88rem;color:var(--mut)}}
-.rule{{background:var(--card);border-left:3px solid var(--acc);padding:12px 14px;margin:1.5em 0;font-size:.9rem}}
-footer{{margin-top:3em;padding-top:1.2em;border-top:1px solid var(--rule);font-size:.82rem;color:var(--mut)}}
-ol{{padding-left:0;list-style:none}}
-blockquote{{margin:.6em 0;padding-left:12px;border-left:2px solid var(--rule);color:var(--mut);font-size:.92rem}}
-</style>
-{ld}
-</head>
-<body><div class="w">
-{body}
-<footer>
-<p><strong>openAPPindex</strong> — ein unabhängiger, offener Index mobiler Apps. Wir nehmen von keiner App Geld an.
-Alle Angaben stammen aus öffentlich zugänglichen Daten des App Store und tragen das Datum ihrer Erhebung.</p>
-<p>Diese Seite wurde automatisiert aus öffentlichen App-Store-Daten erstellt. Sie enthält keine Bewertung und keine
-Nutzerrezensionen — nur datierte Tatsachen und deren Quelle.</p>
-<p>Fehler gefunden? Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a> —
-wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">Impressum &amp; Kontakt</a> ·
-<a href="{base}/methode.html">Methode</a> &middot;
-<a href="{base}/manifest.html">Manifest</a> &middot;
-<a href="{base}/paper.html">Working Paper</a></p>
-</footer>
-</div></body></html>"""
-
 def page(path, title, desc, body, ld=""):
-    full = os.path.join(OUT, path)
-    os.makedirs(os.path.dirname(full), exist_ok=True)
-    canon = BASE + "/" + path.replace("index.html", "")
-    open(full, "w", encoding="utf-8").write(SHELL.format(
-        title=esc(title), desc=esc(desc), canon=esc(canon), body=body, ld=ld, base=BASE))
+    write_page(OUT, path, title, desc, body, ld)
 
 # ---------------- app pages ----------------
 def app_page(a):
@@ -380,6 +256,14 @@ QS = [("welche-rezept-app-wird-noch-gepflegt","Welche Rezept-App wird noch gepfl
       ("gratis-rezept-app-was-kostet-sie-wirklich","„Gratis“ — was kostet sie wirklich?"),
       ("rezept-app-ohne-abo-und-ohne-in-app-kaeufe","Welche kommen ohne In-App-Käufe aus?")]
 
+# ---------------- weekly changelog (GAL-578) ----------------
+# Rendered only when data/public/changelog/*.json exists; until then the site is byte-identical.
+WEEKS = build_changelog.render_all(OUT)
+cl_link = ("" if not WEEKS else
+           f"<h2>Was sich geändert hat</h2><ol><li class='card'><h3><a href='{BASE}/de/aenderungen/'>"
+           f"Wöchentliche Änderungen im Index</a></h3><p class='meta'>Zuletzt: Woche {esc(WEEKS[0]['week'])}, "
+           f"Lesung vom {de_date(WEEKS[0]['to'])}</p></li></ol>")
+
 # ---------------- index pages ----------------
 qlinks = "".join(f"<li class='card'><h3><a href='{BASE}/de/frage/{f}.html'>{esc(t)}</a></h3></li>" for f,t in QS)
 withiap = sum(1 for a in apps if a["iaps"])
@@ -390,7 +274,7 @@ und was sie tatsächlich kostet — nie danach, wer bezahlt hat.</p>
 zwei Fragen, die zählen: <strong>Wird diese App noch gepflegt, und was kostet sie am Ende wirklich?</strong>
 Dieser Index trägt die öffentlich verfügbaren Antworten zusammen, mit Datum und Quelle.</p>
 <h2>Fragen, die dieser Index beantwortet</h2><ol>{qlinks}</ol>
-<h2>Datenbestand</h2>
+{cl_link}<h2>Datenbestand</h2>
 <p><strong>{len(apps)} Apps</strong> im deutschen App Store, deren eigene Store-Beschreibung sie als Rezept- oder
 Koch-App ausweist. Für <strong>{withiap}</strong> davon sind die auf der Produktseite ausgewiesenen In-App-Käufe
 erfasst. Stand: {DATA_STAND}.</p>
@@ -445,7 +329,15 @@ machen soll, und er stand in der einen Schicht, die wir selbst nicht lesen.</p>
 <p>Seit dem 11.09.2026 wird der Download-Preis aus der Preisangabe des Stores gelesen.
 Ist dort keine Angabe erfasst, wird <strong>gar kein Zahlenwert ver&ouml;ffentlicht</strong>
 &mdash; gesch&auml;tzt wird nichts. Alle 941 App-Seiten wurden neu erzeugt und gepr&uuml;ft.</p>
-<h2>Wie sortiert wird</h2>
+{"" if not WEEKS else """<h2>Was sich w&ouml;chentlich &auml;ndert</h2>
+<p>Unter <a href="/de/aenderungen/">/de/aenderungen/</a> vergleichen wir jede Woche zwei datierte
+Lesungen des Index: neue Apps, neue Versionen, ge&auml;nderte Preisangaben, Apps, die die
+Lookup-Schnittstelle nicht mehr zur&uuml;ckgibt &mdash; und jede Korrektur an unseren eigenen
+Daten, in derselben Liste. Jede Zeile tr&auml;gt das Datum ihrer Lesung. Es gibt keine Auswahl:
+jede &Auml;nderung, die eine auf der Seite genannte Schwelle erf&uuml;llt, erscheint. Wird eine
+Angabe in einer Woche nicht erhoben (etwa In-App-K&auml;ufe, deren Produktseiten nicht gelesen
+wurden), steht das dort; verglichen wird sie dann nicht.</p>
+"""}<h2>Wie sortiert wird</h2>
 <p>Jede Liste nennt ihre Sortierregel auf der Seite selbst. Downloadzahlen, Bewertungssterne und Werbebudget
 fließen in keine Sortierung ein.</p>
 <h2>Korrekturen</h2>
@@ -535,7 +427,8 @@ Der Index enthält keine Nutzerrezensionen und keine Bewertungen — nur datiert
 Fehlende Angaben werden als fehlend ausgewiesen und nicht geschätzt.
 
 ## Fragen
-""" + "".join(f"- [{t}]({BASE}/de/frage/{f}.html)\n" for f,t in QS) + f"""
+""" + "".join(f"- [{t}]({BASE}/de/frage/{f}.html)\n" for f,t in QS)
+  + ("" if not WEEKS else f"\n## Änderungen\n- [Was sich im Index geändert hat (wöchentlich)]({BASE}/de/aenderungen/)\n") + f"""
 ## Methode
 - [Methode und Quellen]({BASE}/methode.html)
 
@@ -569,6 +462,11 @@ with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
             .replace("www.sitemap.org","www.sitemaps.org"))
     for u in urls:
         f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{BUILD_DATE}</lastmod></url>\n")
+    # changelog pages carry the date of the read they describe as lastmod — a real date, not the build clock
+    if WEEKS:
+        f.write(f"  <url><loc>{BASE}/de/aenderungen/</loc><lastmod>{WEEKS[0]['to']}</lastmod></url>\n")
+        for w in WEEKS:
+            f.write(f"  <url><loc>{BASE}/de/aenderungen/{w['week']}/</loc><lastmod>{w['to']}</lastmod></url>\n")
     f.write("</urlset>\n")
 
 # ---------------- manifesto pages ----------------
