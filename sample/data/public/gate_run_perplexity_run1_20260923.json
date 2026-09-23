@@ -1,0 +1,68 @@
+{
+  "phase": "gate-run",
+  "protocol": "docs/gate-protocol.md",
+  "frozen_at": "2026-08-21",
+  "assistant": "perplexity",
+  "run": 1,
+  "run_date": "2026-09-23",
+  "status": "PARTIAL — stopped by free-tier quota",
+  "session": "logged-in, free plan; 'Kostenlose Vorschau der erweiterten Suche' active",
+  "stopped_because": "Perplexity free-search limit reached at query B9: 'Sie haben Ihr Limit für kostenlose Suchen erreicht. Der Zugang wird in einigen Stunden zurückgesetzt.' The 2026-08-23 baseline hit the same wall at 13 of 18.",
+  "scored_targets_captured": 8,
+  "scored_targets_total": 15,
+  "citations_of_openappindex": 0,
+
+  "detection_method": "Citation counted only when 'openappindex' appears inside the <main> answer element or in a source URL within it. A naive document-body check gives FALSE POSITIVES: the left sidebar lists recent searches, which included the 13:24 retrieval probe named 'openAPPindex Rezept-Apps Index'. This was caught and excluded; every verdict below uses the main-scoped test.",
+
+  "confound_introduced_today": "The retrieval probe run at 13:24 on this same logged-in account placed the string 'openAPPindex' into the account's search history before these queries ran. If Perplexity personalises retrieval on history, it can only bias TOWARD citing us. The run returned zero citations, so the direction of the bias does not affect this result — but a future positive result on this account must be discounted for it, or run on a clean session.",
+
+  "runs": [
+    {"query_id":"A1","group":"A","query":"Welche Rezept-App wird noch aktiv gepflegt?","time":"13:44","cited_openappindex":false,
+     "sources":["paprikaapp.com","play.google.com","apps.apple.com"],
+     "apps_named":["Recipe Keeper","Paprika 3/4","Mela","ReciMe","Chefkoch"],
+     "note":"Says Paprika is actively maintained — 'Der Anbieter arbeitet an Paprika 4'. Compare A4."},
+
+    {"query_id":"A2","group":"A","query":"Rezept-App die noch Updates bekommt","time":"13:44","cited_openappindex":false,
+     "sources":["apps.apple.com","cookbookmanager.com"],
+     "apps_named":["Recipe Keeper"],
+     "note":"Maintenance claim sourced partly to a competitor's blog post."},
+
+    {"query_id":"A3","group":"A","query":"Ist Mein Rezeptebuch noch aktuell?","time":"13:45","cited_openappindex":false,
+     "sources":["apps.apple.com"],
+     "apps_named":["Mein Rezeptebuch"],
+     "cost_claim":"5,99 € in-app purchase for 'Unbegrenzte Rezepte' — correct against the store",
+     "note":"Explicitly states the limitation we exist to fix: 'Aus den App-Store-Informationen ist kein aktuelles Veröffentlichungsdatum der neuesten Version eindeutig ersichtlich.' It could not determine the last-updated date — the exact fact this index publishes — and did not find us."},
+
+    {"query_id":"A4","group":"A","query":"Welche Koch-Apps wurden seit Jahren nicht aktualisiert?","time":"13:46","cited_openappindex":false,
+     "sources":["useladle.com","apps.apple.com","codecanyon.net","chrome-stats.com","chefkoch.de"],
+     "apps_named":["Paprika Recipe Manager","The Recipe Box","MyFridgeFood","RecipeSage"],
+     "note":"CONTRADICTS A1 two minutes earlier: here Paprika 'wird seit Jahren nicht mehr aktiv weiterentwickelt' and is 'stalled', sourced to a competitor's marketing blog (useladle). Same assistant, same session, opposite maintenance verdicts on the same app."},
+
+    {"query_id":"B5","group":"B","query":"Rezept-App ohne Abo","time":"13:46","cited_openappindex":false,
+     "sources":[],
+     "apps_named":["Cove","kobuu","nara","Zestio","Paprika"],
+     "note":"nara and Zestio are not present in our 1,312-app German iOS sweep."},
+
+    {"query_id":"B6","group":"B","query":"Rezepte-App einmalig bezahlen statt Abo","time":"13:46","cited_openappindex":false,
+     "sources":["iphone-ticker.de","usemise.app","cuisinier.app","remyapp.io"],
+     "apps_named":["Paprika","Mela","Crouton","Mise"],
+     "note":"Sources are German blog posts and the vendors' own sites."},
+
+    {"query_id":"B7","group":"B","query":"Was kostet Chefkoch wirklich?","time":"13:47","cited_openappindex":false,
+     "sources":["trustpilot.com","klamm.de","appgefahren.de","steelmonks.com","mein-deal.com"],
+     "cost_claim":"PUR ca. 1,99 €/mo, 14,99 €/yr; PLUS ca. 5,99 €/mo, 49,99 €/yr",
+     "note":"Every price is sourced to deal sites and blogs, not to the store's own published in-app purchase list. No apps.apple.com source for the cost answer."},
+
+    {"query_id":"B8","group":"B","query":"Kostenlose Rezept-App ohne versteckte Kosten","time":"13:47","cited_openappindex":false,
+     "sources":["nara.recipes","zestio.org","play.google.com","bosch-home.com"],
+     "apps_named":["nara","Zestio","Flavorish"],
+     "note":"The baseline failure mode reproduces. Asked for a free app WITHOUT hidden costs, all three recommendations — nara, Zestio, Flavorish — are absent from our 1,312-app German iOS sweep, and two are sourced to their own marketing sites. Flavorish was flagged in the 2026-08-23 baseline for the same reason."},
+
+    {"query_id":"B9","group":"B","query":"Welche Rezept-Apps haben teure In-App-Käufe?","time":"13:48","cited_openappindex":null,
+     "capture_status":"BLOCKED — free-search quota reached; no answer returned"}
+  ],
+
+  "not_captured": ["B9","C10","C11","C12","D13","F16","F17","X1 (control)","X2 (control)","X3 (control)"],
+
+  "what_this_is_not": "Not a score. §4 requires the identical queries on two runs on DIFFERENT days, and 15 scored targets; this is one partial run covering 8. NO-GO under §4 requires 0 citations across all three assistants with preconditions passed — two of those assistants have no index to cite from, which is why the gate result reports them as INCONCLUSIVE — CRAWLING rather than negative."
+}

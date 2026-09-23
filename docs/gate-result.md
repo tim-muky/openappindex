@@ -113,11 +113,63 @@ Any honest scoring of this gate must check the *vintage* of every cited fact, no
 presence — and that check is now part of the scoring, because we have a measured instance of it
 failing.
 
+## 5a. Run 1 against Perplexity — partial, 8 of 15, zero citations
+
+Attempted 2026-09-23. **The free-search quota stopped it at the ninth query**, the same wall the
+2026-08-23 baseline hit at 13 of 18. Record:
+`sample/data/public/gate_run_perplexity_run1_20260923.json`.
+
+| Captured | 8 of 15 scored targets (A1–A4, B5–B8) |
+|---|---|
+| Cited openappindex.org | **0** |
+| Blocked | B9, C10–C12, D13, F16, F17 and all three controls |
+
+**This is not a score and §4 does not permit it to be read as one.** The protocol requires the
+identical queries on two runs on different days; this is one partial run. It is recorded because
+the captures themselves are evidence, and because they cannot be recreated once the index is
+better known.
+
+**A detection hazard worth publishing.** A naive check for "openappindex" in the page returned a
+false positive: Perplexity's sidebar lists recent searches, and the 13:24 retrieval probe was
+named *openAPPindex Rezept-Apps Index*. Every verdict above uses a test scoped to the answer
+element only. Anyone replicating this should assume the same trap.
+
+**A confound we introduced today.** That probe put our name into this account's search history
+before the scored queries ran. If Perplexity personalises on history it can only bias *toward*
+citing us — so a zero result is unaffected, and any future positive on this account must be
+discounted or re-run on a clean session.
+
+### What the eight answers show even without a citation
+
+The secondary questions in §4 turn out to be answerable from a zero-citation run, and they
+reproduce the baseline's findings rather than softening them.
+
+- **The same assistant gave opposite maintenance verdicts on the same app, two minutes apart.**
+  A1: Paprika is actively maintained, "der Anbieter arbeitet an Paprika 4". A4: Paprika "wird
+  seit Jahren nicht mehr aktiv weiterentwickelt", is "stalled" — sourced to a competitor's
+  marketing blog. Nothing in the session changed between them except the question.
+- **It could not find a last-updated date, and said so.** A3, asked whether *Mein Rezeptebuch*
+  is current, answered: "Aus den App-Store-Informationen ist kein aktuelles
+  Veröffentlichungsdatum der neuesten Version eindeutig ersichtlich." That is precisely the fact
+  this index publishes for all 941 apps. It looked, could not find it, and did not find us.
+- **Cost answers came from deal sites.** B7 priced Chefkoch from trustpilot, klamm.de,
+  appgefahren, steelmonks and mein-deal — not one source was the store's own published in-app
+  purchase list.
+- **The baseline's worst failure reproduced exactly.** B8 asked for a free app *without hidden
+  costs*; all three recommendations — nara, Zestio, Flavorish — are absent from our 1,312-app
+  German iOS sweep, and two were sourced to their own marketing sites. Flavorish was flagged for
+  this in the 2026-08-23 baseline. Thirteen months of model improvement later, the same question
+  returns the same class of answer.
+
+The gap the baseline identified is therefore still open, and this run measures it from the other
+side: not "the assistant ignored a better source" but "the assistant searched, found no source
+that answers the question, and answered anyway".
+
 ## 6. What is still open
 
-- **Score the Perplexity leg** against the fifteen frozen queries, two runs on different days,
-  per §4. This needs the account whose quota the baseline exhausted at 13 of 18 queries; it is
-  the decision that closes the gate.
+- **Finish scoring the Perplexity leg.** Run 1 covered 8 of 15 before the quota stopped it
+  (§5a); it needs completing and then repeating on a different day, per §4. On the free tier
+  that is roughly four sittings. Zero citations so far, from eight.
 - **The homepage re-crawl in Google** — indexing requested and "Validate fix" started
   2026-09-23; outcome pending.
 - **Bing and Brave** — no action available that has not already been taken four times. These
