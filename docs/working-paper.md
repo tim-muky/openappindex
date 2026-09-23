@@ -30,7 +30,8 @@ account in which the operators of distribution and advertising jointly profit fr
 transparency. We then replicate the price measurement on a second, structurally dissimilar
 category — 3,578 sleep and meditation apps on the same storefront, measured 1–2 September 2026 —
 and recover the same 77% charging behind a free listing and the same €39.99 median highest
-purchase, while the invisible fraction differs (68% against 81%). The dataset remains narrow:
+purchase, while discovery failure is if anything worse (88% of sweep-classified apps absent
+from the single obvious query, against 81%). The dataset remains narrow:
 two categories, one storefront, one platform, a short window. We state this limitation
 prominently and outline the replication programme the findings require, in particular an
 extension to Google Play, whose different search architecture makes it a natural comparison
@@ -341,12 +342,22 @@ yearly subscription (cooking: €599.99). As in the cooking measurement no billi
 inferred and nothing is annualised: the figure is the price of one purchasable item as Apple
 publishes it, and the developer's own label is reported, not converted.
 
-Two differences are worth stating as carefully as the similarities. First, the invisible
-fraction is **lower** here — 68% against 81% — which is what the concentration hypothesis
-predicts: a category anchored by a few dominant products has more of its mass inside the
-queries people actually type. Second, the closure needed four hops rather than two, so the
-category is larger and more diffuse in its tail even though its head is more concentrated.
-Neither difference touches the price result.
+Discovery failure replicates too, and **the prediction we made about it was wrong**. We
+expected a concentrated category to be more discoverable: if recall failure were a symptom of
+fragmentation, a market anchored by a few dominant products should have more of its mass inside
+the queries people actually type. It does not. Measured as in Section 4.1 — absence from the
+single obvious query, over the apps the sweep itself classified — **1,013 of 1,155 (88%)** of
+sleep apps never appear in the results for *schlaf*, against 81% for *rezepte* in cooking
+(*meditation* as the obvious query gives 86%). Measured over the whole closed category, 68% of
+this category is reachable only through the recommendation graph, against 28% in cooking. On
+both measures the concentrated category is **less** discoverable, not more. The closure also
+needed four hops rather than two, so the tail is larger and more diffuse even though the head
+is more concentrated. None of this touches the price result, which replicates exactly.
+
+*These two measures are distinct and we keep them apart deliberately: an earlier version of this
+section compared this category's 68% against cooking's 81% as if they were one measure and drew
+the opposite conclusion. The correction is dated and published in
+`second-category-findings.md`.*
 
 The replication matters more than either category alone. Two categories chosen for structural
 dissimilarity, measured with the same frozen instrument seven weeks apart, return **the same
@@ -366,12 +377,14 @@ removed.** The cooking result no longer stands alone: Section 6 reports the same
 over sleep and meditation apps, a category chosen for structural dissimilarity, returning the
 same 77% charging behind a free listing and the same €39.99 median highest purchase. That
 disposes of the specific objection that cooking is unrepresentative *on the price findings*.
-It does not make the result general. Both categories are consumer-facing, both sit on the same
-storefront, and the recall figures differ substantially between them (81% against 68%), which
-is itself evidence that discovery failure is sensitive to category structure in a way price
-opacity appears not to be. Categories with professional buyers, fewer sellers or stronger
-brands remain unmeasured, and replication across several more — ideally chosen by someone
-other than us — is still the immediate next step.
+It does not make the result general. Both categories are consumer-facing and both sit on the
+same storefront. The recall figures differ between them in the same direction on both measures
+(88% against 81% for the obvious query; 68% against 28% for graph-only reachability), which
+refutes the concentration hypothesis we went in with rather than confirming it, and shows that
+discovery failure varies with category structure in a way price opacity does not. Categories
+with professional buyers, fewer sellers or stronger brands remain unmeasured, and replication
+across several more — ideally chosen by someone other than us — is still the immediate next
+step.
 
 **One storefront and one platform.** All figures come from the German iOS storefront. Search
 behaviour, category vocabulary and price levels differ across countries; more importantly, the
