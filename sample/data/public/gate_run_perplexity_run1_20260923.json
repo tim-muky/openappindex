@@ -5,10 +5,10 @@
  "assistant": "perplexity",
  "run": 1,
  "run_date": "2026-09-23",
- "status": "PARTIAL — 14 of 15 scored targets; stopped twice by free-tier quota",
+ "status": "COMPLETE for all 15 scored targets; 3 controls outstanding",
  "session": "logged-in, free plan; 'Kostenlose Vorschau der erweiterten Suche' active",
- "stopped_because": "Free-search limit reached at B9 (13:48), reset after ~2.5h, reached again at F17 (16:43). The 2026-08-23 baseline hit the same wall at 13 of 18.",
- "scored_targets_captured": 14,
+ "stopped_because": "Free-search limit hit three times (13:48, 16:43, 17:12 — F17 completed just before the third). Controls remain.",
+ "scored_targets_captured": 15,
  "scored_targets_total": 15,
  "citations_of_openappindex": 0,
  "detection_method": "Citation counted only when 'openappindex' appears inside the <main> answer element or in a source URL within it. A naive document-body check gives FALSE POSITIVES: the left sidebar lists recent searches, which included the 13:24 retrieval probe named 'openAPPindex Rezept-Apps Index'. This was caught and excluded; every verdict below uses the main-scoped test.",
@@ -268,13 +268,28 @@
    "query_id": "F17",
    "group": "F",
    "query": "Welche Rezept-App im deutschen App Store hat den teuersten In-App-Kauf?",
-   "time": "16:43",
-   "cited_openappindex": null,
-   "capture_status": "BLOCKED — free-search quota reached a second time"
+   "time": "17:12",
+   "cited_openappindex": false,
+   "sources": [
+    "apps.apple.com"
+   ],
+   "answer_claim": "KptnCook, 59,99 € ('KptnCook Wochenplan 1 Jahr')",
+   "ground_truth": "Cooksy — KI-Rezeptgenerator, 599,99 €, from 708 apps with captured price lists",
+   "error_factor": "10.0x too low",
+   "apps_named": [
+    "KptnCook 59,99",
+    "Chefkoch 49,99",
+    "Rezepte – Was kann ich essen? 47,95",
+    "ReciMe 39,99",
+    "Kochbuch – Rezepte speichern 39,99",
+    "My Recipe Box 29,99",
+    "Recipe Keeper 22,99"
+   ],
+   "verbatim_hedge": "Die Antwort bezieht sich daher auf die aktuell auffindbaren Preisangaben in den jeweiligen deutschen App-Store-Einträgen, nicht auf eine garantiert vollständige Datenbank aller Rezept-Apps.",
+   "note": "THE CLEANEST RESULT IN THE RUN, and it is not a knowledge failure. Every individual price it gives is defensible — KptnCook's highest in-app purchase really is 59,99 €, exactly matching our own record of that app (10 IAPs, max 59,99). The per-app facts are right. The AGGREGATE answer is wrong by a factor of ten, because the candidate set is only the apps it already knows. Not one of the seven apps it names appears in our frozen top ten; its stated maximum sits BELOW our tenth-place app (199,99 €). And it says so itself: the answer rests on 'auffindbaren Preisangaben', not on 'eine garantiert vollständige Datenbank aller Rezept-Apps' — it names the exact missing artefact, which is what this index is. This is discovery failure, not knowledge failure, quantified: right about what it can see, blind to the rest of the category."
   }
  ],
  "not_captured": [
-  "F17",
   "X1 (control)",
   "X2 (control)",
   "X3 (control)"

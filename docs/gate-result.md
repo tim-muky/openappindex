@@ -16,15 +16,16 @@ index when answering real German recipe-app questions. Five weeks after launch t
 that **the question is only askable of one of the three assistants**, because the other two
 retrieve through indexes that have not admitted the site — and that fact, not the citation
 rate, is the first result this experiment produced. Against the one assistant that can answer
-it, **fourteen of the fifteen scored queries returned no citation** (§5a) — and the query that
-asks for the one list this index exists to publish was answered with the claim that no such
-list exists.
+it, **all fifteen scored queries returned no citation** (§5a). The two enumeration queries are
+the ones that matter: one was answered with the claim that no such list exists, the other with
+a figure wrong by a factor of ten and an explicit admission that no complete database was
+consulted.
 
 | Leg | Retrieval index | Pages in that index | Status |
 |---|---|---|---|
 | **ChatGPT** (search mode) | Bing | **1** of ~710 submitted | **INCONCLUSIVE — CRAWLING** |
 | **Claude** (web search on) | Brave | **0** | **INCONCLUSIVE — CRAWLING** |
-| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 14** |
+| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 15** |
 
 For reference, and feeding none of the three: **Google, 647 pages indexed.**
 
@@ -122,13 +123,13 @@ Attempted 2026-09-23. **The free-search quota stopped it at the ninth query**, t
 2026-08-23 baseline hit at 13 of 18. Record:
 `sample/data/public/gate_run_perplexity_run1_20260923.json`.
 
-| Captured | **14 of 15** scored targets (A1–A4, B5–B9, C10–C12, D13, F16) |
+| Captured | **all 15** scored targets |
 |---|---|
 | Cited openappindex.org | **0** |
-| Blocked | F17 and all three controls |
+| Outstanding | the three controls, X1–X3 |
 
-The quota stopped the run twice — at B9 (13:48) and again at F17 (16:43), with a ~2.5 hour
-reset between.
+The quota stopped the run three times — 13:48, 16:43 and 17:12, with ~2.5 hour resets between.
+F17 completed moments before the third.
 
 **This is not a score and §4 does not permit it to be read as one.** The protocol requires the
 identical queries on two runs on different days; this is one partial run. It is recorded because
@@ -184,6 +185,28 @@ reproduce the baseline's findings rather than softening them.
   ersichtlich."*
 - **A query scoped to Germany returned three non-German apps.** C12, *Rezepte sammeln App
   Deutschland*: Paprika, Mela, Recipe Keeper.
+
+**F17 is the cleanest result in the run, and it is not a knowledge failure.** Asked which app
+in the German App Store has the dearest in-app purchase, the answer is **KptnCook at €59.99**.
+The frozen key says **Cooksy — KI-Rezeptgenerator, €599.99**, from 708 apps with captured price
+lists: **wrong by a factor of ten.**
+
+What makes it diagnostic is that the individual facts are *right*. KptnCook's highest in-app
+purchase really is €59.99 — it matches our own record of that app to the cent. Every price in
+the answer is defensible. The aggregate is wrong because the candidate set is only the apps it
+already knows: **not one of the seven apps it names appears in our top ten**, and its stated
+maximum sits below our *tenth*-place app (€199.99).
+
+And it says so itself, unprompted:
+
+> *"Die Antwort bezieht sich daher auf die aktuell auffindbaren Preisangaben in den jeweiligen
+> deutschen App-Store-Einträgen, **nicht auf eine garantiert vollständige Datenbank aller
+> Rezept-Apps**."*
+
+It names the missing artefact. That artefact is this index. Taken with F16 — where the same
+assistant said no such list exists — the pair is the project's thesis stated twice, in the
+assistant's own words, and quantified: **right about what it can see, blind to the rest of the
+category.**
 
 The gap the baseline identified is therefore still open, and this run measures it from the other
 side. Not "the assistant ignored a better source" but something sharper: **it searched for the
