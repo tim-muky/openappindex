@@ -251,6 +251,60 @@ crawl-visibility steps or to score on the backstop as planned is the re-assessme
 not today's. No visibility-affecting step was taken today; queries, thresholds and scoring are
 unchanged.
 
+**Precondition observation added 2026-09-23 — the Google leg clears ≥100, and the homepage is
+not in the index.** Read from Search Console (report last updated 09-18), the day after the
+Bing reading above. **647 pages indexed**, against the ≥100 the preconditions require — so the
+Google side of the third check is met, the first leg to meet it. The sitemap was last read
+2026-09-15 (Success, 710 URLs discovered). Search performance over the whole window since
+launch: 5 web-search clicks.
+
+**75 pages are not indexed, in four groups, and one of them is the homepage.** Three are 404s —
+Landlust, ZauberTopf Magazine and Rezepte pur ePaper, three of the ten press products removed on
+2026-08-31, behaving exactly as that amendment intended. 51 are "Discovered – currently not
+indexed" and 17 "Crawled – currently not indexed", both ordinary for a young domain of this
+size. The remaining four are **"Excluded by 'noindex' tag" — and all four are the same page**:
+the homepage in its four protocol/host variants (`http`/`https` × apex/`www`), last crawled
+21–22 August. URL Inspection on the apex reads "Indexing allowed? **No: 'noindex' detected in
+'robots' meta tag**", from the crawl of **22 August 2026**.
+
+**The tag is gone and has been for some time; the verdict is stale.** Checked the same day: the
+live homepage serves no `robots` meta tag and no `X-Robots-Tag` header, `robots.txt` allows all
+agents, the `www` and `http` variants 308-redirect to the apex, and the canonical is
+self-referential. Search Console's own live test returns **"URL is available to Google — Page
+can be indexed."** The tag never existed in this repository — `git log -S noindex` across all
+history returns nothing — so it was a pre-launch host-level state, not something the build
+emitted. What has kept the homepage out since is that **Googlebot has not re-crawled it in a
+month** while crawling 647 other pages, so the 22-August verdict still stands in the index.
+
+**This is a confound and it must be written into the result.** For the entire indexing
+window the index's front door — the page carrying the headline figures and the links to the
+method page, the manifesto and the working paper — has been absent from Google, the one engine that
+crawled this site properly. A weak or zero citation rate on the Google-backed leg therefore
+cannot be read cleanly as "assistants declined to cite the index": an assistant arriving at the
+domain root found nothing in the index to cite, whatever it would have done with the page.
+Unlike the amendments recorded above, this one does **not** cut in the direction that makes a
+NO-GO stronger; it weakens a NO-GO on this leg specifically, and it applies to the whole window
+rather than from a dated change onward. The per-app and question pages are unaffected — those
+647 are indexed and are what the scored queries actually target — so the gate remains
+scoreable; the qualification attaches to the homepage and to any claim that rests on an
+assistant reaching the site through its root.
+
+**Action taken 2026-09-23, recorded as a visibility step.** Indexing was requested for
+`https://openappindex.org/` through URL Inspection ("URL was added to a priority crawl queue"),
+and "Validate fix" was started on the noindex issue, which asks Google to re-check all four
+variants (**validation started 2026-09-23**). No page content changed and the freeze is
+untouched — this is the same class of step as the 09-09 IndexNow submission and the 09-11 Bing
+requests. Whether the homepage returns to the index before the ~09-29 re-assessment is itself
+evidence: Google has crawled 647 pages here, so unlike the Bing case there is no question of
+whether it is willing to fetch from this domain.
+
+**Standing after both readings.** Google 647 ✓, Bing 1 ✗, Brave 0 ✗ — the precondition requires
+≥100 in Google **and** Bing, so it is still not met and the gate does not yet score. What the
+two days change is which legs can produce a real result: the Google-backed leg is genuinely
+testable at the 10-13 backstop, subject to the homepage qualification above, and the ChatGPT
+(Bing) and Claude (Brave) legs remain **INCONCLUSIVE — CRAWLING**. Queries, thresholds and
+scoring are unchanged.
+
 ---
 
 ## 2. The query set (frozen)
