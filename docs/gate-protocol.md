@@ -211,6 +211,46 @@ A correction is not an improvement withheld by the freeze: leaving a known false
 served index while asking anyone to trust the evidence rules would cost more than the amendment
 does.
 
+**Precondition observation added 2026-09-22 — the explicit indexing requests did not move Bing.**
+Read directly from Bing Webmaster Tools, eleven days after the sixteen URLs were requested on
+09-11 and one week before the ~09-29 re-assessment. Site Explorer still reports **1 indexed
+URL** (the homepage; last crawled 2026-09-11, HTTP 304), 0 errors, 0 warnings, 0 excluded, and
+Search Performance shows 0 impressions and 0 clicks across the whole window — unchanged since
+09-07. Three of the sixteen requested URLs were re-inspected, chosen to cover each kind of page
+in the request: the F17 head (Cooksy, discovered 09-04), one of the four question pages
+(discovered 09-04) and one F16 app page (Das Kochfieber-Kochbuch, discovered **09-11**). All
+three read **"Discovered but not crawled — URL cannot appear on Bing."** The Kochfieber date is
+the request date: that page sits in the submitted sitemap but had never entered Bing's discovery
+set until it was requested by hand, which confirms the partial-discovery limitation recorded on
+09-11 — and it then stalled at the same point as every other page.
+
+**By the criterion set on 09-11, this is the authority reading, not the budget one.** The
+request path works — it creates a discovery record — and Bing still declined to fetch a single
+one of the sixteen in eleven days. The pipeline underneath is healthy and the counts rule out
+a serving fault: the sitemap was re-read on **2026-09-19** (status Success, 710 URLs), and BWT's
+IndexNow report lists four submissions received (709, ~1.4K, 710 and 710 URLs on 09-01, 09-02,
+09-09 and 09-11) with no errors. Nothing on this side is blocking the crawl; Bing is choosing
+not to spend it here.
+
+**Brave, checked the same day:** `site:openappindex.org` on search.brave.com still returns
+"Too few matches were found" — 0 pages, unchanged since 09-09.
+
+**Method note, recorded because it qualifies any future `site:` figure.** The public Bing
+result page is not a usable instrument from this machine: with the `site:` operator it returned
+decoy results to both a browser session and a plain HTTP fetch, and a control query
+(`site:github.com openappindex`) came back as furniture listings. This is anti-automation
+serving, not an index reading. The 09-09 entry already made BWT the authoritative Bing-side
+signal; today's observation is why the `site:` probe should not be cited for Bing at all.
+
+**What this leaves for the ~09-29 re-assessment.** Both non-Google legs stand exactly where the
+09-11 decision left them, and nothing observed today suggests either will cross ≥100 pages by
+09-29 or by the 10-13 backstop through waiting alone. On today's evidence the ChatGPT (Bing) and
+Claude (Brave) legs score **INCONCLUSIVE — CRAWLING** at both dates; the Google leg was not read
+today (Search Console) and stays outstanding. Whether to spend the remaining weeks on
+crawl-visibility steps or to score on the backstop as planned is the re-assessment's decision,
+not today's. No visibility-affecting step was taken today; queries, thresholds and scoring are
+unchanged.
+
 ---
 
 ## 2. The query set (frozen)
