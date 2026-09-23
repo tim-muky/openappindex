@@ -123,13 +123,17 @@ Attempted 2026-09-23. **The free-search quota stopped it at the ninth query**, t
 2026-08-23 baseline hit at 13 of 18. Record:
 `sample/data/public/gate_run_perplexity_run1_20260923.json`.
 
-| Captured | **all 15** scored targets |
+| Captured | **all 18** — 15 scored targets and 3 controls |
 |---|---|
-| Cited openappindex.org | **0** |
-| Outstanding | the three controls, X1–X3 |
+| Scored targets citing openappindex.org | **0 of 15** |
+| Controls citing openappindex.org | **0 of 3** — the correct result |
 
-The quota stopped the run three times — 13:48, 16:43 and 17:12, with ~2.5 hour resets between.
-F17 completed moments before the third.
+Run 1 is **complete**. The free-search quota blocked it six times between 13:44 and 18:40 and
+every query was eventually captured. A citation on a control would have been a *negative*
+finding — being cited for ordinary recipe questions this index does not publish — and none
+occurred: X1 answered from a Bavarian ministry page, X2 from welt.de, X3 from chefkoch.de
+itself. The index is not being cited where it should not be, which is worth as much as the
+scored zeros.
 
 **This is not a score and §4 does not permit it to be read as one.** The protocol requires the
 identical queries on two runs on different days; this is one partial run. It is recorded because

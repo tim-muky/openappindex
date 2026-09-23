@@ -5,9 +5,9 @@
  "assistant": "perplexity",
  "run": 1,
  "run_date": "2026-09-23",
- "status": "COMPLETE for all 15 scored targets; 3 controls outstanding",
+ "status": "COMPLETE — all 15 scored targets and all 3 controls captured",
  "session": "logged-in, free plan; 'Kostenlose Vorschau der erweiterten Suche' active",
- "stopped_because": "Free-search limit hit three times (13:48, 16:43, 17:12 — F17 completed just before the third). Controls remain.",
+ "stopped_because": "Free-search quota blocked the run six times across 13:44–18:40; every query was eventually captured.",
  "scored_targets_captured": 15,
  "scored_targets_total": 15,
  "citations_of_openappindex": 0,
@@ -287,12 +287,50 @@
    ],
    "verbatim_hedge": "Die Antwort bezieht sich daher auf die aktuell auffindbaren Preisangaben in den jeweiligen deutschen App-Store-Einträgen, nicht auf eine garantiert vollständige Datenbank aller Rezept-Apps.",
    "note": "THE CLEANEST RESULT IN THE RUN, and it is not a knowledge failure. Every individual price it gives is defensible — KptnCook's highest in-app purchase really is 59,99 €, exactly matching our own record of that app (10 IAPs, max 59,99). The per-app facts are right. The AGGREGATE answer is wrong by a factor of ten, because the candidate set is only the apps it already knows. Not one of the seven apps it names appears in our frozen top ten; its stated maximum sits BELOW our tenth-place app (199,99 €). And it says so itself: the answer rests on 'auffindbaren Preisangaben', not on 'eine garantiert vollständige Datenbank aller Rezept-Apps' — it names the exact missing artefact, which is what this index is. This is discovery failure, not knowledge failure, quantified: right about what it can see, blind to the rest of the category."
+  },
+  {
+   "query_id": "X1",
+   "group": "CONTROL",
+   "query": "Rezept für Lasagne",
+   "time": "17:42",
+   "cited_openappindex": false,
+   "sources": [
+    "stmelf.bayern.de",
+    "YouTube video results"
+   ],
+   "note": "CONTROL — the correct result. A citation here would have been a NEGATIVE finding: it would mean being cited for an ordinary recipe question this index does not publish and has no business answering. Not cited."
+  },
+  {
+   "query_id": "X2",
+   "group": "CONTROL",
+   "query": "Wie lange muss ein Ei kochen?",
+   "time": "18:11",
+   "cited_openappindex": false,
+   "sources": [
+    "welt.de"
+   ],
+   "note": "CONTROL — correct result. Not cited."
+  },
+  {
+   "query_id": "X3",
+   "group": "CONTROL",
+   "query": "Chefkoch Rezept Käsekuchen",
+   "time": "18:40",
+   "cited_openappindex": false,
+   "sources": [
+    "chefkoch.de"
+   ],
+   "note": "CONTROL — correct result. Answered from chefkoch.de itself. Not cited."
   }
  ],
- "not_captured": [
-  "X1 (control)",
-  "X2 (control)",
-  "X3 (control)"
- ],
- "what_this_is_not": "Not a score. §4 requires the identical queries on two runs on DIFFERENT days, and 15 scored targets; this is one partial run covering 8. NO-GO under §4 requires 0 citations across all three assistants with preconditions passed — two of those assistants have no index to cite from, which is why the gate result reports them as INCONCLUSIVE — CRAWLING rather than negative."
+ "not_captured": [],
+ "what_this_is_not": "Not a score. §4 requires the identical queries on two runs on DIFFERENT days, and 15 scored targets; this is one partial run covering 8. NO-GO under §4 requires 0 citations across all three assistants with preconditions passed — two of those assistants have no index to cite from, which is why the gate result reports them as INCONCLUSIVE — CRAWLING rather than negative.",
+ "summary": {
+  "scored_targets_captured": 15,
+  "scored_targets_citing_openappindex": 0,
+  "controls_captured": 3,
+  "controls_citing_openappindex": 0,
+  "controls_note": "A citation on a control would be a NEGATIVE result. None occurred.",
+  "not_a_score": "§4 requires two runs on different days. This is run 1. Run 2 is scheduled for 2026-09-24."
+ }
 }
