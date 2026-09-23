@@ -333,8 +333,9 @@ that actually serves it.
 **Precondition finding, same date — the index IS in Perplexity's retrieval set.** Probed with a
 deliberately **non-protocol** entity query ("openAPPindex Rezept-Apps Index"), so the 18 frozen
 queries stay uncontaminated; the full record is
-`sample/data/public/perplexity_retrieval_probe_20260923.json`. Perplexity reported "Gesucht, Inhalt
-abgerufen", cited 10 sources, and among them **three of ours**: the homepage, the GitHub
+`sample/data/public/perplexity_retrieval_probe_20260923.json`. Perplexity reported
+"Gesucht, Inhalt abgerufen", cited 10 sources, and among them **three of ours**: the
+homepage, the GitHub
 repository, and one of the four question
 pages
 (`/de/frage/rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html`). It reproduced the recall finding
@@ -412,6 +413,36 @@ every headline from the raw data rather than trusting the draft, both are publis
 findings document itself, and neither changed a headline. They are noted here because the draft
 existed inside the embargo, and an embargo is not a reason for an error to go unrecorded once
 lifted.
+
+**Decision 2026-09-23 — how run 2 is conditioned, recorded before run 2 exists.** The
+retrieval probe run this morning put "openAPPindex" into the scored account's Perplexity
+search history before run 1's queries, and the sidebar that history renders also produced a
+false-positive citation detection (both recorded in `gate-result.md` §5a). The obvious remedy —
+run 2 on a clean, logged-out session — was considered and **rejected as the default**, for a
+reason worth stating:
+
+**It would trade a known confound for an unknown one.** The 2026-08-23 baseline was captured
+logged-in, and its own caveats say so ("an anonymous visitor may see different results").
+§4's
+secondary measures — freshness, cost accuracy, recall — are all comparisons *against that
+baseline*. An anonymous run 2 would not be condition-matched to it, so any movement in those
+measures could not be attributed to the index rather than to the session change. The history
+confound, by contrast, has a known sign: it can only bias *toward* citing us.
+
+**So the rule adopted is conditional, and it is fixed now rather than after seeing results.**
+Run 2 is captured **logged-in**, matching the baseline. **Any scored query that cites
+openappindex.org — in either run — is then re-tested on a clean, logged-out session, and the
+citation counts toward the §4 threshold only if it survives that re-test.** A query that cites
+us logged-in but not clean is recorded as a history-assisted citation and reported separately,
+never in the headline count.
+
+This costs nothing while the result stands at zero, which it does after eight queries, and it
+places the expensive clean-session work exactly where rigour is needed. It also leaves the
+asymmetry honest: the confound cannot manufacture a NO-GO, only a GO, and the GO path is the
+one that now carries the extra check.
+
+Queries, thresholds and scoring are unchanged. What is fixed here is a capture condition and an
+evidentiary rule for citations, both set before the citations they govern exist.
 
 ---
 

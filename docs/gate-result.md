@@ -172,6 +172,11 @@ that answers the question, and answered anyway".
 - **Finish scoring the Perplexity leg.** Run 1 covered 8 of 15 before the quota stopped it
   (§5a); it needs completing and then repeating on a different day, per §4. On the free tier
   that is roughly four sittings. Zero citations so far, from eight.
+- **Run 2 is captured logged-in**, matching the baseline's condition, under the rule fixed in
+  the protocol on 2026-09-23: any query that cites openappindex.org is re-tested on a clean,
+  logged-out session, and counts toward the §4 threshold only if the citation survives. A
+  citation that does not survive is reported separately as history-assisted, never in the
+  headline count.
 - **The homepage re-crawl in Google** — indexing requested and "Validate fix" started
   2026-09-23; outcome pending.
 - **Bing and Brave** — no action available that has not already been taken four times. These
