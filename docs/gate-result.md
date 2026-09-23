@@ -15,13 +15,15 @@ The gate asked whether search-augmented assistants would fetch and cite an indep
 index when answering real German recipe-app questions. Five weeks after launch the answer is
 that **the question is only askable of one of the three assistants**, because the other two
 retrieve through indexes that have not admitted the site — and that fact, not the citation
-rate, is the first result this experiment produced.
+rate, is the first result this experiment produced. Against the one assistant that can answer
+it, the first eight scored queries returned **no citation** (§5a), on a run the free-tier quota
+cut short.
 
 | Leg | Retrieval index | Pages in that index | Status |
 |---|---|---|---|
 | **ChatGPT** (search mode) | Bing | **1** of ~710 submitted | **INCONCLUSIVE — CRAWLING** |
 | **Claude** (web search on) | Brave | **0** | **INCONCLUSIVE — CRAWLING** |
-| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — unscored** |
+| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 8** |
 
 For reference, and feeding none of the three: **Google, 647 pages indexed.**
 
