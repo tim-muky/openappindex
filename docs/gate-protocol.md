@@ -6,8 +6,11 @@ experiment is worthless — and a funder who asks "when did you decide what coun
 success?" will spot that immediately.
 
 **Status:** thresholds and queries frozen as of 2026-08-21. Amended 2026-08-23 (query
-weighting) and twice on 2026-08-31 (the index changed: snippets/structured data, then ten
-non-cooking apps removed) — all dated, all before scoring.
+weighting), twice on 2026-08-31 (the index changed: snippets/structured data, then ten
+non-cooking apps removed), on 2026-09-11 (a false price corrected in the served index) and on
+2026-09-23 (the second category published in the repository) — all dated, all before scoring.
+A standing write-up of where each leg stands is kept in `gate-result.md`; this document holds
+the frozen thresholds and is authoritative where the two differ.
 
 **AMENDED 2026-08-23, with reason, before any post-launch run.** The baseline (19 responses,
 see `openappindex-assistant-baseline-report.md`) showed the query set was mis-weighted:
@@ -278,10 +281,11 @@ month** while crawling 647 other pages, so the 22-August verdict still stands in
 
 **This is a confound and it must be written into the result.** For the entire indexing
 window the index's front door — the page carrying the headline figures and the links to the
-method page, the manifesto and the working paper — has been absent from Google, the one engine that
-crawled this site properly. A weak or zero citation rate on the Google-backed leg therefore
-cannot be read cleanly as "assistants declined to cite the index": an assistant arriving at the
-domain root found nothing in the index to cite, whatever it would have done with the page.
+method page, the manifesto and the working paper — has been absent from Google, the one engine
+that crawled this site properly. Any assistant that reaches the web through Google therefore
+found nothing at the domain root to cite, whatever it would have done with the page.
+*(Corrected 2026-09-23 — this paragraph first read "the Google-backed leg", which is wrong;
+see the correction below. None of the three scored assistants retrieves through Google.)*
 Unlike the amendments recorded above, this one does **not** cut in the direction that makes a
 NO-GO stronger; it weakens a NO-GO on this leg specifically, and it applies to the whole window
 rather than from a dated change onward. The per-app and question pages are unaffected — those
@@ -299,11 +303,115 @@ evidence: Google has crawled 647 pages here, so unlike the Bing case there is no
 whether it is willing to fetch from this domain.
 
 **Standing after both readings.** Google 647 ✓, Bing 1 ✗, Brave 0 ✗ — the precondition requires
-≥100 in Google **and** Bing, so it is still not met and the gate does not yet score. What the
-two days change is which legs can produce a real result: the Google-backed leg is genuinely
-testable at the 10-13 backstop, subject to the homepage qualification above, and the ChatGPT
+≥100 in Google **and** Bing, so it is still not met and the gate does not yet score. The ChatGPT
 (Bing) and Claude (Brave) legs remain **INCONCLUSIVE — CRAWLING**. Queries, thresholds and
-scoring are unchanged.
+scoring are unchanged. *(This paragraph originally continued "the Google-backed leg is genuinely
+testable at the 10-13 backstop"; that clause was wrong and is corrected below, dated
+2026-09-23.)*
+
+**CORRECTION 2026-09-23 — "the Google-backed leg" was wrong, and the preconditions monitor the
+wrong indexes.** The observation recorded yesterday twice referred to a "Google-backed leg" that
+would be testable at the backstop. There is no such leg. The three scored assistants are
+Perplexity, ChatGPT (search mode) and Claude (web search on); **none of them retrieves
+through Google.** ChatGPT searches through Bing and Claude through Brave, both recorded on
+09-09, and Perplexity operates its own crawler and index, which this protocol has never named
+or monitored.
+The two sentences are struck above rather than deleted, per the rule this project applies to
+every other error it has published.
+
+**The mis-specification is older than the sentence, and it is the more important half.** The
+precondition at the top of §1 requires "≥ 100 pages in Google **and** ≥ 100 in Bing". Those are
+the two indexes the gate has measured since 08-21 — but Google feeds none of the three scored
+assistants, and the indexes that do feed them are Bing (one leg), Brave (one leg, added as an
+observation only on 09-09) and Perplexity's own (never checked at all). So the 647-page Google
+result, which yesterday's entry treated as the first leg to clear the bar, clears a bar that no
+scored assistant stands behind. The gate has been watching the wrong instrument for a month.
+This is recorded as a fault in the protocol, not repaired by rewriting it: the preconditions
+stay frozen in their original wording, and the scoring writes up each leg against the index
+that actually serves it.
+
+**Precondition finding, same date — the index IS in Perplexity's retrieval set.** Probed with a
+deliberately **non-protocol** entity query ("openAPPindex Rezept-Apps Index"), so the 18 frozen
+queries stay uncontaminated; the full record is
+`sample/data/public/perplexity_retrieval_probe_20260923.json`. Perplexity reported "Gesucht, Inhalt
+abgerufen", cited 10 sources, and among them **three of ours**: the homepage, the GitHub
+repository, and one of the four question
+pages
+(`/de/frage/rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html`). It reproduced the recall finding
+(81%, 579 of 715), the 14% single-query coverage, the €39.99 median and the €599.99 maximum,
+all correct against the served index.
+
+**So the third leg is not blocked — it is live, and it was never blocked.** Note what this
+costs the neat version of the story: the homepage Perplexity retrieved is the same page Google
+has excluded as `noindex` since 22 August. An engine running its own crawler reached content
+that the engine with 647 of our pages does not hold. The barrier recorded on 09-11 and 09-22 is
+real for Bing and Brave and it is **not** universal — which makes it a statement about how
+particular engines allocate crawl to a new domain, not about the open web as such. Any write-up
+must say so.
+
+**One figure came back stale, and it is the one we corrected.** Perplexity told the probe that
+**706 of 916** free-listed apps charge through in-app purchases. The served index has published
+**697 of 907** since 2026-08-31, when ten press products were removed; both `README.md` and the
+landing page carried the old pair until commit `573263c` that day and neither carries it now. No
+live page serves 706 of 916 today. Perplexity's copy of us therefore predates the correction by
+at least 23 days, and the number it attributes to us is precisely the number we published a
+dated correction to retract.
+
+**That is a finding this project should publish against itself.** The index exists because
+stale and wrong facts about apps propagate unchecked; here an assistant propagated *our*
+superseded figure, sourced to us, three weeks after we corrected it. An open index that
+publishes errata has no mechanism to pull a retracted number out of an assistant's cache, and a
+correction notice written for human readers ("697 of 907 **instead of** 706 of 916") is a
+machine-readable statement of the wrong number sitting next to the right one. It also sharpens
+§4's "hollow GO": being cited is not the finding, being cited *currently* is. What to do about
+it — dated JSON-LD on corrections, a machine-readable errata feed, `dateModified` discipline —
+is design work for after the gate, recorded here so the observation is not lost.
+
+**What this does to the gate.** It does not score it and it does not end it. The Perplexity leg
+now has a met precondition in substance, so the 15 scored queries can be run against it and
+produce a real GO / WEAK / NO-GO for that leg — which is the experiment this protocol was
+written for, and it has been runnable for longer than we knew. The entity probe above is
+explicitly *not* evidence for that: group D was de-weighted on 08-23 because assistants already
+answer entity lookups, and naming the project in the query is the easiest case there is.
+Whether Perplexity cites the index for "Welche Rezept-App wird noch aktiv gepflegt?" is
+unmeasured. Queries, thresholds and scoring are unchanged.
+
+**AMENDED 2026-09-23 (fifth amendment) — the second category is published in the repository,
+and the repository is a cited surface.**
+
+The sleep/meditation measurement has been under embargo since 2026-09-01 under a rule that tied
+publication to the gate closing on 2026-09-15 — a date dropped on 09-11. The embargo has
+therefore had no end condition for twelve days. It is lifted today by dated decision: the
+finding is published as `docs/second-category-findings.md` and as §6 of
+`docs/working-paper.md`, with the abstract and the "one category" limitation rewritten to match.
+
+**This is recorded as an amendment because the repository is not a neutral surface.** The
+retrieval probe run the same day found Perplexity citing `github.com/tim-muky/openappindex`
+alongside two openappindex.org pages. Publishing here therefore changes something at least one
+scored assistant reads, and the change cannot be treated as invisible to the experiment merely
+because it is not on the served domain.
+
+**What did and did not change.** The served index — openappindex.org — is **unchanged**: no app
+page, question page, figure or claim on the site has moved, and the 3,578 sleep apps are **not**
+deployed as pages. That restraint is deliberate and not only about the freeze: adding several
+thousand near-identical app pages to a domain that Bing is already declining to crawl is the
+most reliable way to convert a crawl-budget problem into a content-quality one. What changed is
+the repository's documentation.
+
+**Attribution.** The direction is the familiar one: an assistant reading the repository from
+today sees a stronger evidence base than the one the indexing clock started on, so a **GO**
+becomes the weaker reading and a **NO-GO** the stronger. Any citation must be dated against
+2026-09-23 as well as against 2026-08-31. Queries, thresholds and scoring are unchanged, and
+this is recorded before the Perplexity leg — the one leg that can still be scored — has been
+run.
+
+**Two figures were corrected in the course of publishing, before anything was served.** The
+September draft gave the largest single in-app purchase as €999.99 (it is **€1,199.99**) and the
+cooking free-listed share as 92% (it is **96%**, 907 of 941). Both were caught by recomputing
+every headline from the raw data rather than trusting the draft, both are published in the
+findings document itself, and neither changed a headline. They are noted here because the draft
+existed inside the embargo, and an embargo is not a reason for an error to go unrecorded once
+lifted.
 
 ---
 

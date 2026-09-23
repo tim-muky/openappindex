@@ -1,0 +1,32 @@
+{
+  "probe": "perplexity-retrieval-precondition",
+  "purpose": "Establish whether openappindex.org is present in Perplexity's retrieval set. This is a PRECONDITION probe, not a gate scoring run: the query is deliberately NOT one of the 18 frozen protocol queries, so the scored set stays uncontaminated.",
+  "protocol": "docs/gate-protocol.md",
+  "captured_at": "2026-09-23T13:24+02:00",
+  "assistant": "perplexity",
+  "session": "logged-in (free plan; 'Kostenlose Vorschau der erweiterten Suche' active)",
+  "query_verbatim": "openAPPindex Rezept-Apps Index",
+  "query_is_protocol_query": false,
+  "retrieved": true,
+  "retrieval_note": "UI reported 'Gesucht, Inhalt abgerufen' (searched, content fetched) after 5s.",
+  "openappindex_urls_cited": [
+    "https://openappindex.org/",
+    "https://github.com/tim-muky/openappindex",
+    "https://openappindex.org/de/frage/rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html"
+  ],
+  "total_sources_reported": 10,
+  "figures_attributed_to_us": {
+    "recall": "81% / 579 von 715  -- CURRENT, matches the served index",
+    "best_single_query_coverage": "14%  -- CURRENT",
+    "free_listed_but_charging": "706 von 916  -- SUPERSEDED. The served index has published 697 of 907 since 2026-08-31.",
+    "median_highest_iap": "39,99 EUR  -- CURRENT",
+    "max_single_iap": "599,99 EUR  -- CURRENT"
+  },
+  "staleness_finding": "The free-listed-but-charging figure Perplexity attributes to us is the pre-correction basis, superseded by the 2026-08-31 amendment (ten press products removed; 951 -> 941 apps). Both README.md and the landing page carried 706 of 916 until commit 573263c on 2026-08-31; neither does now. No live page serves that pair today. Perplexity's copy therefore predates 2026-08-31 by at least 23 days.",
+  "significance": [
+    "The homepage is in Perplexity's retrieval set although Google has excluded it as noindex since 22 August -- Perplexity's own crawler reached what Google's index does not hold.",
+    "A question page (one of the four) was retrieved, not only the root.",
+    "Being cited is not the same as being cited CURRENTLY: an index that publishes dated corrections has no mechanism to retract a superseded figure from an assistant's cache."
+  ],
+  "what_this_is_not": "Not a gate score. The entity-style probe used here is the easiest possible case and group D (entity lookups) was de-weighted on 2026-08-23 precisely because assistants already handle it. Whether Perplexity cites the index for the 15 scored, generic queries is unmeasured and remains the experiment."
+}

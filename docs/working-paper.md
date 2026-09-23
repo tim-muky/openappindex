@@ -27,10 +27,14 @@ listed as free (German „Gratis") charge for use through in-app purchases, with
 purchase of €39.99. We relate these observations to the literatures on consumer search,
 shrouded prices and platform gatekeeping, and argue that they are consistent with a structural
 account in which the operators of distribution and advertising jointly profit from low market
-transparency. The dataset is narrow: one category, one storefront, one platform, a two-week
-window. We state this limitation prominently and outline the replication programme the findings
-require, in particular an extension to Google Play, whose different search architecture makes it
-a natural comparison case.
+transparency. We then replicate the price measurement on a second, structurally dissimilar
+category — 3,578 sleep and meditation apps on the same storefront, measured 1–2 September 2026 —
+and recover the same 77% charging behind a free listing and the same €39.99 median highest
+purchase, while the invisible fraction differs (68% against 81%). The dataset remains narrow:
+two categories, one storefront, one platform, a short window. We state this limitation
+prominently and outline the replication programme the findings require, in particular an
+extension to Google Play, whose different search architecture makes it a natural comparison
+case.
 
 ---
 
@@ -305,16 +309,69 @@ Valletti (2022) describe the welfare consequences of exactly this configuration.
 this section is interpretation; the measurements in Section 4 stand independently of it, and
 alternative readings are discussed below.
 
-## 6. Limitations and the required broadening of the dataset
+## 6. A second category: sleep and meditation
+
+The measurements above concern one category, and the obvious objection is that cooking apps
+might be special. To test this we repeated the entire pipeline on a second, deliberately
+dissimilar category on the same German iOS storefront: sleep and meditation apps, measured 1–2
+September 2026. Where the recipe market is fragmented, this one is anchored by a few large
+subscription products; if low transparency were a symptom of fragmentation it should weaken
+here. The protocol — seed queries and classification rules frozen before counting, every later
+rule change dated with the error class that motivated it — is published alongside the cooking
+protocol, as are all scripts. Classification again surfaced category-specific homonym traps
+(German *wickel* inside *entwickelt*; English *slim* inside *Muslim*), each recorded and
+word-bounded on the day it was found.
+
+A 25-query German sweep returned 1,766 distinct apps, of which 1,155 remain after
+classification. Four hops over Apple's own similar-apps recommendation graph, each hop's finds
+classified on full descriptions under identical rules, added a further 1,188, 739, 366 and 130
+category apps — apps that appear in no result of any of the 25 queries. The classified category
+therefore holds **at least 3,578 apps, of which 2,423 (68%) never appeared in any query of the
+sweep**. The hop deltas shrink at a steepening rate (ratios 0.62, 0.49, 0.36), so the closure
+converges geometrically towards a ceiling near 3,650 — unlike the cooking graph, which hop 2
+effectively closed, but a bounded process in both cases.
+
+Price opacity replicates in near-identical form. Of the 3,578 apps, **3,417 (96%) are listed as
+free** (German *Gratis*). Product pages could be read for 3,351 of them; 66 are recorded as not
+collected and are excluded from the percentages rather than assumed either way. **Of those
+3,351, 77% charge for use through in-app purchases — the same share as in cooking — with a
+median highest single purchase of €39.99, to the cent the cooking median.** The largest single
+purchase found behind the word *Gratis* is **€1,199.99**, for an item the developer labels a
+yearly subscription (cooking: €599.99). As in the cooking measurement no billing periods are
+inferred and nothing is annualised: the figure is the price of one purchasable item as Apple
+publishes it, and the developer's own label is reported, not converted.
+
+Two differences are worth stating as carefully as the similarities. First, the invisible
+fraction is **lower** here — 68% against 81% — which is what the concentration hypothesis
+predicts: a category anchored by a few dominant products has more of its mass inside the
+queries people actually type. Second, the closure needed four hops rather than two, so the
+category is larger and more diffuse in its tail even though its head is more concentrated.
+Neither difference touches the price result.
+
+The replication matters more than either category alone. Two categories chosen for structural
+dissimilarity, measured with the same frozen instrument seven weeks apart, return **the same
+77% and the same €39.99 median**. That is the point at which "cooking apps may be
+unrepresentative" stops being the live objection and price opacity starts looking like a
+property of how the store labels products rather than of any one market within it. It is two
+categories, not twenty, and we claim no more than that; the honest reading is that the first
+attempted refutation of the cooking result failed to refute it.
+
+## 7. Limitations and the required broadening of the dataset
 
 The dataset behind this paper is deliberately deep and correspondingly narrow, and we regard the
 following limitations as binding until replication removes them.
 
-**One category.** Cooking apps may be unrepresentative: the category is old, crowded and
-consumer-facing. Categories with professional buyers, fewer sellers or stronger brands may show
-different recall and price structures. The measurement instruments are category-agnostic and
-replication across at least several structurally different categories is the immediate next
-step.
+**Two categories — the first replication is in, the limitation is narrowed rather than
+removed.** The cooking result no longer stands alone: Section 6 reports the same pipeline run
+over sleep and meditation apps, a category chosen for structural dissimilarity, returning the
+same 77% charging behind a free listing and the same €39.99 median highest purchase. That
+disposes of the specific objection that cooking is unrepresentative *on the price findings*.
+It does not make the result general. Both categories are consumer-facing, both sit on the same
+storefront, and the recall figures differ substantially between them (81% against 68%), which
+is itself evidence that discovery failure is sensitive to category structure in a way price
+opacity appears not to be. Categories with professional buyers, fewer sellers or stronger
+brands remain unmeasured, and replication across several more — ideally chosen by someone
+other than us — is still the immediate next step.
 
 **One storefront and one platform.** All figures come from the German iOS storefront. Search
 behaviour, category vocabulary and price levels differ across countries; more importantly, the
@@ -361,7 +418,7 @@ Murphy 1993), although a paid slot above organic results the same firm ranks fit
 case better. Deciding among these accounts requires the broader dataset described above, and
 ideally operator data that external researchers currently cannot obtain.
 
-## 7. Conclusion
+## 8. Conclusion
 
 In the one corner of the mobile software market we measured completely, the two informational
 preconditions of an efficient market fail together: most of the supply is invisible to search,
