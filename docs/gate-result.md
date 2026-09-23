@@ -16,14 +16,15 @@ index when answering real German recipe-app questions. Five weeks after launch t
 that **the question is only askable of one of the three assistants**, because the other two
 retrieve through indexes that have not admitted the site — and that fact, not the citation
 rate, is the first result this experiment produced. Against the one assistant that can answer
-it, the first eight scored queries returned **no citation** (§5a), on a run the free-tier quota
-cut short.
+it, **fourteen of the fifteen scored queries returned no citation** (§5a) — and the query that
+asks for the one list this index exists to publish was answered with the claim that no such
+list exists.
 
 | Leg | Retrieval index | Pages in that index | Status |
 |---|---|---|---|
 | **ChatGPT** (search mode) | Bing | **1** of ~710 submitted | **INCONCLUSIVE — CRAWLING** |
 | **Claude** (web search on) | Brave | **0** | **INCONCLUSIVE — CRAWLING** |
-| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 8** |
+| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 14** |
 
 For reference, and feeding none of the three: **Google, 647 pages indexed.**
 
@@ -121,10 +122,13 @@ Attempted 2026-09-23. **The free-search quota stopped it at the ninth query**, t
 2026-08-23 baseline hit at 13 of 18. Record:
 `sample/data/public/gate_run_perplexity_run1_20260923.json`.
 
-| Captured | 8 of 15 scored targets (A1–A4, B5–B8) |
+| Captured | **14 of 15** scored targets (A1–A4, B5–B9, C10–C12, D13, F16) |
 |---|---|
 | Cited openappindex.org | **0** |
-| Blocked | B9, C10–C12, D13, F16, F17 and all three controls |
+| Blocked | F17 and all three controls |
+
+The quota stopped the run twice — at B9 (13:48) and again at F17 (16:43), with a ~2.5 hour
+reset between.
 
 **This is not a score and §4 does not permit it to be read as one.** The protocol requires the
 identical queries on two runs on different days; this is one partial run. It is recorded because
@@ -141,7 +145,7 @@ before the scored queries ran. If Perplexity personalises on history it can only
 citing us — so a zero result is unaffected, and any future positive on this account must be
 discounted or re-run on a clean session.
 
-### What the eight answers show even without a citation
+### What the fourteen answers show even without a citation
 
 The secondary questions in §4 turn out to be answerable from a zero-citation run, and they
 reproduce the baseline's findings rather than softening them.
@@ -163,9 +167,29 @@ reproduce the baseline's findings rather than softening them.
   this in the 2026-08-23 baseline. Thirteen months of model improvement later, the same question
   returns the same class of answer.
 
+- **And then it said the thing does not exist.** F16 asks for a list of recipe apps unchanged
+  for over two years. After searching for thirteen seconds the answer opens: *"Eine zentrale,
+  offizielle 'Liste von Rezept-Apps, die seit über zwei Jahren kein Update bekommen haben' gibt
+  es nicht – solche Informationen sind über die App-Stores verstreut und werden selten
+  redaktionell zusammengefasst."* **That list exists.** `gate_ground_truth.json` holds 96 such
+  apps, derived from 951, with zero missing release dates, and the site serves it as a question
+  page. Having declared it nonexistent, the answer was assembled from blog posts and named five
+  apps that are overwhelmingly US products — Pepperplate, Yummly, PlateJoy, Allrecipes — none a
+  German App Store stale app of the kind asked for. Our own oldest is *Welt Rezepte – Kochen
+  World Gourmet*, last updated 2015-01-30, **11.6 years** ago.
+- **B9 names expensive apps it knows, not the expensive apps that exist.** Its dearest example
+  is Samsung Food at €69.99/yr, against a ground-truth maximum of **€599.99** across 708 apps
+  with captured price lists. It also hedges precisely where our no-annualising rule bites: for
+  ReciMe, *"der genaue Zeitraum ist aus der Store-Auflistung nicht immer eindeutig
+  ersichtlich."*
+- **A query scoped to Germany returned three non-German apps.** C12, *Rezepte sammeln App
+  Deutschland*: Paprika, Mela, Recipe Keeper.
+
 The gap the baseline identified is therefore still open, and this run measures it from the other
-side: not "the assistant ignored a better source" but "the assistant searched, found no source
-that answers the question, and answered anyway".
+side. Not "the assistant ignored a better source" but something sharper: **it searched for the
+answer, concluded no such source exists, said so, and answered from blogs anyway** — while the
+source it described as nonexistent was live, machine-readable, and indexed by the very engine
+it was querying.
 
 ## 6. What is still open
 
