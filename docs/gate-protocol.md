@@ -444,6 +444,87 @@ one that now carries the extra check.
 Queries, thresholds and scoring are unchanged. What is fixed here is a capture condition and an
 evidentiary rule for citations, both set before the citations they govern exist.
 
+**Precondition re-assessment 2026-09-29 — the date set on 09-11.** Read from Bing Webmaster Tools
+and Search Console directly. Brave was read through its public result page, which is the only
+instrument it offers.
+
+**Bing moved without being pushed: 1 → 16 indexed URLs.** Site Explorer now reports **16
+indexed**, 0 errors, 0 warnings, 0 excluded. The 16 are the homepage (last crawled 21 September),
+**fourteen app pages** (crawled 17–23 September) and **one question page**,
+`rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html` (crawled 18 September). That is the page
+Perplexity cited on 09-23. URL Inspection on one of the fourteen (Miso Cook) reads "Indexed
+successfully — URL can appear on Bing". Search Performance shows the site's first Bing
+impressions: 4, all on 2026-09-23, 0 clicks. The last Bing-side steps were the IndexNow
+submission and the hand requests, both on 09-11. Nothing has been submitted to Bing since.
+
+**The requests of 09-11 did not do it.** None of the fourteen indexed app pages is among the
+twelve requested by hand: none of their IDs appears in `gate_ground_truth.json`, which the
+twelve were drawn from. Re-inspected today, the F17 head (Cooksy) and the F16 app page (Das
+Kochfieber-Kochbuch) still read "Discovered but not crawled", as do the other three question
+pages. Of the sixteen requested URLs, one is indexed, and nothing shows the request caused it.
+BWT's own top recommendation for the site reads *"Your site does not have enough inbound links
+from high quality domains."* That is the authority reading recorded on 09-22, now in Bing's
+own words.
+
+**CORRECTION — the 09-22 entry read a report that lagged by several days.** It said Bing
+"declined to fetch a single one of the sixteen in eleven days". Today's Site Explorer dates the
+crawl of the question page above to **18 September**, and eleven of the app pages to 17–20
+September. All of those dates are before the 09-22 reading, which showed 1. The requested
+question page had therefore been crawled four days before that sentence was written. The report
+had not caught up, and the entry treated the report as current. Site Explorer readings are
+dated from now on by crawl date, not by reading date. A second point cannot be resolved:
+today's inspection gives Das Kochfieber-Kochbuch **"Discovered on 04 Sept 2026"**. The 09-22
+entry recorded 09-11 and inferred from it that the page had entered Bing's discovery set only
+when requested. Today's reading does not support that inference, and there is no way to tell
+whether BWT revised the date or 09-22 misread it. The partial-discovery limitation of 09-11
+still stands on its own reading, a sitemap URL that read "Not discovered".
+
+**The Bing leg still does not meet the precondition.** 16 is not ≥ 100. At the observed rate,
+15 URLs crawled between 17 and 23 September, the bar is not reached by the 10-13 backstop. The
+ChatGPT leg stays **INCONCLUSIVE — CRAWLING**. What changed is the description: the leg is
+crawling slowly, not blocked. §6 of `gate-result.md` said no action was left. That remains true
+of our actions, but not of Bing's.
+
+For reference only, since Microsoft Copilot is not a scored assistant: BWT's AI Performance
+report shows **0 citations** in Copilot and partner answers, 26 August to 27 September.
+
+**Brave: unchanged at 0.** `site:openappindex.org` returns "too few matches". A plain search for
+*openappindex* is auto-corrected to "openai index". With the correction switched off, the top
+result is `github.com/tim-muky/openappindex`, so the repository is the only surface of this
+project that Brave holds. The Claude leg stays **INCONCLUSIVE — CRAWLING**.
+
+**Google: the homepage is back, and the question pages are not in the index.** URL Inspection
+on `https://openappindex.org/` now reads "URL is on Google — Page is indexed". Its last crawl was
+**23 September 2026, 12:05** (Googlebot smartphone), the day indexing was requested. Indexing is
+allowed and the declared canonical is the page itself. The confound recorded on 09-23 therefore
+has an end date: the homepage was absent from Google from the 22 August crawl until 23 September.
+
+The Pages report is dated **21 September**, before that re-crawl, and still lists the four
+`noindex` variants, with validation "Started". It shows **625 indexed**, against 647 in the
+report read on 09-23, which was dated 09-18. Not indexed is 97: 3 × 404, the 4 `noindex`
+variants, 51 "Discovered – currently not indexed", and **39 "Crawled – currently not indexed",
+up from 17**. The total is
+722 both times, so the net movement is 22 pages from indexed to crawled-and-not-indexed.
+
+**Those 39 include two of the four question pages.** One is `welche-rezept-app-wird-noch-gepflegt.html`,
+whose title is query A1 verbatim; it was last crawled 10 September. The other is
+`rezept-apps-lange-nicht-aktualisiert.html`, the page that serves the F16 answer; it was last
+crawled 7 September. The method page (6 September) and the Impressum (25 August) are also in the
+group. The other two question pages read **"URL is unknown to Google"**, although both are in the
+live sitemap, return 200, and declare themselves canonical. So **none of the four question pages
+is in Google's index**. Google's label gives no reason. It is not the Bing situation: Google
+fetched two of these pages and declined to keep them.
+
+Google feeds none of the three scored assistants, as corrected on 09-23, so this does not move
+the gate. It qualifies §2 of `gate-result.md`, which argues from Bing's side that the pages
+cannot have been judged thin because they were never fetched. That holds for Bing. It does not
+hold for the one engine that did fetch the question pages.
+
+**Standing after the re-assessment.** Google 625 ✓. Bing **16** ✗, and moving. Brave 0 ✗. The
+precondition, ≥ 100 in Google **and** Bing, is still not met, so the gate does not score. The
+six-week floor is 2026-10-05 and the backstop 2026-10-13, both unchanged. No visibility-affecting
+step was taken today, including indexing requests. Queries, thresholds and scoring are unchanged.
+
 ---
 
 ## 2. The query set (frozen)

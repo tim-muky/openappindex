@@ -1,6 +1,6 @@
 # GO/NO-GO gate — standing result
 
-**GAL-518 · written 2026-09-23, run 2 added 2026-09-29 · protocol: [`gate-protocol.md`](gate-protocol.md)**
+**GAL-518 · written 2026-09-23, run 2 added 2026-09-29, indexation re-assessed 2026-09-29 · protocol: [`gate-protocol.md`](gate-protocol.md)**
 
 **This is a standing result, not the final verdict.** Two of the three legs are terminally
 blocked and are reported here as such. The third turned out to be live, and scoring it is the
@@ -14,7 +14,8 @@ scoring rule; all of those were frozen on 2026-08-21 and have never moved.
 The gate asked whether search-augmented assistants would fetch and cite an independent app
 index when answering real German recipe-app questions. Five weeks after launch the answer is
 that **the question is only askable of one of the three assistants**, because the other two
-retrieve through indexes that have not admitted the site — and that fact, not the citation
+retrieve through indexes that hold almost none of the site (Bing 16 pages, Brave 0, on
+2026-09-29) — and that fact, not the citation
 rate, is the first result this experiment produced. Against the one assistant that can answer
 it, **all fifteen scored queries returned no citation, on two runs on different days** (§5a,
 §5b). The two enumeration queries are
@@ -24,11 +25,13 @@ consulted.
 
 | Leg | Retrieval index | Pages in that index | Status |
 |---|---|---|---|
-| **ChatGPT** (search mode) | Bing | **1** of ~710 submitted | **INCONCLUSIVE — CRAWLING** |
+| **ChatGPT** (search mode) | Bing | **16** of ~710 submitted (1 at the 09-22 reading) | **INCONCLUSIVE — CRAWLING** |
 | **Claude** (web search on) | Brave | **0** | **INCONCLUSIVE — CRAWLING** |
 | **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 15, both runs** |
 
-For reference, and feeding none of the three: **Google, 647 pages indexed.**
+For reference, and feeding none of the three: **Google, 625 pages indexed** (Search Console
+report of 09-21; 647 in the report of 09-18). The homepage has been back in Google's index since
+its re-crawl on 09-23. None of the four question pages is in Google's index (§2).
 
 ---
 
@@ -56,8 +59,27 @@ cannot have judged them thin, duplicative or wrong; Bingbot receives HTTP 200 on
 URL and Webmaster Tools reports 0 errors and 0 excluded. What remains is crawl allocation on a
 domain with no external authority signal.
 
-**Brave (Claude).** Zero pages, unchanged across every check from 09-09 to 09-23.
-`site:openappindex.org` returns "Too few matches were found".
+**Update 2026-09-29 — Bing is crawling, slowly, and the 09-22 reading was stale.** Site Explorer
+now reports **16 indexed URLs**: the homepage, fourteen app pages and one question page
+(`rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html`). The fifteen new ones were crawled 17–23
+September. The question page was crawled on 18 September, four days *before* the reading above,
+so "all three re-inspected URLs" describes a report that had not caught up. It does not
+describe what Bing had done. None of the twelve app pages requested by hand is among the
+fourteen, and the requested F17 and F16 pages still read "Discovered but not crawled". 16 is
+still far below the ≥ 100 the precondition requires, so the leg stays INCONCLUSIVE — CRAWLING.
+Full reading and correction: `gate-protocol.md` §1, 2026-09-29.
+
+**Google did fetch the question pages, and it declined two of them.** The argument above, that
+the pages cannot have been judged thin because they were never fetched, holds for Bing. Google
+has crawled `welche-rezept-app-wird-noch-gepflegt.html` and `rezept-apps-lange-nicht-aktualisiert.html`
+and lists both as "Crawled – currently not indexed". It does not know the other two question
+pages at all. Google feeds no scored assistant, so this does not touch the gate. It does mean
+that no index holds all four of the pages written to answer the scored queries.
+
+**Brave (Claude).** Zero pages, unchanged across every check from 09-09 to 09-29.
+`site:openappindex.org` returns "Too few matches were found". Brave auto-corrects the project's
+name to "openai index". With the correction switched off, its only result from this project is
+the GitHub repository.
 
 Both legs score **INCONCLUSIVE — CRAWLING** under §1, which is the protocol's provision for
 exactly this: *fix the crawling problem and restart the clock*, not NO-GO. A zero-citation
@@ -350,10 +372,15 @@ the retriever happens to find.
 - **The Perplexity leg is captured in full** — two runs, 0 of 15 each (§5a, §5b). No clean-session
   re-test was triggered, because no query cited us. Any further Perplexity run is outside the
   protocol's two-run requirement and would need to be justified as such before it is taken.
-- **The homepage re-crawl in Google** — indexing requested and "Validate fix" started
-  2026-09-23; outcome pending.
-- **Bing and Brave** — no action available that has not already been taken four times. These
-  legs close as INCONCLUSIVE — CRAWLING unless an external authority signal changes them.
+- ~~**The homepage re-crawl in Google** — outcome pending.~~ **Resolved 2026-09-29:** re-crawled
+  2026-09-23 12:05 and indexed, the day it was requested.
+- **Bing and Brave** — no action of ours is left that has not already been taken four times.
+  Bing is moving without one: 1 → 16 indexed URLs, crawled 17–23 September. At that rate it
+  does not reach ≥ 100 by the 2026-10-13 backstop. Brave has not moved. Both legs close as
+  INCONCLUSIVE — CRAWLING unless an external authority signal changes them.
+- **Two question pages are crawled but not indexed by Google** (§2). This is not a gate issue,
+  since Google feeds no scored assistant. It is the first engine-side judgement on those pages,
+  and it belongs in the post-gate work on the question pages.
 
 ## 7. What this result is worth saying plainly
 
