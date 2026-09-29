@@ -309,11 +309,13 @@ also logged-in, with less history behind it.
 **A duplicate session ran alongside this one.** A second instance of the same scheduled task
 ran on the same account from 22:14 and issued A1–A4, B5 and B6 again. That is why the free
 quota ran out after six queries. It found no citation either. Its captures are kept apart as
-supplementary and are not counted here: 15 scored targets, one capture each. It also
-sharpened the non-determinism caveat in §5. The same query, on the same account, **in the same
-minute**, called körbchen *"aktiv entwickelt"* in one thread and a *"faktisch verwaiste App"*
-in the other. §5's "run each query twice, on different days" understates the variance: it
-varies within a minute.
+supplementary and are not counted here: 15 scored targets, one capture each. Record:
+`sample/data/public/gate_run_perplexity_run2_20260928_parallel_session.json`. It also
+sharpened the non-determinism caveat in §5. The same query, on the same account, **two minutes
+apart** (A4, 22:17 and 22:19), called körbchen *"Aktiv entwickelt"* in one thread and a
+*"faktisch verwaiste App"* in the other. **In the same minute** (A1, both 22:14), it gave
+Paprika's iOS version as 3.7.3 in one thread and 3.8.5 in the other. §5's "run each query
+twice, on different days" understates the variance: it varies within minutes.
 
 **The homonym trap, twice.** A2's sources include *Das E-Rezept*, a pharmacy e-prescription app.
 B8's include MYA, another. Both are "Rezept" apps to a retriever.

@@ -544,5 +544,5 @@
     "two_run_requirement": "Met for the Perplexity leg if all 15 are captured: every scored target now has one capture on 2026-09-23 and one on 2026-09-28 or 2026-09-29.",
     "not_a_verdict": "Not a GO/WEAK/NO-GO. §4 NO-GO needs 0 citations across all three assistants with preconditions passed and >= 6 weeks live; ChatGPT/Bing and Claude/Brave are INCONCLUSIVE — CRAWLING, and six weeks from the 2026-08-24 indexing start is 2026-10-05."
   },
-  "parallel_session": "A second instance of scheduled task gate-run2-perplexity ran on the same account from 22:14 on 2026-09-28 and re-issued A1–A4, B5, B6 (0 citations). This consumed quota and doubled those threads. Its captures are held separately as supplementary (sample/data/public/gate_run_perplexity_run2_20260928_parallel_session.json, left uncommitted for Tim to merge or discard) and are NOT counted here: this record has exactly one capture per query."
+  "parallel_session": "A second instance of scheduled task gate-run2-perplexity ran on the same account from 22:14 on 2026-09-28 and re-issued A1–A4, B5, B6 (0 citations). This consumed quota and doubled those threads. Its captures are held separately as supplementary (sample/data/public/gate_run_perplexity_run2_20260928_parallel_session.json, committed 2026-09-29) and are NOT counted here: this record has exactly one capture per query."
 }

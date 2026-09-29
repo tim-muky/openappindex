@@ -1,0 +1,319 @@
+{
+ "phase": "gate-run",
+ "assistant": "perplexity",
+ "run": 2,
+ "status": "SUPPLEMENTARY — parallel-session captures, NOT the run-2 record",
+ "why_this_file_exists": "Two sessions of scheduled task gate-run2-perplexity ran simultaneously on 2026-09-28 from 22:14, on the same logged-in account. Session local_971ed080 (the primary; A1–B7 captured, scratchpad 8aba1791…/caps.jsonl) and this session each issued A1–A4; this session's navigations are the second thread of each pair. B5/B6 here may duplicate the other session's. Kept as a supplementary record (decided 2026-09-29); do not double-count.",
+ "session": "logged-in, free plan",
+ "detection": "'openappindex' in <main> innerHTML of the answer, AND in the full 'Links' tab (?sm=r) list of all retrieved sources — both negative for every thread below.",
+ "citations_of_openappindex": 0,
+ "finding": "Same frozen query, same account, two threads each: A4 called körbchen 'Aktiv entwickelt' in one (22:19) and 'faktisch verwaiste App' in the other (thread 2c749a6d, the primary session's A4, logged 22:17 in the run-2 record and 22:18 here) — two minutes apart; A1 gave Paprika's iOS version as 3.7.3 (2025) in one and exactly 3.8.5 / 2026-07-16 in the other, both at 22:14. §5's 'run each query twice' understates variance: it varies within minutes.",
+ "personalisation": "B6 answered with preferences never stated in the query ('Einmalkauf, Offline-Nutzung und langfristige Wartung') — account history is shaping answers, which strengthens the case for the clean-session retest rule.",
+ "quota": "Block message wording changed: 'Deine kostenlosen Suchanfragen werden in ein paar Stunden zurückgesetzt.' The run-1 regex /Limit für kostenlose/ does NOT match it — use /zurückgesetzt|Limit für kostenlose/.",
+ "runs": [
+  {
+   "query_id": "A1",
+   "group": "A",
+   "query": "Welche Rezept-App wird noch aktiv gepflegt?",
+   "date": "2026-09-28",
+   "time": "22:14",
+   "thread": "b0cc02c6-cbbf-4c4d-9d0c-28451f8f1355",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 24,
+   "sources": [
+    "futurezone.at",
+    "apps.apple.com",
+    "paprika-3.en.uptodown.com",
+    "innerbuddies.com",
+    "stadt-bremerhaven.de",
+    "koerbchen.app",
+    "paprikaapp.zendesk.com",
+    "useladle.com",
+    "play.google.com",
+    "heisegroup.de",
+    "bundesgesundheitsministerium.de",
+    "reddit.com",
+    "paprikaapp.com",
+    "iosapps.de"
+   ],
+   "apps_named": [
+    "körbchen",
+    "Paprika 3",
+    "ReciMe",
+    "Recipe Keeper",
+    "Crouton",
+    "Mealie"
+   ],
+   "note": "Paprika iOS given as '3.7.3 (2025)', 'kleinere Schritte bei Updates'. Ours: Paprika Rezept-Manager 3 v3.8.5, 2026-07-16. körbchen 2.19.1 06.06.2025 correct."
+  },
+  {
+   "query_id": "A1",
+   "group": "A",
+   "query": "Welche Rezept-App wird noch aktiv gepflegt?",
+   "date": "2026-09-28",
+   "time": "22:14",
+   "thread": "437bd220-5a7f-4fae-8357-e7300361e0ec",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 24,
+   "sources": [
+    "apps.apple.com",
+    "paprikaapp.com",
+    "mela.recipes",
+    "realsimple.com",
+    "eatingwell.com",
+    "stadt-bremerhaven.de",
+    "futurezone.at",
+    "reddit.com",
+    "choosy.de",
+    "appshunter.io",
+    "mwm.ai",
+    "koerbchen.app",
+    "indieappcatalog.com"
+   ],
+   "apps_named": [
+    "Paprika 3",
+    "körbchen",
+    "Mela",
+    "Chefkoch",
+    "KptnCook"
+   ],
+   "maintenance_claim": "Paprika 3 'derzeit die sicherste Wahl'",
+   "note": "Paprika 3.8.5 on 16 July 2026 — exactly right. Mela 08.06.2025 right. WRONG: Chefkoch '20.04.2025 laut App-Store-Eintrag' (ours 5.2, 2026-08-17); KptnCook 'älterer sichtbarer Eintrag … Pflegezustand weniger eindeutig' (ours 9.22.0, 2026-07-15)."
+  },
+  {
+   "query_id": "A2",
+   "group": "A",
+   "query": "Rezept-App die noch Updates bekommt",
+   "date": "2026-09-28",
+   "time": "22:15",
+   "thread": "ac74f16b-cafd-4345-a2a1-a91c9d305b83",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "tagesspiegel.de",
+    "apps.apple.com",
+    "mactechnews.de",
+    "iphone-ticker.de",
+    "it-boltwise.de"
+   ],
+   "apps_named": [
+    "CookBook",
+    "ReciMe",
+    "Mr. Cook",
+    "Was kann ich essen?",
+    "Paprika"
+   ],
+   "note": "Inline citation chips failed to render (literal 'cite' placeholders). Paprika 'Updates weniger sichtbar' — wrong (3.8.5 in July 2026). Mr. Cook 2.8.1 matches ours."
+  },
+  {
+   "query_id": "A2",
+   "group": "A",
+   "query": "Rezept-App die noch Updates bekommt",
+   "date": "2026-09-28",
+   "time": "22:16",
+   "thread": "d25b4413-c741-4ab9-a1ab-3e3961111b66",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "apps.apple.com",
+    "tagesspiegel.de",
+    "mactechnews.de",
+    "iphone-ticker.de",
+    "it-boltwise.de"
+   ],
+   "apps_named": [
+    "ReciMe",
+    "Mr. Cook",
+    "Was kann ich essen?",
+    "CookBook",
+    "Paprika"
+   ],
+   "note": "Paprika 'weniger dynamische Weiterentwicklung' — wrong against 3.8.5 on 2026-07-16."
+  },
+  {
+   "query_id": "A3",
+   "group": "A",
+   "query": "Ist Mein Rezeptebuch noch aktuell?",
+   "date": "2026-09-28",
+   "time": "22:16",
+   "thread": "0adaffba-0b03-4840-b2bc-6b83e65e20bb",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "apps.apple.com",
+    "kaufland.de",
+    "play.google.com",
+    "grips-anwendung.de",
+    "organisation-mit-sabine.de",
+    "feder-und-buch.de",
+    "produkte.startseite-wissenschaft.com"
+   ],
+   "apps_named": [
+    "Mein Rezeptebuch"
+   ],
+   "verbatim": "Für September 2026 sehe ich keinen eindeutig belegten neueren Versionsstand.",
+   "note": "Now finds a date (run 1 said none was findable): v1.6, 'am 28. Februar 2025 aktualisiert', read off the SWISS store. Ours: v1.6, 2025-03-08. Version right, date 8 days off."
+  },
+  {
+   "query_id": "A3",
+   "group": "A",
+   "query": "Ist Mein Rezeptebuch noch aktuell?",
+   "date": "2026-09-28",
+   "time": "22:16",
+   "thread": "aa1ec20e-4c76-4b1d-ab99-f5e5f443cfb8",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "apps.apple.com",
+    "kaufland.de",
+    "play.google.com",
+    "grips-anwendung.de",
+    "organisation-mit-sabine.de",
+    "feder-und-buch.de",
+    "produkte.startseite-wissenschaft.com"
+   ],
+   "apps_named": [
+    "Mein Rezeptebuch"
+   ],
+   "note": "Same as sibling: v1.6, 'Februar 2025, zumindest in der Schweizer App-Store-Ansicht'."
+  },
+  {
+   "query_id": "A4",
+   "group": "A",
+   "query": "Welche Koch-Apps wurden seit Jahren nicht aktualisiert?",
+   "date": "2026-09-28",
+   "time": "22:19",
+   "thread": "cf94cf44-4bcf-4e03-bc8d-7f30b297674e",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 39,
+   "sources": [
+    "frischgekocht.billa.at",
+    "getbring.com",
+    "listonic.com",
+    "organisation-mit-sabine.de",
+    "welt.de",
+    "apps.apple.com",
+    "play.google.com",
+    "chip.de",
+    "iosapps.de",
+    "support.apple.com",
+    "stadt-bremerhaven.de",
+    "mactechnews.de",
+    "iphone-ticker.de",
+    "koerbchen.app",
+    "itguruonline.de",
+    "reddit.com",
+    "gethomsy.com",
+    "out-milk.de.uptodown.com",
+    "alltagsfuchs.de",
+    "support.outofmilk.com",
+    "communities.apple.com"
+   ],
+   "apps_named": [
+    "FRISCH GEKOCHT (BILLA)",
+    "Out of Milk",
+    "Das kleine Rezeptbuch (Windows)",
+    "Jamie Oliver apps",
+    "körbchen",
+    "Chefkoch",
+    "KptnCook",
+    "Monsieur Cuisine"
+   ],
+   "note": "Names no stale German App Store cooking app. Stale examples are a discontinued Austrian supermarket app, a shopping-list app, Windows PC software, and 'Tests aus 2017'. WRONG: 'Monsieur Cuisine (Lidl) | 2023 | Aktiv' — ours: Monsieur Cuisine App 1.4.1, 2026-08-17 (and '2023' + 'Aktiv' contradict each other). körbchen 'Juni 2025 (v2.19.1) Aktiv entwickelt'."
+  },
+  {
+   "query_id": "A4",
+   "group": "A",
+   "query": "Welche Koch-Apps wurden seit Jahren nicht aktualisiert?",
+   "date": "2026-09-28",
+   "time": "22:18",
+   "thread": "2c749a6d-f4b4-4e4f-bcc8-775908ce1a6f",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 21,
+   "sources": [
+    "organisation-mit-sabine.de",
+    "apps.apple.com",
+    "play.google.com",
+    "welt.de",
+    "chip.de",
+    "iosapps.de"
+   ],
+   "apps_named": [
+    "körbchen",
+    "Weber Grills",
+    "RecetteTek",
+    "Mein Kochbuch / Kochbuch von FloSe",
+    "Out of Milk"
+   ],
+   "verbatim": "Das ist der stärkste Hinweis auf eine faktisch verwaiste App.",
+   "note": "OPPOSITE VERDICT to its sibling thread (22:19): körbchen 'offenbar spätestens 2023/2024' last updated, 'stärkste Hinweis auf eine faktisch verwaiste App', sourced to a Dec-2024 blog comment. Ours: 2.19.1 released 2025-06-06 — the date claim is wrong. Weber Grills 20.11.2025 correct."
+  },
+  {
+   "query_id": "B5",
+   "group": "B",
+   "query": "Rezept-App ohne Abo",
+   "date": "2026-09-28",
+   "time": "22:18",
+   "thread": "5ad2bc1a-a2a6-4069-8534-c78480514562",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "recipesage.com",
+    "nutrola.app",
+    "apps.apple.com",
+    "play.google.com",
+    "zestio.org",
+    "teltarif.de"
+   ],
+   "apps_named": [
+    "RecipeSage",
+    "Paprika",
+    "Recipe Keeper",
+    "food with love",
+    "RecipeChef",
+    "Zestio",
+    "SevenCooks"
+   ],
+   "note": "Zestio again sourced to its own site (as run-1 B8). Paprika sourced to nutrola.app — a competitor's site."
+  },
+  {
+   "query_id": "B6",
+   "group": "B",
+   "query": "Rezepte-App einmalig bezahlen statt Abo",
+   "date": "2026-09-28",
+   "time": "22:19",
+   "thread": "8a9749ec-4d4d-4abd-aae2-342cf80b35e3",
+   "cited_openappindex": false,
+   "openappindex_in_links_tab": false,
+   "sources_total": 10,
+   "sources": [
+    "kochtopftester.de",
+    "swoodie.app",
+    "iosapps.de",
+    "usemise.app",
+    "apps.apple.com",
+    "rezepte-app.de",
+    "teltarif.de"
+   ],
+   "apps_named": [
+    "Paprika Recipe Manager 3",
+    "Swoodie Lite",
+    "deMise",
+    "SchonWiederNudeln",
+    "Rezepte-App"
+   ],
+   "cost_claim": "Paprika ca. 4,99 € one-time per platform; desktop ~29,99 €; Swoodie Lite 9,99 €; deMise 1,99–49,99 €; SchonWiederNudeln 2,99 €",
+   "personalisation_verbatim": "Da du Wert auf Einmalkauf, Offline-Nutzung und langfristige Wartung legst:",
+   "note": "WRONG: Paprika 'ca. 4,99 € einmalig' — ours: 5,99 € on the German iOS store. Swoodie and deMise priced from their own marketing sites."
+  }
+ ]
+}
