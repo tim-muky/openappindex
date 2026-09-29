@@ -297,6 +297,24 @@ KptnCook among the *fair* options at €5.99 a month. KptnCook's own list goes t
 everything B9 called expensive. A day later, on the same account, D13 read that €59.99
 correctly.
 
+**The account's history is shaping answers, not only citations.** B6 ends *"Da du Wert auf
+Einmalkauf, Offline-Nutzung und langfristige Wartung legst"*, and B5 ends *"Für deine
+Anforderungen — eigene Rezepte systematisch sammeln, Einkaufslisten verwalten und laufende
+Kosten vermeiden"*. Neither query stated those preferences. They come from this account's
+earlier searches. The 2026-09-23 decision predicted the history confound could only bias
+*toward* citing us, so it cannot have produced these zeros. But it is now observed affecting
+answer content, which §4's secondary measures compare against the baseline. The baseline was
+also logged-in, with less history behind it.
+
+**A duplicate session ran alongside this one.** A second instance of the same scheduled task
+ran on the same account from 22:14 and issued A1–A4, B5 and B6 again. That is why the free
+quota ran out after six queries. It found no citation either. Its captures are kept apart as
+supplementary and are not counted here: 15 scored targets, one capture each. It also
+sharpened the non-determinism caveat in §5. The same query, on the same account, **in the same
+minute**, called körbchen *"aktiv entwickelt"* in one thread and a *"faktisch verwaiste App"*
+in the other. §5's "run each query twice, on different days" understates the variance: it
+varies within a minute.
+
 **The homonym trap, twice.** A2's sources include *Das E-Rezept*, a pharmacy e-prescription app.
 B8's include MYA, another. Both are "Rezept" apps to a retriever.
 
