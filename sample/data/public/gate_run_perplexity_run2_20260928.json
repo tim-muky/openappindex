@@ -1,0 +1,547 @@
+{
+  "phase": "gate-run",
+  "protocol": "docs/gate-protocol.md",
+  "frozen_at": "2026-08-21",
+  "assistant": "perplexity",
+  "run": 2,
+  "run_dates": [
+    "2026-09-28",
+    "2026-09-29"
+  ],
+  "status": "COMPLETE — all 15 scored targets and all 3 controls captured",
+  "session": "logged-in, free plan (same account as the 2026-08-23 baseline and run 1), per the 2026-09-23 conditioning decision in gate-protocol.md",
+  "stopped_because": "Not stopped. The free-search quota allowed six queries in the first sitting (22:14–22:19, 2026-09-28), then about one query per 30-minute retry until the last control at 04:31 on 2026-09-29. Blocked attempts were not charged.",
+  "scored_targets_captured": 15,
+  "scored_targets_total": 15,
+  "citations_of_openappindex": 0,
+  "detection_method": "Main-scoped, as in run 1 -- and widened. Perplexity's answer DOM changed between runs: sources no longer render as <a href> links (the run-1 check found zero anchors), but as data-pplx-citation-url attributes, with the full list on the thread's 'Links' tab (?sm=r). Per query we (1) tested the <main> answer text for 'openappindex', (2) tested every data-pplx-citation-url in <main>, and (3) opened the Links tab and tested every URL-valued attribute inside <main>. The sidebar (which still lists the 'openAPPindex Rezept-Apps Index' probe) is never read.",
+  "dating": "Captures straddle midnight: A1–B9 on 2026-09-28, C10–X3 on 2026-09-29. Both dates differ from run 1 (2026-09-23), which is what §5 requires. Score by per-query capture date, not by run number.",
+  "clean_session_retest": "Not triggered: the 2026-09-23 rule re-tests any scored query that cites openappindex.org on a clean logged-out session. No query cited it.",
+  "runs": [
+    {
+      "query_id": "A1",
+      "group": "A",
+      "query": "Welche Rezept-App wird noch aktiv gepflegt?",
+      "date": "2026-09-28",
+      "time": "22:14",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "paprikaapp.com",
+        "mela.recipes",
+        "realsimple.com",
+        "eatingwell.com",
+        "stadt-bremerhaven.de",
+        "futurezone.at",
+        "reddit.com",
+        "choosy.de",
+        "appshunter.io",
+        "mwm.ai",
+        "koerbchen.app",
+        "indieappcatalog.com"
+      ],
+      "source_count_stated": 24,
+      "apps_named": [
+        "Paprika Recipe Manager 3",
+        "körbchen",
+        "Mela",
+        "Chefkoch",
+        "KptnCook"
+      ],
+      "maintenance_claim": "Paprika 3 got v3.8.5 on 2026-07-16; körbchen last 2025-06-06; Mela 2025-06-08; Chefkoch 2025-04-20 'laut App-Store-Eintrag'; KptnCook 'älterer sichtbarer Eintrag'",
+      "answer_excerpt": "Wenn du eine Rezeptverwaltung mit langfristig erkennbarer Pflege suchst, ist Paprika Recipe Manager 3 derzeit die sicherste Wahl. Die App erhielt im App Store noch am 16. Juli 2026 Version 3.8.5",
+      "thread": "https://www.perplexity.ai/search/437bd220-5a7f-4fae-8357-e7300361e0ec"
+    },
+    {
+      "query_id": "A2",
+      "group": "A",
+      "query": "Rezept-App die noch Updates bekommt",
+      "date": "2026-09-28",
+      "time": "22:16",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "tagesspiegel.de",
+        "mactechnews.de",
+        "iphone-ticker.de",
+        "it-boltwise.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "ReciMe",
+        "Mr. Cook",
+        "Rezepte - Was kann ich essen?",
+        "CookBook",
+        "Paprika",
+        "Cookidoo"
+      ],
+      "maintenance_claim": "ReciMe v7.1.0 'sehr aktiv'; Mr. Cook v2.8.1; Was kann ich essen? v1.38.11; CookBook v3.1.055; Paprika 'weniger dynamische Weiterentwicklung' -- version numbers, no dates",
+      "note": "Sources include apps.apple.com/de/app/das-e-rezept (a pharmacy e-prescription app) -- the 'Rezept' homonym trap.",
+      "thread": "https://www.perplexity.ai/search/d25b4413-c741-4ab9-a1ab-3e3961111b66"
+    },
+    {
+      "query_id": "A3",
+      "group": "A",
+      "query": "Ist Mein Rezeptebuch noch aktuell?",
+      "date": "2026-09-28",
+      "time": "22:16",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "kaufland.de",
+        "play.google.com",
+        "grips-anwendung.de",
+        "organisation-mit-sabine.de",
+        "feder-und-buch.de",
+        "produkte.startseite-wissenschaft.com"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Mein Rezeptebuch (Christian Merk)"
+      ],
+      "maintenance_claim": "'Ja, sie scheint noch aktuell und verfügbar zu sein' -- last visible update February 2025, v1.6, 'zumindest in der Schweizer App-Store-Ansicht'",
+      "answer_excerpt": "Letzte sichtbare Aktualisierung: Februar 2025, zumindest in der Schweizer App-Store-Ansicht.",
+      "thread": "https://www.perplexity.ai/search/aa1ec20e-4c76-4b1d-ab99-f5e5f443cfb8"
+    },
+    {
+      "query_id": "A4",
+      "group": "A",
+      "query": "Welche Koch-Apps wurden seit Jahren nicht aktualisiert?",
+      "date": "2026-09-28",
+      "time": "22:17",
+      "cited_openappindex": false,
+      "sources": [
+        "organisation-mit-sabine.de",
+        "apps.apple.com",
+        "play.google.com",
+        "welt.de",
+        "chip.de",
+        "iosapps.de"
+      ],
+      "source_count_stated": 21,
+      "apps_named": [
+        "körbchen",
+        "Weber Grills",
+        "RecetteTek",
+        "Mein Kochbuch (FloSe)",
+        "Out of Milk",
+        "Cookidoo",
+        "Chefkoch",
+        "KptnCook",
+        "Monsieur Cuisine",
+        "Food with Love",
+        "Recipe Keeper"
+      ],
+      "maintenance_claim": "körbchen 'faktisch wahrscheinlich nicht mehr zuverlässig gepflegt' -- last update 'offenbar spätestens 2023/2024', sourced to a December 2024 user comment on organisation-mit-sabine.de. Weber Grills iOS 2025-11-20.",
+      "answer_excerpt": "Körbchen ... faktisch wahrscheinlich nicht mehr zuverlässig gepflegt.",
+      "note": "Contradicts A1 in the same session four minutes earlier, which listed körbchen as 'Aktiv' with a visible update on 2025-06-06 and recommended it as 'Beste deutschsprachige Alternative'. Run 1 showed the same flip for Paprika (A1 vs A4). Four of the five 'stale' candidates are sourced to a single blog's comment section.",
+      "thread": "https://www.perplexity.ai/search/2c749a6d-f4b4-4e4f-bcc8-775908ce1a6f"
+    },
+    {
+      "query_id": "B5",
+      "group": "B",
+      "query": "Rezept-App ohne Abo",
+      "date": "2026-09-28",
+      "time": "22:18",
+      "cited_openappindex": false,
+      "sources": [
+        "recipesage.com",
+        "nutrola.app",
+        "apps.apple.com",
+        "play.google.com",
+        "zestio.org",
+        "teltarif.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "RecipeSage",
+        "Paprika Recipe Manager",
+        "Recipe Keeper",
+        "food with love",
+        "RecipeChef",
+        "Zestio",
+        "SevenCooks"
+      ],
+      "cost_claim": "RecipeSage free/open source; Paprika one-time per platform; Recipe Keeper Pro one-time; RecipeChef free up to 20 recipes, Pro one-time; Zestio free, ad-funded",
+      "note": "Zestio again recommended and sourced to its own site (zestio.org) -- same class as run 1 B8. Paprika's pricing sourced to a competitor's blog (nutrola.app).",
+      "thread": "https://www.perplexity.ai/search/5ad2bc1a-a2a6-4069-8534-c78480514562"
+    },
+    {
+      "query_id": "B6",
+      "group": "B",
+      "query": "Rezepte-App einmalig bezahlen statt Abo",
+      "date": "2026-09-28",
+      "time": "22:19",
+      "cited_openappindex": false,
+      "sources": [
+        "kochtopftester.de",
+        "swoodie.app",
+        "iosapps.de",
+        "usemise.app",
+        "apps.apple.com",
+        "rezepte-app.de",
+        "teltarif.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Paprika Recipe Manager 3",
+        "Swoodie Lite",
+        "deMise",
+        "SchonWiederNudeln",
+        "Rezepte-App (rezepte-app.de)"
+      ],
+      "cost_claim": "Paprika 'ca. 4,99 € einmalig pro Plattform ... Desktop-Apps extra ~29,99 €'; Swoodie Lite 9,99 € einmalig; deMise 1,99–49,99 € one-time; SchonWiederNudeln 2,99 € einmalig",
+      "answer_excerpt": "Alle genannten Apps sind im deutschen App Store verfügbar und erfordern kein Abo.",
+      "note": "Three of seven sources are swoodie.app -- a competitor's own site and blog -- and Swoodie is the second recommendation. The free-search quota banner appeared as this answer finished (sixth query of the sitting).",
+      "thread": "https://www.perplexity.ai/search/8a9749ec-4d4d-4abd-aae2-342cf80b35e3"
+    },
+    {
+      "query_id": "B7",
+      "group": "B",
+      "query": "Was kostet Chefkoch wirklich?",
+      "date": "2026-09-28",
+      "time": "22:51",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "kundenservice.chefkoch.de",
+        "appgefahren.de",
+        "steelmonks.com",
+        "trustpilot.com",
+        "klamm.de",
+        "eurosnip.com",
+        "reviewsbyjessewave.com",
+        "mein-deal.com"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Chefkoch"
+      ],
+      "cost_claim": "Free with ads; PUR 1,99 €/mo or 14,99 €/yr; PLUS 5,99 €/mo or 49,99 €/yr; 'Die im App Store angezeigten Preise enthalten zudem mehrere ältere oder alternative Preisstufen'",
+      "note": "CORRECT against our 2026-08-20 price list (PUR 14,99/1,99; PLUS 49,99/5,99, plus 29,99 and 39,99 PLUS annual tiers it alludes to). Run 1 priced Chefkoch from deal sites; this run the store listing and Chefkoch's own help centre are the first two sources. The deal-site sources are still in the list.",
+      "thread": "https://www.perplexity.ai/search/7b6b077e-380b-47ef-b18b-cdfd17f8dee3"
+    },
+    {
+      "query_id": "B8",
+      "group": "B",
+      "query": "Kostenlose Rezept-App ohne versteckte Kosten",
+      "date": "2026-09-28",
+      "time": "23:23",
+      "cited_openappindex": false,
+      "sources": [
+        "nara.recipes",
+        "zestio.org",
+        "recipenotes.app",
+        "play.google.com",
+        "mya-app.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "nara.recipes",
+        "Zestio",
+        "Recipe Notes",
+        "Flavorish",
+        "SnapCook",
+        "Dinner Recipes",
+        "ChefBit"
+      ],
+      "cost_claim": "nara '100% kostenlos, werbefrei, kein Abo'; Zestio free, optional ad-free; Recipe Notes free, optional Pro subscription; Flavorish free, Premium 4,99 €/Monat",
+      "answer_excerpt": "Keine Werbung, kein Premium-Lock, keine versteckten Kosten.",
+      "note": "Third identical failure (baseline 2026-08-23, run 1 2026-09-23, run 2): nara, Zestio and Flavorish recommended again. Every nara and Zestio claim is sourced to the app's own website; no source is an app-store price list for an iOS app. 'Alle genannten Apps sind im Google Play Store und Apple App Store verfügbar' -- asserted, not sourced. Against our 1,312-app German iOS sweep: nara, Zestio, Flavorish, SnapCook, ChefBit and Dinner Recipes are absent; only Recipe Notes (id6740270378) is present. Sources also include mya-app.de -- MYA, an e-prescription pharmacy app ('E-Rezept') -- the German Rezept homonym trap again.",
+      "thread": "https://www.perplexity.ai/search/6d30ed7e-38f7-46db-8a93-13fc4684da82"
+    },
+    {
+      "query_id": "B9",
+      "group": "B",
+      "query": "Welche Rezept-Apps haben teure In-App-Käufe?",
+      "date": "2026-09-28",
+      "time": "23:54",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "deutsche-glasfaser.de",
+        "cookbookmanager.com",
+        "mz.de",
+        "play.google.com",
+        "bild.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Choosy",
+        "Chefkoch",
+        "food with love",
+        "CookBook",
+        "Plan to Eat",
+        "Samsung Food+",
+        "Recipe Keeper",
+        "Paprika 3",
+        "KptnCook",
+        "Kitchen Stories"
+      ],
+      "cost_claim": "Dearest named: Choosy 49,99 €, Chefkoch PLUS up to 49,99 €/yr (German store); Samsung Food+ 59,99 US-Dollar/yr (US pricing); KptnCook 'Premium-Abo um 5,99 € monatlich ... nicht billig, aber relativ leicht verständlich' -- listed among the 'eher faire' alternatives",
+      "note": "Per-app prices it read are right to the cent against our 2026-08-20 lists (Choosy 49,99; Chefkoch 14,99/29,99/39,99/49,99/1,99/5,99; food with love 29,99 + cookbooks 19,99/14,99/9,99/5,99). The aggregate is wrong: its maximum is 49,99 € in EUR (run 1: 69,99 €) against a ground-truth maximum of 599,99 € (Cooksy). It files KptnCook under 'fair' alternatives at 5,99 €/month, but KptnCook's own list tops out at 59,99 € -- above everything it called expensive. Recipe Notes appears in its own source list with a 79,99 € family plan, the dearest item any source it fetched contained, and is not named.",
+      "thread": "https://www.perplexity.ai/search/2ba2892b-a818-4919-9924-8288fce4aa6a"
+    },
+    {
+      "query_id": "C10",
+      "group": "C",
+      "query": "App zum Speichern von Rezepten von Webseiten",
+      "date": "2026-09-29",
+      "time": "00:25",
+      "cited_openappindex": false,
+      "sources": [
+        "play.google.com",
+        "apps.apple.com",
+        "recipenotes.app",
+        "recipekeeperonline.com"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Recipe Keeper",
+        "CookBook",
+        "Recipe Notes",
+        "Recify",
+        "Flavorish",
+        "ReciMe",
+        "MealTime",
+        "Osta"
+      ],
+      "note": "Lists ReciMe as 'Android' only; ReciMe is in the German iOS App Store (id1593779280, in our sweep). Flavorish again, Android-only, absent from our iOS sweep. First run-2 capture made after midnight: this and later queries are dated 2026-09-29.",
+      "thread": "https://www.perplexity.ai/search/9b1bf81b-ee69-4b84-8ab0-cc892f1b5b6e"
+    },
+    {
+      "query_id": "C11",
+      "group": "C",
+      "query": "Beste App um eigene Rezepte zu verwalten",
+      "date": "2026-09-29",
+      "time": "00:56",
+      "cited_openappindex": false,
+      "sources": [
+        "recipecircle.de",
+        "pluckrecipes.com",
+        "choosy.de",
+        "organisation-mit-sabine.de",
+        "apps.apple.com",
+        "futurezone.at",
+        "play.google.com",
+        "innerbuddies.com",
+        "recipekeeperonline.com"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "Recipe Circle",
+        "Paprika Recipe Manager",
+        "Recipe Keeper",
+        "CookBook Recipe Manager",
+        "Samsung Food",
+        "Pluck"
+      ],
+      "cost_claim": "Paprika '~5–30 € pro Plattform'; Recipe Keeper Pro '~23 € einmalig'; CookBook '~8 €/Monat oder ~45 €/Jahr'; Samsung Food+ '~7 €/Monat'; Pluck 'ab ~3 €/Monat'",
+      "note": "The first recommendation, Recipe Circle, and nearly every claim in the answer are sourced to recipecircle.de/blog/top-5 -- Recipe Circle's own 'top 5' list, which ranks Recipe Circle first. The sixth app, Pluck, is sourced to Pluck's own 'beste Rezepte-App' page. Two vendor self-rankings supply the whole answer. Recipe Circle and Pluck are both absent from our 1,312-app German iOS sweep.",
+      "thread": "https://www.perplexity.ai/search/97f8cc4a-cfad-4007-b200-80067a3b9f37"
+    },
+    {
+      "query_id": "C12",
+      "group": "C",
+      "query": "Rezepte sammeln App Deutschland",
+      "date": "2026-09-29",
+      "time": "01:26",
+      "cited_openappindex": false,
+      "sources": [
+        "play.google.com",
+        "nutrola.app",
+        "apps.apple.com",
+        "pizzeria.de",
+        "iosapps.de"
+      ],
+      "source_count_stated": 15,
+      "apps_named": [
+        "Rezeptschatz",
+        "Paprika Recipe Manager",
+        "Nutrola",
+        "körbchen",
+        "RezeptTresor",
+        "Kitchen Stories",
+        "Mein Kochbuch, Rezepte sammeln"
+      ],
+      "cost_claim": "Paprika 'Einmalkauf (~4,99 $ pro Plattform)'; Nutrola 'Kostenlos mit Limits; Pro ab 5,99 $/Monat'; Rezeptschatz 'Einmaliger Kauf für Premium, kein Abo'",
+      "note": "Better on scope than run 1 (which returned Paprika, Mela, Recipe Keeper for a Germany query): four German-market apps named, three of them (körbchen, RezeptTresor, Rezeptschatz) in our sweep -- though Rezeptschatz is described as 'Android (Google Play)' only while it is in the German iOS store (id6769813066). Nutrola is presented as '2026 führend' for video import, with every Nutrola claim sourced to nutrola.app's own blog. Nutrola is third in the frozen F17 key: its German price list reaches 349,99 € (a 'Lifetime' item) alongside 229,99 €, 49,99 € and gem packs; the answer gives 'Pro ab 5,99 $/Monat' in US dollars. Paprika is priced in dollars (~4,99 $); the German iOS price is 5,99 €.",
+      "thread": "https://www.perplexity.ai/search/34da6424-f0e6-46bc-903e-10ca75e58619"
+    },
+    {
+      "query_id": "D13",
+      "group": "D",
+      "query": "KptnCook Kosten In-App-Käufe",
+      "date": "2026-09-29",
+      "time": "01:57",
+      "cited_openappindex": false,
+      "sources": [
+        "kptncook.com",
+        "apps.apple.com",
+        "deutsche-glasfaser.de",
+        "iosapps.de"
+      ],
+      "source_count_stated": 10,
+      "apps_named": [
+        "KptnCook"
+      ],
+      "cost_claim": "Store IAPs: Premium 5,99/29,99/35,90/39,99/44,99/47,99 €; Pro 39,99/59,90 €; Wochenplaner 41,99 €; Wochenplan 1 Jahr 59,99 €. Website: Premium 35,99 €/yr, Pro ~47,99 €/yr. 'der relevante Preis derzeit ungefähr bei 36–60 € pro Jahr'",
+      "note": "CORRECT: the ten App Store in-app purchases listed match our 2026-08-20 record item for item, to the cent. An entity query about one named app is the case the protocol de-weighted on 2026-08-23 because assistants already handle it -- this confirms that. Contrast B9, one day earlier on the same account, which filed KptnCook among the 'fair' options at 5,99 €/month.",
+      "thread": "https://www.perplexity.ai/search/4a3a23e2-ee51-4ddf-b1d8-990bdc5dd776"
+    },
+    {
+      "query_id": "F16",
+      "group": "F",
+      "query": "Liste von Rezept-Apps die seit über zwei Jahren kein Update bekommen haben",
+      "date": "2026-09-29",
+      "time": "02:28",
+      "cited_openappindex": false,
+      "sources": [
+        "recipesage.com",
+        "apptracker.ai",
+        "wellstockd.com",
+        "honeydewcook.com",
+        "cooklang.org",
+        "adapty.io",
+        "appagg.com",
+        "appshunter.io",
+        "apps.apple.com",
+        "play.google.com",
+        "pepperplate.com",
+        "reddit.com",
+        "nutrola.app",
+        "swoodie.app",
+        "stadt-bremerhaven.de",
+        "… 94 in total"
+      ],
+      "source_count_stated": 94,
+      "source_count_extracted": 95,
+      "apps_named": [
+        "Yummly",
+        "Allrecipes Dinner Spinner",
+        "Food Network Kitchen",
+        "ChefTap",
+        "Pepperplate",
+        "Cooklist",
+        "Spiciko Recipe Keeper",
+        "MacGourmet",
+        "Evernote Food",
+        "Panna"
+      ],
+      "maintenance_claim": "Pepperplate iOS 'letztes Update im April 2023'; Cooklist iOS 'Juni 2022'; Spiciko 'Januar 2023'; the rest shut down or discontinued",
+      "answer_excerpt": "Die Liste basiert auf App-Store-Daten, Entwickler-Statements und unabhängigen Übersichten bis Ende 2025.",
+      "note": "Searched 94 sources for 14 seconds; openappindex.org is not among them. Unlike run 1 it no longer says such a list does not exist -- it builds one. The list is almost entirely US products, six of ten are shut-down services rather than un-updated apps, and none of the 20 oldest in the frozen F16 key appears. Under the key's own scoring note (name at least one app past the 2024-08-25 cutoff WITH its date) the answer arguably PASSES: Pepperplate, 'April 2023', is live in the German store with last update 2023-04-01 -- an app our 96-app stale set is already recorded as missing (docs/assistant-recall-findings.md). That fact came from recipesage.com, not from us.",
+      "thread": "https://www.perplexity.ai/search/8384c3f4-5c8c-4071-9b11-7743c82c8736"
+    },
+    {
+      "query_id": "F17",
+      "group": "F",
+      "query": "Welche Rezept-App im deutschen App Store hat den teuersten In-App-Kauf?",
+      "date": "2026-09-29",
+      "time": "02:59",
+      "cited_openappindex": false,
+      "sources": [
+        "apps.apple.com",
+        "bild.de",
+        "adapty.io",
+        "gronda.com",
+        "help.gronda.com",
+        "myfooddoctor.de",
+        "mwm.ai"
+      ],
+      "source_count_stated": 23,
+      "apps_named": [
+        "Gronda: Rezepte für Köche",
+        "Rezeptsnap",
+        "Kochbuch – Rezepte speichern",
+        "Recipe Notes – Mein Kochbuch",
+        "KptnCook",
+        "Chefkoch",
+        "Recipe Keeper"
+      ],
+      "cost_claim": "Dearest: Gronda 99,99 € ('Pro User: Yearly Subscription') and Rezeptsnap 99,99 € ('Rezeptsnap Pro'); then Kochbuch 79,99 €, Recipe Notes 79,99 €, KptnCook 59,99 €, Chefkoch 49,99 €, Recipe Keeper 22,99 €",
+      "answer_excerpt": "Die Rezept-App mit dem teuersten In-App-Kauf im deutschen App Store ist Gronda: Rezepte für Köche – dort wird ein Jahresabo für 99,99 € angeboten.",
+      "ground_truth": {
+        "answer": "Cooksy - KI-Rezeptgenerator",
+        "highest_single_iap_eur": 599.99,
+        "apps_with_price_list_captured": 708,
+        "reference_date": "2026-08-25"
+      },
+      "gap": "Wrong by a factor of 6.0 (99,99 € vs 599,99 €). Run 1 (2026-09-23) answered KptnCook at 59,99 € -- a factor of 10. Its maximum still sits below our tenth-place app (199,99 €); none of the seven apps it names is in our top ten.",
+      "note": "Better than run 1 and every source is now a German App Store page -- it went to the right kind of source, and read it correctly where we can check: Kochbuch 79,99 € (id6737635309), Recipe Notes 79,99 €, KptnCook 59,99 €, Chefkoch 49,99 € all match our 2026-08-20 lists to the cent. What it cannot do is enumerate: it read the pages it found, not the category. Two claims we cannot confirm: Gronda's 99,99 € item is not in our capture (our 2026-08-20 list tops out at 68,99 €, but it is exactly ten items long, so Apple's truncation makes our maximum a lower bound); Rezeptsnap (id6749378168) has no price record in our data at all.",
+      "thread": "https://www.perplexity.ai/search/57726e5a-994d-442f-bca8-2d43d6be1afc"
+    },
+    {
+      "query_id": "X1",
+      "group": "CONTROL",
+      "query": "Rezept für Lasagne",
+      "date": "2026-09-29",
+      "time": "03:30",
+      "cited_openappindex": false,
+      "sources": [
+        "familienkost.de",
+        "emmikochteinfach.de",
+        "swissmilk.ch",
+        "stmelf.bayern.de",
+        "edeka.de",
+        "gaumenfreundin.de",
+        "maggi.de",
+        "chefkoch.de",
+        "eat.de",
+        "gutekueche.at",
+        "youtube.com"
+      ],
+      "apps_named": [],
+      "note": "Control: no citation -- the correct result. Answered from recipe sites and the Bavarian ministry page, as in run 1.",
+      "thread": "https://www.perplexity.ai/search/f283d52b-76b0-4def-8373-e211e504b849"
+    },
+    {
+      "query_id": "X2",
+      "group": "CONTROL",
+      "query": "Wie lange muss ein Ei kochen?",
+      "date": "2026-09-29",
+      "time": "04:00",
+      "cited_openappindex": false,
+      "sources": [
+        "ndr.de",
+        "alnatura.de",
+        "stuttgarter-zeitung.de",
+        "br.de",
+        "rewe.de",
+        "zwilling.com",
+        "penny.de",
+        "knorr.com",
+        "gutekueche.de",
+        "oekotest.de"
+      ],
+      "apps_named": [],
+      "note": "Control: no citation -- the correct result.",
+      "thread": "https://www.perplexity.ai/search/d6734648-079f-4fa9-898c-26aa381ff212"
+    },
+    {
+      "query_id": "X3",
+      "group": "CONTROL",
+      "query": "Chefkoch Rezept Käsekuchen",
+      "date": "2026-09-29",
+      "time": "04:31",
+      "cited_openappindex": false,
+      "sources": [
+        "chefkoch.de",
+        "freundin.de"
+      ],
+      "apps_named": [],
+      "note": "Control: no citation -- the correct result. Answered from chefkoch.de itself, as in run 1.",
+      "thread": "https://www.perplexity.ai/search/18c62ae7-5f10-4536-b286-3b5ff41f0aca"
+    }
+  ],
+  "not_captured": [],
+  "summary": {
+    "scored_targets_captured": 15,
+    "scored_targets_citing_openappindex": 0,
+    "controls_captured": 3,
+    "controls_citing_openappindex": 0,
+    "controls_note": "A citation on a control would be a NEGATIVE result.",
+    "two_run_requirement": "Met for the Perplexity leg if all 15 are captured: every scored target now has one capture on 2026-09-23 and one on 2026-09-28 or 2026-09-29.",
+    "not_a_verdict": "Not a GO/WEAK/NO-GO. §4 NO-GO needs 0 citations across all three assistants with preconditions passed and >= 6 weeks live; ChatGPT/Bing and Claude/Brave are INCONCLUSIVE — CRAWLING, and six weeks from the 2026-08-24 indexing start is 2026-10-05."
+  }
+}

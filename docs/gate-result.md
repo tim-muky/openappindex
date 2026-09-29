@@ -1,6 +1,6 @@
 # GO/NO-GO gate — standing result
 
-**GAL-518 · written 2026-09-23 · protocol: [`gate-protocol.md`](gate-protocol.md)**
+**GAL-518 · written 2026-09-23, run 2 added 2026-09-29 · protocol: [`gate-protocol.md`](gate-protocol.md)**
 
 **This is a standing result, not the final verdict.** Two of the three legs are terminally
 blocked and are reported here as such. The third turned out to be live, and scoring it is the
@@ -16,7 +16,8 @@ index when answering real German recipe-app questions. Five weeks after launch t
 that **the question is only askable of one of the three assistants**, because the other two
 retrieve through indexes that have not admitted the site — and that fact, not the citation
 rate, is the first result this experiment produced. Against the one assistant that can answer
-it, **all fifteen scored queries returned no citation** (§5a). The two enumeration queries are
+it, **all fifteen scored queries returned no citation, on two runs on different days** (§5a,
+§5b). The two enumeration queries are
 the ones that matter: one was answered with the claim that no such list exists, the other with
 a figure wrong by a factor of ten and an explicit admission that no complete database was
 consulted.
@@ -25,7 +26,7 @@ consulted.
 |---|---|---|---|
 | **ChatGPT** (search mode) | Bing | **1** of ~710 submitted | **INCONCLUSIVE — CRAWLING** |
 | **Claude** (web search on) | Brave | **0** | **INCONCLUSIVE — CRAWLING** |
-| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 15** |
+| **Perplexity** | its own crawler/index | homepage + question page + repo | **LIVE — 0 of 15, both runs** |
 
 For reference, and feeding none of the three: **Google, 647 pages indexed.**
 
@@ -117,7 +118,7 @@ Any honest scoring of this gate must check the *vintage* of every cited fact, no
 presence — and that check is now part of the scoring, because we have a measured instance of it
 failing.
 
-## 5a. Run 1 against Perplexity — partial, 8 of 15, zero citations
+## 5a. Run 1 against Perplexity — complete, 0 of 15, zero citations
 
 Attempted 2026-09-23. **The free-search quota stopped it at the ninth query**, the same wall the
 2026-08-23 baseline hit at 13 of 18. Record:
@@ -136,7 +137,7 @@ itself. The index is not being cited where it should not be, which is worth as m
 scored zeros.
 
 **This is not a score and §4 does not permit it to be read as one.** The protocol requires the
-identical queries on two runs on different days; this is one partial run. It is recorded because
+identical queries on two runs on different days; this is one run (run 2 is §5b). It is recorded because
 the captures themselves are evidence, and because they cannot be recreated once the index is
 better known.
 
@@ -218,16 +219,117 @@ answer, concluded no such source exists, said so, and answered from blogs anyway
 source it described as nonexistent was live, machine-readable, and indexed by the very engine
 it was querying.
 
+## 5b. Run 2 against Perplexity — complete, 0 of 15, controls clean
+
+Captured 2026-09-28 22:14 to 2026-09-29 04:31, logged-in on the same account as the baseline
+and run 1, as the 2026-09-23 conditioning decision requires. Record:
+`sample/data/public/gate_run_perplexity_run2_20260928.json`.
+
+| Captured | **all 18** — 15 scored targets and 3 controls |
+|---|---|
+| Scored targets citing openappindex.org | **0 of 15** |
+| Controls citing openappindex.org | **0 of 3** — the correct result |
+| Clean-session re-tests triggered | **none** — the rule fires only on a citation |
+
+**Dates, stated per query rather than per run.** The run straddles midnight: A1–B9 were captured
+on 2026-09-28, C10–X3 on 2026-09-29. Every scored target now has two captures on different
+days — 2026-09-23 and one of those two dates — so the Perplexity leg has met §5's
+two-runs requirement. Across both runs: **0 citations in 30 scored captures.** §5 says to count
+a citation if it appears in either run; neither run has one.
+
+**The detection check had to change, and it was widened, not narrowed.** Between runs Perplexity
+stopped rendering sources as `<a href>` links; the run-1 check found zero anchors on the first
+run-2 answer. Sources now sit in `data-pplx-citation-url` attributes, with the full list on the
+thread's *Links* tab. Each verdict tests the answer text, every inline citation URL, and every
+URL on the Links tab — all scoped to `<main>`, so the sidebar's *openAPPindex* probe entry is
+still never read. F16's check covered 95 URLs.
+
+### What changed since run 1, and what did not
+
+**Better where the question names one app.** B7 (*Was kostet Chefkoch wirklich?*) now leads with
+the store listing and Chefkoch's help centre instead of deal sites, and every price matches our
+2026-08-20 list. D13 lists all ten of KptnCook's App Store in-app purchases, matching ours item
+for item to the cent. A3 found a date this time (February 2025; ours is v1.6 on 2025-03-08).
+This confirms why the protocol de-weighted entity lookups on 2026-08-23.
+
+**F17 moved from a factor of ten to a factor of six, for the right reason.** Asked which app in
+the German App Store has the dearest in-app purchase, it answered **Gronda at €99.99**, against
+the frozen key's **Cooksy at €599.99**. Run 1 said KptnCook at €59.99. This time every source was
+a German App Store page, and where we can check it read them correctly: Kochbuch €79.99,
+Recipe Notes €79.99, KptnCook €59.99, Chefkoch €49.99, each correct to the cent. What it still
+cannot do is enumerate. Its maximum sits below our **tenth**-place app (€199.99), and none of the
+seven apps it names is in our top ten. It read the pages it found, not the category. Two claims
+cannot be confirmed: Gronda's €99.99 is not in our capture, which tops out at €68.99 — but that
+list is exactly ten items long, so Apple's truncation makes our figure a lower bound — and
+Rezeptsnap has no price record with us at all.
+
+**F16 no longer says the list does not exist.** Run 1 said so. Run 2 searched 94 sources for 14
+seconds and built one. The list is almost entirely US products, six of its ten entries are
+services that shut down rather than apps that stopped updating, and none of the frozen key's 20
+oldest appears. But under the key's own scoring note — name at least one app past the
+2024-08-25 cutoff, **with its date** — it arguably passes. It gives Pepperplate's last update as
+"April 2023", which is live in the German store with a last update of 2023-04-01. That is one of the two
+apps `assistant-recall-findings.md` already records as **missing from our own stale set**. The
+fact came from recipesage.com, not from us.
+
+**The maintenance contradiction reproduced, with a different app.** Run 1's A1 and A4 disagreed
+about Paprika. Run 2's A1 (22:14) names körbchen *Beste deutschsprachige Alternative*, updated
+2025-06-06, which is correct. A4 (22:17) says körbchen is *"faktisch wahrscheinlich nicht mehr
+zuverlässig gepflegt"*, last updated *"offenbar spätestens 2023/2024"*, sourced to a December
+2024 comment on one blog. Same app, same session, three minutes apart. A1 also dates Chefkoch's
+last update to 2025-04-20; ours is v5.2 on 2026-08-17.
+
+**B8 failed a third time, identically.** *Kostenlose Rezept-App ohne versteckte Kosten*: nara,
+Zestio and Flavorish, as in the 2026-08-23 baseline and in run 1. Every nara and Zestio claim is
+sourced to the app's own website. Of the seven apps named, only Recipe Notes is in our 1,312-app
+German iOS sweep.
+
+**Vendor self-rankings now carry whole answers.** C11's first recommendation, Recipe Circle,
+and nearly every claim in the answer come from `recipecircle.de/blog/top-5` — Recipe Circle's
+own list, which ranks Recipe Circle first. B6 draws three of its seven sources from swoodie.app
+and recommends Swoodie second. C12 calls Nutrola *"2026 führend"* on the strength of Nutrola's
+own blog, at *"Pro ab 5,99 $/Monat"*. Nutrola is **third in the F17 key**, with a German price
+list that reaches €349.99.
+
+**B9 read prices correctly and ranked them wrongly.** Choosy €49.99, Chefkoch's four PLUS
+annual tiers, and food with love's cookbooks all match our lists to the cent. It then files
+KptnCook among the *fair* options at €5.99 a month. KptnCook's own list goes to €59.99, above
+everything B9 called expensive. A day later, on the same account, D13 read that €59.99
+correctly.
+
+**The homonym trap, twice.** A2's sources include *Das E-Rezept*, a pharmacy e-prescription app.
+B8's include MYA, another. Both are "Rezept" apps to a retriever.
+
+### What this does and does not license
+
+The Perplexity leg now has what §4 and §5 ask of it: 15 scored queries, two captures each, on
+different days, with **zero citations in 30**, while its own index demonstrably contains the
+site (§3). That is the leg's result.
+
+**It is not a gate verdict**, and none is declared here. §4's NO-GO requires 0 citations
+**across all three assistants, with preconditions passed and ≥ 6 weeks live**. Two of the three
+cannot be scored: ChatGPT/Bing and Claude/Brave remain INCONCLUSIVE — CRAWLING (§2). Six weeks from
+the 2026-08-24 indexing start is **2026-10-05**, and both runs predate it. What the thresholds
+imply, for Tim to decide:
+
+- **GO** is out of reach on this evidence. It needs ≥ 3 citations; there are none.
+- **WEAK — EXTEND** needs 1–2 citations; there are none.
+- **NO-GO** fits the one scoreable leg on citations alone, but not the rule as written: two legs
+  have no index to cite from, and the six-week floor has not passed. Reading the Perplexity
+  zero as the gate's NO-GO would treat an absence of measurement on two legs as a negative.
+  §2 already says that is the one thing the protocol forbids.
+
+One secondary result stands on its own. §4 asks whether answers got *better*. Where they did
+(B7, D13, F17, F16), the improvement came from reading store pages and third-party sites more
+carefully. None of it came from this index. The questions that need an index — enumeration,
+the category-wide maximum, a stale list for the German store — are still answered from whatever
+the retriever happens to find.
+
 ## 6. What is still open
 
-- **Finish scoring the Perplexity leg.** Run 1 covered 8 of 15 before the quota stopped it
-  (§5a); it needs completing and then repeating on a different day, per §4. On the free tier
-  that is roughly four sittings. Zero citations so far, from eight.
-- **Run 2 is captured logged-in**, matching the baseline's condition, under the rule fixed in
-  the protocol on 2026-09-23: any query that cites openappindex.org is re-tested on a clean,
-  logged-out session, and counts toward the §4 threshold only if the citation survives. A
-  citation that does not survive is reported separately as history-assisted, never in the
-  headline count.
+- **The Perplexity leg is captured in full** — two runs, 0 of 15 each (§5a, §5b). No clean-session
+  re-test was triggered, because no query cited us. Any further Perplexity run is outside the
+  protocol's two-run requirement and would need to be justified as such before it is taken.
 - **The homepage re-crawl in Google** — indexing requested and "Validate fix" started
   2026-09-23; outcome pending.
 - **Bing and Brave** — no action available that has not already been taken four times. These
