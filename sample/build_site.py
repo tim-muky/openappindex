@@ -14,7 +14,7 @@ ordering rule inline, because an unexplained order reads as a judgement.
 import json, re, datetime, os, shutil
 from classify import is_cooking_app
 from site_common import (BASE, NOW, esc, slug, days_since, de_date, de_elapsed, eur, eur_range,
-                         parse_eur, SHELL, write_page)
+                         parse_eur, SHELL, write_page, og_tags)
 import build_changelog
 
 # ---------------------------------------------------------------------------
@@ -569,6 +569,8 @@ for _fn, _out, _title, _desc, _other in (
 INDEXNOW_KEY = "e595dfb6a3164c1a641ee51f09b7262e"
 open(f"{OUT}/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
 
+LANDING_DESC = ('An independent, open index of mobile apps. We measured two app-store categories as completely as we could reach them: 81% of cooking apps and 88% of sleep apps never appear for the obvious search, and 77% of apps listed as free charge in-app.')
+
 # The landing page is the root. Copied in last, so no rebuild can overwrite it.
 _landing = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "landing", "index.html")
 if os.path.exists(_landing):
@@ -577,9 +579,9 @@ if os.path.exists(_landing):
         i = _html.index("<nav>")
         _html = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                  '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
-                 '<meta name="description" content="An independent, open index of mobile apps. '
-                 'We measured one app-store category as completely as we could reach it: 81% of '
-                 'cooking apps never appear in its own search results.">\n'
+                 f'<meta name="description" content="{LANDING_DESC}">\n'
+                 + og_tags("openAPPindex — the map is missing most of the streets", LANDING_DESC,
+                           "https://openappindex.org/", "en") +
                  '<link rel="canonical" href="https://openappindex.org/">\n'
                  '<link rel="alternate" hreflang="de" href="https://openappindex.org/de/">\n'
                  + _html[:i] + '\n</head>\n<body>\n' + _html[i:] + '\n</body>\n</html>\n')

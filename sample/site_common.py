@@ -57,6 +57,12 @@ SHELL = """<!doctype html>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canon}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="openAPPindex">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canon}">
+<meta name="twitter:card" content="summary">
 <style>
 :root{{--bg:#fbfcfd;--ink:#10161d;--mut:#5a6673;--rule:#cfd6dd;--acc:#26389c;--card:#fff}}
 @media(prefers-color-scheme:dark){{:root{{--bg:#0e1216;--ink:#e8edf2;--mut:#96a3af;--rule:#2a343d;--acc:#93a5ff;--card:#161c22}}}}
@@ -98,6 +104,15 @@ wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">
 <a href="{base}/paper.html">Working Paper</a></p>
 </footer>
 </div></body></html>"""
+
+def og_tags(title, desc, url, lang="de"):
+    # OpenGraph for pages not rendered through SHELL (the landing page). Without
+    # these, a shared link renders as a bare URL in chat apps and social posts.
+    t, d, u = esc(title), esc(desc), esc(url)
+    return ('<meta property="og:type" content="website">\n'
+            '<meta property="og:site_name" content="openAPPindex">\n'
+            f'<meta property="og:title" content="{t}">\n<meta property="og:description" content="{d}">\n'
+            f'<meta property="og:url" content="{u}">\n<meta name="twitter:card" content="summary">\n')
 
 def write_page(out_dir, path, title, desc, body, ld="", lang="de"):
     full = os.path.join(out_dir, path)
