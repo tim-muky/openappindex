@@ -525,6 +525,34 @@ precondition, ≥ 100 in Google **and** Bing, is still not met, so the gate does
 six-week floor is 2026-10-05 and the backstop 2026-10-13, both unchanged. No visibility-affecting
 step was taken today, including indexing requests. Queries, thresholds and scoring are unchanged.
 
+**Reading 2026-10-05 — the six-week floor.** Read from Bing Webmaster Tools directly, and from
+Brave's public result page. Search Console asked for re-authentication and was **not read**; the
+Google figures above (report of 09-21) remain the latest.
+
+- **Bing: 16 → 25 indexed**, 0 errors, 0 warnings, **1 excluded** (first non-zero). Root still last
+  crawled 21 September. About nine pages in six days: at that rate ≥ 100 lands in mid-to-late
+  November, well past the 2026-10-13 backstop.
+- **Bing Search Performance, 25 Aug–3 Oct: 5 impressions, 0 clicks.** Four on 2026-09-23 for the
+  query *openappindex rezept-apps index* (avg. position 1.5); one on 2026-10-03 for *rezept app
+  keine in-app-käufe schritt für schritt kostenlos* (position 7), the first one that does not name
+  the project.
+- **BWT AI Performance (Copilot and partners), 26 Aug–3 Oct: 0 citations.**
+- **Brave: 0.** `site:openappindex.org` still returns "too few matches".
+
+**Observation, not a conclusion — Perplexity may be discovering through Bing.** The four 09-23
+impressions are for the exact text of the Perplexity retrieval probe (`query_verbatim`
+"openAPPindex Rezept-Apps Index", captured 13:24 that day). Both openappindex.org URLs that probe
+cited, the homepage and `rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html`, were in Bing's
+then-16-page index, and the question page was the only question page Bing held. The superseded
+"706 of 916" it quoted cannot have come from Bing's copy: the homepage dropped that pair by
+2026-09-01 (commits 573263c, cef3605), and Bing's homepage crawl is dated 21 September. A
+pattern that fits all three facts: candidate URLs from Bing, page text from Perplexity's own
+older fetch. If that holds, the Perplexity leg is gated by the same index as the ChatGPT leg,
+and `gate-result.md` §4 ("the barrier is real but it is not universal") overstates. Nobody else
+typing that string into Bing the same day has not been ruled out. Recorded so the scoring on
+2026-10-13 can test it or discard it. Nothing was submitted or requested today. Queries,
+thresholds and scoring are unchanged.
+
 ---
 
 ## 2. The query set (frozen)
