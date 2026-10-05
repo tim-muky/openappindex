@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-08-21",
+    "title": "Apotheken-Apps als Rezept-Apps gezählt",
+    "summary": "„Rezept“ bedeutet im Deutschen Kochrezept und ärztliche Verordnung. Die erste Zählung enthielt deshalb Apotheken- und E-Rezept-Apps. Sie sind seitdem ausgeschlossen; alle Kennzahlen wurden neu berechnet.",
+    "url": "https://openappindex.org/methode.html"
+  },
+  {
+    "date": "2026-08-24",
+    "title": "Kochspiele als Rezept-Apps gezählt",
+    "summary": "„Kochen“ und „Backen“ treffen auch Spiele, und Kinder-Kochspiele sind unter „Bildung“ statt „Spiele“ eingeordnet. Beides ist seitdem über Store-Kategorie und Namensregel ausgeschlossen.",
+    "url": "https://openappindex.org/methode.html"
+  },
+  {
+    "date": "2026-08-31",
+    "title": "Zeitschriften-ePaper und ein Kinderspiel-Anbieter entfernt",
+    "summary": "Zehn Einträge bestanden den Stichworttest, waren aber Presseprodukte bzw. Spiele. Sie wurden entfernt (941 statt 951 Apps); die Kennzahlen wurden neu berechnet, der Anteil gratis gelisteter Apps mit In-App-Käufen bleibt 77 %.",
+    "url": "https://openappindex.org/methode.html"
+  },
+  {
+    "date": "2026-09-11",
+    "title": "Maschinenlesbarer Download-Preis für 22 kostenpflichtige Apps falsch",
+    "summary": "In den strukturierten Daten (JSON-LD) stand bis zum 11.09.2026 bei jeder App 0,00 € als Download-Preis, weil ein fehlender Zahlenwert durch Null ersetzt wurde. Für 22 kostenpflichtige Apps war das falsch. Seitdem wird der Preis aus der Store-Angabe gelesen; fehlt sie, wird kein Zahlenwert veröffentlicht.",
+    "url": "https://openappindex.org/methode.html"
+  }
+]

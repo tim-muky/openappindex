@@ -1,0 +1,48 @@
+# Weekly re-read of the served index -> dated snapshot -> changelog diff -> pull request.
+#
+# Publishing stays a reviewed step: this workflow never deploys. It opens a PR
+# with the new snapshot and the week's changelog JSON; merging it triggers the
+# normal build. Runs only on the default branch's schedule (GitHub ignores
+# schedules on other branches), so nothing here fires before it is merged —
+# which must not happen before the GO/NO-GO gate (GAL-518) has scored.
+#
+# Why GitHub Actions: desktop scheduled tasks on the maintainer's machine do not
+# run unattended (learned 2026-09-10); a hosted cron does.
+name: weekly-snapshot
+on:
+  schedule:
+    - cron: "17 5 * * 1"     # Mondays 05:17 UTC
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Re-read the index through the public Lookup API
+        working-directory: sample
+        run: |
+          PREV=$(ls data/public/snapshots/*.json | sort | tail -1)
+          echo "previous snapshot: $PREV"
+          python3 snapshot.py --fetch --ids-from "$PREV"
+          NEW=$(ls data/public/snapshots/*.json | sort | tail -1)
+          if [ "$NEW" = "$PREV" ]; then echo "no new snapshot written"; exit 0; fi
+          python3 build_changelog.py "$PREV" "$NEW"
+      - name: Open a pull request with the dated read
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto/weekly-snapshot
+          title: "Weekly read: snapshot + changelog"
+          commit-message: "Weekly read: dated snapshot and changelog diff"
+          body: |
+            Automated re-read of every app in the served index through the public Lookup API,
+            plus the diff against the previous snapshot. In-app purchase lists are not read
+            here (rate-limited product pages) and are marked as not collected.
+
+            Review the changelog JSON, then merge. After deploy, run `sample/indexnow_submit.py`.
+          labels: ""

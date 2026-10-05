@@ -64,6 +64,19 @@ python3 apply_v3.py                   # uniform precision filter across all hops
 Nothing needs an API key. Product pages rate-limit at roughly one request per 2.5s — the
 scripts respect that and are resumable.
 
+## What changed this week
+
+`sample/snapshot.py` writes a dated, public-fields-only snapshot of the served index
+(`sample/data/public/snapshots/<date>.json`); `sample/build_changelog.py A B` diffs two of
+them into `sample/data/public/changelog/<ISO week>.json`, which `build_site.py` renders as
+`/de/aenderungen/` (one page per week, Atom feed, real `lastmod` dates). Every line on those
+pages is a fact with the date it was read: a new version, a changed store price, an app the
+Lookup API no longer returned, and every correction to our own data (`corrections.json`),
+in the same list. Nothing is selected and nothing is scored. `--fetch` re-reads the previous
+snapshot's ids through the public Lookup API; it never adds apps and does not read product
+pages, so in-app purchases are marked *not collected* rather than compared.
+`.github/workflows/weekly-snapshot.yml` runs that read weekly and opens a pull request.
+
 ## What is in here
 
 | Path | |
@@ -73,6 +86,8 @@ scripts respect that and are resumable.
 | `sample/closure_crawl.py` | walks the store's own "similar apps" graph |
 | `sample/build_site.py` | generates the served site (store facts only) |
 | `sample/export_public.py` | builds the publishable dataset |
+| `sample/snapshot.py`, `sample/build_changelog.py` | dated snapshots and the weekly change pages (`/de/aenderungen/`) |
+| `sample/classify.py`, `sample/site_common.py` | the one classifier every count uses; page shell and formatting shared by the builders |
 | `sample/data/public/` | **the dataset** — facts only, CC BY 4.0 |
 | `sample/gate_capture.py` | capture harness for the assistant baseline |
 | `sample/gate_ground_truth.py` | answer key for the two enumeration queries |

@@ -1,0 +1,98 @@
+{
+  "questionnaire_version": "1.0-draft",
+  "drafted_at": "2026-09-17",
+  "status": "draft — not sent to anyone; publish on the method page before first use (GAL-579)",
+  "selection_rule": "Every app in the served index is eligible and none is selected. Outbound: every new entrant detected by the weekly changelog diff receives this questionnaire once, automatically. Inbound: the developer of any listed app may answer at any time. One reminder at most. No follow-up interviews.",
+  "publication_rule": "Answers are published on the app page in a block labelled 'Developer-stated (self-reported, not verified by openAPPindex)' with the answer date, next to — never merged with — measured values. Where a developer statement and a measurement disagree, both are shown. No answer is published as a dated fact. Answers become CC BY 4.0 fields in the public dataset.",
+  "field_prefix": "developer_stated_",
+  "record_fields": ["questionnaire_version", "sent_at", "answered_at", "withdrawn_at"],
+  "free_text_cap_chars": 300,
+  "links_allowed_in": ["source_repository_url"],
+  "questions": [
+    {
+      "id": "legal_entity",
+      "de": "Welche juristische Person steht hinter der App, und in welchem Land ist sie registriert?",
+      "en": "Which legal entity is behind the app, and in which country is it registered?",
+      "type": "object",
+      "fields": {"entity_name": "string", "country_iso2": "string"}
+    },
+    {
+      "id": "pricing_model",
+      "de": "Welches Preismodell hat die App?",
+      "en": "What is the app's pricing model?",
+      "type": "enum",
+      "values": ["free", "one_off_purchase", "subscription", "mixed"]
+    },
+    {
+      "id": "billing_periods",
+      "de": "Für jeden im Store ausgewiesenen In-App-Kauf: Welcher Abrechnungszeitraum gilt? (Apple veröffentlicht diese Angabe nicht.)",
+      "en": "For every in-app purchase listed in the store: which billing period applies? (Apple does not publish this.)",
+      "type": "array",
+      "item": {"iap_name": "string", "period": ["weekly", "monthly", "quarterly", "yearly", "lifetime", "consumable", "other"]},
+      "note": "This is the field the index cannot measure and therefore never annualises. It is published as developer-stated and never used to compute a per-year figure on our side."
+    },
+    {
+      "id": "free_tier",
+      "de": "Was kann die App ohne Bezahlung?",
+      "en": "What does the app do without paying?",
+      "type": "enum",
+      "values": ["full_use", "limited_features", "trial_with_automatic_conversion", "trial_without_automatic_conversion", "nothing"]
+    },
+    {
+      "id": "advertising",
+      "de": "Enthält die App Werbung?",
+      "en": "Does the app contain advertising?",
+      "type": "object",
+      "fields": {"kind": ["none", "own_products_only", "third_party_sdk"], "sdk_names": "array of strings, only if third_party_sdk"}
+    },
+    {
+      "id": "data_export",
+      "de": "Können Nutzerinnen und Nutzer ihre eigenen Daten (z. B. Rezepte, Schlafprotokolle) in einem offenen Format exportieren?",
+      "en": "Can users export their own data (recipes, sleep logs) in an open format?",
+      "type": "object",
+      "fields": {"possible": "boolean", "formats": "array of strings"}
+    },
+    {
+      "id": "account_deletion_in_app",
+      "de": "Kann das Konto in der App selbst gelöscht werden?",
+      "en": "Can the account be deleted inside the app?",
+      "type": "boolean"
+    },
+    {
+      "id": "source_availability",
+      "de": "Ist der Quellcode verfügbar?",
+      "en": "Is the source code available?",
+      "type": "object",
+      "fields": {"kind": ["closed", "source_available", "open_source"], "licence": "SPDX identifier, if open_source", "source_repository_url": "URL, if source_available or open_source"}
+    },
+    {
+      "id": "support",
+      "de": "Über welchen Kanal ist der Support erreichbar, und welche Antwortzeit sagen Sie zu?",
+      "en": "Which channel reaches support, and what response time do you commit to?",
+      "type": "object",
+      "fields": {"channel": ["email", "in_app", "web_form", "other"], "stated_response_time": ["same_day", "within_3_days", "within_a_week", "no_commitment"]}
+    },
+    {
+      "id": "team_size_band",
+      "de": "Wie groß ist das Team, das die App pflegt?",
+      "en": "How large is the team maintaining the app?",
+      "type": "enum",
+      "values": ["1", "2-5", "6-20", "21+"]
+    },
+    {
+      "id": "maintenance_statement",
+      "de": "Was sollten Leserinnen und Leser darüber wissen, wie diese App gepflegt wird? (höchstens 300 Zeichen, wird wörtlich veröffentlicht, keine Links, keine Personennamen)",
+      "en": "What should a reader know about how this app is maintained? (300 characters at most, published verbatim, no links, no names of people)",
+      "type": "free_text",
+      "max_chars": 300,
+      "published_verbatim": true
+    }
+  ],
+  "not_asked": [
+    "Any self-assessment of quality, ranking or comparison with other apps.",
+    "Download figures, revenue or marketing spend — the index does not rank by reach.",
+    "Anything about individual users or reviews."
+  ],
+  "consent_text_de": "Ihre Antworten werden als „Angabe des Anbieters (selbst gemeldet, von openAPPindex nicht geprüft)“ mit Datum auf der Seite Ihrer App und im offenen Datensatz (CC BY 4.0) veröffentlicht. Sie können Ihre Angaben jederzeit aktualisieren oder zurückziehen; ein Rückzug wird mit Datum vermerkt. Bitte nennen Sie keine Personen im Freitext.",
+  "consent_text_en": "Your answers are published as 'Developer-stated (self-reported, not verified by openAPPindex)' with the date, on your app's page and in the open dataset (CC BY 4.0). You can update or withdraw your answers at any time; a withdrawal is recorded with its date. Please do not name people in the free-text field."
+}
