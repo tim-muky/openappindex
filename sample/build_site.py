@@ -346,10 +346,89 @@ qpage("rezept-app-ohne-abo-und-ohne-in-app-kaeufe",
       + names(noiap, lambda a: f"{a['trackName']} ({upd(a)}, Store-Preis {a.get('formattedPrice')})")
       + ". Ob eine App ein Abo außerhalb des App Store verkauft, zeigt die Produktseite nicht.")
 
+# ---- GAL-566: pages for gate queries B6, C10, C11/C12, which had no page at all ----
+# These lists rest on what each developer's own store text says, not on a test of the
+# app. Every card therefore shows the exact sentence or purchase item that matched, so
+# the reader sees the evidence and the rule, not our reading of it.
+def _quote(m):
+    t = re.sub(r"\s+", " ", m.group(0)).strip(" -•·*:")
+    return t if len(t) <= 180 else t[:177] + "…"
+_WEB = re.compile(r"[^.!?\n]*\b(?:(?:aus|von)\s+(?:jeder|allen|beliebigen)?\s*(?:Webseiten?|Websites?|Internetseiten?|Blogs?|Food-?Blogs?)"
+                  r"|import\w*\s+[^.!?\n]{0,40}\b(?:Webseiten?|Websites?|Website-Links?|Links?|URLs?|Internet|Blogs?)"
+                  r"|(?:Webseiten?|Websites?|Website-Links?|Links?|URLs?|Blogs?)\s+[^.!?\n]{0,40}\bimport\w*"
+                  r"|(?:import|save|clip)\w*\s+recipes?\s+from\s+(?:any\s+)?(?:website|web|blog|url|link))\b[^.!?\n]*", re.I)
+_OWN = re.compile(r"[^.!?\n]*\b(?:eigenen?\s+Rezepte|(?:Rezepte|Lieblingsrezepte)\s+(?:sammeln|speichern|verwalten|organisieren)"
+                  r"|(?:your|own)\s+recipes?\s+(?:collection|organi[sz]er|manager)|digitale[sn]?\s+(?:Rezeptbuch|Kochbuch))\b[^.!?\n]*", re.I)
+_ONCE = re.compile(r"\b(?:einmalig\w*|Einmalkauf|lifetime|lebenslang\w*|Vollversion|forever|for\s+life)\b", re.I)
+_SUBS = re.compile(r"\b(?:Abo\w*|Monat\w*|monatlich|jährlich|Woche\w*|wöchentlich|month\w*|year\w*|week\w*|annual\w*|subscription\w*)\b", re.I)
+for a in apps:
+    d = a.get("description") or ""
+    m = _WEB.search(d); a["q_web"] = _quote(m) if m else None
+    m = _OWN.search(d); a["q_own"] = _quote(m) if m else None
+    a["q_once"] = [i for i in (a["iaps"] or []) if _ONCE.search(i["name"]) and not _SUBS.search(i["name"])]
+
+web = [a for a in by_recency if a["q_web"]]
+qpage("app-rezepte-von-webseiten-speichern",
+      "App zum Speichern von Rezepten aus Webseiten | openAPPindex",
+      "Rezept-Apps, deren Store-Beschreibung den Import aus Webseiten nennt",
+      "Welche App speichert Rezepte von Webseiten?",
+      "Apps, deren eigene Beschreibung im App Store den Import oder das Speichern von Rezepten aus Webseiten, Links "
+      "oder Blogs nennt, sortiert nach dem Datum der letzten Aktualisierung, neueste zuerst. Der zitierte Satz ist "
+      "die Angabe des Anbieters; ob die Funktion hält, was er verspricht, haben wir nicht geprüft.",
+      web,
+      "Rezept-Apps im deutschen App Store, deren Beschreibung den Import von Rezepten aus Webseiten nennt.",
+      f"{len(web)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
+      f"den Import von Rezepten aus Webseiten, Links oder Blogs (Erhebung {DATA_STAND}). Zuletzt aktualisiert: "
+      + names(web, lambda a: f"{a['trackName']} ({upd(a)})") + ". Das ist die Angabe der Anbieter, kein Funktionstest.",
+      extra=lambda a: f" · Anbieter: „{esc(a['q_web'])}“")
+
+own = [a for a in by_recency if a["q_own"]]
+qpage("app-eigene-rezepte-sammeln-und-verwalten",
+      "App, um eigene Rezepte zu sammeln und zu verwalten | openAPPindex",
+      "Rezept-Apps, deren Store-Beschreibung das Sammeln eigener Rezepte nennt",
+      "Welche App verwaltet eigene Rezepte?",
+      "Apps, deren eigene Beschreibung im App Store das Anlegen, Sammeln, Speichern oder Verwalten eigener Rezepte "
+      "nennt, sortiert nach dem Datum der letzten Aktualisierung, neueste zuerst. Keine Rangfolge nach Qualität: "
+      "Der zitierte Satz ist die Angabe des Anbieters.",
+      own,
+      "Rezept-Apps im deutschen App Store, deren Beschreibung das Sammeln und Verwalten eigener Rezepte nennt.",
+      f"{len(own)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
+      f"das Sammeln oder Verwalten eigener Rezepte (Erhebung {DATA_STAND}). Zuletzt aktualisiert: "
+      + names(own, lambda a: f"{a['trackName']} ({upd(a)})") + ". Was eine App kostet, steht auf ihrer Seite im Index.",
+      extra=lambda a: f" · Anbieter: „{esc(a['q_own'])}“")
+
+once = [a for a in apps if a["q_once"]]
+paid_once = [a for a in apps if a["price_known"] and not a["iaps"]
+             and (a.get("formattedPrice") or "").lower() not in ("gratis", "free")]
+once_all = sorted(once + paid_once, key=lambda x: x["days"] if x["days"] is not None else 99999)
+def _once_txt(a):
+    if a["q_once"]:
+        return " · Kaufposition: " + "; ".join(f"„{esc(i['name'].strip())}“ {esc(i['price'])}" for i in a["q_once"][:3])
+    return f" · Kaufpreis {esc(a.get('formattedPrice'))}, keine In-App-Käufe ausgewiesen"
+qpage("rezept-app-einmalig-bezahlen-statt-abo",
+      "Rezept-App einmal bezahlen statt Abo | openAPPindex",
+      "Rezept-Apps mit Einmalkauf: Kaufpreis ohne In-App-Käufe oder eine als einmalig bezeichnete Kaufposition",
+      "Welche Rezept-Apps kann man einmalig bezahlen statt im Abo?",
+      "Zwei Gruppen, sortiert nach dem Datum der letzten Aktualisierung: Apps mit Kaufpreis im Store, für die keine "
+      "In-App-Käufe ausgewiesen sind, und Apps mit einer In-App-Kaufposition, deren Name sie als Einmalkauf bezeichnet "
+      "(„Lifetime“, „lebenslang“, „einmalig“, „Vollversion“). Die Bezeichnung stammt vom Anbieter. Apple veröffentlicht "
+      "nicht, ob eine Kaufposition ein Abo ist; dieselbe App kann daneben Abos anbieten.",
+      once_all,
+      "Rezept-Apps im deutschen App Store, die einen Einmalkauf ausweisen.",
+      f"{len(paid_once)} Rezept- und Koch-Apps im deutschen App Store kosten einen einmaligen Kaufpreis und weisen keine "
+      f"In-App-Käufe aus; bei {len(once)} weiteren nennt mindestens eine Kaufposition einen Einmalkauf (Erhebung "
+      f"{DATA_STAND}). Beispiele: " + names(once_all, lambda a: f"{a['trackName']}" + (
+          f" („{a['q_once'][0]['name'].strip()}“, {a['q_once'][0]['price']})" if a["q_once"]
+          else f" (Kaufpreis {a.get('formattedPrice')})")) + ". Die Bezeichnungen stammen von den Anbietern.",
+      extra=_once_txt)
+
 QS = [("welche-rezept-app-wird-noch-gepflegt","Welche Rezept-App wird noch gepflegt?"),
       ("rezept-apps-lange-nicht-aktualisiert","Welche wurden lange nicht aktualisiert?"),
       ("gratis-rezept-app-was-kostet-sie-wirklich","„Gratis“ — was kostet sie wirklich?"),
-      ("rezept-app-ohne-abo-und-ohne-in-app-kaeufe","Welche kommen ohne In-App-Käufe aus?")]
+      ("rezept-app-ohne-abo-und-ohne-in-app-kaeufe","Welche kommen ohne In-App-Käufe aus?"),
+      ("rezept-app-einmalig-bezahlen-statt-abo","Welche kann man einmal bezahlen statt im Abo?"),
+      ("app-rezepte-von-webseiten-speichern","Welche speichern Rezepte von Webseiten?"),
+      ("app-eigene-rezepte-sammeln-und-verwalten","Welche verwalten eigene Rezepte?")]
 
 # ---------------- weekly changelog (GAL-578) ----------------
 # Rendered only when data/public/changelog/*.json exists; until then the site is byte-identical.
