@@ -1,0 +1,40 @@
+{
+  "upload_type": "software",
+  "title": "openAPPindex: open dataset and code on discovery and price disclosure in the German iOS App Store",
+  "creators": [
+    {
+      "name": "Meyerdierks, Tim",
+      "affiliation": "The openAPPindex project",
+      "orcid": "PLACEHOLDER-ORCID-0000-0000-0000-0000"
+    }
+  ],
+  "description": "<p>Snapshot of the openAPPindex repository (github.com/tim-muky/openappindex): the scripts and the published dataset behind the working paper <em>Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market</em>.</p><p>The dataset records, for two categories of the German iOS App Store, which apps the store's own search returns and what Apple publishes about their prices and in-app purchases. Cooking apps were measured 19 August to 1 September 2026; sleep and meditation apps 1–2 September 2026. Every record carries the date it was read from public Apple endpoints.</p><p><strong>What is in it.</strong> Facts only: names, developers, categories, versions, dates, listed prices, rating counts, and Apple's published in-app purchase lists. App descriptions and release-note text are deliberately excluded (they are the copyright of their developers); only their length and presence are kept. A value that was not collected is published as missing, never as zero. Prices are never annualised: an in-app purchase is reported as Apple lists it, with the developer's own label, and is never converted to a per-year figure.</p><p><strong>Known limitations.</strong> Two categories, one storefront, one platform, a short window. Category membership comes from a keyword classifier (sample/classify.py), which has needed four documented correction passes; the corrections are in sample/data/public/corrections.json and on openappindex.org/methode.html. Apple's product pages list at most ten in-app purchases, so for an app whose list sits at ten, the highest in-app purchase recorded here is a lower bound.</p><p><strong>Licences.</strong> This record is the software archive and carries the code licence, AGPL-3.0 (see LICENSE). The datasets inside it, sample/data/public/ (cooking) and sleep/data/public/ (sleep and meditation), are licensed separately under CC BY 4.0 (see LICENSE-DATA); the licence recorded on this page does not change that.</p><p><strong>Corrections.</strong> If something here is wrong, write to korrektur@openappindex.org. Every notice is checked and corrections are published with a date.</p>",
+  "license": "agpl-3.0-only",
+  "access_right": "open",
+  "keywords": [
+    "app stores",
+    "search costs",
+    "price transparency",
+    "platform markets",
+    "gatekeepers",
+    "in-app purchases",
+    "iOS App Store",
+    "Germany",
+    "open data",
+    "JEL D82",
+    "JEL D83",
+    "JEL L13",
+    "JEL L86"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://openappindex.org/paper.html",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-workingpaper"
+    },
+    {
+      "identifier": "https://openappindex.org/methode.html",
+      "relation": "isDocumentedBy"
+    }
+  ]
+}

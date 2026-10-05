@@ -1,0 +1,62 @@
+# Citation metadata for the openAPPindex repository (Citation File Format 1.2.0).
+# GitHub renders this as "Cite this repository".
+#
+# NOTE: Zenodo reads .zenodo.json, not this file, when both exist. Keep the two in step.
+#
+# PLACEHOLDER — before the first release:
+#   1. Create the ORCID iD (see publish/UPLOAD-CHECKLIST.md, step 1).
+#   2. Uncomment both `orcid:` lines below and put the real iD in.
+#   3. After Zenodo mints the DOI, uncomment the `doi:` / `identifiers:` block and fill it in.
+
+cff-version: 1.2.0
+message: >-
+  If you use this dataset or code, please cite the working paper (preferred
+  citation) and, for the data or code itself, this repository.
+title: "openAPPindex: an open dataset on discovery and price disclosure in the German iOS App Store"
+abstract: >-
+  Code and open dataset measuring two categories of the German iOS App Store
+  (cooking apps; sleep and meditation apps): whether category apps are
+  reachable through the store's own search, and what apps listed as free
+  charge through in-app purchases. Facts only, each dated at the time it was
+  read from public Apple endpoints; app descriptions and release-note text are
+  excluded. Code AGPL-3.0; dataset (sample/data/public/) CC BY 4.0.
+type: software
+authors:
+  - family-names: Meyerdierks
+    given-names: Tim
+    affiliation: The openAPPindex project
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # PLACEHOLDER — replace with Tim's real ORCID iD
+repository-code: "https://github.com/tim-muky/openappindex"
+url: "https://openappindex.org"
+# Code licence. The dataset in sample/data/public/ is CC BY 4.0 (see LICENSE-DATA).
+license: AGPL-3.0-only
+keywords:
+  - app stores
+  - search costs
+  - price transparency
+  - platform markets
+  - gatekeepers
+  - open data
+# doi: "10.5281/zenodo.XXXXXXX"   # PLACEHOLDER — concept DOI from Zenodo after the first release
+preferred-citation:
+  type: report
+  title: "Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market"
+  authors:
+    - family-names: Meyerdierks
+      given-names: Tim
+      affiliation: The openAPPindex project
+      # orcid: "https://orcid.org/0000-0000-0000-0000"   # PLACEHOLDER — same iD as above
+  institution:
+    name: The openAPPindex project
+  year: 2026
+  month: 9
+  notes: "Working paper, draft v0.1. Preliminary and incomplete; not peer-reviewed."
+  url: "https://openappindex.org/paper.html"
+  repository-code: "https://github.com/tim-muky/openappindex"
+  keywords:
+    - search costs
+    - platform markets
+    - price transparency
+    - app stores
+    - gatekeepers
+  # doi: "10.5281/zenodo.XXXXXXX"   # PLACEHOLDER — DOI of the separate Zenodo paper record (publish/zenodo-paper.json)
