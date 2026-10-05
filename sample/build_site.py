@@ -78,9 +78,38 @@ for _f in ("data/prices_de.json", "data/new_apps_prices.json"):
         for r in json.load(open(_f, encoding="utf-8")):
             prices[r["track_id"]] = r
 
+# The latest weekly snapshot (GAL-578) is newer than the corpus for version, last-update
+# date and store price label. Those three are taken from it, each with its own read date.
+# In-app purchase lists are not re-read weekly, so prices keep their product-page read
+# date. Release notes are shown only while the version they belong to is still current.
+SNAP, SNAP_READ = {}, None
+_sd = os.path.join("data", "public", "snapshots")
+if os.path.isdir(_sd):
+    for _fn in sorted(os.listdir(_sd), reverse=True):
+        _s = json.load(open(os.path.join(_sd, _fn), encoding="utf-8"))
+        if _s.get("collected", {}).get("lookup") and _s.get("read_at", "") > CORPUS_READ:
+            SNAP, SNAP_READ = _s["apps"], _s["read_at"]
+            break
+
 for a in apps:
     a["slug"] = f"{slug(a['trackName'])}-{a['trackId']}"
+    a["lookup_read"] = CORPUS_READ
+    a["notes_version"], a["notes_date"] = a.get("version"), a.get("currentVersionReleaseDate")
+    a["not_found_on"] = None
+    _r = SNAP.get(str(a["trackId"]))
+    if _r and _r.get("ok"):
+        if _r.get("v"): a["version"] = _r["v"]
+        if _r.get("upd"): a["currentVersionReleaseDate"] = _r["upd"] + "T00:00:00Z"
+        if _r.get("price"): a["formattedPrice"] = _r["price"]
+        a["lookup_read"] = _r.get("read") or SNAP_READ
+    elif _r:
+        a["not_found_on"] = _r.get("read") or SNAP_READ
     a["days"] = days_since(a.get("currentVersionReleaseDate"))
+    # Age of the last update on the day it was read: what the question pages count with,
+    # so a claim like "not updated for over a year" is true of the read it rests on.
+    _u = (a.get("currentVersionReleaseDate") or "")[:10]
+    a["age"] = ((datetime.date.fromisoformat(a["lookup_read"]) - datetime.date.fromisoformat(_u)).days
+                if _u else None)
     p = prices.get(a["trackId"], {})
     a["subtitle"] = p.get("subtitle")
     iaps = p.get("in_app_purchases")
@@ -91,7 +120,8 @@ for a in apps:
     a["read_at"] = (p.get("read_at") or "")[:10] or None
 
 # "Stand" of the dataset is the most recent recorded read, not today.
-DATA_STAND = max([a["read_at"] for a in apps if a["read_at"]] or [CORPUS_READ])
+DATA_STAND = max([a["read_at"] for a in apps if a["read_at"]] or [CORPUS_READ])     # prices
+LOOKUP_STAND = max(a["lookup_read"] for a in apps)                                    # versions, dates
 
 def page(path, title, desc, body, ld="", lang="de"):
     write_page(OUT, path, title, desc, body, ld, lang)
@@ -138,11 +168,16 @@ def app_page(a):
 
     notes = ""
     n = re.sub(r"\s+", " ", (a.get("releaseNotes") or "")).strip()
-    if n:
+    if n and a["notes_version"] == a.get("version"):
         notes = (f"<h2>Was der Anbieter zur letzten Version schreibt</h2>"
                  f"<blockquote>{esc(n[:400])}{'…' if len(n)>400 else ''}</blockquote>"
-                 f"<p class='src'>Eigene Versionshinweise des Anbieters zu Version {esc(a.get('version'))}, "
-                 f"veröffentlicht am {de_date(a.get('currentVersionReleaseDate'))}.</p>")
+                 f"<p class='src'>Eigene Versionshinweise des Anbieters zu Version {esc(a['notes_version'])}, "
+                 f"veröffentlicht am {de_date(a['notes_date'])}.</p>")
+    if a["not_found_on"]:
+        notes += (f"<div class='rule'>Bei der Lesung am {de_date(a['not_found_on'])} lieferte Apples Schnittstelle "
+                  f"für den deutschen Store zu dieser App keinen Eintrag. Das kann heißen, dass sie nicht mehr "
+                  f"angeboten wird; wir schließen es nicht daraus. Die Angaben unten stammen aus der Lesung vom "
+                  f"{de_date(a['lookup_read'])}.</div>")
 
     # The download price is read from the store's own price string. Apple's Search API
     # returns no numeric price field for this corpus, so any number here has to come from
@@ -205,7 +240,7 @@ sprechen wir nicht aus.</p>
 <tr><th>Preisangabe im Store</th><td>{esc(a.get('formattedPrice'))}</td></tr>
 <tr><th>Im App Store ansehen</th><td><a href="{esc(a.get('trackViewUrl'))}" rel="nofollow">Produktseite</a></td></tr>
 </tbody></table>
-<p class="src">Quelle: iTunes Search API (erhoben am {CORPUS_READ}) und Produktseite im App Store
+<p class="src">Quelle: iTunes Search API (erhoben am {a['lookup_read']}) und Produktseite im App Store
 (Storefront Deutschland, erhoben am {a['read_at'] or 'nicht erhoben'}).</p>
 {iap_rows}{notes}{own}
 {related(a)}
@@ -277,7 +312,9 @@ def qpage(fn, title, h1, question, rule, listed, desc, answer, extra=lambda a: "
             f"<div class='rule'><strong>Sortierregel:</strong> {rule}</div>"
             f"<h2>Alle {len(listed)} Apps</h2><ol>{''.join(card(a, extra(a)) for a in listed)}</ol>"
             f"<p class='src'>Grundlage: {len(apps)} Apps im deutschen App Store, deren eigene Beschreibung sie als "
-            f"Rezept- oder Koch-App ausweist. Erhoben am {DATA_STAND}. "
+            f"Rezept- oder Koch-App ausweist. Versionen und Aktualisierungsdaten gelesen am {LOOKUP_STAND}, "
+            f"In-App-Käufe am {DATA_STAND}. Apps, die Apples Schnittstelle bei der letzten Lesung nicht mehr "
+            f"lieferte, sind nicht aufgeführt. "
             f"<a href='{BASE}/de/app/'>Alle Apps von A bis Z</a>.</p>")
     page(f"de/frage/{fn}.html", title, desc, body,
          "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld))
@@ -285,8 +322,9 @@ def qpage(fn, title, h1, question, rule, listed, desc, answer, extra=lambda a: "
 def upd(a): return de_date(a.get("currentVersionReleaseDate"))
 def names(lst, fmt, n=5): return "; ".join(fmt(a) for a in lst[:n])
 
-by_recency = sorted([a for a in apps if a["days"] is not None], key=lambda x: x["days"])
-recent_365 = [a for a in by_recency if a["days"] <= 365]
+listed_apps = [a for a in apps if not a["not_found_on"]]
+by_recency = sorted([a for a in listed_apps if a["days"] is not None], key=lambda x: x["days"])
+recent_365 = [a for a in by_recency if a["age"] is not None and a["age"] <= 365]
 qpage("welche-rezept-app-wird-noch-gepflegt",
       "Welche Rezept-App wird noch gepflegt? | openAPPindex",
       "Welche Rezept-App wird noch gepflegt?",
@@ -296,11 +334,11 @@ qpage("welche-rezept-app-wird-noch-gepflegt",
       by_recency,
       "Rezept-Apps im deutschen App Store, sortiert nach dem Datum ihrer letzten Aktualisierung.",
       f"Von {len(by_recency)} Rezept- und Koch-Apps im deutschen App Store wurden {len(recent_365)} in den "
-      f"365 Tagen vor der Erhebung am {DATA_STAND} aktualisiert. Zuletzt aktualisiert: "
+      f"365 Tagen vor der Lesung am {LOOKUP_STAND} aktualisiert. Zuletzt aktualisiert: "
       + names(by_recency, lambda a: f"{a['trackName']} ({upd(a)})") + ". Das Datum der letzten "
       "Aktualisierung sagt, dass eine App gepflegt wird, nicht wie gut sie ist.")
 
-stale = sorted([a for a in apps if a["days"] and a["days"] > 365], key=lambda x: -x["days"])
+stale = sorted([a for a in listed_apps if a["age"] and a["age"] > 365], key=lambda x: -x["age"])
 qpage("rezept-apps-lange-nicht-aktualisiert",
       "Welche Rezept-Apps wurden lange nicht aktualisiert? | openAPPindex",
       "Rezept-Apps, die seit über einem Jahr nicht aktualisiert wurden",
@@ -309,12 +347,12 @@ qpage("rezept-apps-lange-nicht-aktualisiert",
       "älteste zuerst. Das ist eine Datumsangabe, keine Aussage über die Qualität der App.",
       stale,
       "Rezept-Apps im deutschen App Store, deren letzte Aktualisierung über ein Jahr zurückliegt.",
-      f"{len(stale)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store wurden seit über einem Jahr "
-      f"nicht aktualisiert, {sum(1 for a in stale if a['days'] > 730)} davon seit über zwei Jahren "
-      f"(Erhebung {DATA_STAND}). Am längsten nicht aktualisiert: "
+      f"{len(stale)} von {len(listed_apps)} Rezept- und Koch-Apps im deutschen App Store wurden seit über einem Jahr "
+      f"nicht aktualisiert, {sum(1 for a in stale if a['age'] > 730)} davon seit über zwei Jahren "
+      f"(Lesung vom {LOOKUP_STAND}). Am längsten nicht aktualisiert: "
       + names(stale, lambda a: f"{a['trackName']} (zuletzt {upd(a)})") + ".")
 
-hidden = sorted([a for a in apps if a["iap_max"] and (a.get("formattedPrice") or "").lower() in ("gratis","free")],
+hidden = sorted([a for a in listed_apps if a["iap_max"] and (a.get("formattedPrice") or "").lower() in ("gratis","free")],
                 key=lambda x: -x["iap_max"])
 free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
 qpage("gratis-rezept-app-was-kostet-sie-wirklich",
@@ -331,7 +369,7 @@ qpage("gratis-rezept-app-was-kostet-sie-wirklich",
       "Kaufpositionen, wie Apple sie veröffentlicht, keine Jahreskosten.",
       extra=lambda a: f" · In-App-Käufe {eur(a['iap_min'])}–{eur(a['iap_max'])}")
 
-noiap = sorted([a for a in apps if a["price_known"] and not a["iaps"] and a["days"] is not None],
+noiap = sorted([a for a in listed_apps if a["price_known"] and not a["iaps"] and a["days"] is not None],
                key=lambda x: x["days"])
 qpage("rezept-app-ohne-abo-und-ohne-in-app-kaeufe",
       "Rezept-Apps ohne In-App-Käufe | openAPPindex",
@@ -377,8 +415,8 @@ qpage("app-rezepte-von-webseiten-speichern",
       "die Angabe des Anbieters; ob die Funktion hält, was er verspricht, haben wir nicht geprüft.",
       web,
       "Rezept-Apps im deutschen App Store, deren Beschreibung den Import von Rezepten aus Webseiten nennt.",
-      f"{len(web)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
-      f"den Import von Rezepten aus Webseiten, Links oder Blogs (Erhebung {DATA_STAND}). Zuletzt aktualisiert: "
+      f"{len(web)} von {len(listed_apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
+      f"den Import von Rezepten aus Webseiten, Links oder Blogs (Beschreibungen gelesen am {CORPUS_READ}). Zuletzt aktualisiert: "
       + names(web, lambda a: f"{a['trackName']} ({upd(a)})") + ". Das ist die Angabe der Anbieter, kein Funktionstest.",
       extra=lambda a: f" · Anbieter: „{esc(a['q_web'])}“")
 
@@ -392,13 +430,13 @@ qpage("app-eigene-rezepte-sammeln-und-verwalten",
       "Der zitierte Satz ist die Angabe des Anbieters.",
       own,
       "Rezept-Apps im deutschen App Store, deren Beschreibung das Sammeln und Verwalten eigener Rezepte nennt.",
-      f"{len(own)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
-      f"das Sammeln oder Verwalten eigener Rezepte (Erhebung {DATA_STAND}). Zuletzt aktualisiert: "
+      f"{len(own)} von {len(listed_apps)} Rezept- und Koch-Apps im deutschen App Store nennen in ihrer Store-Beschreibung "
+      f"das Sammeln oder Verwalten eigener Rezepte (Beschreibungen gelesen am {CORPUS_READ}). Zuletzt aktualisiert: "
       + names(own, lambda a: f"{a['trackName']} ({upd(a)})") + ". Was eine App kostet, steht auf ihrer Seite im Index.",
       extra=lambda a: f" · Anbieter: „{esc(a['q_own'])}“")
 
-once = [a for a in apps if a["q_once"]]
-paid_once = [a for a in apps if a["price_known"] and not a["iaps"]
+once = [a for a in listed_apps if a["q_once"]]
+paid_once = [a for a in listed_apps if a["price_known"] and not a["iaps"]
              and (a.get("formattedPrice") or "").lower() not in ("gratis", "free")]
 once_all = sorted(once + paid_once, key=lambda x: x["days"] if x["days"] is not None else 99999)
 def _once_txt(a):
@@ -652,7 +690,7 @@ Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappinde
 _free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
 _free_iap = sum(1 for a in apps if a["iaps"] and (a.get("formattedPrice") or "").lower() in ("gratis","free"))
 _iapmax = sorted([a for a in apps if a["iap_max"]], key=lambda x: -x["iap_max"])
-_stale2 = sum(1 for a in apps if a["days"] and a["days"] > 730)
+_stale2 = sum(1 for a in apps if not a["not_found_on"] and a["age"] and a["age"] > 730)
 open(f"{OUT}/llms.txt","w",encoding="utf-8").write(f"""# openAPPindex
 
 > An independent, open index of mobile apps: dated store facts — when an app was last updated
@@ -666,7 +704,7 @@ Sleep & meditation apps: 3,578 (measured 1–2 Sep 2026).
 Key figures (each sourced on the linked pages):
 - {_free_iap} of {_free_listed} recipe apps listed as free ("Gratis") list in-app purchases.
 - Highest single in-app purchase among recipe apps: {_iapmax[0]['trackName'] if _iapmax else 'n/a'}, {eur(_iapmax[0]['iap_max']) if _iapmax else 'n/a'}.
-- {_stale2} recipe apps had, as read on {DATA_STAND}, not been updated for more than two years before {BUILD_DATE}.
+- {_stale2} recipe apps had, as read on {LOOKUP_STAND}, not been updated for more than two years.
 - Of the apps a 25-query sweep found, 81% of recipe apps never appear for "rezepte" and 88% of sleep apps never appear for "schlaf".
 - Prices are single in-app purchase items as Apple lists them, never annualised.
 
@@ -696,7 +734,7 @@ with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
     for a in _iapmax[:20]:
         f.write(f"- {a['trackName']}: {eur(a['iap_max'])} (Store-Preis {a.get('formattedPrice')}, erhoben {a['read_at']}) — {BASE}/de/app/{a['slug']}/\n")
     f.write("\n## Am längsten nicht aktualisiert (Top 20)\n")
-    for a in sorted([a for a in apps if a["days"]], key=lambda x: -x["days"])[:20]:
+    for a in sorted([a for a in apps if a["days"] and not a["not_found_on"]], key=lambda x: -x["days"])[:20]:
         f.write(f"- {a['trackName']}: zuletzt {de_date(a.get('currentVersionReleaseDate'))} — {BASE}/de/app/{a['slug']}/\n")
     f.write("\n## Alle Apps, zuletzt aktualisierte zuerst\n\n")
     for a in sorted(apps, key=lambda x: x["days"] if x["days"] is not None else 99999):
