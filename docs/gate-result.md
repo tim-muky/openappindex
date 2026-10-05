@@ -192,8 +192,9 @@ reproduce the baseline's findings rather than softening them.
 - **The baseline's worst failure reproduced exactly.** B8 asked for a free app *without hidden
   costs*; all three recommendations — nara, Zestio, Flavorish — are absent from our 1,312-app
   German iOS sweep, and two were sourced to their own marketing sites. Flavorish was flagged for
-  this in the 2026-08-23 baseline. Thirteen months of model improvement later, the same question
-  returns the same class of answer.
+  this in the 2026-08-23 baseline. One month later, the same question returns the same class of
+  answer. *(Corrected 2026-10-05: this said "thirteen months"; baseline and run 1 are one month
+  apart.)*
 
 - **And then it said the thing does not exist.** F16 asks for a list of recipe apps unchanged
   for over two years. After searching for thirteen seconds the answer opens: *"Eine zentrale,
@@ -301,8 +302,11 @@ zuverlässig gepflegt"*, last updated *"offenbar spätestens 2023/2024"*, source
 2024 comment on one blog. Same app, same session, three minutes apart. A1 also dates Chefkoch's
 last update to 2025-04-20; ours is v5.2 on 2026-08-17.
 
-**B8 failed a third time, identically.** *Kostenlose Rezept-App ohne versteckte Kosten*: nara,
-Zestio and Flavorish, as in the 2026-08-23 baseline and in run 1. Every nara and Zestio claim is
+**B8 failed a third time.** *Kostenlose Rezept-App ohne versteckte Kosten*: nara, Zestio and
+Flavorish, identical to run 1. The 2026-08-23 baseline named Samsung Food, Nutrola, Flavorish,
+Aldenté and My ReciNote; Flavorish is the only app all three answers share. *(Corrected
+2026-10-05: this said the three apps were the same "as in the 2026-08-23 baseline". The failure
+is the same; the apps are not.)* Every nara and Zestio claim is
 sourced to the app's own website. Of the seven apps named, only Recipe Notes is in our 1,312-app
 German iOS sweep.
 
