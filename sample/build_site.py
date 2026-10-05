@@ -40,8 +40,16 @@ OWN_APPS = {6764606059}   # galleybook
 # Wipe generated output first. Without this, pages for apps a corrected classifier
 # no longer includes stay on disk and keep being served — which is how 211 pharmacy
 # and game pages survived a rebuild on 2026-08-24.
+# The Vercel project link (.vercel/) lives in the output directory and must survive
+# the wipe, or the next `vercel deploy` silently creates a new, unlinked project.
 if os.path.isdir(OUT):
+    _keep = os.path.join(OUT, ".vercel")
+    if os.path.isdir(_keep):
+        shutil.move(_keep, OUT + ".vercel.keep")
     shutil.rmtree(OUT)
+    os.makedirs(OUT)
+    if os.path.isdir(OUT + ".vercel.keep"):
+        shutil.move(OUT + ".vercel.keep", _keep)
 TODAY = datetime.date.today().isoformat()
 
 # The clock says when this ran, never when a fact was read. Rebuilding must not
@@ -89,6 +97,27 @@ def page(path, title, desc, body, ld="", lang="de"):
     write_page(OUT, path, title, desc, body, ld, lang)
 
 # ---------------- app pages ----------------
+# GAL-560: every app page links to its alphabetical neighbours, to the other apps of
+# the same developer and to the A–Z index, so the whole index is one connected graph
+# and no page depends on a capped list to be found.
+AZ = sorted(apps, key=lambda a: (a["trackName"] or "").casefold())
+AZ_POS = {a["trackId"]: i for i, a in enumerate(AZ)}
+BY_SELLER = {}
+for _a in AZ: BY_SELLER.setdefault(_a.get("sellerName"), []).append(_a)
+
+def related(a):
+    i = AZ_POS[a["trackId"]]
+    prv, nxt = AZ[i-1], AZ[(i+1) % len(AZ)]
+    same = [b for b in BY_SELLER.get(a.get("sellerName"), []) if b is not a][:12]
+    out = "<h2>Im Index weiterlesen</h2>"
+    if same:
+        out += (f"<p>Weitere Apps von {esc(a.get('sellerName'))}: "
+                + ", ".join(f"<a href='{BASE}/de/app/{b['slug']}/'>{esc(b['trackName'])}</a>" for b in same) + ".</p>")
+    out += (f"<p>Alphabetisch davor: <a href='{BASE}/de/app/{prv['slug']}/'>{esc(prv['trackName'])}</a> · "
+            f"danach: <a href='{BASE}/de/app/{nxt['slug']}/'>{esc(nxt['trackName'])}</a> · "
+            f"<a href='{BASE}/de/app/'>alle {len(apps)} Apps von A bis Z</a></p>")
+    return out
+
 def app_page(a):
     d, name = a["days"], a["trackName"]
     upd = f"{de_date(a.get('currentVersionReleaseDate'))} ({de_elapsed(d)})"
@@ -158,7 +187,7 @@ def app_page(a):
                f'und verkauft, der auch openAPPindex betreibt. Sie wird nach denselben veröffentlichten Regeln '
                f'erhoben wie jede andere App und erhält keine Daten, die nicht öffentlich sind '
                f'(<a href="{BASE}/funding.html">Finanzierungsregeln</a>, Abschnitt 3).</div>')
-    body = f"""<nav class="bc"><a href="{BASE}/">openAPPindex</a> › <a href="{BASE}/de/">Deutschland</a> › Apps</nav>
+    body = f"""<nav class="bc"><a href="{BASE}/">openAPPindex</a> › <a href="{BASE}/de/">Deutschland</a> › <a href="{BASE}/de/app/">Apps</a></nav>
 <h1>{esc(name)}</h1>
 <p class="lede">{esc(a.get('subtitle') or a.get('sellerName'))}</p>
 <h2>Wird diese App noch gepflegt?</h2>
@@ -179,6 +208,7 @@ sprechen wir nicht aus.</p>
 <p class="src">Quelle: iTunes Search API (erhoben am {CORPUS_READ}) und Produktseite im App Store
 (Storefront Deutschland, erhoben am {a['read_at'] or 'nicht erhoben'}).</p>
 {iap_rows}{notes}{own}
+{related(a)}
 <div class="rule">Diese Seite enthält bewusst <strong>keine Nutzerrezensionen und keine Bewertung</strong>.
 Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen Sie.</div>"""
     upd_de = de_date(a.get("currentVersionReleaseDate"))
@@ -201,64 +231,120 @@ Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen S
 
 for a in apps: app_page(a)
 
+# The A–Z index /de/app/ — 404'd until 2026-10-14, though every breadcrumb pointed at it.
+def _letter(a):
+    c = (a["trackName"] or "#")[0].upper()
+    c = {"Ä":"A","Ö":"O","Ü":"U"}.get(c, c)
+    return c if "A" <= c <= "Z" else "#"
+_groups = {}
+for _a in AZ: _groups.setdefault(_letter(_a), []).append(_a)
+_az_body = (f"<nav class='bc'><a href='{BASE}/'>openAPPindex</a> › <a href='{BASE}/de/'>Deutschland</a> › Apps</nav>"
+            f"<h1>Alle {len(apps)} Rezept- und Koch-Apps von A bis Z</h1>"
+            f"<div class='rule'><strong>Sortierregel:</strong> alphabetisch nach dem Namen im App Store. "
+            f"Keine Gewichtung, keine Auswahl.</div>"
+            "<p>" + " · ".join(f"<a href='#{k}'>{k}</a>" for k in sorted(_groups)) + "</p>"
+            + "".join(f"<h2 id='{k}'>{k}</h2><p>" + " · ".join(
+                f"<a href='{BASE}/de/app/{b['slug']}/'>{esc(b['trackName'])}</a>" for b in _groups[k]) + "</p>"
+                for k in sorted(_groups))
+            + f"<p class='src'>Grundlage: iTunes Search API und App-Store-Produktseiten, Storefront Deutschland, "
+              f"Stand {DATA_STAND}.</p>")
+page("de/app/index.html", "Alle Rezept-Apps von A bis Z | openAPPindex",
+     f"Alle {len(apps)} Rezept- und Koch-Apps im deutschen App Store, alphabetisch, mit Pflegezustand und Kosten.",
+     _az_body)
+
 # ---------------- question pages ----------------
 def card(a, extra=""):
     return (f"<li class='card'><h3><a href='{BASE}/de/app/{a['slug']}/'>{esc(a['trackName'])}</a></h3>"
             f"<p class='meta'>{esc(a.get('sellerName'))} · zuletzt aktualisiert "
             f"{de_date(a.get('currentVersionReleaseDate'))} ({de_elapsed(a['days'])}){extra}</p></li>")
 
-def qpage(fn, title, h1, question, rule, items, desc):
-    ld = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{
-        "@type":"Question","name":question,"acceptedAnswer":{"@type":"Answer","text":rule}}]}, ensure_ascii=False)
+def qpage(fn, title, h1, question, rule, listed, desc, answer, extra=lambda a: ""):
+    # GAL-551: the FAQ answer carries the answer itself — counts and the first entries,
+    # each with its date — not the sorting rule. GAL-552: the list is also emitted as an
+    # ItemList, so a machine reader gets the order and the URLs without parsing HTML.
+    # GAL-560: lists are complete. A 60-item cap left 715 of 941 app pages unlinked.
+    ld = [{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{
+              "@type":"Question","name":question,
+              "acceptedAnswer":{"@type":"Answer","text":answer}}]},
+          {"@context":"https://schema.org","@type":"ItemList","name":h1,
+           "description":re.sub(r"<[^>]+>","",rule),"numberOfItems":len(listed),
+           "itemListOrder":"https://schema.org/ItemListOrderDescending",
+           "itemListElement":[{"@type":"ListItem","position":i+1,"name":a["trackName"],
+                               "url":f"{BASE}/de/app/{a['slug']}/"} for i,a in enumerate(listed[:100])]}]
     body = (f"<nav class='bc'><a href='{BASE}/'>openAPPindex</a> › <a href='{BASE}/de/'>Deutschland</a> › Fragen</nav>"
             f"<h1>{esc(h1)}</h1><p class='lede'>{esc(desc)}</p>"
+            f"<h2>Die Antwort</h2><p>{esc(answer)}</p>"
             f"<div class='rule'><strong>Sortierregel:</strong> {rule}</div>"
-            f"<ol>{''.join(items)}</ol>"
+            f"<h2>Alle {len(listed)} Apps</h2><ol>{''.join(card(a, extra(a)) for a in listed)}</ol>"
             f"<p class='src'>Grundlage: {len(apps)} Apps im deutschen App Store, deren eigene Beschreibung sie als "
-            f"Rezept- oder Koch-App ausweist. Erhoben am {DATA_STAND}.</p>")
-    page(f"de/frage/{fn}.html", title, desc, body, f'<script type="application/ld+json">{ld}</script>')
+            f"Rezept- oder Koch-App ausweist. Erhoben am {DATA_STAND}. "
+            f"<a href='{BASE}/de/app/'>Alle Apps von A bis Z</a>.</p>")
+    page(f"de/frage/{fn}.html", title, desc, body,
+         "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld))
 
-maintained = sorted([a for a in apps if a["days"] is not None], key=lambda x: x["days"])[:60]
+def upd(a): return de_date(a.get("currentVersionReleaseDate"))
+def names(lst, fmt, n=5): return "; ".join(fmt(a) for a in lst[:n])
+
+by_recency = sorted([a for a in apps if a["days"] is not None], key=lambda x: x["days"])
+recent_365 = [a for a in by_recency if a["days"] <= 365]
 qpage("welche-rezept-app-wird-noch-gepflegt",
       "Welche Rezept-App wird noch gepflegt? | openAPPindex",
       "Welche Rezept-App wird noch gepflegt?",
       "Welche Rezept-App wird noch gepflegt?",
-      "Sortiert nach dem von Apple veröffentlichten Datum der letzten Aktualisierung, neueste zuerst. "
+      "Alle Apps, sortiert nach dem von Apple veröffentlichten Datum der letzten Aktualisierung, neueste zuerst. "
       "Downloadzahlen und Bewertungen fließen nicht ein.",
-      [card(a) for a in maintained],
-      "Rezept-Apps im deutschen App Store, sortiert nach dem Datum ihrer letzten Aktualisierung.")
+      by_recency,
+      "Rezept-Apps im deutschen App Store, sortiert nach dem Datum ihrer letzten Aktualisierung.",
+      f"Von {len(by_recency)} Rezept- und Koch-Apps im deutschen App Store wurden {len(recent_365)} in den "
+      f"365 Tagen vor der Erhebung am {DATA_STAND} aktualisiert. Zuletzt aktualisiert: "
+      + names(by_recency, lambda a: f"{a['trackName']} ({upd(a)})") + ". Das Datum der letzten "
+      "Aktualisierung sagt, dass eine App gepflegt wird, nicht wie gut sie ist.")
 
-stale = sorted([a for a in apps if a["days"] and a["days"] > 365], key=lambda x: -x["days"])[:60]
+stale = sorted([a for a in apps if a["days"] and a["days"] > 365], key=lambda x: -x["days"])
 qpage("rezept-apps-lange-nicht-aktualisiert",
       "Welche Rezept-Apps wurden lange nicht aktualisiert? | openAPPindex",
       "Rezept-Apps, die seit über einem Jahr nicht aktualisiert wurden",
       "Welche Rezept-Apps wurden lange nicht aktualisiert?",
       "Alle Apps, deren letzte von Apple veröffentlichte Aktualisierung mehr als 365 Tage zurückliegt, "
       "älteste zuerst. Das ist eine Datumsangabe, keine Aussage über die Qualität der App.",
-      [card(a) for a in stale],
-      "Rezept-Apps im deutschen App Store, deren letzte Aktualisierung über ein Jahr zurückliegt.")
+      stale,
+      "Rezept-Apps im deutschen App Store, deren letzte Aktualisierung über ein Jahr zurückliegt.",
+      f"{len(stale)} von {len(apps)} Rezept- und Koch-Apps im deutschen App Store wurden seit über einem Jahr "
+      f"nicht aktualisiert, {sum(1 for a in stale if a['days'] > 730)} davon seit über zwei Jahren "
+      f"(Erhebung {DATA_STAND}). Am längsten nicht aktualisiert: "
+      + names(stale, lambda a: f"{a['trackName']} (zuletzt {upd(a)})") + ".")
 
 hidden = sorted([a for a in apps if a["iap_max"] and (a.get("formattedPrice") or "").lower() in ("gratis","free")],
-                key=lambda x: -x["iap_max"])[:60]
+                key=lambda x: -x["iap_max"])
+free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
 qpage("gratis-rezept-app-was-kostet-sie-wirklich",
       "„Gratis“ im Store — was kostet die Rezept-App wirklich? | openAPPindex",
       "Als „Gratis“ gelistet — und was tatsächlich im Kaufmenü steht",
       "Was kostet eine als gratis gelistete Rezept-App wirklich?",
       "Apps, die im Store als „Gratis“ erscheinen und auf ihrer Produktseite In-App-Käufe ausweisen, "
       "sortiert nach dem höchsten ausgewiesenen Einzelpreis. Alle Preise sind die von Apple veröffentlichten Angaben.",
-      [card(a, f" · In-App-Käufe {eur(a['iap_min'])}–{eur(a['iap_max'])}") for a in hidden],
-      "Rezept-Apps, die als gratis gelistet sind, mit den tatsächlich ausgewiesenen In-App-Preisen.")
+      hidden,
+      "Rezept-Apps, die als gratis gelistet sind, mit den tatsächlich ausgewiesenen In-App-Preisen.",
+      f"{len(hidden)} von {free_listed} als „Gratis“ gelisteten Rezept-Apps mit erhobener Preisliste weisen "
+      f"In-App-Käufe aus (Erhebung {DATA_STAND}). Die höchsten einzelnen In-App-Käufe: "
+      + names(hidden, lambda a: f"{a['trackName']} ({eur(a['iap_max'])})") + ". Das sind einzelne "
+      "Kaufpositionen, wie Apple sie veröffentlicht, keine Jahreskosten.",
+      extra=lambda a: f" · In-App-Käufe {eur(a['iap_min'])}–{eur(a['iap_max'])}")
 
 noiap = sorted([a for a in apps if a["price_known"] and not a["iaps"] and a["days"] is not None],
-               key=lambda x: x["days"])[:60]
+               key=lambda x: x["days"])
 qpage("rezept-app-ohne-abo-und-ohne-in-app-kaeufe",
       "Rezept-Apps ohne In-App-Käufe | openAPPindex",
       "Rezept-Apps, für die keine In-App-Käufe ausgewiesen sind",
       "Gibt es Rezept-Apps ohne Abo und ohne In-App-Käufe?",
       "Apps, auf deren Produktseite Apple keine In-App-Käufe ausweist, sortiert nach dem Datum der letzten "
       "Aktualisierung. Fehlt die Angabe, steht es hier — geschätzt wird nichts.",
-      [card(a) for a in noiap],
-      "Rezept-Apps im deutschen App Store ohne ausgewiesene In-App-Käufe.")
+      noiap,
+      "Rezept-Apps im deutschen App Store ohne ausgewiesene In-App-Käufe.",
+      f"Ja: Für {len(noiap)} Rezept- und Koch-Apps im deutschen App Store weist die Produktseite keine "
+      f"In-App-Käufe aus (Erhebung {DATA_STAND}). Davon zuletzt aktualisiert: "
+      + names(noiap, lambda a: f"{a['trackName']} ({upd(a)}, Store-Preis {a.get('formattedPrice')})")
+      + ". Ob eine App ein Abo außerhalb des App Store verkauft, zeigt die Produktseite nicht.")
 
 QS = [("welche-rezept-app-wird-noch-gepflegt","Welche Rezept-App wird noch gepflegt?"),
       ("rezept-apps-lange-nicht-aktualisiert","Welche wurden lange nicht aktualisiert?"),
@@ -461,24 +547,6 @@ with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
                 f"- Tatsächliche Kosten: {cost}\n"
                 f"- Seite: {BASE}/de/app/{a['slug']}/\n\n")
 
-# Submitted set = pages that carry information available nowhere else.
-# App pages without in-app price data stay on the site and stay linked, but are
-# not submitted: 900+ near-identical thin pages risk the whole site being
-# classified as low-value, which would suppress the good pages too.
-urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
-        "second-category.html", "funding.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
-       + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
-with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
-    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
-            .replace("www.sitemap.org","www.sitemaps.org"))
-    for u in urls:
-        f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{BUILD_DATE}</lastmod></url>\n")
-    # changelog pages carry the date of the read they describe as lastmod — a real date, not the build clock
-    if WEEKS:
-        f.write(f"  <url><loc>{BASE}/de/aenderungen/</loc><lastmod>{WEEKS[0]['to']}</lastmod></url>\n")
-        for w in WEEKS:
-            f.write(f"  <url><loc>{BASE}/de/aenderungen/{w['week']}/</loc><lastmod>{w['to']}</lastmod></url>\n")
-    f.write("</urlset>\n")
 
 # ---------------- manifesto pages ----------------
 # docs/manifesto-{de,en}.md rendered through a deliberately small converter —
@@ -589,6 +657,42 @@ if os.path.exists(_landing):
     print("landing page installed at /")
 else:
     raise SystemExit("!! landing/index.html missing — root would be wrong")
+
+# The sitemap is written last: lastmod hashes the finished pages, landing included.
+# Submitted set = pages that carry information available nowhere else.
+# App pages without in-app price data stay on the site and stay linked, but are
+# not submitted: 900+ near-identical thin pages risk the whole site being
+# classified as low-value, which would suppress the good pages too.
+urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
+        "second-category.html", "funding.html", "de/app/"] + [f"de/frage/{f}.html" for f,_ in QS] \
+       + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
+# GAL-553: lastmod is the date a page's content last changed, not the build clock.
+# Each submitted page is hashed with its day-relative phrases ("vor 3 Tagen") removed,
+# and the date moves only when the hash does. lastmod.json is tracked, so the dates
+# survive a clean clone. Every URL carrying the build date tells crawlers nothing.
+import hashlib
+_LM_FILE = "lastmod.json"
+_lm = json.load(open(_LM_FILE)) if os.path.exists(_LM_FILE) else {}
+_VOLATILE = re.compile(r"\((?:vor [^)]*|heute|gestern)\)|vor \d+ (?:Tagen|Monaten|Jahren)[^<]*")
+def lastmod(u):
+    fp = os.path.join(OUT, u + ("index.html" if (u == "" or u.endswith("/")) else ""))
+    h = hashlib.sha256(_VOLATILE.sub("", open(fp, encoding="utf-8").read()).encode()).hexdigest()
+    if _lm.get(u, {}).get("sha256") != h:
+        _lm[u] = {"sha256": h, "lastmod": BUILD_DATE}
+    return _lm[u]["lastmod"]
+
+with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
+            .replace("www.sitemap.org","www.sitemaps.org"))
+    for u in urls:
+        f.write(f"  <url><loc>{BASE}/{u}</loc><lastmod>{lastmod(u)}</lastmod></url>\n")
+    # changelog pages carry the date of the read they describe as lastmod — a real date, not the build clock
+    if WEEKS:
+        f.write(f"  <url><loc>{BASE}/de/aenderungen/</loc><lastmod>{WEEKS[0]['to']}</lastmod></url>\n")
+        for w in WEEKS:
+            f.write(f"  <url><loc>{BASE}/de/aenderungen/{w['week']}/</loc><lastmod>{w['to']}</lastmod></url>\n")
+    f.write("</urlset>\n")
+json.dump(_lm, open(_LM_FILE, "w"), indent=0, sort_keys=True)
 
 n = sum(len(fs) for _,_,fs in os.walk(OUT))
 if not IMPRESSUM_READY:
