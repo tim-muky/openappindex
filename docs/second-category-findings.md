@@ -35,7 +35,9 @@ is dated with the error that motivated it ([protocol](../openappindex-sleep-cate
 Both recall rows are computed the same way in both categories: the first over the apps the
 sweep itself classified, against one query; the second over the whole closed category. The
 obvious query is *rezepte* for cooking and *schlaf* for sleep; using *meditation* instead
-gives 86% (995 of 1,155).
+gives 86% (995 of 1,155). An app counts as charging in-app when at least one item on its
+product page's purchase list is priced above €0. Two sleep apps list only €0.00 items and are
+not counted; no cooking app does.
 
 Two categories chosen for their dissimilarity, measured about two weeks apart with the same frozen
 instrument, return **the same 77% and the same median — to the cent.**

@@ -609,7 +609,9 @@ if os.path.isdir(_sleep_pub):
     for _fn in sorted(os.listdir(_sleep_pub)):
         if _fn.endswith(".json"):
             shutil.copy(os.path.join(_sleep_pub, _fn), f"{OUT}/data/sleep/{_fn}")
-            _served.append((f"sleep/{_fn}", "Schlaf & Meditation", os.path.getsize(os.path.join(_sleep_pub, _fn))))
+            _what = {"category_sleep_de.json": "Alle 3.578 Apps der Kategorie Schlaf & Meditation, mit Fundweg (Abfrage oder Graph-Schritt)",
+                     "prices_sleep_de.json": "Ausgewiesene In-App-Käufe je App, mit Erhebungsdatum (Schlaf & Meditation)"}.get(_fn, "Schlaf & Meditation")
+            _served.append((f"sleep/{_fn}", _what, os.path.getsize(os.path.join(_sleep_pub, _fn))))
 DATASET_LD = {"@context":"https://schema.org","@type":"Dataset",
     "name":"openAPPindex — store facts for recipe and sleep apps, German App Store",
     "description":("Dated, factual records about every app in two categories of the German iOS App Store as far "
