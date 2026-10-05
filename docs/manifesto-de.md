@@ -3,7 +3,7 @@
 
 **Der App Store zeigt eine Plakatwand und nennt sie Landkarte.**
 
-Wir haben eine Woche damit verbracht, eine kleine Ecke davon zu vermessen: Rezept- und Koch-Apps
+Wir haben zwei Wochen damit verbracht, eine kleine Ecke davon zu vermessen: Rezept- und Koch-Apps
 im deutschen App Store. Keine Stichprobe — die ganze Kategorie, so weit wir sie erreichen
 konnten. Das Ergebnis ist nicht, dass der Store schlecht sortiert. Sondern dass er **das meiste
 gar nicht erst zeigt.**
@@ -200,8 +200,8 @@ Wir halten fünf Linien:
   sortiert werden. Das Finden ist die schwierigere Hälfte der Arbeit und die, die niemand macht.
 - **Belege statt Urteile.** Wir veröffentlichen datierte Tatsachen mit Quelle und überlassen den
   Schluss den Lesenden. Wir vergeben keine Noten und nennen niemanden einen Betrug.
-- **Neutral, immer.** Wir nehmen von keiner App Geld an. Es gibt keine Platzierung zu kaufen —
-  für niemanden, zu keinem Preis.
+- **Neutral, immer.** Keine Platzierung ist käuflich, zu keinem Preis. Wer uns finanziert, ist
+  öffentlich — nach Regeln, die jeder prüfen kann.
 - **Offen.** Offener Quellcode, offene Daten, offene Methode — auch die Teile, die nicht
   funktioniert haben.
 
@@ -241,6 +241,14 @@ Jetzt kann es jede und jeder.
 
 *— openAPPindex · openappindex.org*
 
-*Entwurf v0.8 (DE). Jede Zahl ist entweder unsere eigene, aus veröffentlichten Skripten
+*Entwurf v0.9 (DE) · geändert am 14.10.2026: Der Satz „Wir nehmen von keiner App Geld an" ist
+ersetzt durch „Keine Platzierung ist käuflich, zu keinem Preis. Wer uns finanziert, ist
+öffentlich." Der alte Satz versprach mehr als die Finanzierungsregeln, die wir beschlossen haben:
+Unterstützung durch App-Anbieter ist erlaubt, wenn sie offengelegt wird und nichts kauft
+(openappindex.org/funding.html). Das Versprechen, auf das es ankommt — keine Platzierung ist
+käuflich — gilt unverändert. Am selben Tag: „eine Woche" heißt jetzt „zwei Wochen"; die Messung der
+Koch-Apps lief vom 19. August bis 1. September.*
+
+*Jede Zahl ist entweder unsere eigene, aus veröffentlichten Skripten
 reproduzierbare Messung oder die eigene veröffentlichte Zahl eines Unternehmens, korrekt
 zitiert und zugeordnet. Quellen und Daten: openappindex.org/methode*

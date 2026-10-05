@@ -37,7 +37,7 @@ sweep itself classified, against one query; the second over the whole closed cat
 obvious query is *rezepte* for cooking and *schlaf* for sleep; using *meditation* instead
 gives 86% (995 of 1,155).
 
-Two categories chosen for their dissimilarity, measured seven weeks apart with the same frozen
+Two categories chosen for their dissimilarity, measured about two weeks apart with the same frozen
 instrument, return **the same 77% and the same median — to the cent.**
 
 ## What we will and will not claim
@@ -62,7 +62,7 @@ tail findable; on this evidence it coincides with a larger invisible tail, not a
 The developer labels it a yearly subscription; we report that label and do not convert it,
 because Apple does not publish billing periods reliably enough to convert anything.
 
-## Three corrections, published with the finding
+## Four corrections, published with the finding
 
 A September draft of this section, written the day after the measurement, carried **two wrong
 numbers**. Both were caught when the figures were recomputed from the raw data for publication,
@@ -86,7 +86,11 @@ both measures for both categories. The error was ours, it was live for about an 
 inverted the finding — which is exactly why we recompute headlines from raw data rather than
 from our own prose.
 
-None of the three changed a price headline. We publish them because a project whose entire
+**A fourth, corrected 2026-10-14.** This page and §6 of the working paper said the two
+categories were measured *seven weeks* apart. They were about **two** weeks apart: cooking from 19
+August to 1 September, sleep on 1–2 September. The figure was never measured; it was written.
+
+None of the four changed a price headline. We publish them because a project whose entire
 claim is honest measurement does not get to quietly fix its own arithmetic, and because the
 pattern is the one we keep finding in ourselves: the errors show up in the summary, not in the
 pipeline.
@@ -108,7 +112,7 @@ python3 apply_v3.py          # uniform precision filter across all hops
 
 If something here is wrong — particularly if you build an app that appears in the data — write
 to **korrektur@openappindex.org**. Every notice is checked and corrections are published with a
-date, including the two above.
+date, including the four above.
 
 ---
 

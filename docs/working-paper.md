@@ -1,6 +1,6 @@
 # Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market
 
-**The openAPPindex project** · openappindex.org
+**Tim Meyerdierks** · The openAPPindex project · openappindex.org
 Working paper, draft v0.1 · September 2026
 
 *Status: preliminary and incomplete. This paper is circulated to invite discussion, replication
@@ -357,10 +357,12 @@ is more concentrated. None of this touches the price result, which replicates ex
 *These two measures are distinct and we keep them apart deliberately: an earlier version of this
 section compared this category's 68% against cooking's 81% as if they were one measure and drew
 the opposite conclusion. The correction is dated and published in
-`second-category-findings.md`.*
+`second-category-findings.md`. Corrected 2026-10-14: an earlier version said the two categories
+were measured seven weeks apart; they were about two weeks apart (19 August–1 September and
+1–2 September 2026).*
 
 The replication matters more than either category alone. Two categories chosen for structural
-dissimilarity, measured with the same frozen instrument seven weeks apart, return **the same
+dissimilarity, measured with the same frozen instrument about two weeks apart, return **the same
 77% and the same €39.99 median**. That is the point at which "cooking apps may be
 unrepresentative" stops being the live objection and price opacity starts looking like a
 property of how the store labels products rather than of any one market within it. It is two

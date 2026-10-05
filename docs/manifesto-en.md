@@ -3,7 +3,7 @@
 
 **The app store shows you a billboard and calls it a map.**
 
-We spent a week measuring one small corner of it: recipe apps in the German App Store. Not a
+We spent two weeks measuring one small corner of it: recipe apps in the German App Store. Not a
 sample — the whole category, as far as we could reach it. What we found is not that the store
 ranks badly. It is that the store **does not show you most of what exists.**
 
@@ -181,8 +181,8 @@ We hold five lines:
   what exists is the harder half of the job and the half nobody does.
 - **Evidence, not verdicts.** We publish dated facts and let you draw the conclusion. We do not
   score apps, and we do not call anyone a scam.
-- **Neutral, always.** We take no money from any app, ever. There is nothing to buy, no
-  placement to sell, and every app in the index — including any the people behind it happen to
+- **Neutral, always.** No placement is for sale, at any price. Who funds us is published, under
+  rules anyone can check. Every app in the index — including any the people behind it happen to
   have built — is measured by the same published rules.
 - **Open.** Open source, open data, open method — including the parts that did not work. A
   public good has to be inspectable to be trusted.
@@ -251,7 +251,14 @@ Method, scripts and raw data: **openappindex.org/methode**
 
 ---
 
-*Draft v0.8. Every figure is either our own measurement, reproducible from published scripts,
+*Draft v0.9 · changed 2026-10-14: the line "We take no money from any app, ever" is replaced by
+"No placement is for sale, at any price. Who funds us is published." The old line promised more
+than the funding policy we adopted: support from app publishers is allowed if it is disclosed and
+buys nothing (openappindex.org/funding.html). The promise that matters, that no placement can be
+bought, is unchanged. Same date: "we spent a week measuring" now reads "two weeks"; the cooking
+measurement ran 19 August to 1 September.*
+
+*Every figure is either our own measurement, reproducible from published scripts,
 or a company's own published number quoted accurately and attributed. The manifesto attacks
 the **system** and names a company only when quoting that company's own figures. Apps are named only as measured
 examples of what the search does or does not return — never as an accusation against the app.*

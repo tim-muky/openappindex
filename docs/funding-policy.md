@@ -1,6 +1,6 @@
 # Funding policy
 
-*Draft v0.5 · 5 Oct 2026 · not published · D3, D4 and D6 decided 5 Oct 2026*
+*Version 0.5 · decided 5 Oct 2026 · in force from 14 Oct 2026*
 
 openAPPindex measures app stores and the apps in them. Whoever pays for that measurement could
 want it to come out a certain way. This policy says what money can and cannot do here, and how
@@ -83,7 +83,7 @@ the cooking category we measure. The rules for that:
   keep confidential what we find. We do not sign agreements that would allow it.
 - **Prizes and fellowships** count as support and follow the same rules.
 - **Support from organisations** — every organisation is named, whatever the amount.
-- **Donations from individuals** — anyone who gives more than €1,000 in a calendar year is named,
+- **Donations from individuals** — anyone who gives €1,000 or more in a calendar year is named,
   with their consent, or the gift is returned.
 - **Earned income: we sell results, never placement.** Services built on the index — bulk data,
   alerts, reports, API access — are sold on a public price list, on the same terms for everyone,
@@ -115,9 +115,9 @@ association.
 
 ---
 
-## Current supporters — 24 Sep 2026
+## Current supporters — 14 Oct 2026
 
 None. All costs are paid by Tim Meyerdierks personally.
 
 Free plans we depend on, available to anyone on the same terms: **GitHub** (Microsoft) for code
-hosting; **Vercel** (Hobby plan) for serving the site.
+hosting; **Vercel** (Hobby plan) for serving the site; **Cloudflare** for DNS and email forwarding.

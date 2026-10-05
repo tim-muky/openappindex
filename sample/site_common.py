@@ -50,7 +50,7 @@ def parse_eur(s):
     return float(m.group(1).replace(",", ".")) if m else None
 
 SHELL = """<!doctype html>
-<html lang="de">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -86,7 +86,8 @@ blockquote{{margin:.6em 0;padding-left:12px;border-left:2px solid var(--rule);co
 <body><div class="w">
 {body}
 <footer>
-<p><strong>openAPPindex</strong> — ein unabhängiger, offener Index mobiler Apps. Wir nehmen von keiner App Geld an.
+<p><strong>openAPPindex</strong> — ein unabhängiger, offener Index mobiler Apps. Keine Platzierung ist käuflich, zu keinem Preis;
+wer uns finanziert, ist <a href="{base}/funding.html">öffentlich</a>.
 Alle Angaben stammen aus öffentlich zugänglichen Daten des App Store und tragen das Datum ihrer Erhebung.</p>
 <p>Diese Seite wurde automatisiert aus öffentlichen App-Store-Daten erstellt. Sie enthält keine Bewertung und keine
 Nutzerrezensionen — nur datierte Tatsachen und deren Quelle.</p>
@@ -98,9 +99,9 @@ wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">
 </footer>
 </div></body></html>"""
 
-def write_page(out_dir, path, title, desc, body, ld=""):
+def write_page(out_dir, path, title, desc, body, ld="", lang="de"):
     full = os.path.join(out_dir, path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
     canon = BASE + "/" + path.replace("index.html", "")
     open(full, "w", encoding="utf-8").write(SHELL.format(
-        title=esc(title), desc=esc(desc), canon=esc(canon), body=body, ld=ld, base=BASE))
+        title=esc(title), desc=esc(desc), canon=esc(canon), body=body, ld=ld, base=BASE, lang=lang))

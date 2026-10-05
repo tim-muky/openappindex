@@ -34,6 +34,9 @@ IMPRESSUM = {
 IMPRESSUM_READY = "STRASSE" not in IMPRESSUM["street"] and "PLZ" not in IMPRESSUM["city"]
 OUT = "site"
 
+# The maintainer's own app (docs/funding-policy.md §3): its page must say so.
+OWN_APPS = {6764606059}   # galleybook
+
 # Wipe generated output first. Without this, pages for apps a corrected classifier
 # no longer includes stay on disk and keep being served — which is how 211 pharmacy
 # and game pages survived a rebuild on 2026-08-24.
@@ -82,8 +85,8 @@ for a in apps:
 # "Stand" of the dataset is the most recent recorded read, not today.
 DATA_STAND = max([a["read_at"] for a in apps if a["read_at"]] or [CORPUS_READ])
 
-def page(path, title, desc, body, ld=""):
-    write_page(OUT, path, title, desc, body, ld)
+def page(path, title, desc, body, ld="", lang="de"):
+    write_page(OUT, path, title, desc, body, ld, lang)
 
 # ---------------- app pages ----------------
 def app_page(a):
@@ -149,6 +152,12 @@ def app_page(a):
         "offers":offers,
         "url":f"{BASE}/de/app/{a['slug']}/","sameAs":a.get("trackViewUrl")}, ensure_ascii=False)
 
+    own = ""
+    if a["trackId"] in OWN_APPS:
+        own = (f'<div class="rule"><strong>Offenlegung:</strong> Diese App wird von Tim Meyerdierks entwickelt '
+               f'und verkauft, der auch openAPPindex betreibt. Sie wird nach denselben veröffentlichten Regeln '
+               f'erhoben wie jede andere App und erhält keine Daten, die nicht öffentlich sind '
+               f'(<a href="{BASE}/funding.html">Finanzierungsregeln</a>, Abschnitt 3).</div>')
     body = f"""<nav class="bc"><a href="{BASE}/">openAPPindex</a> › <a href="{BASE}/de/">Deutschland</a> › Apps</nav>
 <h1>{esc(name)}</h1>
 <p class="lede">{esc(a.get('subtitle') or a.get('sellerName'))}</p>
@@ -169,7 +178,7 @@ sprechen wir nicht aus.</p>
 </tbody></table>
 <p class="src">Quelle: iTunes Search API (erhoben am {CORPUS_READ}) und Produktseite im App Store
 (Storefront Deutschland, erhoben am {a['read_at'] or 'nicht erhoben'}).</p>
-{iap_rows}{notes}
+{iap_rows}{notes}{own}
 <div class="rule">Diese Seite enthält bewusst <strong>keine Nutzerrezensionen und keine Bewertung</strong>.
 Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen Sie.</div>"""
     upd_de = de_date(a.get("currentVersionReleaseDate"))
@@ -278,7 +287,8 @@ Dieser Index trägt die öffentlich verfügbaren Antworten zusammen, mit Datum u
 <p><strong>{len(apps)} Apps</strong> im deutschen App Store, deren eigene Store-Beschreibung sie als Rezept- oder
 Koch-App ausweist. Für <strong>{withiap}</strong> davon sind die auf der Produktseite ausgewiesenen In-App-Käufe
 erfasst. Stand: {DATA_STAND}.</p>
-<div class="rule">Wir nehmen von keiner App Geld an. Es gibt keine bezahlte Platzierung.
+<div class="rule">Keine Platzierung ist käuflich, zu keinem Preis. Wer uns finanziert, ist öffentlich
+(<a href="{BASE}/funding.html">Finanzierungsregeln</a>, englisch).
 Diese Seiten enthalten keine Nutzerrezensionen und keine Bewertungen — nur datierte Tatsachen mit Quellenangabe.</div>"""
 page("de/index.html", "openAPPindex — Deutschland",
      "Rezept-Apps im deutschen App Store: Pflegezustand und tatsächliche Kosten, datiert und mit Quelle.", intro)
@@ -455,7 +465,8 @@ with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
 # App pages without in-app price data stay on the site and stay linked, but are
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
-urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
+urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
+        "second-category.html", "funding.html"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n'
@@ -473,12 +484,21 @@ with open(f"{OUT}/sitemap.xml","w",encoding="utf-8") as f:
 # docs/manifesto-{de,en}.md rendered through a deliberately small converter —
 # the manifesto uses headings, bold/italic, lists, one table and rules, nothing
 # more, and a dependency for that is not worth a clean clone breaking.
+REPO = "https://github.com/tim-muky/openappindex"
+def repo_href(h):
+    # The docs link to each other relatively, as files in the repository. Served on
+    # the domain those links would 404, so anything not absolute points at GitHub.
+    if h.startswith(("http://", "https://", "/", "#", "mailto:")): return h
+    import posixpath
+    target = posixpath.normpath(posixpath.join("docs", h))
+    return f"{REPO}/{'tree' if h.endswith('/') else 'blob'}/main/{target}"
+
 def md_html(md):
     def inline(t):
         t = esc(t)
         t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
         t = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", t)
-        t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
+        t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: f'<a href="{repo_href(m.group(2))}">{m.group(1)}</a>', t)
         return t
     # A heading written directly above its subtitle or text shares a block with
     # it, and everything after the heading line was silently dropped (the
@@ -527,9 +547,21 @@ for _fn, _out, _title, _desc, _other in (
      "81% of a category invisible to search, 77% of „free“ apps that charge. "
      "Method, data and limits stated.",
      '<p class="src"><a href="/manifesto.html">The manifesto</a> · '
-     '<a href="/methode.html">Method &amp; data</a></p>')):
+     '<a href="/methode.html">Method &amp; data</a></p>'),
+    ("second-category-findings.md", "second-category.html",
+     "The same 77%, in a category chosen to be different — openAPPindex",
+     "Replication in 3,578 sleep and meditation apps, German App Store: 88% absent from the "
+     "obvious query, 77% of „free“ apps charge, median highest in-app purchase €39.99 — the same "
+     "to the cent as cooking apps.",
+     '<p class="src"><a href="/paper.html">Working paper</a> · '
+     '<a href="/methode.html">Method &amp; data</a></p>'),
+    ("funding-policy.md", "funding.html", "Funding policy — openAPPindex",
+     "What money can and cannot do at openAPPindex: no placement is for sale, every supporter is "
+     "named, store operators are excluded.",
+     '<p class="src"><a href="/manifesto.html">The manifesto</a> · '
+     '<a href="/impressum.html">Impressum</a></p>')):
     _md = open(os.path.join(_docs, _fn), encoding="utf-8").read()
-    page(_out, _title, _desc, _other + md_html(_md))
+    page(_out, _title, _desc, _other + md_html(_md), lang="de" if _fn.endswith("-de.md") else "en")
 
 # IndexNow ownership key (Bing et al.). Stable across rebuilds by design — a
 # changed key reads as a change of ownership. This only serves the proof file
