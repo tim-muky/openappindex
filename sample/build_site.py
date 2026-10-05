@@ -510,32 +510,114 @@ Allow: /
 Sitemap: %s/sitemap.xml
 """ % BASE)
 
+# ---------------- the dataset on the domain (GAL-561) ----------------
+# The CC BY 4.0 export, served next to the pages that cite it, so a reader (or a
+# crawler) can check a figure against the file without leaving the domain.
+PUBLIC_FILES = [("corpus_de.json", "Alle Apps der 25-Abfragen-Erhebung (Kochen), Store-Fakten ohne Beschreibungstexte"),
+                ("closure_apps.json", "Apps, die nur über den „Ähnliche Apps“-Graphen gefunden wurden (Kochen)"),
+                ("prices_de.json", "Ausgewiesene In-App-Käufe je App, mit Erhebungsdatum (Kochen)"),
+                ("corrections.json", "Datierte Korrekturen am Index")]
+os.makedirs(f"{OUT}/data", exist_ok=True)
+_served = []
+for _fn, _what in PUBLIC_FILES:
+    _src = os.path.join("data", "public", _fn)
+    if os.path.exists(_src):
+        shutil.copy(_src, f"{OUT}/data/{_fn}")
+        _served.append((_fn, _what, os.path.getsize(_src)))
+_sleep_pub = os.path.join("..", "sleep", "data", "public")
+if os.path.isdir(_sleep_pub):
+    os.makedirs(f"{OUT}/data/sleep", exist_ok=True)
+    for _fn in sorted(os.listdir(_sleep_pub)):
+        if _fn.endswith(".json"):
+            shutil.copy(os.path.join(_sleep_pub, _fn), f"{OUT}/data/sleep/{_fn}")
+            _served.append((f"sleep/{_fn}", "Schlaf & Meditation", os.path.getsize(os.path.join(_sleep_pub, _fn))))
+DATASET_LD = {"@context":"https://schema.org","@type":"Dataset",
+    "name":"openAPPindex — store facts for recipe and sleep apps, German App Store",
+    "description":("Dated, factual records about every app in two categories of the German iOS App Store as far "
+                   "as the store's search and its similar-apps graph reach: version, last-update date, store price "
+                   "label and the in-app purchases Apple lists on each product page. No descriptions, no reviews, "
+                   "no scores. Missing values are null, never estimated; prices are never annualised."),
+    "url":f"{BASE}/data/","license":"https://creativecommons.org/licenses/by/4.0/",
+    "isAccessibleForFree":True,"inLanguage":["de","en"],
+    "creator":{"@type":"Person","name":"Tim Meyerdierks"},
+    "publisher":{"@type":"Organization","name":"openAPPindex","url":BASE},
+    "temporalCoverage":"2026-08-19/2026-09-02",
+    "spatialCoverage":{"@type":"Place","name":"Germany (App Store storefront DE)"},
+    "keywords":["app store","in-app purchases","price transparency","search recall","Germany"],
+    "distribution":[{"@type":"DataDownload","encodingFormat":"application/json",
+                     "contentUrl":f"{BASE}/data/{fn}","name":fn} for fn,_,_ in _served],
+    "isBasedOn":"https://github.com/tim-muky/openappindex"}
+page("data/index.html", "Datensatz — openAPPindex",
+     "Der offene Datensatz hinter openAPPindex: Store-Fakten zu Rezept- und Schlaf-Apps im deutschen App Store, CC BY 4.0.",
+     f"""<nav class='bc'><a href='{BASE}/'>openAPPindex</a> › Daten</nav>
+<h1>Der Datensatz</h1>
+<p class="lede">Jede Zahl auf diesen Seiten lässt sich aus diesen Dateien nachrechnen. Lizenz:
+<a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>, Quellenangabe
+„openAPPindex, Stand {DATA_STAND}“.</p>
+<table><tbody>""" + "".join(f"<tr><th><a href='{BASE}/data/{fn}'>{esc(fn)}</a></th><td>{esc(w)} · {sz/1e6:.1f} MB</td></tr>"
+                            for fn, w, sz in _served) + f"""</tbody></table>
+<div class="rule">Enthalten sind nur Tatsachen: Kennungen, Namen, Anbieter, Version, Datum der letzten
+Aktualisierung, Preisangabe im Store und die von Apple ausgewiesenen In-App-Käufe, jeweils mit
+Erhebungsdatum. Beschreibungs- und Versionshinweistexte sind bewusst nicht enthalten — sie sind
+urheberrechtlich die Texte der Anbieter. Fehlende Werte sind <code>null</code>, nie 0.</div>
+<p>Die Skripte, die diese Dateien erzeugen, und ihre Dokumentation:
+<a href="https://github.com/tim-muky/openappindex">github.com/tim-muky/openappindex</a> (Code unter AGPL-3.0).
+Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a>.</p>""",
+     f'<script type="application/ld+json">{json.dumps(DATASET_LD, ensure_ascii=False)}</script>')
+
+# ---------------- llms.txt (GAL-562) ----------------
+# Leads with the figures an assistant is asked for, links every answer surface,
+# and points at llms-full.txt, which carries the category-wide extremes.
+_free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
+_free_iap = sum(1 for a in apps if a["iaps"] and (a.get("formattedPrice") or "").lower() in ("gratis","free"))
+_iapmax = sorted([a for a in apps if a["iap_max"]], key=lambda x: -x["iap_max"])
+_stale2 = sum(1 for a in apps if a["days"] and a["days"] > 730)
 open(f"{OUT}/llms.txt","w",encoding="utf-8").write(f"""# openAPPindex
 
-> Unabhängiger, offener Index mobiler Apps. Sortiert nach Pflegezustand und tatsächlichen
-> Kosten, nie nach Downloadzahlen oder Werbebudget. Keine bezahlte Platzierung.
+> An independent, open index of mobile apps: dated store facts — when an app was last updated
+> and what it actually costs — for whole app-store categories, not just what search returns.
+> Ein unabhängiger, offener App-Index: datierte Store-Fakten für ganze Kategorien. Keine
+> bezahlte Platzierung, keine Bewertungen, nichts geschätzt.
 
-Datenbestand: {len(apps)} Rezept- und Koch-Apps im deutschen App Store, Stand {DATA_STAND}.
-Für {withiap} davon sind die von Apple ausgewiesenen In-App-Käufe erfasst.
+Coverage: German iOS App Store. Recipe & cooking apps: {len(apps)} (data as of {DATA_STAND}).
+Sleep & meditation apps: 3,578 (measured 1–2 Sep 2026).
 
-Alle Angaben stammen aus öffentlichen App-Store-Daten und tragen das Datum ihrer Erhebung.
-Der Index enthält keine Nutzerrezensionen und keine Bewertungen — nur datierte Tatsachen.
-Fehlende Angaben werden als fehlend ausgewiesen und nicht geschätzt.
+Key figures (each sourced on the linked pages):
+- {_free_iap} of {_free_listed} recipe apps listed as free ("Gratis") list in-app purchases.
+- Highest single in-app purchase among recipe apps: {_iapmax[0]['trackName'] if _iapmax else 'n/a'}, {eur(_iapmax[0]['iap_max']) if _iapmax else 'n/a'}.
+- {_stale2} recipe apps had, as read on {DATA_STAND}, not been updated for more than two years before {BUILD_DATE}.
+- Of the apps a 25-query sweep found, 81% of recipe apps never appear for "rezepte" and 88% of sleep apps never appear for "schlaf".
+- Prices are single in-app purchase items as Apple lists them, never annualised.
 
-## Fragen
-""" + "".join(f"- [{t}]({BASE}/de/frage/{f}.html)\n" for f,t in QS)
-  + ("" if not WEEKS else f"\n## Änderungen\n- [Was sich im Index geändert hat (wöchentlich)]({BASE}/de/aenderungen/)\n") + f"""
-## Methode
-- [Methode und Quellen]({BASE}/methode.html)
+## Answers (German)
+""" + "".join(f"- [{t}]({BASE}/de/frage/{f}.html)\n" for f,t in QS) + f"""- [Alle Rezept-Apps von A bis Z]({BASE}/de/app/)
+""" + ("" if not WEEKS else f"- [Was sich im Index geändert hat (wöchentlich)]({BASE}/de/aenderungen/)\n") + f"""
+## Full data
+- [llms-full.txt: every recipe app with date and prices, plus category extremes]({BASE}/llms-full.txt)
+- [Dataset, CC BY 4.0]({BASE}/data/)
 
-## Nutzung
-Zitierfähig mit Quellenangabe „openAPPindex, Stand {DATA_STAND}“.
+## Findings and method
+- [The replication across two categories]({BASE}/second-category.html)
+- [Working paper]({BASE}/paper.html)
+- [Method and corrections]({BASE}/methode.html)
+- [Manifesto]({BASE}/manifesto.html)
+- [Funding policy]({BASE}/funding.html)
+
+## Citation
+"openAPPindex, data as of {DATA_STAND}" — {BASE}
 """)
 
 with open(f"{OUT}/llms-full.txt","w",encoding="utf-8") as f:
     f.write(f"# openAPPindex — vollständiger Datenbestand (Stand {DATA_STAND})\n\n")
     f.write("Quelle: iTunes Search API + App-Store-Produktseiten, Storefront Deutschland.\n")
     f.write("Keine Rezensionen, keine Bewertungen. Fehlende Angaben sind als solche ausgewiesen.\n\n")
+    f.write("## Höchste einzelne In-App-Käufe der Kategorie (Top 20)\n")
+    for a in _iapmax[:20]:
+        f.write(f"- {a['trackName']}: {eur(a['iap_max'])} (Store-Preis {a.get('formattedPrice')}, erhoben {a['read_at']}) — {BASE}/de/app/{a['slug']}/\n")
+    f.write("\n## Am längsten nicht aktualisiert (Top 20)\n")
+    for a in sorted([a for a in apps if a["days"]], key=lambda x: -x["days"])[:20]:
+        f.write(f"- {a['trackName']}: zuletzt {de_date(a.get('currentVersionReleaseDate'))} — {BASE}/de/app/{a['slug']}/\n")
+    f.write("\n## Alle Apps, zuletzt aktualisierte zuerst\n\n")
     for a in sorted(apps, key=lambda x: x["days"] if x["days"] is not None else 99999):
         cost = (f"In-App-Käufe {eur(a['iap_min'])}–{eur(a['iap_max'])} ({len(a['iaps'])} Positionen)"
                 if a["iaps"] else ("keine In-App-Käufe ausgewiesen" if a["price_known"] else "In-App-Käufe nicht erhoben"))
@@ -664,7 +746,7 @@ else:
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
 urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
-        "second-category.html", "funding.html", "de/app/"] + [f"de/frage/{f}.html" for f,_ in QS] \
+        "second-category.html", "funding.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 # GAL-553: lastmod is the date a page's content last changed, not the build clock.
 # Each submitted page is hashed with its day-relative phrases ("vor 3 Tagen") removed,
