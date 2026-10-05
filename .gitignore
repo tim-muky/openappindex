@@ -61,3 +61,7 @@ openappindex-strategy-*.md
 
 # Press drafts — sent by Tim, not published from the repo
 press/
+
+# Wrangler local state
+worker/.wrangler/
+worker/node_modules/
