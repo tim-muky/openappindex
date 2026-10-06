@@ -19,8 +19,9 @@ We measure two properties of a mobile application marketplace that economic theo
 preconditions for efficient outcomes: whether the supply of products is discoverable, and whether
 displayed prices state true costs. Using the full cooking-app category of the German iOS App
 Store as a test case (measurements taken 19 August to 1 September 2026), we find that 81% of
-apps whose own store description identifies them as recipe apps (579 of 715) do not appear in
-any of 25 German-language recipe searches, and that at most 92 of at least 991 apps in the
+apps whose own store description identifies them as recipe apps (579 of 715, all found by a
+sweep of 25 German-language recipe searches) do not appear in the results for the obvious
+query, „Rezepte", and that at most 92 of at least 991 apps in the
 category ever reach the first screen of any query. Ranking positions correlate with indexed
 metadata rather than with observable quality signals. Separately, 77% of the 907 category apps
 listed as free (German „Gratis") charge for use through in-app purchases, with a median highest
@@ -215,8 +216,11 @@ than understate, the visibility of organic listings in the rendered store.
 
 ### 4.1 Recall
 
-Of the 715 self-described recipe apps found by the sweep, 579 (81.0%) appear in none of the 25
-queries' result lists. Extending to the crawled category: across all 25 queries there are 674
+Of the 715 self-described recipe apps found by the sweep, 579 (81.0%) do not appear in the
+result list for the obvious query, „Rezepte". *(Corrected 2026-10-14: this sentence and the
+abstract said "in none of the 25 queries' result lists". That cannot be true of apps the sweep
+itself found; the figure has always been absence from the single query „Rezepte", as
+`recall_experiment.json` records it.)* Extending to the crawled category: across all 25 queries there are 674
 first-30 result slots, and 92 of the at least 991 category apps (9.3%) ever occupy any of them.
 The remaining 897 apps are not ranked low; they are absent.
 

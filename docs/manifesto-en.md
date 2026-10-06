@@ -130,7 +130,7 @@ found — money that never touches the software.
 It goes to a very short list. Google, Meta and TikTok together take **67% of all mobile ad
 dollars**: Google booked about **$295 billion** in advertising in 2025, Meta **$196 billion**
 (up 22%), TikTok around **$32 billion**. Apple sells the top slot in its own search results and
-its ad business is estimated near **$7.4 billion**.
+its ad business is estimated near **$7.4 billion** (a third-party estimate, eMarketer, 2025).
 
 And the developer has to earn it back. There are only two places it can come from: a higher
 price, or more advertising inside the app. **In-app advertising was worth $151 billion in
@@ -153,8 +153,9 @@ companies who built it.
 **The gatekeeper is being replaced. The bias is being inherited.**
 
 That question — *which app should I use?* — is moving to the AI assistants. It could have been
-the reset. Instead they answer largely from memory, recommending the incumbents they already
-knew: the ones with reach, the ones loud enough to end up in the training data. An assistant
+the reset. Instead they answer from whatever their search retrieves, which is mostly vendors' own
+marketing pages and competitors' "best apps" lists. In our measurement they named 53 apps, 5.6%
+of the category, and the shortlist followed marketing visibility, not the category. An assistant
 can only recommend from a corpus. If the only corpus is the one the store was already
 distorting, nothing changes — it just gets harder to see.
 
@@ -241,6 +242,7 @@ read. Every denominator is stated where its figure appears.
 | $166bn consumer spend across App Store + Google Play, 2025 | Business of Apps / store reporting | — |
 | Google, Meta and TikTok take roughly two thirds of mobile ad spend | Industry aggregate — single secondary source, treat as indicative | 2025–26 |
 | Google ~$295bn, Meta $196bn (+22%), TikTok ~$32bn advertising revenue 2025 | Company reporting and eMarketer | — |
+| Apple advertising ~$7.4bn, 2025 | eMarketer forecast — third-party estimate | 2025 |
 | In-app advertising worth $151bn in 2025 | Business of Apps | — |
 | Store commission 15–30% on digital goods | Apple and Google published terms | — |
 | 2,172,472 apps on the App Store | Apple, 2025 App Store Transparency Report | — |
@@ -256,7 +258,9 @@ Method, scripts and raw data: **openappindex.org/methode**
 than the funding policy we adopted: support from app publishers is allowed if it is disclosed and
 buys nothing (openappindex.org/funding.html). The promise that matters, that no placement can be
 bought, is unchanged. Same date: "we spent a week measuring" now reads "two weeks"; the cooking
-measurement ran 19 August to 1 September.*
+measurement ran 19 August to 1 September. Also corrected: assistants "answer largely from
+memory" contradicted our own measurement (`assistant-recall-findings.md`), which found them
+answering from vendor marketing pages via search; and Apple's ~$7.4bn now names its source.*
 
 *Every figure is either our own measurement, reproducible from published scripts,
 or a company's own published number quoted accurately and attributed. The manifesto attacks
