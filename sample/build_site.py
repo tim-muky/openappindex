@@ -758,6 +758,14 @@ def repo_href(h):
     # The docs link to each other relatively, as files in the repository. Served on
     # the domain those links would 404, so anything not absolute points at GitHub.
     if h.startswith(("http://", "https://", "/", "#", "mailto:")): return h
+    # Docs that are also served on the domain link there: internal links are what lets a
+    # crawler find them, and a reader stays on the site.
+    served = {"working-paper.md": "/paper.html", "manifesto-en.md": "/manifesto.html",
+              "manifesto-de.md": "/manifest.html", "second-category-findings.md": "/second-category.html",
+              "funding-policy.md": "/funding.html", "thesis.md": "/thesis.html"}
+    base, _, frag = h.partition("#")
+    if base.split("/")[-1] in served and not base.startswith(".."):
+        return served[base.split("/")[-1]] + (f"#{frag}" if frag else "")
     import posixpath
     target = posixpath.normpath(posixpath.join("docs", h))
     return f"{REPO}/{'tree' if h.endswith('/') else 'blob'}/main/{target}"
@@ -824,6 +832,11 @@ for _fn, _out, _title, _desc, _other in (
      "to the cent as cooking apps.",
      '<p class="src"><a href="/paper.html">Working paper</a> · '
      '<a href="/methode.html">Method &amp; data</a></p>'),
+    ("thesis.md", "thesis.html", "Constructed Opacity — openAPPindex",
+     "An essay on why the mobile app economy fails the tests of a fair and transparent market, "
+     "and why that failure is profitable. Every figure dated and sourced.",
+     '<p class="src"><a href="/paper.html">Working paper</a> · '
+     '<a href="/manifesto.html">The manifesto</a> · <a href="/methode.html">Method &amp; data</a></p>'),
     ("funding-policy.md", "funding.html", "Funding policy — openAPPindex",
      "What money can and cannot do at openAPPindex: no placement is for sale, every supporter is "
      "named, store operators are excluded.",
@@ -865,7 +878,7 @@ else:
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
 urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
-        "second-category.html", "funding.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
+        "second-category.html", "funding.html", "thesis.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 # GAL-553: lastmod is the date a page's content last changed, not the build clock.
 # Each submitted page is hashed with its day-relative phrases ("vor 3 Tagen") removed,
