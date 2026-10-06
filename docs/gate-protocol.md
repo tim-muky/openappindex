@@ -553,6 +553,25 @@ typing that string into Bing the same day has not been ruled out. Recorded so th
 2026-10-13 can test it or discard it. Nothing was submitted or requested today. Queries,
 thresholds and scoring are unchanged.
 
+**Probe planned 2026-10-06, written down before it runs.** On the evening of 2026-10-06 Tim sends
+one non-protocol query to Perplexity, from a private browser window and **not logged in**, so no
+account history is involved:
+
+> `openAPPindex Datensatz Median höchster In-App-Kauf Schlaf-Apps`
+
+The string is new: it has never been issued before, and it names the project, so Bing's 25-page
+index can rank the homepage for it. The time is recorded, and so is every openappindex.org URL
+among Perplexity's sources. Decision rule, fixed now:
+
+- **Supports** the observation: BWT Search Performance shows ≥ 1 impression for this exact
+  string, dated 2026-10-06 or 2026-10-07. Read on 2026-10-09 and again on 2026-10-13, because
+  the report lags.
+- **Counts against it:** Perplexity cites an openappindex.org URL that Bing holds, and BWT shows
+  0 impressions for the string by 2026-10-13.
+- **Inconclusive:** Perplexity cites no openappindex.org URL, and BWT shows 0 impressions.
+
+It is one probe, so whatever it shows is reported as one observation, not as a rate.
+
 ---
 
 ## 2. The query set (frozen)
