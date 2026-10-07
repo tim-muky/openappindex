@@ -100,8 +100,16 @@ def load_weeks():
         ws.append(json.load(open(f, encoding="utf-8")))
     return sorted(ws, key=lambda w: w["to"], reverse=True)
 
+# Set by build_site.py: trackId -> the slug the app page is actually served at. Slugs come
+# from the name at first indexing; a renamed app keeps its URL, so a slug rebuilt from the
+# new name would 404 (found 2026-10-07: galleybook and 70+ others).
+SLUGS = {}
+
 def _link(x):
-    return f"<a href='{BASE}/de/app/{esc(x['slug'])}/'>{esc(x['name'])}</a>"
+    s = SLUGS.get(int(x["id"])) if SLUGS else x["slug"]
+    if not s:                      # no page in the index for this app: name only, no dead link
+        return esc(x["name"])
+    return f"<a href='{BASE}/de/app/{esc(s)}/'>{esc(x['name'])}</a>"
 
 def _section(title, rule, rows):
     if not rows:

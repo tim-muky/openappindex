@@ -470,6 +470,7 @@ QS = [("welche-rezept-app-wird-noch-gepflegt","Welche Rezept-App wird noch gepfl
 
 # ---------------- weekly changelog (GAL-578) ----------------
 # Rendered only when data/public/changelog/*.json exists; until then the site is byte-identical.
+build_changelog.SLUGS = {a["trackId"]: a["slug"] for a in apps}
 WEEKS = build_changelog.render_all(OUT)
 cl_link = ("" if not WEEKS else
            f"<h2>Was sich geändert hat</h2><ol><li class='card'><h3><a href='{BASE}/de/aenderungen/'>"
