@@ -1,0 +1,33 @@
+{
+  "probe": "perplexity-via-bing-test",
+  "purpose": "Test the 2026-10-05 observation that Perplexity discovers URLs through Bing. Non-protocol query; string and decision rule fixed in gate-protocol.md §1 before the run (date amended 2026-10-07, before it ran).",
+  "captured_at": "2026-10-07, ~09:45 CEST (Tim)",
+  "assistant": "perplexity",
+  "session": "private browser window, not logged in, no account history",
+  "query_verbatim": "openAPPindex Datensatz Median höchster In-App-Kauf Schlaf-Apps",
+  "query_is_protocol_query": false,
+  "sources_first_three_as_shown": [
+    {
+      "site": "openappindex",
+      "title": "openAPPindex - The map is missing",
+      "snippet_start": "An independent, open index of mobile apps. We measured one app-store category as completely as we could reach it: 81% of cooking apps never…"
+    },
+    {
+      "site": "uni-muenster",
+      "title": "Zeitweise nicht verfügbar"
+    },
+    {
+      "site": "play.google",
+      "title": "BetterSleep: Einschlafhilfe – Apps bei …"
+    }
+  ],
+  "openappindex_cited": true,
+  "openappindex_url_in_bing_index": "homepage — indexed in Bing (BWT Site Explorer, 2026-10-05)",
+  "answer_summary": [
+    "Attributes to openAPPindex only cooking-category figures, all on the CURRENT corrected basis: 941 apps; 697 of 907 'free' apps with in-app purchases (77%); median highest in-app purchase EUR 39.99; maximum EUR 599.99; measured 19–21 Aug 2026. No superseded figure (the 2026-09-23 probe had quoted 706 of 916).",
+    "States that only one category has been measured and that no sleep-app figure is published. True of the live site (sleep findings reach the site on 2026-10-14) — false of the GitHub repository, published 2026-09-23.",
+    "Misstates one denominator: the median 'über alle 907 free-Apps'."
+  ],
+  "decision_rule": "SUPPORTS if BWT shows >= 1 impression for this exact string dated 2026-10-07/08; COUNTS AGAINST if 0 by 2026-10-13 (openappindex.org was cited and its homepage is in Bing's index).",
+  "decision_rule_reading": "pending — BWT reads on 2026-10-09 and 2026-10-13"
+}
