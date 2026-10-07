@@ -674,7 +674,7 @@ page("data/index.html", "Datensatz — openAPPindex",
 <p class="lede">Jede Zahl auf diesen Seiten lässt sich aus diesen Dateien nachrechnen. Lizenz:
 <a href="https://creativecommons.org/licenses/by/4.0/deed.de">CC BY 4.0</a>, Quellenangabe
 „openAPPindex, Stand {DATA_STAND}“.</p>
-<table><tbody>""" + "".join(f"<tr><th><a href='{BASE}/data/{fn}'>{esc(fn)}</a></th><td>{esc(w)} · {sz/1e6:.1f} MB</td></tr>"
+<table><tbody>""" + "".join(f"<tr><td><a href='{BASE}/data/{fn}'>{esc(fn)}</a></td><td>{esc(w)} · {sz/1e6:.1f} MB</td></tr>"
                             for fn, w, sz in _served) + f"""</tbody></table>
 <div class="rule">Enthalten sind nur Tatsachen: Kennungen, Namen, Anbieter, Version, Datum der letzten
 Aktualisierung, Preisangabe im Store und die von Apple ausgewiesenen In-App-Käufe, jeweils mit

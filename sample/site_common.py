@@ -77,6 +77,8 @@ h3{{font-size:1.05rem;margin:1.6em 0 .4em}}
 nav.bc{{font-size:.85rem;color:var(--mut);margin-bottom:1.5em}}
 table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem}}
 th,td{{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}}
+th{{hyphens:auto;-webkit-hyphens:auto}}
+td{{overflow-wrap:anywhere}}
 th{{font-weight:600;width:38%;color:var(--mut)}}
 .src{{font-size:.78rem;color:var(--mut)}}
 .card{{background:var(--card);border:1px solid var(--rule);padding:16px;margin:10px 0}}
