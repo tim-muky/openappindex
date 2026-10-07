@@ -64,8 +64,7 @@ SHELL = """<!doctype html>
 <meta property="og:url" content="{canon}">
 <meta name="twitter:card" content="summary">
 <style>
-:root{{--bg:#fbfcfd;--ink:#10161d;--mut:#5a6673;--rule:#cfd6dd;--acc:#26389c;--card:#fff}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#0e1216;--ink:#e8edf2;--mut:#96a3af;--rule:#2a343d;--acc:#93a5ff;--card:#161c22}}}}
+:root{{--bg:#ffffff;--ink:#141a16;--mut:#575c55;--rule:#e1e0d8;--acc:#1b4d3e;--card:#f6f6f2;color-scheme:light}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}}
 .w{{max-width:820px;margin:0 auto;padding:28px 20px 80px}}
