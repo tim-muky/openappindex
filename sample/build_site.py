@@ -690,6 +690,9 @@ Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappinde
 _free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
 _free_iap = sum(1 for a in apps if a["iaps"] and (a.get("formattedPrice") or "").lower() in ("gratis","free"))
 _iapmax = sorted([a for a in apps if a["iap_max"]], key=lambda x: -x["iap_max"])
+import statistics
+_median_hi = statistics.median(a["iap_max"] for a in apps if a["iap_max"] and a["iap_max"] > 0
+                               and (a.get("formattedPrice") or "").lower() in ("gratis", "free"))
 _stale2 = sum(1 for a in apps if not a["not_found_on"] and a["age"] and a["age"] > 730)
 open(f"{OUT}/llms.txt","w",encoding="utf-8").write(f"""# openAPPindex
 
@@ -702,7 +705,7 @@ Coverage: German iOS App Store. Recipe & cooking apps: {len(apps)} (data as of {
 Sleep & meditation apps: 3,578 (measured 1–2 Sep 2026).
 
 Key figures (each sourced on the linked pages):
-- {_free_iap} of {_free_listed} recipe apps listed as free ("Gratis") list in-app purchases.
+- {_free_iap} of {_free_listed} recipe apps listed as free ("Gratis") list in-app purchases. Among those {_free_iap}, the median highest single in-app purchase is {eur(_median_hi)}.
 - Highest single in-app purchase among recipe apps: {_iapmax[0]['trackName'] if _iapmax else 'n/a'}, {eur(_iapmax[0]['iap_max']) if _iapmax else 'n/a'}.
 - {_stale2} recipe apps had, as read on {LOOKUP_STAND}, not been updated for more than two years.
 - Of the apps a 25-query sweep found, 81% of recipe apps never appear for "rezepte" and 88% of sleep apps never appear for "schlaf".

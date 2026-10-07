@@ -22,7 +22,7 @@ chosen to be structurally unlike the first and to break the result if it was bre
 | Reachable only via the similar-apps graph | **28%** (276 of ≥991) | **68%** (2,423 of 3,578) |
 | Listed "free" | **96%** (907 of 941) | **96%** (3,417 of 3,578) |
 | …of those, charging in-app | **77%** (697 of 907) | **77%** (2,581 of 3,351) |
-| Median highest in-app purchase | **€39.99** | **€39.99** |
+| Median highest in-app purchase, among apps that charge | **€39.99** | **€39.99** |
 | Largest single in-app purchase | **€599.99** | **€1,199.99** |
 
 **Price opacity replicated to the cent. Discovery failure replicated and got worse.** We picked

@@ -29,7 +29,7 @@ is dated with the error that motivated it ([protocol](../openappindex-sleep-cate
 | Reachable only through the similar-apps graph | 28% (276 of ≥991) | **68%** (2,423 of 3,578) |
 | Listed as *Gratis* | 96% (907 of 941) | **96%** (3,417 of 3,578) |
 | …of those read, charge through in-app purchases | **77%** (697 of 907) | **77%** (2,581 of 3,351) |
-| Median highest single in-app purchase | **€39.99** | **€39.99** |
+| Median highest single in-app purchase, among apps that charge | **€39.99** | **€39.99** |
 | Largest single in-app purchase behind *Gratis* | €599.99 | **€1,199.99** |
 
 Both recall rows are computed the same way in both categories: the first over the apps the
