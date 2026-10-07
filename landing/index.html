@@ -4,12 +4,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap">
 <style>
 :root{
-  --bg:#12120f; --ink:#f1f0e9; --paper:#f1f0e9; --ink-dark:#0a0a0a;
-  --accent:#996559; --accent-hi:#c79a7f;
-  --green:#1b4d3e; --sage:#61b19a;
-  --surface:#171b17; --surface-2:#1d231d; --rule:#2b312a;
-  --muted:#a9a79c; --faint:#6f7069; --greige:#daccc1;
-  --s1:#6b7069; --s2:#6f4636; --s3:#845544; --s4:#996559; --s5:#b98a72; --s6:#d9b193;
+  /* White theme (2026-10-07). Copper = measured fact, green = structure, as before; both
+     darkened for small text on white (contrast on #fff: ink 17.7, muted 6.9, faint 5.1,
+     accent-hi 6.8, sage 5.9). */
+  --bg:#ffffff; --ink:#141a16; --paper:#f1f0e9; --ink-dark:#141a16;
+  --accent:#996559; --accent-hi:#7f4f43;
+  --green:#1b4d3e; --sage:#2f6f58;
+  --surface:#f6f6f2; --surface-2:#ecebe4; --rule:#e1e0d8;
+  --muted:#575c55; --faint:#6b6f68; --greige:#daccc1;
+  --s1:#9a9d95; --s2:#5c3a2e; --s3:#6f4636; --s4:#845544; --s5:#996559; --s6:#b98a72;
   --sans:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --serif:"Fraunces",Georgia,"Times New Roman",serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -55,7 +58,7 @@ header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:
 .bar .lbl b{color:var(--ink);font-weight:500}
 .track{height:14px;background:var(--surface-2);overflow:hidden}
 .fill{height:100%;width:0;background:var(--accent);border-radius:0 3px 3px 0;animation:grow 1.1s cubic-bezier(.2,.8,.25,1) forwards}
-.fill.dim{background:var(--rule)}
+.fill.dim{background:#c9c8bf}
 @keyframes grow{to{width:var(--pct)}}
 @media(prefers-reduced-motion:reduce){.fill{animation:none;width:var(--pct)}}
 .src{margin:22px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.5}
@@ -84,7 +87,7 @@ section{padding:clamp(60px,8.5vw,108px) 0;border-bottom:1px solid var(--rule)}
 @media(prefers-reduced-motion:reduce){.rf{animation:none;width:var(--w)}}
 .rv{font-size:13px;color:var(--ink);white-space:nowrap}
 .rv i{color:var(--faint);font-style:normal;margin-left:4px}
-.tip{position:absolute;left:166px;bottom:calc(100% - 4px);background:var(--paper);color:var(--ink-dark);font-size:12px;padding:6px 10px;opacity:0;pointer-events:none;transition:opacity .12s;white-space:nowrap;z-index:5}
+.tip{position:absolute;left:166px;bottom:calc(100% - 4px);background:var(--ink);color:#fff;font-size:12px;padding:6px 10px;opacity:0;pointer-events:none;transition:opacity .12s;white-space:nowrap;z-index:5}
 .row:hover .tip,.row:focus-visible .tip{opacity:1}
 @media(max-width:620px){.row{grid-template-columns:1fr}.rl{text-align:left}.tip{left:0}}
 details{margin-top:24px;border-top:1px solid var(--rule);padding-top:16px}
@@ -129,7 +132,7 @@ th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:u
 .meth p{color:#44514a;font-size:14.5px;margin:0}
 .cta{margin-top:52px;display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--green);transition:transform .12s ease}
-.btn.primary{background:var(--green);color:var(--paper)}
+.btn.primary{background:var(--green);color:#fff}
 .btn.ghost{color:var(--green)}
 .btn:hover{transform:translateY(-2px)}
 footer{padding:56px 0 72px;font-size:13.5px;color:var(--faint)}
