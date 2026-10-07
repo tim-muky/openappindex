@@ -576,6 +576,13 @@ It is one probe, so whatever it shows is reported as one observation, not as a r
 instead, with the same string, the same session conditions and the same rule. The impression
 dates move with it to **2026-10-07 or 2026-10-08**; the readings stay on 10-09 and 10-13.
 
+**Styling-only deploy, 2026-10-07 ~10:45 CEST (Tim's request).** The live site switched from the
+dark to a white colour scheme. No fact, page, figure or URL changed. Before deploying, the visible
+text of 39 pages was compared with the live site: only day-relative phrases ("vor 45 Tagen") and
+the order of apps sharing an update date differ, as on any rebuild. The sitemap holds the same 710
+URLs; its lastmod moved to the build date. Recorded so that a citation dated after this deploy is
+known to have seen the same content in a different colour.
+
 ---
 
 ## 2. The query set (frozen)
