@@ -572,6 +572,10 @@ among Perplexity's sources. Decision rule, fixed now:
 
 It is one probe, so whatever it shows is reported as one observation, not as a rate.
 
+**Amended 2026-10-07, before the probe ran:** it was not run on 10-06. It runs on 2026-10-07
+instead, with the same string, the same session conditions and the same rule. The impression
+dates move with it to **2026-10-07 or 2026-10-08**; the readings stay on 10-09 and 10-13.
+
 ---
 
 ## 2. The query set (frozen)
