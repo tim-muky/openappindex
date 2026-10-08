@@ -68,3 +68,4 @@ worker/.wrangler/
 worker/node_modules/
 gate-verdict-draft-*.md
 developer-study-protocol-draft.md
+developer-study-survey-draft.md
