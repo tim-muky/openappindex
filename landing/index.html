@@ -4,15 +4,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap">
 <style>
 :root{
-  /* White theme (2026-10-07). Copper = measured fact, green = structure, as before; both
-     darkened for small text on white (contrast on #fff: ink 17.7, muted 6.9, faint 5.1,
-     accent-hi 6.8, sage 5.9). */
-  --bg:#ffffff; --ink:#141a16; --paper:#f1f0e9; --ink-dark:#141a16;
-  --accent:#996559; --accent-hi:#7f4f43;
-  --green:#1b4d3e; --sage:#2f6f58;
-  --surface:#f6f6f2; --surface-2:#ecebe4; --rule:#e1e0d8;
-  --muted:#575c55; --faint:#6b6f68; --greige:#daccc1;
-  --s1:#9a9d95; --s2:#5c3a2e; --s3:#6f4636; --s4:#845544; --s5:#996559; --s6:#b98a72;
+  /* Candy palette (2026-10-09): Gum wrapper #0652A9, Pink bubblegum #FF7AD9, Pale cloud #F3E9EE,
+     Bright sky #2B9AF5, Pink bubble #F6B6F3. Blue = structure, pink = measured fact.
+     Pink bubblegum is too light for small text on white (2.3:1), so text-sized pink uses a
+     darkened step (--accent-hi, 5.6:1); fills use the palette pink as is. */
+  --bg:#ffffff; --ink:#141a16; --paper:#f3e9ee; --ink-dark:#141a16;
+  --accent:#ff7ad9; --accent-hi:#b3238d;
+  --green:#0652a9; --sage:#0652a9;
+  --surface:#f3e9ee; --surface-2:#e8d8e1; --rule:#e2d2dc;
+  --muted:#4f4955; --faint:#665f6d; --greige:#f6b6f3;
+  --s1:#a89fae; --s2:#0652a9; --s3:#2b9af5; --s4:#ff7ad9; --s5:#f6b6f3; --s6:#c9a4c0;
   --sans:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --serif:"Fraunces",Georgia,"Times New Roman",serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -58,7 +59,7 @@ header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:
 .bar .lbl b{color:var(--ink);font-weight:500}
 .track{height:14px;background:var(--surface-2);overflow:hidden}
 .fill{height:100%;width:0;background:var(--accent);border-radius:0 3px 3px 0;animation:grow 1.1s cubic-bezier(.2,.8,.25,1) forwards}
-.fill.dim{background:#c9c8bf}
+.fill.dim{background:#d3c5cd}
 @keyframes grow{to{width:var(--pct)}}
 @media(prefers-reduced-motion:reduce){.fill{animation:none;width:var(--pct)}}
 .src{margin:22px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.5}
@@ -126,10 +127,10 @@ th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:u
 @media(max-width:700px){.line{grid-template-columns:1fr;gap:6px}}
 
 .invert{background:var(--paper);color:var(--ink-dark);border-bottom:none}
-.invert h2{color:var(--green)} .invert .lede{color:#44514a} .invert .eyebrow{color:#2f6f58}
+.invert h2{color:var(--green)} .invert .lede{color:#4f4955} .invert .eyebrow{color:var(--sage)}
 .meth h3{color:var(--ink-dark);margin-bottom:8px}
 .meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:44px}
-.meth p{color:#44514a;font-size:14.5px;margin:0}
+.meth p{color:#4f4955;font-size:14.5px;margin:0}
 .cta{margin-top:52px;display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--green);transition:transform .12s ease}
 .btn.primary{background:var(--green);color:#fff}
