@@ -583,6 +583,12 @@ the order of apps sharing an update date differ, as on any rebuild. The sitemap 
 URLs; its lastmod moved to the build date. Recorded so that a citation dated after this deploy is
 known to have seen the same content in a different colour.
 
+**Reading 2026-10-09 (first probe reading).**
+- BWT Search Performance only covers dates up to 2026-10-06, which is before the probe ran. It
+  shows no new keywords: still the two from 09-23 and 10-03, 5 impressions in total. The probe
+  can neither be confirmed nor rejected yet; the reading on 2026-10-13 decides.
+- Site Explorer: **37 indexed** (25 on 10-05), 0 errors, 1 excluded.
+
 ---
 
 ## 2. The query set (frozen)
