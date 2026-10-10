@@ -100,6 +100,7 @@ Alle Angaben stammen aus öffentlich zugänglichen Daten des App Store und trage
 Nutzerrezensionen — nur datierte Tatsachen und deren Quelle.</p>
 <p>Fehler gefunden? Korrekturen an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a> —
 wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">Impressum &amp; Kontakt</a> ·
+<a href="{base}/datenschutz.html">Datenschutz</a> ·
 <a href="{base}/methode.html">Methode</a> &middot;
 <a href="{base}/manifest.html">Manifest</a> &middot;
 <a href="{base}/paper.html">Working Paper</a></p>

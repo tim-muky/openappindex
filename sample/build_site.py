@@ -841,6 +841,9 @@ for _fn, _out, _title, _desc, _other in (
      "and why that failure is profitable. Every figure dated and sourced.",
      '<p class="src"><a href="/paper.html">Working paper</a> · '
      '<a href="/manifesto.html">The manifesto</a> · <a href="/methode.html">Method &amp; data</a></p>'),
+    ("datenschutz-de.md", "datenschutz.html", "Datenschutzerklärung — openAPPindex",
+     "Datenschutzerklärung von openappindex.org: keine Cookies, kein Tracking, anonyme Zählung ohne IP-Adresse.",
+     '<p class="src"><a href="/impressum.html">Impressum</a></p>'),
     ("funding-policy.md", "funding.html", "Funding policy — openAPPindex",
      "What money can and cannot do at openAPPindex: no placement is for sale, every supporter is "
      "named, store operators are excluded.",
@@ -856,6 +859,11 @@ INDEXNOW_KEY = "e595dfb6a3164c1a641ee51f09b7262e"
 open(f"{OUT}/{INDEXNOW_KEY}.txt", "w").write(INDEXNOW_KEY)
 
 LANDING_DESC = ('An independent, open index of mobile apps. We measured two app-store categories as completely as we could reach them: 81% of cooking apps and 88% of sleep apps never appear for the obvious search, and 77% of apps listed as free charge in-app.')
+
+# Self-hosted fonts (OFL), so no visitor's browser contacts Google (decided 2026-10-10).
+_fonts = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "landing", "fonts")
+if os.path.isdir(_fonts):
+    shutil.copytree(_fonts, os.path.join(OUT, "fonts"), dirs_exist_ok=True)
 
 # The landing page is the root. Copied in last, so no rebuild can overwrite it.
 _landing = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "landing", "index.html")
@@ -882,7 +890,7 @@ else:
 # not submitted: 900+ near-identical thin pages risk the whole site being
 # classified as low-value, which would suppress the good pages too.
 urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
-        "second-category.html", "funding.html", "thesis.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
+        "second-category.html", "funding.html", "thesis.html", "datenschutz.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
        + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
 # GAL-553: lastmod is the date a page's content last changed, not the build clock.
 # Each submitted page is hashed with its day-relative phrases ("vor 3 Tagen") removed,
