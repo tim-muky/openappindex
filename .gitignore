@@ -77,3 +77,4 @@ study/
 # study/ is opened at the freeze. The frame is deleted when the survey closes (2027-01-31).
 study/frame/
 study/records/
+worker/dns-backup-*.json
