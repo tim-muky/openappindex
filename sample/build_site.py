@@ -355,6 +355,10 @@ qpage("rezept-apps-lange-nicht-aktualisiert",
 hidden = sorted([a for a in listed_apps if a["iap_max"] and (a.get("formattedPrice") or "").lower() in ("gratis","free")],
                 key=lambda x: -x["iap_max"])
 free_listed = sum(1 for a in apps if (a.get("formattedPrice") or "").lower() in ("gratis","free") and a["price_known"])
+# Count and base both on the price survey (DATA_STAND), as on the homepage and in llms.txt (697 of 907).
+# The list itself shows only apps still found on the latest read; mixing the two bases gave
+# "674 of 907" in the 2026-10-13 rebuild (never deployed).
+free_iap_survey = sum(1 for a in apps if a["iaps"] and (a.get("formattedPrice") or "").lower() in ("gratis","free"))
 qpage("gratis-rezept-app-was-kostet-sie-wirklich",
       "„Gratis“ im Store — was kostet die Rezept-App wirklich? | openAPPindex",
       "Als „Gratis“ gelistet — und was tatsächlich im Kaufmenü steht",
@@ -363,8 +367,9 @@ qpage("gratis-rezept-app-was-kostet-sie-wirklich",
       "sortiert nach dem höchsten ausgewiesenen Einzelpreis. Alle Preise sind die von Apple veröffentlichten Angaben.",
       hidden,
       "Rezept-Apps, die als gratis gelistet sind, mit den tatsächlich ausgewiesenen In-App-Preisen.",
-      f"{len(hidden)} von {free_listed} als „Gratis“ gelisteten Rezept-Apps mit erhobener Preisliste weisen "
-      f"In-App-Käufe aus (Erhebung {DATA_STAND}). Die höchsten einzelnen In-App-Käufe: "
+      f"{free_iap_survey} von {free_listed} als „Gratis“ gelisteten Rezept-Apps mit erhobener Preisliste weisen "
+      f"In-App-Käufe aus (Erhebung {DATA_STAND}). Die höchsten einzelnen In-App-Käufe, unter den Apps, die bei der "
+      f"Lesung vom {LOOKUP_STAND} noch im Store gefunden wurden: "
       + names(hidden, lambda a: f"{a['trackName']} ({eur(a['iap_max'])})") + ". Das sind einzelne "
       "Kaufpositionen, wie Apple sie veröffentlicht, keine Jahreskosten.",
       extra=lambda a: f" · In-App-Käufe {eur(a['iap_min'])}–{eur(a['iap_max'])}")
