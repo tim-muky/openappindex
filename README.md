@@ -151,12 +151,12 @@ published with a date.
 
 Pre-alpha. **Two categories**, one storefront, one country.
 
-A citation-validation experiment with thresholds frozen in advance
-([protocol](docs/gate-protocol.md)) is part-run. Its standing result
-([gate-result.md](docs/gate-result.md)): of the three assistants scored, two retrieve through
-indexes that have not admitted the site — Bing holds **1** page of ~710 submitted, Brave **0** —
-so those legs are *inconclusive on crawling*, not negative. The third, Perplexity, retrieves and
-cites the index, and is unscored. Google, which feeds none of the three, holds 647 pages.
+The citation experiment ([protocol](docs/gate-protocol.md), thresholds frozen 2026-08-21) closed
+on 2026-10-13 as **INCONCLUSIVE — CRAWLING** ([result](docs/gate-result.md)). Two of the three
+assistants retrieve through indexes that had not admitted the site: on 2026-10-13 Bing held
+**46** pages, Brave **0**, against the 100 the protocol required. The third, Perplexity, cited it
+in **0 of 30** scored answers over two runs. Google, which feeds none of the three, held 532.
 
-That result was not the one the protocol anticipated, and it is published as it stands, with
-every amendment dated before the data existed.
+The follow-up, [experiment 2](docs/experiment-2-protocol.md), measures whether earned external
+links lead to admission and then to citation. Its bar was frozen by public commit on 2026-10-13,
+before the launch on 2026-10-14.

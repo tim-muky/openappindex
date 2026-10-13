@@ -14,7 +14,9 @@ The gate (GAL-518) asked whether search-augmented assistants would cite an indep
 It could not be scored as designed. Two of its three assistants retrieve through indexes that had
 barely admitted the site: Bing 25 pages and Brave 0 on 2026-10-05, against ≥ 100 required. The
 third, Perplexity, returned 0 citations in 30 scored answers, and may itself discover pages
-through Bing (`gate-protocol.md` §1, observation of 2026-10-05).
+through Bing (`gate-protocol.md` §1, observation of 2026-10-05). *(Added 2026-10-13, before
+the freeze: the probe of 2026-10-07 counted against that observation under the rule fixed before it
+ran; see the reading of 2026-10-13 in `gate-protocol.md` §1. The test below stays in place.)*
 
 Bing's own diagnosis was *"Your site does not have enough inbound links from high quality
 domains."* So the gate's result points at a chain the gate never measured:

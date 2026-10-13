@@ -554,6 +554,17 @@ wurden), steht das dort; verglichen wird sie dann nicht.</p>
 """}<h2>Wie sortiert wird</h2>
 <p>Jede Liste nennt ihre Sortierregel auf der Seite selbst. Downloadzahlen, Bewertungssterne und Werbebudget
 fließen in keine Sortierung ein.</p>
+<h2>Das Zitier-Experiment: Ergebnis vom 13.10.2026</h2>
+<p>Ob KI-Assistenten mit Websuche einen unabhängigen App-Index zitieren, haben wir mit vorab
+eingefrorenen Fragen und Schwellen gemessen (Protokoll vom 21.08.2026). Ergebnis zum Stichtag
+13.10.2026: <strong>nicht entscheidbar, weil die Seite nicht ausreichend indexiert war</strong>
+(INCONCLUSIVE — CRAWLING). Das Protokoll verlangte mindestens 100 indexierte Seiten bei Google und
+Bing. Bing hielt 46, Brave 0. ChatGPT sucht über Bing, Claude über Brave, deshalb konnten diese
+beiden Teile nicht gewertet werden. Perplexity kannte die Seite und zitierte sie in 0 von 30
+gewerteten Antworten.</p>
+<p class="src">Vollständiges Ergebnis: <a href="https://github.com/tim-muky/openappindex/blob/main/docs/gate-result.md">gate-result.md</a> ·
+Protokoll: <a href="https://github.com/tim-muky/openappindex/blob/main/docs/gate-protocol.md">gate-protocol.md</a> ·
+Folgeexperiment: <a href="https://github.com/tim-muky/openappindex/blob/main/docs/experiment-2-protocol.md">Experiment 2</a></p>
 <h2>Korrekturen</h2>
 <p>Fehler bitte an <a href="mailto:korrektur@openappindex.org">korrektur@openappindex.org</a>. Korrekturen werden
 mit Datum ausgewiesen.</p>""")

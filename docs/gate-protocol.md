@@ -589,6 +589,35 @@ known to have seen the same content in a different colour.
   can neither be confirmed nor rejected yet; the reading on 2026-10-13 decides.
 - Site Explorer: **37 indexed** (25 on 10-05), 0 errors, 1 excluded.
 
+**Reading 2026-10-13 — the backstop.** Read from Bing Webmaster Tools and Search Console directly,
+and from Brave's public result page, all on the morning of 2026-10-13.
+
+- **Bing: 46 indexed** (37 on 10-09, 25 on 10-05), 0 errors, 0 warnings, 1 excluded. Root still
+  last crawled 21 September.
+- **Google: 532 indexed, 190 not indexed** (report of 2026-10-09; 625 in the report of 09-21).
+  Of the not-indexed pages: 133 "crawled – currently not indexed", 51 "discovered – currently not
+  indexed", 3 "not found (404)", 3 "excluded by noindex".
+- **Brave: 0.** `site:openappindex.org` returns "too few matches"; a plain search for
+  `openappindex` is rewritten to "openai index" and returns no page of the project.
+- **BWT AI Performance (Copilot and partners), 26 Aug–11 Oct: 0 citations.**
+- **BWT Search Performance now covers dates up to 2026-10-11.** It still shows only the two
+  keywords from 09-23 and 10-03, 5 impressions in total. On **2026-10-07 and 2026-10-08: 0
+  impressions.**
+
+**Perplexity-via-Bing probe — outcome under the rule fixed on 10-06 (date amended 10-07): counts
+against the observation.** Perplexity cited an openappindex.org URL that Bing holds (the
+homepage, indexed in Bing since before 10-05), and BWT shows 0 impressions for the probe string
+by 2026-10-13. One probe, one observation, not a rate. Its limit, stated before anyone relies
+on it: BWT counts web-search impressions ("Keywords and Pages data is only available for Web
+traffic"), so a Bing lookup made through an API that BWT does not count would leave no trace
+here. The 09-23 coincidence stays recorded; it is no longer evidence of a pattern. `gate-result.md`
+§4 ("the barrier is real but it is not universal") stands as written.
+
+**Precondition at the backstop.** Google 532 ✓, Bing 46 ✗, Brave 0 ✗. The precondition (≥ 100
+indexed in Google **and** Bing) was not met by 2026-10-13. Under §1 the result is
+**INCONCLUSIVE — CRAWLING**, and the gate closes on its backstop with that verdict. Queries,
+thresholds and scoring were not changed at any point between 2026-08-21 and today.
+
 ---
 
 ## 2. The query set (frozen)
