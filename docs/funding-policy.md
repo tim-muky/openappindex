@@ -120,4 +120,4 @@ association.
 None. All costs are paid by Tim Meyerdierks personally.
 
 Free plans we depend on, available to anyone on the same terms: **GitHub** (Microsoft) for code
-hosting; **Vercel** (Hobby plan) for serving the site; **Cloudflare** for DNS and email forwarding.
+hosting; **Cloudflare** for serving the site, DNS and email forwarding.
