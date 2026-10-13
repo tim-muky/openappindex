@@ -72,3 +72,8 @@ developer-study-survey-draft.md
 
 # Developer study instrument -- public only at the freeze (2026-12-01)
 study/
+
+# Study contact list and contracts -- personal data, NEVER published, not even when
+# study/ is opened at the freeze. The frame is deleted when the survey closes (2027-01-31).
+study/frame/
+study/records/
