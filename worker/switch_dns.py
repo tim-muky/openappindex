@@ -24,7 +24,7 @@ API = "https://api.cloudflare.com/client/v4"
 HERE = os.path.dirname(os.path.abspath(__file__))
 BACKUP = os.path.join(HERE, f"dns-backup-{date.today().isoformat()}.json")
 VERCEL = ("76.76.21.21", "vercel-dns.com")
-CHECK_PATHS = ["/", "/datenschutz.html", "/fonts/fonts.css", "/data/", "/sitemap.xml", "/de/frage/"]
+CHECK_PATHS = ["/", "/datenschutz.html", "/fonts/fonts.css", "/data/", "/sitemap.xml", "/methode.html"]
 
 def token():
     p = os.path.expanduser("~/.config/cloudflare_dns_token")
