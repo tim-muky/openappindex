@@ -1,0 +1,25 @@
+// openAPPindex serving Worker (GAL-558). Serves the static site built by
+// sample/build_site.py and records one data point per request in Workers
+// Analytics Engine: no IP address, no full user agent, no cookies, no script.
+{
+  "name": "openappindex",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-05",
+  "assets": {
+    "directory": "../sample/site",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    // URLs are served exactly as the site has always published them (.html kept,
+    // directory index on a trailing slash); the Worker does the one redirect.
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "analytics_engine_datasets": [
+    { "binding": "LOG", "dataset": "openappindex_requests" }
+  ],
+  "routes": [
+    { "pattern": "openappindex.org", "custom_domain": true },
+    { "pattern": "www.openappindex.org", "custom_domain": true }
+  ],
+  "observability": { "enabled": false }
+}

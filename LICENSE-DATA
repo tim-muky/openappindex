@@ -1,6 +1,7 @@
 DATA LICENCE — Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-The dataset in sample/data/public/ is published separately from the code, under
+The datasets in sample/data/public/ (cooking) and sleep/data/public/ (sleep and
+meditation) are published separately from the code, under
 Creative Commons Attribution 4.0 (CC BY 4.0):
 
     https://creativecommons.org/licenses/by/4.0/

@@ -1,11 +1,57 @@
-# GO/NO-GO gate — standing result
+# GO/NO-GO gate — result
 
-**GAL-518 · written 2026-09-23, run 2 added 2026-09-29, indexation re-assessed 2026-09-29 · protocol: [`gate-protocol.md`](gate-protocol.md)**
+**GAL-518 · final verdict, 2026-10-13 · written 2026-09-23, run 2 added 2026-09-29, indexation re-assessed 2026-09-29 · protocol: [`gate-protocol.md`](gate-protocol.md)**
 
-**This is a standing result, not the final verdict.** Two of the three legs are terminally
-blocked and are reported here as such. The third turned out to be live, and scoring it is the
-experiment the protocol was written for. Nothing below changes a query, a threshold or a
-scoring rule; all of those were frozen on 2026-08-21 and have never moved.
+---
+
+## Verdict, 2026-10-13: INCONCLUSIVE — CRAWLING
+
+**The gate closes on its backstop without a GO, WEAK or NO-GO, because the protocol's
+precondition was never met.** It required ≥ 100 indexed pages in Google *and* Bing, and §1 says
+what follows when that fails: *"the result is INCONCLUSIVE — CRAWLING, not NO-GO."*
+
+| Leg | Retrieval index | Pages on 2026-10-13 | Citations on scored queries | Status |
+|---|---|---|---|---|
+| ChatGPT (search) | Bing | **46** (25 on 10-05, 37 on 10-09) | not run: no index to cite from | INCONCLUSIVE — CRAWLING |
+| Claude (web search) | Brave | **0** | not run | INCONCLUSIVE — CRAWLING |
+| Perplexity | its own fetch | — | **0 of 15, two runs (0 in 30)** | measured; precondition unmet overall |
+
+Google: **532** pages indexed (Search Console report of 2026-10-09; 625 in the report of 09-21).
+It feeds none of the three.
+
+**What the one scoreable leg says, and what it does not.**
+- Perplexity had the site in its retrieval set (§3), was asked the 15 frozen questions on two
+  different days, and cited it in none of the 30 answers. The 3 controls were clean.
+- On that leg the result has the shape of a NO-GO.
+- The protocol's NO-GO, however, requires all three assistants with preconditions passed. Reading
+  this leg as the gate's verdict would turn an absence of measurement on two legs into a negative
+  result, and §2 forbids exactly that.
+
+**The Perplexity-via-Bing observation (gate-protocol §1, 2026-10-05): not supported.** The probe
+of 2026-10-07 (private window, logged out, a string never issued before) was answered with the
+homepage as a source, a page Bing holds. Bing Webmaster Tools, whose report by 10-13 covered dates
+up to 10-11, recorded **0 impressions** on 10-07 and 10-08. Under the rule fixed before the probe
+ran, that counts against the observation. It is one observation. BWT counts web-search
+impressions only, so a Bing lookup through an API it does not count would leave no trace. §4
+stands as written: the barrier is real for Bing and Brave, and Perplexity reached the site
+without it.
+
+**What this result licenses.**
+- It does not show that assistants ignore independent indexes.
+- It shows, with dated readings, that for a new independent domain the step before citation,
+  admission to the retrieval index, did not happen between 21 August and 13 October 2026 for two
+  of the three assistants. Bing named the reason itself: *"Your site does not have enough inbound
+  links from high quality domains."*
+- The next experiment supplies that missing link deliberately and measures the chain:
+  [`experiment-2-protocol.md`](experiment-2-protocol.md), frozen by public commit on 2026-10-13,
+  before the launch it measures.
+
+**What happens to the frozen gate.** The 18 queries and thresholds remain the instrument.
+Experiment 2 re-runs them monthly, with "any project host" counted as a citation. The gate's
+metric (openappindex.org only) is reported next to it every time.
+
+The standing result below was written on 2026-09-23 and 2026-09-29 and is kept as written; its
+figures carry their own dates.
 
 ---
 
@@ -192,8 +238,9 @@ reproduce the baseline's findings rather than softening them.
 - **The baseline's worst failure reproduced exactly.** B8 asked for a free app *without hidden
   costs*; all three recommendations — nara, Zestio, Flavorish — are absent from our 1,312-app
   German iOS sweep, and two were sourced to their own marketing sites. Flavorish was flagged for
-  this in the 2026-08-23 baseline. Thirteen months of model improvement later, the same question
-  returns the same class of answer.
+  this in the 2026-08-23 baseline. One month later, the same question returns the same class of
+  answer. *(Corrected 2026-10-05: this said "thirteen months"; baseline and run 1 are one month
+  apart.)*
 
 - **And then it said the thing does not exist.** F16 asks for a list of recipe apps unchanged
   for over two years. After searching for thirteen seconds the answer opens: *"Eine zentrale,
@@ -301,8 +348,11 @@ zuverlässig gepflegt"*, last updated *"offenbar spätestens 2023/2024"*, source
 2024 comment on one blog. Same app, same session, three minutes apart. A1 also dates Chefkoch's
 last update to 2025-04-20; ours is v5.2 on 2026-08-17.
 
-**B8 failed a third time, identically.** *Kostenlose Rezept-App ohne versteckte Kosten*: nara,
-Zestio and Flavorish, as in the 2026-08-23 baseline and in run 1. Every nara and Zestio claim is
+**B8 failed a third time.** *Kostenlose Rezept-App ohne versteckte Kosten*: nara, Zestio and
+Flavorish, identical to run 1. The 2026-08-23 baseline named Samsung Food, Nutrola, Flavorish,
+Aldenté and My ReciNote; Flavorish is the only app all three answers share. *(Corrected
+2026-10-05: this said the three apps were the same "as in the 2026-08-23 baseline". The failure
+is the same; the apps are not.)* Every nara and Zestio claim is
 sourced to the app's own website. Of the seven apps named, only Recipe Notes is in our 1,312-app
 German iOS sweep.
 

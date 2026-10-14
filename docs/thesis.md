@@ -2,9 +2,10 @@
 
 ### A thesis on why the mobile app economy fails the tests of a fair and transparent market — and why that failure is profitable
 
-*Draft v0.1 · openAPPindex · September 2026*
+**Tim Meyerdierks** · The openAPPindex project · openappindex.org
+Draft v0.2 · reissued 14 October 2026 (v0.1: 1 September 2026)
 
-*Status: working draft for internal discussion. Every empirical claim marked "our measurement" is
+*Status: working draft, circulated for discussion. Every empirical claim marked "our measurement" is
 reproducible from the published scripts and carries its measurement date; third-party and company
 figures are attributed inline; the literature is cited in full at the end. Follows the openAPPindex
 evidence rules: dated facts, stated denominators, no verdicts on named apps.*
@@ -76,8 +77,9 @@ what it costs at reasonable expense. These are measurable properties. We measure
 ## 2. The information failure: a market that hides its own supply
 
 **The finding (ours, DE App Store, cooking-app category, 19 Aug – 1 Sep 2026; scripts public):**
-of 715 apps whose own German store description identifies them as recipe apps, **81% (579) never
-appear** in any of 25 German-language recipe searches. Walking the store's own "similar apps"
+of 715 apps whose own German store description identifies them as recipe apps — found by a sweep
+of 25 German-language recipe searches — **81% (579) never appear** in the results for the obvious
+one, „Rezepte". Walking the store's own "similar apps"
 links instead of searching grew the category by a third in one hop; the closure is **at least 991
 cooking apps**, of which **92 — 9% — ever reach any first screen** of any query. Ten apps hold
 39% of all first-30 slots across all 25 queries; re-running every query 13 days later left a
@@ -85,7 +87,15 @@ median **92% of each first screen unchanged**. The mechanism is documented, ordi
 iOS search indexes roughly 160 characters of metadata — name, subtitle, keyword field — and does
 not index the description at all, so an app with 5,507 ratings and the query in its *subtitle*
 can be absent from the 168 results for that query while a 12-rating app whose *name* is the query
-holds position 8.
+holds position 8 (both read 19 August 2026).
+
+**The replication (ours, same storefront, sleep and meditation apps, 1–2 Sep 2026):** a second
+category chosen to be structurally unlike cooking — anchored by a few large subscription products
+rather than fragmented — and expected, for that reason, to be *more* discoverable. It is less.
+Of the 1,155 apps the sweep itself classified, **88% (1,013) never appear** in the results for
+the obvious query, *schlaf*, against 81% for *rezepte*; and of the at least **3,578** apps in the
+closed category, **68% (2,423) are reachable only through the store's similar-apps graph**,
+against 28% in cooking ([second-category findings](second-category-findings.md)).
 
 **What the literature says this is:**
 
@@ -93,9 +103,9 @@ holds position 8.
   are a natural friction the market grinds down over time. Here the friction is *set by the
   market's operator*: the store chooses what is indexed, how deep results go, and what ranks. The
   cost of discovering the 91% is not high — it is effectively infinite, because no user action
-  reaches it. Sensor Tower's *State of ASO* puts ~61% of search-driven installs in the top three
-  results and under 4% beyond rank 30; conditional on that behavior, an unranked app does not have
-  a high search cost, it has no channel at all.
+  reaches it. Sensor Tower's *State of ASO* (an industry estimate) puts ~61% of search-driven
+  installs in the top three results and under 4% beyond rank 30; conditional on that behavior,
+  an unranked app does not have a high search cost, it has no channel at all.
 - The consequences are **Diamond (1971) at scale**. Diamond showed small search costs hand sellers
   monopoly power. A discovery layer that is, in practice, three results deep hands the *holders of
   those three slots* the corresponding rents — which is precisely why the top slot is auctioned
@@ -109,31 +119,42 @@ holds position 8.
   the shelf does not respond to the question asked.
 - **Akerlof's lemons dynamic operates on the quality dimension the store does not display.** The
   two signals a buyer sees — a star average and the word "Gratis" — say nothing about whether an
-  app is still maintained. A star average is a monument to the past; it keeps selling an app whose
-  developer stopped caring years ago (our index shows apps last updated 1,700+ days ago
-  billing subscriptions today). When care is unobservable, the return to care falls, and the
-  market selects for what *is* observable: metadata engineering and ad budgets. That is adverse
-  selection against maintenance — lemons, with extra steps.
+  app is still maintained. A star average is a monument to the past; it keeps selling an app that
+  has not been updated in years (our index snapshot of 23 August 2026 lists apps marked „Gratis",
+  last updated more than 1,700 days before that reading, that still list paid in-app
+  purchases). When care is unobservable, the return to care falls, and the market selects for
+  what *is* observable: metadata engineering and ad budgets. That is adverse selection against
+  maintenance — lemons, with extra steps.
 - Ershov (2024) provides the closest controlled evidence: in Google Play data, discovery
   frictions and congestion externalities directly shape entry and entrant quality — visibility,
   not quality, is the binding constraint in app markets. Our measurement of the same phenomenon
-  from the outside: the median app found by search has a handful of ratings; the median app found
-  *only* by following the store's own links has zero. The invisible majority is not a tail of
-  junk; it is simply unlit.
+  from the outside: in cooking, the median app found by search has a handful of ratings; the
+  median app found *only* by following the store's own links has zero. The invisible majority is
+  not a tail of junk; it is simply unlit.
 
-**Verdict on claim 1:** a market in which 9% of verified supply is ever visible, in which
-visibility is orthogonal to quality and stable across queries and weeks, fails the information
-condition not marginally but categorically. The literature's term for what fills the gap is
-*rent*, and §4 shows who collects it.
+**Verdict on claim 1:** a market in which 9% of verified supply is ever visible (cooking, the
+one category where we counted first screens), in which visibility is orthogonal to quality and
+stable across queries and weeks, and in which a second, structurally different category is less
+discoverable still, fails the information condition not marginally but categorically. The
+literature's term for what fills the gap is *rent*, and §4 shows who collects it.
 
 ---
 
 ## 3. The price failure: "Gratis" as a shrouded attribute
 
 **The finding (ours, 20–23 Aug 2026, basis corrected 31 Aug; denominator: the 907 cooking apps
-listed as „Gratis" among the 941 the index serves):** **77% of apps labeled „Gratis" charge money
-once opened.** The median app's highest single in-app purchase is **€39.99**; twenty-six exceed
-€100; the largest is €599.99. No individual developer is lying — the prices are published, on a
+listed as „Gratis" among the 941 the index serves):** **77% of apps labeled „Gratis" (697 of 907)
+charge money once opened.** The median app's highest single in-app purchase is **€39.99**;
+twenty-six exceed €100; the largest is €599.99.
+
+**Replicated (ours, sleep and meditation apps, 1–2 Sep 2026; denominator: the 3,351 of the
+3,417 „Gratis" apps among 3,578 whose product pages could be read — the other 66 are recorded as
+not collected and excluded, not counted either way):** **77% (2,581 of 3,351) charge money once
+opened**, and the median highest single in-app purchase is **€39.99** — to the cent the cooking
+median. The largest is €1,199.99, for an item its developer labels a yearly subscription; it is
+reported as the highest single in-app purchase, not converted to a yearly price.
+
+No individual developer is lying — the prices are published, on a
 page reached after the choice is substantially made. The *store* displays the word and not the
 number, and takes a 15–30% commission on the difference between them.
 
@@ -144,7 +165,8 @@ number, and takes a 15–30% commission on the difference between them.
   explains the 77%: shrouding is an *equilibrium*, not a scattering of bad actors. A developer
   who prices honestly up front loses the install to a "Gratis" rival before the buyer ever sees
   either price list; unshrouding is punished, so honest pricing is selected *against*. When 77%
-  of a category shrouds, that is the theory's prediction confirmed, not exceeded.
+  of a category shrouds — and 77% of a second category chosen to be unlike it — that is the
+  theory's prediction confirmed, not exceeded.
 - The **magnitude** of the harm is experimentally established. Blake et al. (2021) randomized
   fee disclosure timing on StubHub: back-loading fees raised spending ~21% and degraded the
   quality of choices. The app store's architecture back-loads essentially *all* of the price for
@@ -176,12 +198,11 @@ Strip the market to its plumbing and count the firms.
   this section counts.
 - **Paid discovery** is a tight oligopoly. Google, Meta and TikTok together take roughly two
   thirds of mobile ad spend (industry aggregate; single secondary source, treat as indicative);
-  Google booked about $295bn in advertising in 2025, Meta $196bn, TikTok around $32bn (company
-  reporting / eMarketer). Apple auctions the top of its own search results — an ads business
-  estimated near $7.4bn — and since March 2026 places multiple ad slots inside a single result
-  page (Apple developer communication). The CMA (2020) found ~80% of UK search and display spend
-  going to two firms and concluded competition in these markets is "weak to the detriment of
-  consumers"; Prat and Valletti (2022) supply the mechanism — concentrated attention brokers
+  Google booked about $295bn in advertising in 2025 and Meta $196bn (company reporting), TikTok
+  around $32bn (a third-party estimate, eMarketer). Apple auctions the top of its own search
+  results, and since March 2026 places multiple ad slots inside a single result page (Apple
+  developer communication). The CMA (2020) found ~80% of UK search and display spend
+  going to two firms and concluded that consumers suffer from weak competition in these markets; Prat and Valletti (2022) supply the mechanism — concentrated attention brokers
   tighten the bottleneck, raise ad prices, and exclude entrants from product markets. (Decarolis
   and Rovigatti 2021 show, from the other side, how much auction outcomes move with concentration:
   market power in ad markets is real enough that buyer-side consolidation measurably shifts
@@ -213,8 +234,8 @@ opacity is not a bug in this structure. It is the product.
 
 ## 5. The harm: what the equilibrium costs
 
-**The aggregate accounting (2025 figures, attributed):** consumers spent roughly **$166bn** across
-the App Store and Google Play (Business of Apps / store reporting). Developers spent **$78bn on
+**The aggregate accounting (2025 figures; third-party industry estimates, attributed):**
+consumers spent roughly **$166bn** across the App Store and Google Play (Business of Apps / store reporting). Developers spent **$78bn on
 user acquisition** — $109bn on app marketing in total, up 13% year over year (AppsFlyer). In-app
 advertising *inside* apps was worth a further **$151bn** (Business of Apps). For every €2 a
 person spends on apps, close to €1 is spent by somebody trying to be found — money that never
@@ -277,18 +298,23 @@ Three self-sealing mechanisms, each independently documented:
 - **The corpus inheritance.** The question *which app should I use?* is migrating to AI
   assistants — the natural reset. But an assistant recommends from a corpus, and the available
   corpus is the one the store already distorted: incumbents loud enough to be in the training
-  data. Our assistant-baseline measurements find the assistants recommending the same visible
-  minority from memory. Absent an alternative corpus, the gatekeeper is replaced and the bias is
-  inherited — harder to see, and no longer even auditable query by query.
+  data, and vendors loud enough to be in the search results. Our assistant measurements (23–26
+  August 2026) find the assistants naming a different minority from the store's, but one just as
+  narrow — 53 apps of a 951-app cooking corpus, 5.6% — selected largely by competitor and vendor
+  marketing pages rather than by the store's ranking
+  ([assistant recall findings](assistant-recall-findings.md)). Absent an alternative corpus,
+  the gatekeeper is replaced and the bias is inherited — harder to see, and no longer even
+  auditable query by query.
 
 The economics of disclosure points at the remedy. Dranove and Jin (2010), surveying the
 certification and disclosure literature, find that credible third-party measurement changes
 seller behavior and market outcomes where self-disclosure and platform disclosure fail — and that
-the credibility of the certifier (independence, method transparency, no seller payments) is the
-binding constraint. That is the institutional gap openAPPindex is built to fill: not a better
-ranking inside the distorted candidate set, but the candidate set itself — recall before ranking —
-with every fact dated, sourced, denominated, and reproducible, readable by people and by the
-assistants that will make the next decade's recommendations. The stores became bottlenecks
+the credibility of the certifier (independence from what it certifies, method transparency) is
+the binding constraint. That is the institutional gap openAPPindex is built to fill. No placement
+is for sale, at any price. Who funds us is published ([funding policy](funding-policy.md)). What
+the index builds is not another ranking inside the distorted candidate set, but the candidate
+set itself — recall before ranking — with every fact dated, sourced, denominated, and
+reproducible, readable by people and by the assistants that will make the next decade's recommendations. The stores became bottlenecks
 because nobody outside could measure them. The thesis of this paper is that the measurement
 itself is the missing market institution.
 
@@ -299,11 +325,17 @@ itself is the missing market institution.
 Stated per our evidence rules, because a thesis that hides its weaknesses commits the failure it
 describes.
 
-- **Scope.** Our measurements cover one category (cooking), one storefront (DE), one platform
-  (iOS), over two weeks in August–September 2026. The mechanisms — 160 indexed characters,
-  auctioned top slots, "Gratis" labeling, 15–30% commission — are store-wide by construction,
-  but the *magnitudes* (81%, 77%, 9%) are category-specific until replicated. Replication in
-  further categories is the immediate research program.
+- **Scope.** Our measurements cover two categories (cooking, 19 Aug – 1 Sep 2026; sleep and
+  meditation, 1–2 Sep 2026), one storefront (DE), one platform (iOS). The mechanisms — 160
+  indexed characters, auctioned top slots, "Gratis" labeling, 15–30% commission — are
+  store-wide by construction, but the *magnitudes* are category-specific until replicated. The
+  second category was chosen to break the first result. The price magnitudes replicated exactly
+  (77%, €39.99 median); the recall magnitudes did not, because they were worse (88% against 81%
+  for the obvious query; 68% against 28% reachable only through the graph), which refutes the
+  hypothesis we went in with that concentration makes a category more discoverable. The 9%
+  first-screen figure is measured for cooking only. It is two categories, not twenty, both
+  consumer-facing, both on one storefront. Replication in further categories — ideally chosen
+  by someone other than us — remains the immediate research program.
 - **The curation defense.** Stores did solve real problems: malware, payment fraud, distribution
   cost. The pre-2008 counterfactual was worse on those axes. The thesis does not deny this; it
   observes that security curation does not require opaque discovery or shrouded pricing — the
@@ -317,9 +349,9 @@ describes.
   the thesis's claim is not that sellers pay and buyers don't, but that the *information
   environment* both sides transact in is degraded by the party pricing it.
 - **Concentration numbers vary by source.** The "two thirds of mobile ad spend" figure is a
-  single secondary aggregate and is labeled indicative here as everywhere we use it; the
-  company-reported revenue figures and the CMA's 80% UK finding carry the structural argument on
-  their own.
+  single secondary aggregate and is labeled indicative here as everywhere we use it, and the
+  TikTok figure is a third-party estimate; the company-reported Google and Meta figures and the
+  CMA's 80% UK finding carry the structural argument on their own.
 
 None of these limits touches the core: the welfare theorems' conditions are violated, the
 violations are measurable, the violators are four designated gatekeepers, and the violation is
@@ -329,9 +361,13 @@ their revenue.
 
 ## References
 
-**Our measurements** — openAPPindex, DE App Store cooking category, 19 Aug – 1 Sep 2026. Method,
-scripts, raw data and published corrections: openappindex.org/methode. Denominators and dates as
-stated inline; see the manifesto v0.8 source table for the claim-by-claim register.
+**Our measurements** — openAPPindex, DE App Store, iOS: cooking category, 19 Aug – 1 Sep 2026;
+sleep and meditation category, 1–2 Sep 2026. Method, scripts, raw data and published
+corrections: openappindex.org/methode. Denominators and dates as stated inline; the full
+write-up of both categories is the [working paper](working-paper.md), the replication is in
+[second-category findings](second-category-findings.md), the assistant measurements in
+[assistant recall findings](assistant-recall-findings.md), and the claim-by-claim register is the
+source table of the [manifesto](manifesto-en.md).
 
 **Literature**
 
@@ -364,13 +400,48 @@ stated inline; see the manifesto v0.8 source table for the claim-by-claim regist
 
 **Industry figures quoted** (attributed inline where used): AppsFlyer ($78bn UA / $109bn app
 marketing, 2025); Business of Apps / store reporting ($166bn consumer spend; $151bn in-app
-advertising, 2025); company reporting and eMarketer (Google ~$295bn, Meta $196bn, TikTok ~$32bn
-advertising revenue, 2025); Apple Ads sales material ("conversion rates over 60%"); Apple 2025
+advertising, 2025); company reporting (Google ~$295bn, Meta $196bn advertising revenue, 2025) and
+eMarketer (TikTok ~$32bn, estimate, 2025); Apple Ads sales material ("conversion rates over 60%"); Apple 2025
 App Store Transparency Report (2,172,472 apps); Sensor Tower *State of ASO* (~61% of search
 installs to top three; <4% past rank 30); Apple and Google published terms (15–30% commission).
 
 ---
 
-*Draft v0.1. The thesis attacks the system and names companies only via their own published
+## What changed since v0.1
+
+*Dated 2026-10-14.*
+
+- **Figures checked against the current sources** ([working paper](working-paper.md),
+  [second-category findings](second-category-findings.md), [manifesto](manifesto-en.md) source
+  table). No cooking figure changed; the 77% now carries its count (697 of 907), and the ratings
+  examples in §2 carry their measurement date.
+- **Corrected: what the 81% measures** (§2). v0.1 said the 579 apps appear in none of the 25
+  searches; they were found by that sweep, so they cannot. The 81% is absence from the results
+  for the obvious query, „Rezepte", as the manifesto and the second-category findings state it.
+- **Second category added** where the argument rested on one: sleep and meditation, 1–2 Sep
+  2026, in §2 (recall: 88%, 1,013 of 1,155; 68%, 2,423 of 3,578), §3 (price: 77%, 2,581 of
+  3,351; median €39.99; largest €1,199.99) and §7 (scope). Two categories, not twenty.
+- **Removed: Apple's ad business "estimated near $7.4bn"** (§4). Here it stood unattributed. It is
+  an eMarketer forecast, now attributed as such in the manifesto; the argument here does not
+  need it.
+- **Corrected: the CMA (2020) "quotation"** (§4). The words "weak to the detriment of consumers"
+  were in quotation marks, but we could not find them in the report. The sentence now paraphrases
+  the finding without quotation marks.
+- **Labelled as estimates inline:** TikTok's ~$32bn (eMarketer), Sensor Tower's positional
+  install shares, and the 2025 AppsFlyer and Business of Apps aggregates in §5.
+- **Corrected: assistants "recommending the same visible minority from memory"** (§6). Our own
+  assistant measurements found otherwise: assistants name a different minority from the
+  store's, just as narrow, picked largely from vendor marketing. The sentence
+  now says what was measured.
+- **Reworded: "apps last updated 1,700+ days ago billing subscriptions today"** (§2). Billing is
+  not something we observe; the sentence now states what the dataset shows (still listing paid
+  in-app purchases, at a dated snapshot), and no longer infers that a developer "stopped caring".
+- **Reworded: the certifier's credibility "(… no seller payments)"** (§6). It did not match our
+  funding policy, which allows disclosed support from app publishers. The line now reads: no
+  placement is for sale, at any price; who funds us is published.
+
+---
+
+*Draft v0.2. The thesis attacks the system and names companies only via their own published
 figures or their legal designation as gatekeepers. Named apps appear only as dated, measured
 examples. Where a figure rests on a single secondary source it is labeled indicative inline.*

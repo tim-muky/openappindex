@@ -1,18 +1,17 @@
-<title>openAPPindex</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap">
+<title>openAPPindex — an open index of mobile apps</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root{
-  /* White theme (2026-10-07). Copper = measured fact, green = structure, as before; both
-     darkened for small text on white (contrast on #fff: ink 17.7, muted 6.9, faint 5.1,
-     accent-hi 6.8, sage 5.9). */
-  --bg:#ffffff; --ink:#141a16; --paper:#f1f0e9; --ink-dark:#141a16;
-  --accent:#996559; --accent-hi:#7f4f43;
-  --green:#1b4d3e; --sage:#2f6f58;
-  --surface:#f6f6f2; --surface-2:#ecebe4; --rule:#e1e0d8;
-  --muted:#575c55; --faint:#6b6f68; --greige:#daccc1;
-  --s1:#9a9d95; --s2:#5c3a2e; --s3:#6f4636; --s4:#845544; --s5:#996559; --s6:#b98a72;
+  /* Candy palette (2026-10-09): Gum wrapper #0652A9, Pink bubblegum #FF7AD9, Pale cloud #F3E9EE,
+     Bright sky #2B9AF5, Pink bubble #F6B6F3. Blue = structure, pink = measured fact.
+     Pink bubblegum is too light for small text on white (2.3:1), so text-sized pink uses a
+     darkened step (--accent-hi, 5.6:1); fills use the palette pink as is. */
+  --bg:#ffffff; --ink:#141a16; --paper:#f3e9ee; --ink-dark:#141a16;
+  --accent:#ff7ad9; --accent-hi:#b3238d;
+  --green:#0652a9; --sage:#0652a9;
+  --surface:#f3e9ee; --surface-2:#e8d8e1; --rule:#e2d2dc;
+  --muted:#4f4955; --faint:#665f6d; --greige:#f6b6f3;
+  --s1:#a89fae; --s2:#0652a9; --s3:#2b9af5; --s4:#ff7ad9; --s5:#f6b6f3; --s6:#c9a4c0;
   --sans:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --serif:"Fraunces",Georgia,"Times New Roman",serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -58,7 +57,7 @@ header.hero{padding:clamp(60px,10vw,120px) 0 clamp(48px,7vw,84px);border-bottom:
 .bar .lbl b{color:var(--ink);font-weight:500}
 .track{height:14px;background:var(--surface-2);overflow:hidden}
 .fill{height:100%;width:0;background:var(--accent);border-radius:0 3px 3px 0;animation:grow 1.1s cubic-bezier(.2,.8,.25,1) forwards}
-.fill.dim{background:#c9c8bf}
+.fill.dim{background:#d3c5cd}
 @keyframes grow{to{width:var(--pct)}}
 @media(prefers-reduced-motion:reduce){.fill{animation:none;width:var(--pct)}}
 .src{margin:22px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.5}
@@ -126,10 +125,10 @@ th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:u
 @media(max-width:700px){.line{grid-template-columns:1fr;gap:6px}}
 
 .invert{background:var(--paper);color:var(--ink-dark);border-bottom:none}
-.invert h2{color:var(--green)} .invert .lede{color:#44514a} .invert .eyebrow{color:#2f6f58}
+.invert h2{color:var(--green)} .invert .lede{color:#4f4955} .invert .eyebrow{color:var(--sage)}
 .meth h3{color:var(--ink-dark);margin-bottom:8px}
 .meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:44px}
-.meth p{color:#44514a;font-size:14.5px;margin:0}
+.meth p{color:#4f4955;font-size:14.5px;margin:0}
 .cta{margin-top:52px;display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-block;padding:14px 26px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--green);transition:transform .12s ease}
 .btn.primary{background:var(--green);color:#fff}
@@ -157,12 +156,13 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 <header class="hero" id="top"><div class="w">
   <p class="eyebrow">An independent, open index of mobile apps</p>
   <h1>The map is missing<br>most of the<br><span>streets.</span></h1>
-  <p class="lede">We measured one category of one app store completely &mdash; recipe apps in Germany.
-  The finding is not that the store ranks badly. It is that most of what exists never appears
+  <p class="lede">We measured two categories of one app store as completely as we could reach them
+  &mdash; recipe apps, then sleep and meditation apps, in Germany. The finding is not that the store
+  ranks badly. It is that most of what exists never appears
   at all.</p>
   <div class="stamp">
-    <span>Measured <b>19&ndash;21 August 2026</b></span><span>&middot;</span>
-    <span>941 apps</span><span>&middot;</span>
+    <span>Measured <b>19 August &ndash; 2 September 2026</b></span><span>&middot;</span>
+    <span>941 + 3,578 apps</span><span>&middot;</span>
     <span>every figure dated and sourced</span>
   </div>
 
@@ -177,8 +177,9 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
       <div class="lbl"><span>Cooking apps we could find in the same store</span><b class="mono">941</b></div>
       <div class="track"><div class="fill" style="--pct:100%"></div></div>
     </div>
-    <p class="src">941 is a lower bound: one step along the store's own &bdquo;you might also like&ldquo;
-    links, and every further step finds more. Apps whose listing is about medical prescriptions
+    <p class="src">941 is a lower bound: following the store's own &bdquo;you might also like&ldquo;
+    links until growth ran out brings the category to at least 991, of which 941 have their
+    prices read. Apps whose listing is about medical prescriptions
     rather than cooking are excluded &mdash; in German, <em>Rezept</em> means both. Corrected
     31 Aug 2026: ten entries that passed the keyword test but are press products or a kids
     game (nine cooking-magazine ePapers, one franchise title) were removed; all figures on
@@ -189,7 +190,7 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
 <section id="finding"><div class="w">
   <p class="eyebrow">The finding</p>
-  <h2>Four numbers from one<br>fully measured category.</h2>
+  <h2>Four numbers from one category &mdash;<br>and a second that repeats them.</h2>
   <div class="grid4">
     <div class="cell"><div class="n">81%</div>
       <p>of the cooking apps we found &mdash; 579 of 715 &mdash; never appear in the store's own
@@ -199,7 +200,7 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
       queries find together.</p></div>
     <div class="cell"><div class="n">77%</div>
       <p>of cooking apps listed as &bdquo;free&ldquo; charge money once opened &mdash; 697 of 907.
-      The median app's highest in-app price is &euro;39.99.</p></div>
+      Among those 697, the median highest in-app price is &euro;39.99.</p></div>
     <div class="cell"><div class="n">&euro;599.99</div>
       <p>is the largest single in-app purchase we found behind the word &bdquo;free&ldquo;, in one
       AI recipe generator. Twenty-six apps sit above &euro;100.</p></div>
@@ -209,7 +210,27 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
   following the store's own links was never in a search result to begin with &mdash; counting it
   would be circular. The price figures use all 941 apps we know of, because a price is a price
   however we found the app.</p>
-  <p class="lede">We measured Germany because you cannot measure what
+
+  <div class="fig">
+    <h3>A second category, chosen to break the finding</h3>
+    <p class="sub">Sleep and meditation apps: a few large subscription products instead of a
+    fragmented field. If the cooking result were a quirk of fragmentation, it should weaken here.
+    It did not.</p>
+    <table><thead><tr><th></th><th>Cooking</th><th>Sleep &amp; meditation</th></tr></thead><tbody>
+    <tr><td>Apps in the category</td><td class="mono">941 (&ge;991)</td><td class="mono">3,578</td></tr>
+    <tr><td>Absent from the obvious query</td><td class="mono">81%</td><td class="mono">88%</td></tr>
+    <tr><td>Reachable only via &bdquo;similar apps&ldquo;</td><td class="mono">28%</td><td class="mono">68%</td></tr>
+    <tr><td>&bdquo;Free&ldquo; apps that charge in-app</td><td class="mono">77%</td><td class="mono">77%</td></tr>
+    <tr><td>Median highest in-app purchase, among apps that charge</td><td class="mono">&euro;39.99</td><td class="mono">&euro;39.99</td></tr>
+    <tr><td>Largest single in-app purchase</td><td class="mono">&euro;599.99</td><td class="mono">&euro;1,199.99</td></tr>
+    </tbody></table>
+    <p class="src">The obvious query is <em>rezepte</em> for cooking and <em>schlaf</em> for sleep.
+    Cooking measured 19 Aug &ndash; 1 Sep 2026, sleep 1&ndash;2 Sep 2026, same frozen rules. Two
+    categories are not twenty, and we do not claim the result is general.
+    <a href="/second-category.html">The replication, with its corrections</a>.</p>
+  </div>
+
+  <p class="lede" style="margin-top:40px">We measured Germany because you cannot measure what
   you cannot see completely, and one country in one language is small enough to see completely.
   <strong class="hl">The mechanism is not German.</strong> It is how the store is built, in every
   market it operates.</p>
@@ -300,7 +321,7 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
     <details><summary>View as table</summary>
       <table><thead><tr><th>Highest in-app purchase</th><th>Apps</th><th>Share</th></tr></thead>
       <tbody><tr><td>No in-app purchase</td><td class='mono'>210</td><td class='mono'>23.2%</td></tr><tr><td>Up to €10</td><td class='mono'>128</td><td class='mono'>14.1%</td></tr><tr><td>€10–30</td><td class='mono'>148</td><td class='mono'>16.3%</td></tr><tr><td>€30–60</td><td class='mono'>291</td><td class='mono'>32.1%</td></tr><tr><td>€60–100</td><td class='mono'>104</td><td class='mono'>11.5%</td></tr><tr><td>Over €100</td><td class='mono'>26</td><td class='mono'>2.9%</td></tr></tbody></table></details>
-    <p class="src">Median highest price &euro;39.99 &middot; largest found &euro;599.99 &middot;
+    <p class="src">Median highest price &euro;39.99, across the 697 apps that list in-app purchases &middot; largest found &euro;599.99 &middot;
     Source: App Store product pages, read 20 Aug 2026. Prices are as Apple publishes them.
     Billing periods are not published reliably, so nothing here is annualised &mdash; a
     &euro;599.99 purchase is a single listed price, not a yearly cost.</p>
@@ -381,8 +402,8 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
       <p>We publish dated facts with their source. We do not score apps and we do not call
       anyone a fraud.</p></div>
     <div class="line"><strong>Neutral, always</strong>
-      <p>We take no money from any app, ever. There is no placement to buy &mdash; for anyone,
-      at any price.</p></div>
+      <p>No placement is for sale, at any price. Who funds us is published &mdash; under
+      <a href="/funding.html">rules anyone can check</a>.</p></div>
     <div class="line"><strong>Open</strong>
       <p>Open source, open data, open method &mdash; including the parts that did not work. A
       public good has to be inspectable to be trusted.</p></div>
@@ -420,5 +441,5 @@ footer .row2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
 <footer><div class="w"><div class="row2">
   <span>openAPPindex &middot; working toward a better app ecosystem &middot; openappindex.org</span>
-  <span><a href="https://openappindex.org/impressum.html">Impressum</a> &middot; <a href="mailto:korrektur@openappindex.org">Corrections</a> &middot; <a href="#">Source code</a></span>
+  <span><a href="https://openappindex.org/impressum.html">Impressum</a> &middot; <a href="https://openappindex.org/datenschutz.html">Datenschutz</a> &middot; <a href="mailto:korrektur@openappindex.org">Corrections</a> &middot; <a href="https://openappindex.org/funding.html">Funding</a> &middot; <a href="https://github.com/tim-muky/openappindex">Source code</a></span>
 </div></div></footer>

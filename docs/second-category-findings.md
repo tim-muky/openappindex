@@ -29,15 +29,17 @@ is dated with the error that motivated it ([protocol](../openappindex-sleep-cate
 | Reachable only through the similar-apps graph | 28% (276 of ≥991) | **68%** (2,423 of 3,578) |
 | Listed as *Gratis* | 96% (907 of 941) | **96%** (3,417 of 3,578) |
 | …of those read, charge through in-app purchases | **77%** (697 of 907) | **77%** (2,581 of 3,351) |
-| Median highest single in-app purchase | **€39.99** | **€39.99** |
+| Median highest single in-app purchase, among apps that charge | **€39.99** | **€39.99** |
 | Largest single in-app purchase behind *Gratis* | €599.99 | **€1,199.99** |
 
 Both recall rows are computed the same way in both categories: the first over the apps the
 sweep itself classified, against one query; the second over the whole closed category. The
 obvious query is *rezepte* for cooking and *schlaf* for sleep; using *meditation* instead
-gives 86% (995 of 1,155).
+gives 86% (995 of 1,155). An app counts as charging in-app when at least one item on its
+product page's purchase list is priced above €0. Two sleep apps list only €0.00 items and are
+not counted; no cooking app does.
 
-Two categories chosen for their dissimilarity, measured seven weeks apart with the same frozen
+Two categories chosen for their dissimilarity, measured about two weeks apart with the same frozen
 instrument, return **the same 77% and the same median — to the cent.**
 
 ## What we will and will not claim
@@ -62,7 +64,7 @@ tail findable; on this evidence it coincides with a larger invisible tail, not a
 The developer labels it a yearly subscription; we report that label and do not convert it,
 because Apple does not publish billing periods reliably enough to convert anything.
 
-## Three corrections, published with the finding
+## Four corrections, published with the finding
 
 A September draft of this section, written the day after the measurement, carried **two wrong
 numbers**. Both were caught when the figures were recomputed from the raw data for publication,
@@ -86,7 +88,11 @@ both measures for both categories. The error was ours, it was live for about an 
 inverted the finding — which is exactly why we recompute headlines from raw data rather than
 from our own prose.
 
-None of the three changed a price headline. We publish them because a project whose entire
+**A fourth, corrected 2026-10-14.** This page and §6 of the working paper said the two
+categories were measured *seven weeks* apart. They were about **two** weeks apart: cooking from 19
+August to 1 September, sleep on 1–2 September. The figure was never measured; it was written.
+
+None of the four changed a price headline. We publish them because a project whose entire
 claim is honest measurement does not get to quietly fix its own arithmetic, and because the
 pattern is the one we keep finding in ourselves: the errors show up in the summary, not in the
 pipeline.
@@ -108,7 +114,7 @@ python3 apply_v3.py          # uniform precision filter across all hops
 
 If something here is wrong — particularly if you build an app that appears in the data — write
 to **korrektur@openappindex.org**. Every notice is checked and corrections are published with a
-date, including the two above.
+date, including the four above.
 
 ---
 

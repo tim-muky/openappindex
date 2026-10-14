@@ -525,6 +525,99 @@ precondition, ≥ 100 in Google **and** Bing, is still not met, so the gate does
 six-week floor is 2026-10-05 and the backstop 2026-10-13, both unchanged. No visibility-affecting
 step was taken today, including indexing requests. Queries, thresholds and scoring are unchanged.
 
+**Reading 2026-10-05 — the six-week floor.** Read from Bing Webmaster Tools directly, and from
+Brave's public result page. Search Console asked for re-authentication and was **not read**; the
+Google figures above (report of 09-21) remain the latest.
+
+- **Bing: 16 → 25 indexed**, 0 errors, 0 warnings, **1 excluded** (first non-zero). Root still last
+  crawled 21 September. About nine pages in six days: at that rate ≥ 100 lands in mid-to-late
+  November, well past the 2026-10-13 backstop.
+- **Bing Search Performance, 25 Aug–3 Oct: 5 impressions, 0 clicks.** Four on 2026-09-23 for the
+  query *openappindex rezept-apps index* (avg. position 1.5); one on 2026-10-03 for *rezept app
+  keine in-app-käufe schritt für schritt kostenlos* (position 7), the first one that does not name
+  the project.
+- **BWT AI Performance (Copilot and partners), 26 Aug–3 Oct: 0 citations.**
+- **Brave: 0.** `site:openappindex.org` still returns "too few matches".
+
+**Observation, not a conclusion — Perplexity may be discovering through Bing.** The four 09-23
+impressions are for the exact text of the Perplexity retrieval probe (`query_verbatim`
+"openAPPindex Rezept-Apps Index", captured 13:24 that day). Both openappindex.org URLs that probe
+cited, the homepage and `rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html`, were in Bing's
+then-16-page index, and the question page was the only question page Bing held. The superseded
+"706 of 916" it quoted cannot have come from Bing's copy: the homepage dropped that pair by
+2026-09-01 (commits 573263c, cef3605), and Bing's homepage crawl is dated 21 September. A
+pattern that fits all three facts: candidate URLs from Bing, page text from Perplexity's own
+older fetch. If that holds, the Perplexity leg is gated by the same index as the ChatGPT leg,
+and `gate-result.md` §4 ("the barrier is real but it is not universal") overstates. Nobody else
+typing that string into Bing the same day has not been ruled out. Recorded so the scoring on
+2026-10-13 can test it or discard it. Nothing was submitted or requested today. Queries,
+thresholds and scoring are unchanged.
+
+**Probe planned 2026-10-06, written down before it runs.** On the evening of 2026-10-06 Tim sends
+one non-protocol query to Perplexity, from a private browser window and **not logged in**, so no
+account history is involved:
+
+> `openAPPindex Datensatz Median höchster In-App-Kauf Schlaf-Apps`
+
+The string is new: it has never been issued before, and it names the project, so Bing's 25-page
+index can rank the homepage for it. The time is recorded, and so is every openappindex.org URL
+among Perplexity's sources. Decision rule, fixed now:
+
+- **Supports** the observation: BWT Search Performance shows ≥ 1 impression for this exact
+  string, dated 2026-10-06 or 2026-10-07. Read on 2026-10-09 and again on 2026-10-13, because
+  the report lags.
+- **Counts against it:** Perplexity cites an openappindex.org URL that Bing holds, and BWT shows
+  0 impressions for the string by 2026-10-13.
+- **Inconclusive:** Perplexity cites no openappindex.org URL, and BWT shows 0 impressions.
+
+It is one probe, so whatever it shows is reported as one observation, not as a rate.
+
+**Amended 2026-10-07, before the probe ran:** it was not run on 10-06. It runs on 2026-10-07
+instead, with the same string, the same session conditions and the same rule. The impression
+dates move with it to **2026-10-07 or 2026-10-08**; the readings stay on 10-09 and 10-13.
+
+**Styling-only deploy, 2026-10-07 ~10:45 CEST (Tim's request).** The live site switched from the
+dark to a white colour scheme. No fact, page, figure or URL changed. Before deploying, the visible
+text of 39 pages was compared with the live site: only day-relative phrases ("vor 45 Tagen") and
+the order of apps sharing an update date differ, as on any rebuild. The sitemap holds the same 710
+URLs; its lastmod moved to the build date. Recorded so that a citation dated after this deploy is
+known to have seen the same content in a different colour.
+
+**Reading 2026-10-09 (first probe reading).**
+- BWT Search Performance only covers dates up to 2026-10-06, which is before the probe ran. It
+  shows no new keywords: still the two from 09-23 and 10-03, 5 impressions in total. The probe
+  can neither be confirmed nor rejected yet; the reading on 2026-10-13 decides.
+- Site Explorer: **37 indexed** (25 on 10-05), 0 errors, 1 excluded.
+
+**Reading 2026-10-13 — the backstop.** Read from Bing Webmaster Tools and Search Console directly,
+and from Brave's public result page, all on the morning of 2026-10-13.
+
+- **Bing: 46 indexed** (37 on 10-09, 25 on 10-05), 0 errors, 0 warnings, 1 excluded. Root still
+  last crawled 21 September.
+- **Google: 532 indexed, 190 not indexed** (report of 2026-10-09; 625 in the report of 09-21).
+  Of the not-indexed pages: 133 "crawled – currently not indexed", 51 "discovered – currently not
+  indexed", 3 "not found (404)", 3 "excluded by noindex".
+- **Brave: 0.** `site:openappindex.org` returns "too few matches"; a plain search for
+  `openappindex` is rewritten to "openai index" and returns no page of the project.
+- **BWT AI Performance (Copilot and partners), 26 Aug–11 Oct: 0 citations.**
+- **BWT Search Performance now covers dates up to 2026-10-11.** It still shows only the two
+  keywords from 09-23 and 10-03, 5 impressions in total. On **2026-10-07 and 2026-10-08: 0
+  impressions.**
+
+**Perplexity-via-Bing probe — outcome under the rule fixed on 10-06 (date amended 10-07): counts
+against the observation.** Perplexity cited an openappindex.org URL that Bing holds (the
+homepage, indexed in Bing since before 10-05), and BWT shows 0 impressions for the probe string
+by 2026-10-13. One probe, one observation, not a rate. Its limit, stated before anyone relies
+on it: BWT counts web-search impressions ("Keywords and Pages data is only available for Web
+traffic"), so a Bing lookup made through an API that BWT does not count would leave no trace
+here. The 09-23 coincidence stays recorded; it is no longer evidence of a pattern. `gate-result.md`
+§4 ("the barrier is real but it is not universal") stands as written.
+
+**Precondition at the backstop.** Google 532 ✓, Bing 46 ✗, Brave 0 ✗. The precondition (≥ 100
+indexed in Google **and** Bing) was not met by 2026-10-13. Under §1 the result is
+**INCONCLUSIVE — CRAWLING**, and the gate closes on its backstop with that verdict. Queries,
+thresholds and scoring were not changed at any point between 2026-08-21 and today.
+
 ---
 
 ## 2. The query set (frozen)

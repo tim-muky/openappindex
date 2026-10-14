@@ -1,0 +1,240 @@
+{
+ "check": "apps not found on the 2026-10-06 read, re-checked singly",
+ "checked_at": "2026-10-07T10:24+02:00",
+ "storefront": "de",
+ "method": "iTunes Lookup API (id, country=de) and HEAD request to apps.apple.com/de/app/id<id>",
+ "summary": {
+  "apps": 36,
+  "lookup_zero": 36,
+  "product_page_404": 34,
+  "product_page_other": [
+   429
+  ]
+ },
+ "apps": [
+  {
+   "trackId": 1143536362,
+   "name_at_last_read": "Basenkur 7",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1245599344,
+   "name_at_last_read": "Nur Rezepte – einfaches Kochen",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1245608138,
+   "name_at_last_read": "Lebensmittelrezepte",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1245613682,
+   "name_at_last_read": "100 leckere leckere Rezepte",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249297481,
+   "name_at_last_read": "Frühstücksrezept Instant",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249627517,
+   "name_at_last_read": "Pizzarezept selbst gemacht",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249653980,
+   "name_at_last_read": "Sabji-Rezept",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249655843,
+   "name_at_last_read": "Salatrezepte–Gesunde Ernährung",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249925471,
+   "name_at_last_read": "Kuchenrezepte – hausgemacht",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1249926508,
+   "name_at_last_read": "Rezepte und Kochutensilien",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1250871507,
+   "name_at_last_read": "Süße und Backrezepte",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1250872204,
+   "name_at_last_read": "Rezepte für Süßes und Desserts",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1329462150,
+   "name_at_last_read": "Rezeptkalender: Essensplaner",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1525550901,
+   "name_at_last_read": "Gusto Gourmet",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1623600167,
+   "name_at_last_read": "Einfaches Kochen Rezept",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 1627002077,
+   "name_at_last_read": "Rezepte aus Zutaten",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6443751451,
+   "name_at_last_read": "Bianca Zapatka Vegan Food App",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6450959198,
+   "name_at_last_read": "MealSwipe: Schnelle Rezepte",
+   "lookup_results": 0,
+   "product_page_status": 429,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass; returned 404 on a spot check on 2026-10-06"
+  },
+  {
+   "trackId": 6479933039,
+   "name_at_last_read": "Gusto italienische Rezepte",
+   "lookup_results": 0,
+   "product_page_status": 404,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass"
+  },
+  {
+   "trackId": 6499409884,
+   "name_at_last_read": "Essstäbchen-chinesischesRezept",
+   "lookup_results": 0,
+   "product_page_status": 404,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass"
+  },
+  {
+   "trackId": 6504048524,
+   "name_at_last_read": "Cook AI: Küchenassistent",
+   "lookup_results": 0,
+   "product_page_status": 429,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass"
+  },
+  {
+   "trackId": 6749775876,
+   "name_at_last_read": "Zutatoo",
+   "lookup_results": 0,
+   "product_page_status": 404,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass"
+  },
+  {
+   "trackId": 6751918088,
+   "name_at_last_read": "DiaBalance Carb Tracker",
+   "lookup_results": 0,
+   "product_page_status": 404,
+   "note": "re-checked after HTTP 429 (rate limit) on first pass"
+  },
+  {
+   "trackId": 6753361821,
+   "name_at_last_read": "Keepo – Lebensmittel im Griff",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6758573980,
+   "name_at_last_read": "Rezepte: Kochen & Planer",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6758852430,
+   "name_at_last_read": "Dishr: AI Recipe Generator",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6758948426,
+   "name_at_last_read": "Bussin: Rezepte für Studenten",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6759796752,
+   "name_at_last_read": "Rezepte speichern — Kochbuch",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6760669727,
+   "name_at_last_read": "Familienrezepte - Hearth",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6761360946,
+   "name_at_last_read": "Forkmark: Rezepte speichern",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6761649730,
+   "name_at_last_read": "Frixi: Rezepte mit KI finden",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6764600062,
+   "name_at_last_read": "Heißluftfritteuse Umrechner",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6764886436,
+   "name_at_last_read": "Recetto",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6770222120,
+   "name_at_last_read": "Recippa – KI Rezeptsammlung",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 6770274805,
+   "name_at_last_read": "Mise: Rezepte & Kochbuch",
+   "lookup_results": 0,
+   "product_page_status": 404
+  },
+  {
+   "trackId": 983973815,
+   "name_at_last_read": "PEP:  Gesunde Rezepte app",
+   "lookup_results": 0,
+   "product_page_status": 404
+  }
+ ],
+ "rechecked_at": "2026-10-07T10:27+02:00",
+ "statement": "All 36 return no Lookup result for the German storefront. 34 product pages returned 404 on 2026-10-07; 2 could not be checked (HTTP 429, Apple's rate limit), one of which had returned 404 on 2026-10-06. Correction: commit 4ebea2b said every product page returns 404; on 2026-10-06 only five had been checked."
+}

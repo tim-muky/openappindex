@@ -1,6 +1,6 @@
 # Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market
 
-**The openAPPindex project** · openappindex.org
+**Tim Meyerdierks** · The openAPPindex project · openappindex.org
 Working paper, draft v0.1 · September 2026
 
 *Status: preliminary and incomplete. This paper is circulated to invite discussion, replication
@@ -19,8 +19,9 @@ We measure two properties of a mobile application marketplace that economic theo
 preconditions for efficient outcomes: whether the supply of products is discoverable, and whether
 displayed prices state true costs. Using the full cooking-app category of the German iOS App
 Store as a test case (measurements taken 19 August to 1 September 2026), we find that 81% of
-apps whose own store description identifies them as recipe apps (579 of 715) do not appear in
-any of 25 German-language recipe searches, and that at most 92 of at least 991 apps in the
+apps whose own store description identifies them as recipe apps (579 of 715, all found by a
+sweep of 25 German-language recipe searches) do not appear in the results for the obvious
+query, „Rezepte", and that at most 92 of at least 991 apps in the
 category ever reach the first screen of any query. Ranking positions correlate with indexed
 metadata rather than with observable quality signals. Separately, 77% of the 907 category apps
 listed as free (German „Gratis") charge for use through in-app purchases, with a median highest
@@ -215,8 +216,11 @@ than understate, the visibility of organic listings in the rendered store.
 
 ### 4.1 Recall
 
-Of the 715 self-described recipe apps found by the sweep, 579 (81.0%) appear in none of the 25
-queries' result lists. Extending to the crawled category: across all 25 queries there are 674
+Of the 715 self-described recipe apps found by the sweep, 579 (81.0%) do not appear in the
+result list for the obvious query, „Rezepte". *(Corrected 2026-10-14: this sentence and the
+abstract said "in none of the 25 queries' result lists". That cannot be true of apps the sweep
+itself found; the figure has always been absence from the single query „Rezepte", as
+`recall_experiment.json` records it.)* Extending to the crawled category: across all 25 queries there are 674
 first-30 result slots, and 92 of the at least 991 category apps (9.3%) ever occupy any of them.
 The remaining 897 apps are not ranked low; they are absent.
 
@@ -357,10 +361,12 @@ is more concentrated. None of this touches the price result, which replicates ex
 *These two measures are distinct and we keep them apart deliberately: an earlier version of this
 section compared this category's 68% against cooking's 81% as if they were one measure and drew
 the opposite conclusion. The correction is dated and published in
-`second-category-findings.md`.*
+`second-category-findings.md`. Corrected 2026-10-14: an earlier version said the two categories
+were measured seven weeks apart; they were about two weeks apart (19 August–1 September and
+1–2 September 2026).*
 
 The replication matters more than either category alone. Two categories chosen for structural
-dissimilarity, measured with the same frozen instrument seven weeks apart, return **the same
+dissimilarity, measured with the same frozen instrument about two weeks apart, return **the same
 77% and the same €39.99 median**. That is the point at which "cooking apps may be
 unrepresentative" stops being the live objection and price opacity starts looking like a
 property of how the store labels products rather than of any one market within it. It is two

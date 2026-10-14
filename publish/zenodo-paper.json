@@ -1,0 +1,48 @@
+{
+  "_comment": "Metadata for a SEPARATE, manually created Zenodo record for the working paper (not the GitHub integration, which reads /.zenodo.json). Copy these fields into the Zenodo 'New upload' form, or send them via the deposit API. Delete this _comment key and replace every PLACEHOLDER before use.",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "title": "Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market",
+  "creators": [
+    {
+      "name": "Meyerdierks, Tim",
+      "affiliation": "The openAPPindex project",
+      "orcid": "0009-0008-9701-5140"
+    }
+  ],
+  "version": "draft v0.1",
+  "description": "<p>Working paper, draft v0.1, September 2026. Preliminary and incomplete; circulated to invite discussion, replication and criticism. Not submitted for any degree or peer-reviewed publication.</p><p>We measure two properties of a mobile application marketplace that economic theory treats as preconditions for efficient outcomes: whether the supply of products is discoverable, and whether displayed prices state true costs. Using the full cooking-app category of the German iOS App Store as a test case (measurements taken 19 August to 1 September 2026), we find that 81% of apps whose own store description identifies them as recipe apps (579 of 715) do not appear in any of 25 German-language recipe searches, and that at most 92 of at least 991 apps in the category ever reach the first screen of any query. Ranking positions correlate with indexed metadata rather than with observable quality signals. Separately, 77% of the 907 category apps listed as free (German „Gratis\") charge for use through in-app purchases, with a median highest purchase of €39.99. We relate these observations to the literatures on consumer search, shrouded prices and platform gatekeeping, and argue that they are consistent with a structural account in which the operators of distribution and advertising jointly profit from low market transparency. We then replicate the price measurement on a second, structurally dissimilar category — 3,578 sleep and meditation apps on the same storefront, measured 1–2 September 2026 — and recover the same 77% charging behind a free listing and the same €39.99 median highest purchase, while discovery failure is if anything worse (88% of sweep-classified apps absent from the single obvious query, against 81%). The dataset remains narrow: two categories, one storefront, one platform, a short window. We state this limitation prominently and outline the replication programme the findings require, in particular an extension to Google Play, whose different search architecture makes it a natural comparison case.</p><p>Data and code: github.com/tim-muky/openappindex (dataset CC BY 4.0, code AGPL-3.0). Corrections: korrektur@openappindex.org.</p>",
+  "publication_date": "PLACEHOLDER-YYYY-MM-DD (the day you upload)",
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "search costs",
+    "platform markets",
+    "price transparency",
+    "app stores",
+    "gatekeepers",
+    "JEL D82",
+    "JEL D83",
+    "JEL L13",
+    "JEL L86"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "PLACEHOLDER-10.5281/zenodo.XXXXXXX (concept DOI of the GitHub dataset record)",
+      "relation": "isSupplementedBy",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://github.com/tim-muky/openappindex",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://openappindex.org/paper.html",
+      "relation": "isIdenticalTo",
+      "resource_type": "publication-workingpaper"
+    }
+  ],
+  "_paper_licence_note": "The paper's licence is NOT stated anywhere in the repository (LICENSE-DATA covers sample/data/public/ only; LICENSE covers code). cc-by-4.0 above is a proposal — Tim decides before upload."
+}

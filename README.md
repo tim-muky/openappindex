@@ -22,7 +22,7 @@ chosen to be structurally unlike the first and to break the result if it was bre
 | Reachable only via the similar-apps graph | **28%** (276 of ≥991) | **68%** (2,423 of 3,578) |
 | Listed "free" | **96%** (907 of 941) | **96%** (3,417 of 3,578) |
 | …of those, charging in-app | **77%** (697 of 907) | **77%** (2,581 of 3,351) |
-| Median highest in-app purchase | **€39.99** | **€39.99** |
+| Median highest in-app purchase, among apps that charge | **€39.99** | **€39.99** |
 | Largest single in-app purchase | **€599.99** | **€1,199.99** |
 
 **Price opacity replicated to the cent. Discovery failure replicated and got worse.** We picked
@@ -64,6 +64,19 @@ python3 apply_v3.py                   # uniform precision filter across all hops
 Nothing needs an API key. Product pages rate-limit at roughly one request per 2.5s — the
 scripts respect that and are resumable.
 
+## What changed this week
+
+`sample/snapshot.py` writes a dated, public-fields-only snapshot of the served index
+(`sample/data/public/snapshots/<date>.json`); `sample/build_changelog.py A B` diffs two of
+them into `sample/data/public/changelog/<ISO week>.json`, which `build_site.py` renders as
+`/de/aenderungen/` (one page per week, Atom feed, real `lastmod` dates). Every line on those
+pages is a fact with the date it was read: a new version, a changed store price, an app the
+Lookup API no longer returned, and every correction to our own data (`corrections.json`),
+in the same list. Nothing is selected and nothing is scored. `--fetch` re-reads the previous
+snapshot's ids through the public Lookup API; it never adds apps and does not read product
+pages, so in-app purchases are marked *not collected* rather than compared.
+`.github/workflows/weekly-snapshot.yml` runs that read weekly and opens a pull request.
+
 ## What is in here
 
 | Path | |
@@ -73,6 +86,8 @@ scripts respect that and are resumable.
 | `sample/closure_crawl.py` | walks the store's own "similar apps" graph |
 | `sample/build_site.py` | generates the served site (store facts only) |
 | `sample/export_public.py` | builds the publishable dataset |
+| `sample/snapshot.py`, `sample/build_changelog.py` | dated snapshots and the weekly change pages (`/de/aenderungen/`) |
+| `sample/classify.py`, `sample/site_common.py` | the one classifier every count uses; page shell and formatting shared by the builders |
 | `sample/data/public/` | **the dataset** — facts only, CC BY 4.0 |
 | `sample/gate_capture.py` | capture harness for the assistant baseline |
 | `sample/gate_ground_truth.py` | answer key for the two enumeration queries |
@@ -136,12 +151,12 @@ published with a date.
 
 Pre-alpha. **Two categories**, one storefront, one country.
 
-A citation-validation experiment with thresholds frozen in advance
-([protocol](docs/gate-protocol.md)) is part-run. Its standing result
-([gate-result.md](docs/gate-result.md)): of the three assistants scored, two retrieve through
-indexes that have not admitted the site — Bing holds **1** page of ~710 submitted, Brave **0** —
-so those legs are *inconclusive on crawling*, not negative. The third, Perplexity, retrieves and
-cites the index, and is unscored. Google, which feeds none of the three, holds 647 pages.
+The citation experiment ([protocol](docs/gate-protocol.md), thresholds frozen 2026-08-21) closed
+on 2026-10-13 as **INCONCLUSIVE — CRAWLING** ([result](docs/gate-result.md)). Two of the three
+assistants retrieve through indexes that had not admitted the site: on 2026-10-13 Bing held
+**46** pages, Brave **0**, against the 100 the protocol required. The third, Perplexity, cited it
+in **0 of 30** scored answers over two runs. Google, which feeds none of the three, held 532.
 
-That result was not the one the protocol anticipated, and it is published as it stands, with
-every amendment dated before the data existed.
+The follow-up, [experiment 2](docs/experiment-2-protocol.md), measures whether earned external
+links lead to admission and then to citation. Its bar was frozen by public commit on 2026-10-13,
+before the launch on 2026-10-14.
