@@ -1,0 +1,2878 @@
+{
+"": {
+"lastmod": "2026-10-10",
+"sha256": "8366ed7d5aeab03f697b0badb4a746fc9fb9157d5b59eb23320260f83ac092be"
+},
+"data/": {
+"lastmod": "2026-10-10",
+"sha256": "4e272d4ed2c957e0e942f77e21c9fa81f4f2f7ecb6c5f1198cc236268616e062"
+},
+"datenschutz.html": {
+"lastmod": "2026-10-10",
+"sha256": "d076b0baeb23574d90d98e498f8d419a54649f7da102e5f06ff3f8bd732b8f4b"
+},
+"de/": {
+"lastmod": "2026-10-13",
+"sha256": "0c14ef56860df47bbc32d439760e0fe9a9d8357331ef00bfdb5dd9a9b0947185"
+},
+"de/app/": {
+"lastmod": "2026-10-10",
+"sha256": "580d5da40e86c1ae4fef99dcb5bde92301f183ff1a4a0299102701958ea1f00b"
+},
+"de/app/99-plates-rezepte-roulette-6747975811/": {
+"lastmod": "2026-10-13",
+"sha256": "1c1f2d6fdf679378f6c7504ec6d207bb36347758a40d13e139d5ce5ba467f3fb"
+},
+"de/app/a-tavola-rezepte-kochen-6779737782/": {
+"lastmod": "2026-10-13",
+"sha256": "5d8d96c4af09ed1ac56a8535c9bc995fdf8f172c7f0d364485fbe0d4c9dc49eb"
+},
+"de/app/ae-rfrypro-airfryer-rezepte-6761501993/": {
+"lastmod": "2026-10-13",
+"sha256": "129074213851433d0c02002888f3e4cd52c589c750c3be7d1cd976983d6a9bf5"
+},
+"de/app/ai-chef-6475085351/": {
+"lastmod": "2026-10-13",
+"sha256": "7b4c42346e5411a47199390ca31d99e0112a0635c338daf9dc7723ce1a51c6bf"
+},
+"de/app/ai-koch-rezept-ersteller-6479297301/": {
+"lastmod": "2026-10-13",
+"sha256": "84e99c278a48617cc5db94dc864503fc784009eab903f4d9b365aeb5478c7e2a"
+},
+"de/app/ai-rezept-meal-planner-app-6498894200/": {
+"lastmod": "2026-10-13",
+"sha256": "9ae7cda309172ead91d746037de8b830964e171220b69d2d6176674ccd817536"
+},
+"de/app/air-diet-abnehmen-rezepte-6755719384/": {
+"lastmod": "2026-10-13",
+"sha256": "eb2e8480a1a4596d2da302e8dbdb78fd56a73a09aa14ef7e6177ba3d718a2820"
+},
+"de/app/air-fryer-club-6749608927/": {
+"lastmod": "2026-10-13",
+"sha256": "5b88a0c3fe69b89ef54e46aae9825cffea45278a7d629ba06332f9b0e3b94096"
+},
+"de/app/air-fryer-master-rezepte-6753145567/": {
+"lastmod": "2026-10-13",
+"sha256": "4aa6aae2adf92da3bd3cf284281611099927a4edbfe7af9df2fbf60cdb15a170"
+},
+"de/app/air-fryer-rezepte-kochen-6770254449/": {
+"lastmod": "2026-10-13",
+"sha256": "3c81b8423b24d6dda0c0e352ca02152983adafec89ae5960c8aec0911c0ce1e3"
+},
+"de/app/aircook-airfryer-rezepte-6756588317/": {
+"lastmod": "2026-10-13",
+"sha256": "a0226a831456c39fed45217130e4317099a5df5429c0c2b28a962de3884c6865"
+},
+"de/app/airfryer-chef-rezepte-6529540197/": {
+"lastmod": "2026-10-13",
+"sha256": "fb0613ca5aa1d3202d73c709fbee712ae54cb8365c8209b9af41b971a4a97e3e"
+},
+"de/app/airfryer-rezeptbuch-6563148390/": {
+"lastmod": "2026-10-13",
+"sha256": "b78b808d57988a93fbd7d94992b29ea9b692ae71f601009549fad1d4148242f7"
+},
+"de/app/airfryer-rezepte-airfryaddict-6740240178/": {
+"lastmod": "2026-10-13",
+"sha256": "e8782746c37fb139d74907cc0d2608d44bcc94ee79518eb47abb55c1779ece5b"
+},
+"de/app/airfryer-rezepte-app-6757186911/": {
+"lastmod": "2026-10-13",
+"sha256": "926a77116cdd6fc3930685ed0dc08a0d1ec066f0b91777174847d63fc26cc569"
+},
+"de/app/airfryer-rezepte-app-garzeit-6786803692/": {
+"lastmod": "2026-10-13",
+"sha256": "e446f79787293b652373665ab31c54d327fd66aa49d3702ea1a39793fd530458"
+},
+"de/app/airfryer-rezepte-ki-koch-1619603823/": {
+"lastmod": "2026-10-13",
+"sha256": "5b60ede43ca59fefe629ccbe2206af1c7a0c42d99d9bd117bbe538ce8989feca"
+},
+"de/app/airfryer-rezepte-mit-ki-6740143703/": {
+"lastmod": "2026-10-13",
+"sha256": "c5ec4c45199b181666482261d266795ee9a0d5c6293e8ad383afc2317ad31a60"
+},
+"de/app/albo-speichern-ordnen-6578421992/": {
+"lastmod": "2026-10-13",
+"sha256": "b4c2f0791288512e4a7dac6d8fe0beef800165190b54ca16c19697565b936a3d"
+},
+"de/app/alio-rezepte-vorrat-6756578610/": {
+"lastmod": "2026-10-13",
+"sha256": "c7c2a46625208ccca829ccf167a40edefc5fb00e6ec73713ef93db7aba2e2772"
+},
+"de/app/allergy-ingredient-checker-ai-6587580382/": {
+"lastmod": "2026-10-13",
+"sha256": "14e1e0ff2803f65417bf83bb9835bd7e46846b98a4bca1e8e60ed63b550f6b1f"
+},
+"de/app/ambre-rezepte-kochbuch-1102236212/": {
+"lastmod": "2026-10-13",
+"sha256": "b2fff59044b867f4f9c2f1ee5fa1f919e5fd4bd9b1cbccd63b94a1654ef7d0d7"
+},
+"de/app/amc-cook-go-1547585029/": {
+"lastmod": "2026-10-13",
+"sha256": "253059ac1cfa2e4900570bab5ae76c23465a6bf43184a8a790e645e581daa6e8"
+},
+"de/app/amerikanische-rezepte-ku-che-1499992218/": {
+"lastmod": "2026-10-13",
+"sha256": "5ea1210976b288ce5a89abbf2ac478aea367fb0fdff627f9970a1ddbce878fa6"
+},
+"de/app/anna-s-kitchen-6760297359/": {
+"lastmod": "2026-10-13",
+"sha256": "b922cd3d2034ec533b09ea93e380c00ee3dcee977906afcbf1f442ff5817dd44"
+},
+"de/app/any-recipe-rezepte-scannen-6470067538/": {
+"lastmod": "2026-10-13",
+"sha256": "368e73752e7caabfe06002947acc00462035b12a872b26aac104df5b490ccf39"
+},
+"de/app/anylist-einkaufsliste-522167641/": {
+"lastmod": "2026-10-13",
+"sha256": "93fe8ee919955734e95b7034c8407ba676d603975ccc6ed4b96b14261ae49ceb"
+},
+"de/app/asiatische-heimku-che-6477457801/": {
+"lastmod": "2026-10-13",
+"sha256": "98b4c6ae81ae52dd768bff7270f251facd14f0f6a0579b95a23e1d7edca48625"
+},
+"de/app/avo-schwangerschaft-essen-6761739758/": {
+"lastmod": "2026-10-13",
+"sha256": "2d994eca53617ea24b8b32a6352883e18e36e48f224a76269ba46c1ce0df6bc3"
+},
+"de/app/avocadish-rezepte-speichern-6747386728/": {
+"lastmod": "2026-10-13",
+"sha256": "cbb4b87f0f577e5f826b78664c29fb50f37c25694a480c4663375205c7f6a855"
+},
+"de/app/b42-nutrition-1537094925/": {
+"lastmod": "2026-10-13",
+"sha256": "8beb73c4a136eed66494b4a13c60bde8da6c43cb150179ad34be6d0cc51db794"
+},
+"de/app/baby-cuisine-baby-brei-1463364673/": {
+"lastmod": "2026-10-13",
+"sha256": "4a0216e0e086d2dd53e446afd70f8730119cf73e034dc0a1399f0134b31e4f25"
+},
+"de/app/baby-food-1494799386/": {
+"lastmod": "2026-10-13",
+"sha256": "6c6c4f18eccc75a29e9e878f27b5eb2836c0c467a3d031f18fab5fb1c795d926"
+},
+"de/app/backplaner-978993791/": {
+"lastmod": "2026-10-13",
+"sha256": "fa14c43c924d79f71013816a51d33c66e4583f88c47505a39d10e273f5615f9f"
+},
+"de/app/barri-scannen-kochen-6468903644/": {
+"lastmod": "2026-10-13",
+"sha256": "42a0f18806b722a4faed1b8a399ae074b7c9f1dc4e494e836b9112ef25243598"
+},
+"de/app/bartender-school-1384634154/": {
+"lastmod": "2026-10-13",
+"sha256": "416f1cd3a561b38cffab0f7879fb7e1d11f81243f0ea54335e6ef873506e2b48"
+},
+"de/app/basil-recipes-meal-planner-6740829669/": {
+"lastmod": "2026-10-13",
+"sha256": "ba1bbe2153e048447758d2d265046b28b90f45cd2101d9d58b11e6fb57f8ebea"
+},
+"de/app/basische-erna-hrung-6463731384/": {
+"lastmod": "2026-10-13",
+"sha256": "e6a5a2636debd23b580bb063b86324134b4441262546c89ecedf7d7e9a59e571"
+},
+"de/app/batchmeal-essensplaner-6780216940/": {
+"lastmod": "2026-10-13",
+"sha256": "16f5bc578d10b2aacbf8b5588f326a551c955feb40f2760b041f6b00863da528"
+},
+"de/app/beikost-app-6504430559/": {
+"lastmod": "2026-10-13",
+"sha256": "7427d2bb35753a05b6d65704d8cfa378a8aab9e7c0ba1db2a71fba0d8bc2e1cb"
+},
+"de/app/beikost-app-baby-blw-brei-6781673698/": {
+"lastmod": "2026-10-13",
+"sha256": "9df427701ef8a78c50c6c0984d6ca053a25c9a5f6dd7cb588d40bf5b9bdef648"
+},
+"de/app/beikost-app-babybrei-blw-6469321012/": {
+"lastmod": "2026-10-13",
+"sha256": "c4350e62b99e05129aaab123647161c065640e0146ebe3ceca3861024c363728"
+},
+"de/app/belly-buddy-fodmap-scanner-6749315194/": {
+"lastmod": "2026-10-13",
+"sha256": "b53e676b607325258485a975ff782ba1a2d0e84e87d9a47a6e07a921a313ccf0"
+},
+"de/app/bestbefore-track-expiry-date-6749794828/": {
+"lastmod": "2026-10-13",
+"sha256": "99bdda86954d66a929ac995adfbb94939cc0b1ac29679d17e3a0ad1ee223c6f5"
+},
+"de/app/betty-bossi-rezepte-kochbuch-1438393541/": {
+"lastmod": "2026-10-13",
+"sha256": "35f7deebda11e5c4ef0ce5bfe68a30428e8ba93f6e0010807fba3aa3e126c5aa"
+},
+"de/app/beyond-body-1557482891/": {
+"lastmod": "2026-10-13",
+"sha256": "d0aac8f11ac77c38d61e98ee46a7c4c9f3315aa2b39f72dc0c235734fa8e8204"
+},
+"de/app/bianca-s-kitchen-6739838579/": {
+"lastmod": "2026-10-13",
+"sha256": "453efaf627db74379fcfcca3361526841e4f9fcfbe61fcb0c44bb1448363e7c6"
+},
+"de/app/bianca-zapatka-vegan-food-app-6443751451/": {
+"lastmod": "2026-10-13",
+"sha256": "b15d8007bf7f35362eb619c9641c0f84aa760ec7be5052802b327bb2cfd8af0b"
+},
+"de/app/bistro-essen-weine-6759792182/": {
+"lastmod": "2026-10-13",
+"sha256": "19d54aa52bea138ac58d5fd35e2d2298c03d1ec85746805cbd521c745d31c389"
+},
+"de/app/bites-recipe-collector-6702013528/": {
+"lastmod": "2026-10-13",
+"sha256": "c4508d89a678c37644d8ee740bc80e56a3ada042cc02ae12331f7a7409f750a1"
+},
+"de/app/blutdruck-tagebuch-bp-heartie-1091817985/": {
+"lastmod": "2026-10-13",
+"sha256": "aa2bf09a9ca40262fa4786a5979f24b748c80207fa0f362eff9cc0635963b728"
+},
+"de/app/bread-baker-1204826885/": {
+"lastmod": "2026-10-13",
+"sha256": "e2639a6d4db5a5716ef9b43e187f3bdce86d92c42ccb31683ed9010be221fdb1"
+},
+"de/app/bring-einkaufsliste-rezepte-580669177/": {
+"lastmod": "2026-10-13",
+"sha256": "8671071ddf30099df08c6559c3a348b717262be984c8a111a727c1f27dc113eb"
+},
+"de/app/budget-rezept-1486306686/": {
+"lastmod": "2026-10-13",
+"sha256": "b5c9f0dc91af6d1528bebe82839bbe702a15b1b7c8a844e70a20f17ef5779760"
+},
+"de/app/butter-schnelle-rezepte-6759067133/": {
+"lastmod": "2026-10-13",
+"sha256": "19e2cbb1f3be0959aaaffe96ffe6313e61bf81a48c3724f09d18d412cf9441e8"
+},
+"de/app/cake-recipes-festive-treats-1539386482/": {
+"lastmod": "2026-10-13",
+"sha256": "ff325099935986b7c833b813a9bc92c50678587b0caa01403c5f89fad5c4585e"
+},
+"de/app/caloq-kalorien-essensplaner-6774933666/": {
+"lastmod": "2026-10-13",
+"sha256": "34b545461b568a8b58748c2e3117dc27c3dc80cfbb682a6992011217e9e5f9e7"
+},
+"de/app/calorie-calculator-by-foodfly-1535862681/": {
+"lastmod": "2026-10-13",
+"sha256": "37bf1308f14ed7a1a71b6855b442dafc2ce379b15346086d6848f10a0eb60932"
+},
+"de/app/calory-ai-calorie-coach-6789299944/": {
+"lastmod": "2026-10-13",
+"sha256": "bc41640e604197894b183f13c26386525461137a1dc7bf33241fbd8359b9d41e"
+},
+"de/app/calpal-ai-kalorienza-hler-6747942946/": {
+"lastmod": "2026-10-13",
+"sha256": "0ddadefc95a448f43ce872fd22ee7f5ec51a655407f61171e86a260cad9cb14e"
+},
+"de/app/carbetic-diabetes-kh-rechner-6754090663/": {
+"lastmod": "2026-10-13",
+"sha256": "6b03235f17ead0c2cdb1b68a78affa8d31dff51d71c1a67fc525c69b16961c88"
+},
+"de/app/carnimeat-6739287689/": {
+"lastmod": "2026-10-13",
+"sha256": "46e5ade23b53593be288d5c30b28dad9cf63f48b7a3b9a143d1ece5438318392"
+},
+"de/app/cepallo-essensplan-rezepte-6742569614/": {
+"lastmod": "2026-10-13",
+"sha256": "280268036e6aa628c46f3ea64d7c1f790666444c06b5895144575835a3db0169"
+},
+"de/app/chef-ai-ku-hlschrank-rezepte-6772408064/": {
+"lastmod": "2026-10-13",
+"sha256": "83410dc8796a536faefb4b3da8eb08d54d4e6f74533c4cf0375a0305d2bdb612"
+},
+"de/app/chef-kochen-rezepte-eattup-6733250132/": {
+"lastmod": "2026-10-13",
+"sha256": "bdd6ccb10713912104c10cd24d8978a14db9431969ff472da5ce7df19cf02e53"
+},
+"de/app/chef-pip-rezepte-wochenplan-6758203674/": {
+"lastmod": "2026-10-13",
+"sha256": "c40c478d0005bd6b6eb6479b5194f99e10280bd233f6cf8a5b4017a926e81344"
+},
+"de/app/chefart-ki-generierte-rezepte-6670561085/": {
+"lastmod": "2026-10-13",
+"sha256": "408f0d8becafe93bc9c81b68530e0f61bd293b0d9ba8859de62a2a5e6faa157b"
+},
+"de/app/chefbot-ki-kochrezepte-1664950074/": {
+"lastmod": "2026-10-13",
+"sha256": "4c63b7dc795393db6f99100c8e71d886c8af2b46db890d3f6fd25be6c31eff72"
+},
+"de/app/chefextract-6759013007/": {
+"lastmod": "2026-10-13",
+"sha256": "505a2de2d6f3a8c8891b53eb3d05d14d71ced83ff754d23f32724259cb6e886e"
+},
+"de/app/chefito-vorrat-einkauf-6757937286/": {
+"lastmod": "2026-10-13",
+"sha256": "80714f44620ada9ba3439c42766528c4bac896e1a5c4455be9a1486e3535d74f"
+},
+"de/app/chefkoch-rezepte-kochen-478618165/": {
+"lastmod": "2026-10-13",
+"sha256": "fa84108a45a52a7eba6f539826bdaab83d7ef673e300c7911c69a9ed11284c9e"
+},
+"de/app/cheflet-rezepte-speichern-6769398147/": {
+"lastmod": "2026-10-13",
+"sha256": "c95d14be6395fa1966992d27f1f6cf618c947de7786e2ff5493c4c08b59eebac"
+},
+"de/app/chefmode-wir-planen-6742585105/": {
+"lastmod": "2026-10-13",
+"sha256": "d4e6648a1f463a8ff7a60644942071341f874d18f6f0a1c5d1ff550538563e2a"
+},
+"de/app/chefyz-6757770703/": {
+"lastmod": "2026-10-13",
+"sha256": "f12dad7c71b41534efa96e873f5b94a2f6415bfb1bf05d9516e59b3f4da68d0e"
+},
+"de/app/chicken-hu-hnchen-rezepte-app-1501743145/": {
+"lastmod": "2026-10-13",
+"sha256": "25f2f1cccc0bbab030b81bd172d80596c8a44227d8d2b14b8edd98569857eb1a"
+},
+"de/app/chinesische-rezepte-1058747457/": {
+"lastmod": "2026-10-13",
+"sha256": "149d1a6b522c189e22df3cea5cf257e620a6a4258212ddc7ab9fd9097f22bfc5"
+},
+"de/app/chomps-rezepte-kochen-6738705879/": {
+"lastmod": "2026-10-13",
+"sha256": "185081a2ba17374c46fa2e8f6ad8c9c0e6b85fdd7340c130ba0d40ecbfd36082"
+},
+"de/app/choosy-essensplaner-rezepte-1577201493/": {
+"lastmod": "2026-10-13",
+"sha256": "62029047060e8e586a5cb274a4de5d286cd5edfd9a46ee874f7fb43b1c089912"
+},
+"de/app/chopa-chef-rezepte-manager-6758554961/": {
+"lastmod": "2026-10-13",
+"sha256": "0da7275de9241054c2b285543aa9c8b55ee538dc05da53772f84f753be8f3abc"
+},
+"de/app/citron-rezeptmanager-planer-6747734505/": {
+"lastmod": "2026-10-13",
+"sha256": "ac4382a6aa44adbdb796f19a9c21471b090347e6daaf2517f93121640fe57b5d"
+},
+"de/app/claudi-s-recipes-kochbuch-6752824595/": {
+"lastmod": "2026-10-13",
+"sha256": "0a0f8850dd32d5969726a0e06dbf68f73acb545d046cfc46607a70e1985a8d70"
+},
+"de/app/clear-cuisine-rezeptbuch-6759578049/": {
+"lastmod": "2026-10-13",
+"sha256": "8e9cf4df5ce1aa20e4632486925ef95d64179fce683bd1b381735f8609bb6b8e"
+},
+"de/app/clemi-rezepte-wochenplan-6759071009/": {
+"lastmod": "2026-10-13",
+"sha256": "92626d9e5cd86aed1373a8aef6317ebe89963b8513ff8b44bae7a069c60d2a15"
+},
+"de/app/clipcook-rezepte-speichern-6760363209/": {
+"lastmod": "2026-10-13",
+"sha256": "ceaf3e902bf730e09812b2bfe712018979ca82fa613620814a4b305bb5969563"
+},
+"de/app/clipzi-video-zu-rezept-6760556558/": {
+"lastmod": "2026-10-13",
+"sha256": "ce45c8033215120283e0f35debd6963cd860ad8e6bf044176583830b38a20f05"
+},
+"de/app/clove-rezepte-sammeln-6741995783/": {
+"lastmod": "2026-10-13",
+"sha256": "a33fdd2ffcf4d9cab64986b8099793da7a5f34293431eab1f4abe0f278b3bf29"
+},
+"de/app/cocktail-rezepte-alkipedia-1587378241/": {
+"lastmod": "2026-10-13",
+"sha256": "28a62952a57734c52cdd3e70e484a41bf74177f1e37fc91e2cee36f046f9f90a"
+},
+"de/app/cocktail-rezepte-deutsch-app-1598061422/": {
+"lastmod": "2026-10-13",
+"sha256": "6b4f5cf9e9c61ae4e780379952232122dec738b098f549615614be40c22035b1"
+},
+"de/app/cocktail-rezepte-sips-6469517243/": {
+"lastmod": "2026-10-13",
+"sha256": "4c658a85e62ab9b03ad28822ead5b1232c29a889667ac06c16a551c3bc70bd2f"
+},
+"de/app/cocoduro-ki-einkaufsliste-6773252833/": {
+"lastmod": "2026-10-13",
+"sha256": "8c48f597cb038137dd284d4902b53b117f65176dabfa4667f87466a3952ac074"
+},
+"de/app/cook-ai-ku-chenassistent-6504048524/": {
+"lastmod": "2026-10-13",
+"sha256": "3875f63d855da32e3291714b13e27b2ff3d1616dc7bf5f73b4cf927527494ed2"
+},
+"de/app/cook-track-6756535219/": {
+"lastmod": "2026-10-13",
+"sha256": "56ec6118a564b0a2e363a45998fb8cc3ddc67c0f7fb84cc16f3f77b9f157c4ac"
+},
+"de/app/cookadapt-6760563453/": {
+"lastmod": "2026-10-13",
+"sha256": "bf4ee91ba853c3c36d4b3d20a164384aa7fd29b9586842677c216e22cc8a6132"
+},
+"de/app/cookai-foto-zu-rezept-maker-6745277023/": {
+"lastmod": "2026-10-13",
+"sha256": "888d5d08b24282d36c82a1c46cd87f9be7f24604b8f8fb7ab689a4320b907391"
+},
+"de/app/cookara-rezept-kalkulator-6756547169/": {
+"lastmod": "2026-10-13",
+"sha256": "e5dca1f356815b0c173d161a42563b6523ecdee71764bcf6aaf0a55117597295"
+},
+"de/app/cookbook-kochbuch-rezepte-918478398/": {
+"lastmod": "2026-10-13",
+"sha256": "5b1efc3b529a99c53644bb4d2aa0e614fa0cbc169c7f784b8e70ad2c4dcc57c0"
+},
+"de/app/cookbook-rezepte-essensplaner-6749254338/": {
+"lastmod": "2026-10-13",
+"sha256": "d454c4b183814c4ea414d2a2b873652aab446174e136248ee3c1d185dc6c8574"
+},
+"de/app/cookbook-rezeptmanager-1073341917/": {
+"lastmod": "2026-10-13",
+"sha256": "d82262b0b6428f68240438f61a0bbf7c68717c4982b8a2b8fcc80632a5d2d4b6"
+},
+"de/app/cookbooker-rezepte-menu-s-6738144606/": {
+"lastmod": "2026-10-13",
+"sha256": "deded61bc401c448b1f0c9b9e98d4393db67b98ddadf6da8a20a771b5a871133"
+},
+"de/app/cookdiary-cooking-journal-6754804617/": {
+"lastmod": "2026-10-13",
+"sha256": "fc6ae03032723dae22e48639d7dc80f2c680dcaf60e6d502882405f3f19a4ed7"
+},
+"de/app/cooker-ki-rezeptmanager-1242710083/": {
+"lastmod": "2026-10-13",
+"sha256": "7f0b93b9186a291a6da76f8574d07ae5c76282f7fa9e9f0b023e37e1bdfe4a84"
+},
+"de/app/cookestra-kochen-rezepte-6796387460/": {
+"lastmod": "2026-10-13",
+"sha256": "a9f1fb62073f84f094e31a7904896d23ae45ad7bdfabb7e39109de9220b29f0e"
+},
+"de/app/cookfolio-rezepte-wochenplan-6761372144/": {
+"lastmod": "2026-10-13",
+"sha256": "1c507a436464f44a340142dc6454b23a94f7279847f002aa6a166341a8016563"
+},
+"de/app/cookgo-einfacher-rezeptimport-6744090840/": {
+"lastmod": "2026-10-13",
+"sha256": "7b96613caffc2281c73a26f6522917825798a6726d748d5cfd474d706409a530"
+},
+"de/app/cookidoo-rezepte-u-bersetzen-6759814534/": {
+"lastmod": "2026-10-13",
+"sha256": "63f05f8080357e359fec39f61e736aa42f90603dd4ab1c0dc759bd1086c618f3"
+},
+"de/app/cookifyai-smart-recipes-6751319178/": {
+"lastmod": "2026-10-13",
+"sha256": "82c77113ba1d6a77f485487a11b32bb0a90c8477fe89264e5d395c42c534694c"
+},
+"de/app/cooking-island-6786878250/": {
+"lastmod": "2026-10-13",
+"sha256": "b48a9318dadc7db6c38b4c11873e4314b63791f5915b43ea8087bf1884a69dd5"
+},
+"de/app/cooklio-rezepte-verwalten-6759219289/": {
+"lastmod": "2026-10-13",
+"sha256": "dd6bc61fcbf5fdc13a92e41f5d3ffdc5f31f2b5b9d39169089e0125777377849"
+},
+"de/app/cookmark-rezept-organizer-6758665380/": {
+"lastmod": "2026-10-13",
+"sha256": "a0a9211c4f34fcb0dcec8d308e39e305fee2a607dc7d7dddafe9cb30128955aa"
+},
+"de/app/cookmate-mein-rezeptmanager-1587685734/": {
+"lastmod": "2026-10-13",
+"sha256": "8260972d47d8564205274002e4c71717610d13b78b460a53267dd5a03997adda"
+},
+"de/app/cooknest-rezepte-speichern-6741486886/": {
+"lastmod": "2026-10-13",
+"sha256": "caa0935ae8596344326f809a4abb12989a702a16b882a95a2ab66e70b04b798c"
+},
+"de/app/cookonut-rezepte-speichern-6761756569/": {
+"lastmod": "2026-10-13",
+"sha256": "626ff8834b6c201bc4301536886118fb6f9e8174f9167042bafc230c5ed5360b"
+},
+"de/app/cookpad-finde-teile-rezepte-585332633/": {
+"lastmod": "2026-10-13",
+"sha256": "6816d5b8e0fdfb14d5fdc85e05e39f2deb66fbed6c431f2bb36818153bf7be35"
+},
+"de/app/cookpanion-rezepte-6480235172/": {
+"lastmod": "2026-10-13",
+"sha256": "6f654ff4d1aed37385e47d339e37f1c0eb8c6225f44f695863048492e9c0b6c8"
+},
+"de/app/cooksy-ki-rezeptgenerator-6749788075/": {
+"lastmod": "2026-10-13",
+"sha256": "503c5fb85e6c72293d2d12f529cbe33ef1b2770b4226ed4dd31083ee36596957"
+},
+"de/app/cookthis-rezepte-speichern-6758859431/": {
+"lastmod": "2026-10-13",
+"sha256": "510073138a19dc2b3931e845f948540f732b7a7b7befad7d34852087d7bf6adc"
+},
+"de/app/cookwise-ki-rezepte-vorrat-6759057646/": {
+"lastmod": "2026-10-13",
+"sha256": "b606b2054eb6a16ef5a6f9a64c0224e73e72d9c7fb0eff1ade33282480a5b1cf"
+},
+"de/app/cookwiz-ai-perso-nliche-rezepte-6749202112/": {
+"lastmod": "2026-10-13",
+"sha256": "529d5b5a2c34070a666e5de5aac0946f7523d67b1888ad04bb8f24077787fc0d"
+},
+"de/app/cookzone-rezept-verwaltung-6749637995/": {
+"lastmod": "2026-10-13",
+"sha256": "e559eed6e31a62ace7dca909aa9125135d454665bd1b1423418ac000bf336891"
+},
+"de/app/coopes-der-essensplan-1555086478/": {
+"lastmod": "2026-10-13",
+"sha256": "c293e2cd9369428b75a620c60e60779b22f48e70f89aa71bd0d56d9ecba08646"
+},
+"de/app/copymenu-rezeptbuch-6761840952/": {
+"lastmod": "2026-10-13",
+"sha256": "94486722cf7c2b955c41e4c0c92b08ac02038cc17e4e25e310adff3e90053519"
+},
+"de/app/coqvia-6761679755/": {
+"lastmod": "2026-10-13",
+"sha256": "2d9b37be74d1313108c5e54f189a57bc1cd2198398de4c247f8bc0cec56ce275"
+},
+"de/app/cora-ki-essensplaner-6756597503/": {
+"lastmod": "2026-10-13",
+"sha256": "b59050f2a8a68d3a4e215836a7382b5691de946a0a5bc270008e1fee0c5d2b7f"
+},
+"de/app/cove-rezeptbuch-6761334994/": {
+"lastmod": "2026-10-13",
+"sha256": "fdcfde6e57fa049d064026135a6a154438c007bc78cf5de3c6c6d74925654176"
+},
+"de/app/cravie-rezeptbewahrer-6760093386/": {
+"lastmod": "2026-10-13",
+"sha256": "4a4b55383ba36cf0d2df0ec581fffd5c0dc9dc798a8a316d69d76fa01f2e7c9f"
+},
+"de/app/crock-pot-slow-cooker-rezepte-1161343509/": {
+"lastmod": "2026-10-13",
+"sha256": "4832302a4e8f0ab020e39da6277fb36df5704e241f599a0e1334e51928576118"
+},
+"de/app/crockpot-rezepte-speisepla-ne-1145744795/": {
+"lastmod": "2026-10-13",
+"sha256": "ca3084e754b5d1a309574bc9124d82a8e576475e1a50ab127f6d748e351ce15e"
+},
+"de/app/crouton-kochbegleiter-1461650987/": {
+"lastmod": "2026-10-13",
+"sha256": "53831ff766f62b02b2c72e4b1ec3f70e1023784abdaef82c6ca6cad7ac5b6f86"
+},
+"de/app/crumble-it-torten-bestellen-6743784249/": {
+"lastmod": "2026-10-13",
+"sha256": "655e827b961f8e7b5bea53f63cdcdcecde783440c13d868ca253fdff34af0210"
+},
+"de/app/cuistoo-partage-de-recettes-6755659739/": {
+"lastmod": "2026-10-13",
+"sha256": "17af9a4f6d38009c6d39707fd49c80f49128c2c17b92182b20e75e07cb3b0703"
+},
+"de/app/cullylog-rezeptbuch-6761589918/": {
+"lastmod": "2026-10-13",
+"sha256": "aa42d0e5a7c34cd41f303772a4e7a8eb488497e99edcbee52794085ca68f2e61"
+},
+"de/app/dampfguide-1445556677/": {
+"lastmod": "2026-10-13",
+"sha256": "ed7aaab93da6e37be10c89cc94f2421b86bc2462ae95b4b09ced34bb0985af45"
+},
+"de/app/das-kochfieber-kochbuch-903904168/": {
+"lastmod": "2026-10-13",
+"sha256": "7e195cfee86328fa32a8b39e737125a4e8fb53f01f2d1c294bd5eb8ff017b446"
+},
+"de/app/dash-dia-t-tracker-salz-tracker-1032110739/": {
+"lastmod": "2026-10-13",
+"sha256": "4fda17de16de4e6184ceebbb29be632ad5cd4b4e6928a03a78ae3c0467a573e0"
+},
+"de/app/day-flow-ai-tagesplaner-6449482660/": {
+"lastmod": "2026-10-13",
+"sha256": "584426399abb62806c1ddfa3e54a91a6cfb0f8aa78660029b76999579db87504"
+},
+"de/app/dealish-was-koche-ich-heute-6769851884/": {
+"lastmod": "2026-10-13",
+"sha256": "54080d969b7e8caf2eadfed3ab43342f155644072d9b0b465b6f51a23279b94b"
+},
+"de/app/deinrezeptbuch-1632735560/": {
+"lastmod": "2026-10-13",
+"sha256": "4c47ddc8210a1b595e58028cd6866b4e52c5b6a30a60c1a5e04a4b804b53d0a2"
+},
+"de/app/delicio-ai-kochen-rezepte-6445913119/": {
+"lastmod": "2026-10-13",
+"sha256": "a712fb94e90f7d0885c6669c7fa505fb300863f580025e22b0cb97a199e8ed4b"
+},
+"de/app/dessert-rezepte-kochbuch-1600042232/": {
+"lastmod": "2026-10-13",
+"sha256": "492f0ee22ba2097ef3f9bc9d22601bdc5b3e9688b802ea64a43c420b57dd5759"
+},
+"de/app/dia-t-rezepte-7-tage-schlank-kur-zum-abnehmen-426034749/": {
+"lastmod": "2026-10-13",
+"sha256": "e3cc3d7126dcc92156cdf16ceedb001412be387807214f72768a1f6d17a506ad"
+},
+"de/app/diabalance-carb-tracker-6751918088/": {
+"lastmod": "2026-10-13",
+"sha256": "d863c3775333961d776dfef588abf8f6f830340286307158d68ffeea4906f7ff"
+},
+"de/app/diabetes-dia-t-blutzucker-app-1630678596/": {
+"lastmod": "2026-10-13",
+"sha256": "ae19c41645728ecf757514856f083026cc6a206021651661da220db17767424b"
+},
+"de/app/diabetiker-rezepte-planer-1499939603/": {
+"lastmod": "2026-10-13",
+"sha256": "4b13a0db72e03a6fe965afa338e74a8f410b7b724fd2c351ef7bbf9df0de10da"
+},
+"de/app/diabetisches-rezeptbuch-1138423580/": {
+"lastmod": "2026-10-13",
+"sha256": "3f0f126d12e6fc9aafcf9e8d4dcd4e2ba8240d535a457d81a33c6da116e040b2"
+},
+"de/app/die-einkaufsliste-1082845559/": {
+"lastmod": "2026-10-13",
+"sha256": "81becf418b2bb1d0d7f035f9da0ac107531e390fa4cddc2d37d293138fbe81bc"
+},
+"de/app/die-einkaufsliste-listonic-331302745/": {
+"lastmod": "2026-10-13",
+"sha256": "11f835df1d3e1ce578f07a2b767ee760af4e177cca534e2f353efa9d507dc62d"
+},
+"de/app/die-thermomix-cookidoo-app-714004506/": {
+"lastmod": "2026-10-13",
+"sha256": "f3604ed8892cb79dae30a16629579840d417fd64afc4fcdb909cf62e31d32317"
+},
+"de/app/diet-training-by-ann-1142970408/": {
+"lastmod": "2026-10-13",
+"sha256": "faf9347080f77d03dc9cbe8b31870f6be517f43df59cffe3da85a93c3038c4a8"
+},
+"de/app/disha-wochenplan-budget-6779303849/": {
+"lastmod": "2026-10-13",
+"sha256": "e615af704329428806ff87f13ee28f203205dfa65751c15c3203b7e51c1fcc0c"
+},
+"de/app/dishr-ai-recipe-generator-6758852430/": {
+"lastmod": "2026-10-13",
+"sha256": "0b012c82e65a55fef26aaae0c4aed90e698b07e6e788d0e53640078c615c3867"
+},
+"de/app/dishsave-6766515429/": {
+"lastmod": "2026-10-13",
+"sha256": "d51bc3105f420b3ae19a4aedb643ffdf1e158e1c0a04062f06eae1ad7e08d1df"
+},
+"de/app/dlishe-thermomix-rezepte-6758959102/": {
+"lastmod": "2026-10-13",
+"sha256": "66fa0a92b8006ddb9b9204822a3e7559c16de7ac10a6bc0f87d252fa0a5e46c3"
+},
+"de/app/donezo-6736526309/": {
+"lastmod": "2026-10-13",
+"sha256": "506d34dd50eae3c930c4562a791a65735c886935d07d19e4acf1bfc38c6aad83"
+},
+"de/app/dr-cook-1239052797/": {
+"lastmod": "2026-10-13",
+"sha256": "babc3ae4d47c6ac25a94a41f229112c4324fb80e83a29b25f7cec85fd9977703"
+},
+"de/app/drop-recipe-rezepte-speichern-6761789249/": {
+"lastmod": "2026-10-13",
+"sha256": "377cf1bda9132783030ea8f65d4dd766ddf6a777e6e71cb10e6f38a9e90d8f5d"
+},
+"de/app/dukan-dia-t-offizielle-app-1243499691/": {
+"lastmod": "2026-10-13",
+"sha256": "8e3cfef93ab7fb64f1f2535d8728a5d9cb33c3f82be6645c427a6b25c1395692"
+},
+"de/app/easy-keto-dia-t-rezepte-plan-6475236098/": {
+"lastmod": "2026-10-13",
+"sha256": "852da48cb997a2c41a48a9c1b8fadf0ea07c325d72d6fcc30965daa681bd1614"
+},
+"de/app/easy-keto-low-carb-rezepte-1604522298/": {
+"lastmod": "2026-10-13",
+"sha256": "0df3cf05e0f0e5f8c14094f1d666887106e2c8757137acba72fccc299b9a937b"
+},
+"de/app/easy-meal-planner-essensplan-6758950181/": {
+"lastmod": "2026-10-13",
+"sha256": "1c92f7282a18889bf1e6811c4fc7eecd90e2b213eee6de5b7e0b88b46685abb3"
+},
+"de/app/easy-menu-planner-1381248589/": {
+"lastmod": "2026-10-13",
+"sha256": "dc3facf3c2990c7382ba4b0d33f29cb88aaf737d54b7f5b689e2e0a489472744"
+},
+"de/app/easyeats-ki-rezepte-6751240213/": {
+"lastmod": "2026-10-13",
+"sha256": "fd7715750f7bddda87ccd14f0c03d6371de31bb7d5e04de56895faf65aa9917e"
+},
+"de/app/eat-club-rezepte-kochen-1611519235/": {
+"lastmod": "2026-10-13",
+"sha256": "e5c2f18d5b5527eb4b5191baf13073cfdd2315ec9e428af736be38fda31d0635"
+},
+"de/app/eat-smarter-432046905/": {
+"lastmod": "2026-10-13",
+"sha256": "aef16c775ca0fdb8e8d17826d4cccb877dbac557bcfbed9c8352ac53165795b6"
+},
+"de/app/eatbook-familienku-che-6761470379/": {
+"lastmod": "2026-10-13",
+"sha256": "3ed26b39d747af1843d28a58917f3f3369579d0f81befe26e944a75ff52ccf74"
+},
+"de/app/eatly-einkaufsliste-rezepte-6746982504/": {
+"lastmod": "2026-10-13",
+"sha256": "8cd923bd6fc168f5a77fc2a8f94f8ed0284dcbe02519314e39f5920908ed616a"
+},
+"de/app/eatr-ki-rezepte-zum-kochen-6479693198/": {
+"lastmod": "2026-10-13",
+"sha256": "4436a38332ba458ce35ad0bd128b2be781711d0903d03b140e835b63ee98bc5f"
+},
+"de/app/eatty-gesunde-rezepte-pla-ne-6756583556/": {
+"lastmod": "2026-10-13",
+"sha256": "ccbf2eb58787506fd81b3226c3bcd5b52f3e8b83d025c86d1e0a09462eaf6505"
+},
+"de/app/eggtimerplus-smarte-eieruhr-964280814/": {
+"lastmod": "2026-10-13",
+"sha256": "229d02ec7a7c9cd84fdfee9250709dc5380b486e1a7a23ab0e28133355b182d3"
+},
+"de/app/einfach-kochen-essen-rezepte-1501748711/": {
+"lastmod": "2026-10-13",
+"sha256": "5b3625330c5635d8239a5dbdb157c31dc1f30881bc6970271a1694108411855e"
+},
+"de/app/einfache-abendessen-dishbook-6698871228/": {
+"lastmod": "2026-10-13",
+"sha256": "4104b1d887214173432fc51f9664ffeb54c53465671522d11764c83db47aaab5"
+},
+"de/app/einfacher-essensplan-1549204670/": {
+"lastmod": "2026-10-13",
+"sha256": "ac1fefea530cb7166439d7229cc1108171a233a7aa90db429169327315264141"
+},
+"de/app/einfaches-kochen-rezept-1623600167/": {
+"lastmod": "2026-10-13",
+"sha256": "5337c270b5b06e6e7acb32aaaf897052542b91fd4e0695ed2327f3e7c599e4c5"
+},
+"de/app/einkaufsliste-green-lists-1594429610/": {
+"lastmod": "2026-10-13",
+"sha256": "696f66a93640cb0785dd4f035c85e9da93491ba1a05e7ab80a5dc85d3fc7f601"
+},
+"de/app/einkaufsliste-haushaltsbuch-6741698303/": {
+"lastmod": "2026-10-13",
+"sha256": "2eb4f9a0b4c256e07872c5daa2e80514eafc318c1bb3777fbfb341b57024364c"
+},
+"de/app/einkaufsliste-kauf-6758734770/": {
+"lastmod": "2026-10-13",
+"sha256": "d6feb29a4f671e0693776da19dbf748bcb92bb7cb12598e6ea9f788953637078"
+},
+"de/app/einkaufsliste-listic-6449649050/": {
+"lastmod": "2026-10-13",
+"sha256": "6fe6aeb3c57dfecb13c99aeec054d0722aea7450479ff988790d034b1ec7761b"
+},
+"de/app/einkaufsliste-nom-land-6752026047/": {
+"lastmod": "2026-10-13",
+"sha256": "b29a0f01372059767c3a41630a8273dc31458919859b6c894e1f9f6d03225438"
+},
+"de/app/einkaufsliste-ourgroceries-325851015/": {
+"lastmod": "2026-10-13",
+"sha256": "3a9039d8b3595cae656d614e4d10af35ca8082934f1383cdadf96738f44b66fa"
+},
+"de/app/einkaufsliste-planer-1495728021/": {
+"lastmod": "2026-10-13",
+"sha256": "066e6aa7b83b72946541b612a65189b754784e8e9c26f234c8593c3895b2b670"
+},
+"de/app/einkaufsliste-rezepturen-1659848939/": {
+"lastmod": "2026-10-13",
+"sha256": "e38c6ed73ef80613ca1f861572bfdaf6151fa0e653458e8bd6a5f57eb3709e56"
+},
+"de/app/einkaufsliste-vorrat-6760492536/": {
+"lastmod": "2026-10-13",
+"sha256": "83a0d022e65241a047ef993b1f27adf07dd7bdca1e7b0b830bcf821e75a3336a"
+},
+"de/app/elyte-erna-hrung-rezepte-6792328317/": {
+"lastmod": "2026-10-13",
+"sha256": "2dfef6d9c394dd4a9d86ee636b79201357953e42b212084ffe84d7d1a2ab4d2a"
+},
+"de/app/essen-trinken-magazin-1159651037/": {
+"lastmod": "2026-10-13",
+"sha256": "b07a6a2766d7a67467a23c93a0a69415d405da37b68f35d8398ae0cbdff0e1d0"
+},
+"de/app/essenplaner-whichfood-6467032293/": {
+"lastmod": "2026-10-13",
+"sha256": "77afb59db8cfd2b267f4a7ef857756e1f742641104a82a660bf8ee9907722e8e"
+},
+"de/app/essensbuch-1182861668/": {
+"lastmod": "2026-10-13",
+"sha256": "1cdeeecd35e7f4b495a7665140a0357dd6ee731dc9323a681ca51c17371c7433"
+},
+"de/app/essensplaner-cookyno-6767033532/": {
+"lastmod": "2026-10-13",
+"sha256": "18b840cae9c7d906bd32d63cc2c65455486f35123627d9a05ac6b0dea3da6f1f"
+},
+"de/app/essensplaner-einkaufsliste-6443649573/": {
+"lastmod": "2026-10-13",
+"sha256": "5b6b1dbd343c5db0ab3dff55c6c071143de01dd6bc584dfa4783c1dbbc97fbd2"
+},
+"de/app/essensplaner-erna-hrungsplan-1488928247/": {
+"lastmod": "2026-10-13",
+"sha256": "92e7b0315403d64547ea52a4ceac42b7fd458a47f287fcff8595e03b7710e765"
+},
+"de/app/essensplaner-kalorienza-hler-6756733252/": {
+"lastmod": "2026-10-13",
+"sha256": "3c608ab03acdffff1eba8e90cfcb332e4a4ceb13a17c489b6057182d43c665d8"
+},
+"de/app/essensplaner-ki-wochenplan-6793064412/": {
+"lastmod": "2026-10-13",
+"sha256": "53ef159ca866c4d541194959cafe97f96c5bdd1f9fee5f183f527200334f8d08"
+},
+"de/app/essensplaner-kochbuch-6744144637/": {
+"lastmod": "2026-10-13",
+"sha256": "6b44dc3ec8e9f12ce05ed53a571cdf66625b7837a5bef14aabb0766685add689"
+},
+"de/app/essensplaner-kochen-rezepte-6747282317/": {
+"lastmod": "2026-10-13",
+"sha256": "a7b4a4f94c90a5114a240ed828cb8a4df950518522eb61fc664efa76fb673bac"
+},
+"de/app/essensplaner-nobrainer-6766119328/": {
+"lastmod": "2026-10-13",
+"sha256": "2563c1d95345417f99d2b48603b26c07bc2dbc73d92326e852512a63d858005c"
+},
+"de/app/essensplaner-ta-gliche-rezepte-6480342933/": {
+"lastmod": "2026-10-13",
+"sha256": "7bf13a8a18fcec2c0b81fd149deea2240ef36eac0fb0727ff8c54c9b44dbb0ed"
+},
+"de/app/essensplaner-weeklymeals-6762626956/": {
+"lastmod": "2026-10-13",
+"sha256": "21309cdd4cbf4885b559d23eeba0ecfd1103d925fb24c86e9026213a6bd1a9a0"
+},
+"de/app/esssta-bchen-chinesischesrezept-6499409884/": {
+"lastmod": "2026-10-13",
+"sha256": "88fc695b233b4e36a0d6fecab0f178d777a1d740c6631dabf94af4f8b10a45ed"
+},
+"de/app/eten-rezepte-essensplaner-6761407978/": {
+"lastmod": "2026-10-13",
+"sha256": "e5c107f188be3bf0d9ea4d6983e22c52a02da591fefd8b80224b573dd5dba7c6"
+},
+"de/app/exoda-food-kalorien-rezepte-6758913679/": {
+"lastmod": "2026-10-13",
+"sha256": "c9f0b40a5828f7345cd71bdcfaff9d9f34310469cb560b2b6314158835b2934a"
+},
+"de/app/famfood-dein-familienkochbuch-6746147366/": {
+"lastmod": "2026-10-13",
+"sha256": "20408e6fc12f4ec9fe7bee1198289340ba15b14cd2941ab3153975ee183c4b36"
+},
+"de/app/fami-familienorganisator-6445904876/": {
+"lastmod": "2026-10-13",
+"sha256": "8bc0da14918190b9139dd3b1bb7d93a5151ed10a76ac914001b4c10a3c7823d1"
+},
+"de/app/familienrezepte-hearth-6760669727/": {
+"lastmod": "2026-10-13",
+"sha256": "dd7f6c6869ec432bd3fea14888cd0c0a77e0596a5d7fac661817fb50f5f3c405"
+},
+"de/app/familymealguru-6753353912/": {
+"lastmod": "2026-10-13",
+"sha256": "42cb20104cc1f4190bfb43a37b4eea0029230d2c1b39b2f40f549c345ab2f106"
+},
+"de/app/familywall-familienplaner-496889629/": {
+"lastmod": "2026-10-13",
+"sha256": "cce2be97279f8b20facab9ee69b1b599c691eaf19728bf1851ca7c34b22397e2"
+},
+"de/app/fddb-ki-kalorienza-hler-dia-t-1105332761/": {
+"lastmod": "2026-10-13",
+"sha256": "8c527c2a18e951526ceee49758ce1c1a10586c4ed02f8e4b433cb0f51f7d38fa"
+},
+"de/app/feastaroo-rezepte-fu-r-gruppen-6741682868/": {
+"lastmod": "2026-10-13",
+"sha256": "338a92990479b0961df2eba0b35f95f6e69e5bc4115d869de4a0ad5cad58760c"
+},
+"de/app/feastr-erna-hrungsplan-abnehmen-1200732621/": {
+"lastmod": "2026-10-13",
+"sha256": "a12f15d7e9714693e617439120867a90fea9d23bad1278051167ad75efbe71e3"
+},
+"de/app/ferbi-ai-meal-planner-6778129676/": {
+"lastmod": "2026-10-13",
+"sha256": "ba6cc9d651f7a3ab1ef61845090d0738633fd4ed008451460e650aa73141e121"
+},
+"de/app/fermentheld-1193619132/": {
+"lastmod": "2026-10-13",
+"sha256": "9b62cbea6fcb7fc68579431482b9758a4869d543e814bdb93392f0b2006216f1"
+},
+"de/app/fitbee-kalorien-tracker-6443979108/": {
+"lastmod": "2026-10-13",
+"sha256": "7e4c989a49943053c0b1f28e65a257469efb36f865b6851ed399daef57701e3f"
+},
+"de/app/fitberry-gesunde-rezepte-1177953725/": {
+"lastmod": "2026-10-13",
+"sha256": "71108f385156fef709db10a2ad018aa2436f4d2febfdb1d09b1535c530072156"
+},
+"de/app/fitollo-dia-t-rezepte-mit-ki-6670374206/": {
+"lastmod": "2026-10-13",
+"sha256": "ae31e5ca3ef7bea2768a5e3f32fbb3511e138d85ea6b78438b823edf845487c4"
+},
+"de/app/fittastetic-gesunde-rezepte-1472758170/": {
+"lastmod": "2026-10-13",
+"sha256": "5e54f52329d547c3ab11d48fd0d4671b830b0ecaebbae80da6dea8caac0cd6f5"
+},
+"de/app/fitzen-ai-dia-t-gesund-6748159304/": {
+"lastmod": "2026-10-13",
+"sha256": "6468f5612eee30457da4c5b311b306ff78ba60155e6706c0d570335269496689"
+},
+"de/app/flavorly-rezepte-speichern-6761345382/": {
+"lastmod": "2026-10-13",
+"sha256": "9cb9cb35e788c81a27f35d693f2e4eea7ea32aa9bba80af934ad96fc04cadb2a"
+},
+"de/app/flyva-angebote-wochenplan-6759984213/": {
+"lastmod": "2026-10-13",
+"sha256": "8f785dff79d7ade812fa8746956420b6cef376ef995b75445d14f4c8164bd843"
+},
+"de/app/fodmap-dia-t-gesunde-rezepte-1497877565/": {
+"lastmod": "2026-10-13",
+"sha256": "e44ca7245f37e16d8bd033a507dd45b89ee0c43250ae99168e3697a999c009ea"
+},
+"de/app/fodmap-dia-t-ki-rezepte-1445614297/": {
+"lastmod": "2026-10-13",
+"sha256": "ba92327d00d6e02608421368d198812a6f5b19cdbd0bd0b6358c925a31074820"
+},
+"de/app/foo-digitales-kochbuch-6739758281/": {
+"lastmod": "2026-10-13",
+"sha256": "707a61dcff20408434b6dedc6173c93c09ba9b66635c6d91c89b80021d628b37"
+},
+"de/app/food-dice-vegan-1590750273/": {
+"lastmod": "2026-10-13",
+"sha256": "585d94c7d45a03462adfe10f7950b0e4bd0968a0a77c87425bd18c0dfaccb9b2"
+},
+"de/app/food-energy-ki-kalorien-scan-6762185070/": {
+"lastmod": "2026-10-13",
+"sha256": "c0e42818cc9229fd5974e8103769659c7be02a4f3b1b2e0fd1c6354785bfe7d6"
+},
+"de/app/food-lens-ai-fitnessrezepte-6744247431/": {
+"lastmod": "2026-10-13",
+"sha256": "2429bb8cb85948ecad02f2142bdb121a5f01f62f82e7a229f7bb39f4ae5665a0"
+},
+"de/app/food-with-love-rezepte-1496402756/": {
+"lastmod": "2026-10-13",
+"sha256": "dbd033a2c0579cae45bb9d3d3fc69147c55bd975eeee35fce9c71ddfe5487bcb"
+},
+"de/app/foodiary-erna-hrungsplaner-app-1502395764/": {
+"lastmod": "2026-10-13",
+"sha256": "85fd1a99a12f34246a6bdf45081070b2001f6c049c2cd68470c46e1879d00dfa"
+},
+"de/app/foodie-the-recipe-book-6762552275/": {
+"lastmod": "2026-10-13",
+"sha256": "dd4bd55a445613a15c36e29603239538ec23da4bea9528ac71117e95d0604d46"
+},
+"de/app/foodoholic-rezepte-kochen-1329375512/": {
+"lastmod": "2026-10-13",
+"sha256": "c4e283437e625b92b652962f5513d5e19fd675388a1173527cc23840015c83c3"
+},
+"de/app/foodpal-erna-hrungsplan-1437933323/": {
+"lastmod": "2026-10-13",
+"sha256": "bd6dcb96e7adcb5101e5f90da3eb9c5e72253b9209d1aad6c811b452e7055cdb"
+},
+"de/app/foodpunk-dein-erna-hrungsplan-1447976808/": {
+"lastmod": "2026-10-13",
+"sha256": "8e0953cd6869ccf64b242e994dded1f29817f23fa659db0e20e96dc38c7abfdc"
+},
+"de/app/foodquick-ki-kochassistent-6749247976/": {
+"lastmod": "2026-10-13",
+"sha256": "6cc3c10cb66a61c8a71ae08b72306df30fc02c85ec1cd0ec955a617a5df42c44"
+},
+"de/app/foodr-kalorien-za-hler-abnehm-6742585033/": {
+"lastmod": "2026-10-13",
+"sha256": "bebfb201aa1a9ca9fec317a651e982a7dfc4b3030fa19c3718042f250bc2f4a4"
+},
+"de/app/foodsnap-ai-kalorienza-hler-6759652195/": {
+"lastmod": "2026-10-13",
+"sha256": "01f12692fae990d9c5f414fcc69247faf84caf0e34a659799fd3a0514336a01e"
+},
+"de/app/foodsoption-kalorienza-hler-6447055696/": {
+"lastmod": "2026-10-13",
+"sha256": "3f8db006755a5f314cd6be319dcd12781f1bedc6f3f17d757a94eed04acf8dc8"
+},
+"de/app/foodster-planen-einkaufen-1590739803/": {
+"lastmod": "2026-10-13",
+"sha256": "cda4982130e029db956c13080961fac8acda0db3f61413fe0991e57acac5ebe2"
+},
+"de/app/foodtechguru-wareneinsatz-6744988708/": {
+"lastmod": "2026-10-13",
+"sha256": "54e48a24d0ca949be1ea7267814e6aada5d41afe5cda96d090dd06e2017c6c27"
+},
+"de/app/fooma-rezepte-speichern-plan-6758171511/": {
+"lastmod": "2026-10-13",
+"sha256": "7496c5b8fd77aea82f33984904119f10233604758fc91fa1e5d0a1cb24acc4e3"
+},
+"de/app/forkcast-essensplaner-6792415798/": {
+"lastmod": "2026-10-13",
+"sha256": "b42c4b5c091b62161c92014480d2accf06a553014782c3ce8f46214e5176e7ba"
+},
+"de/app/forkful-rezepte-essensplan-6760579706/": {
+"lastmod": "2026-10-13",
+"sha256": "888274e31febef2604036db33680d9c4129224963879db0c62721387211dd63b"
+},
+"de/app/forkmark-rezepte-speichern-6761360946/": {
+"lastmod": "2026-10-13",
+"sha256": "0b3f83616c0080519f74d246c318ce259ae12d488bfe871ba7416b750daae751"
+},
+"de/app/freeletics-nutrition-1082670451/": {
+"lastmod": "2026-10-13",
+"sha256": "fff895b8ca8a069e940b215ade71316bdff878a160566a1419e8ce5aacb51106"
+},
+"de/app/fridgea-ku-hlschrank-helfer-6756065960/": {
+"lastmod": "2026-10-13",
+"sha256": "c4f7e899797e9709e4810ce38bd8b34a34e38c7b0edf91496646172b0e4c56ed"
+},
+"de/app/fridgechef-for-thermomix-6758043948/": {
+"lastmod": "2026-10-13",
+"sha256": "e619fe5cb95c7434ad67783ad68f24026b9038843f92b2e579cbd6195dce8c9b"
+},
+"de/app/fridgeloop-vorrat-ku-che-6747889300/": {
+"lastmod": "2026-10-13",
+"sha256": "d1e9ff9e4a7880decabf792f595811554c16c96ac5a0683dd2fd61ee1344792d"
+},
+"de/app/fridgetrack-ku-hlschrank-6749074023/": {
+"lastmod": "2026-10-13",
+"sha256": "bc1391b5a3aeeb5983602bb62bdf15c7cac0e6ee486133998e20079cd69fe7d4"
+},
+"de/app/fridgi-ku-hlschrank-manager-6766045022/": {
+"lastmod": "2026-10-13",
+"sha256": "d77a583dbbc518bf18fdf4fe6b9b573671f061e9cbc2de08f6905f5a9eb8d865"
+},
+"de/app/fridgy-smart-kitchen-ai-6743095579/": {
+"lastmod": "2026-10-13",
+"sha256": "d19563b32ad4d32d937944965df642555093f5ca819f9fc2c1e913601e3e47f6"
+},
+"de/app/frixi-rezepte-mit-ki-finden-6761649730/": {
+"lastmod": "2026-10-13",
+"sha256": "10b824da9564d0095de75ffba193e33ff49ffcf19d931dd261896759ae64b005"
+},
+"de/app/fullfilled-1668094208/": {
+"lastmod": "2026-10-13",
+"sha256": "09b9741fc702461f767971442725d66dccc60bf1e1cc114c76b451d045ef5699"
+},
+"de/app/galleybook-6764606059/": {
+"lastmod": "2026-10-13",
+"sha256": "57131467bda126231514ade39768a8ed9c716f56dddd7a8a4a56e4894f9306d9"
+},
+"de/app/garlic-rezepte-sammler-6758080753/": {
+"lastmod": "2026-10-13",
+"sha256": "e68bb9eb727e1931c77732003aaf2e812f78f02458ba20443220cc1a667e5977"
+},
+"de/app/gastrokalk-6756578499/": {
+"lastmod": "2026-10-13",
+"sha256": "b923ea3742adf35ce0e016d5e52b45f6a7e4fc5dd12c576d6ccfcb49818266ed"
+},
+"de/app/gattr-rezepte-importieren-6756197626/": {
+"lastmod": "2026-10-13",
+"sha256": "5e9c80952253dc8d34b00b13334b33416b64c9eba8ae5912f8d4798b8e641bef"
+},
+"de/app/genussarchiv-6766112370/": {
+"lastmod": "2026-10-13",
+"sha256": "0d77de5c927c37e915afbaa74f45299c0c9c83ac0bc3a8f1d7094f3b877dcf56"
+},
+"de/app/gerdelicious-1547135961/": {
+"lastmod": "2026-10-13",
+"sha256": "9e87544e21830ec0c693daad35167d41a411abcdbdbd1a4edc620b52e4bd531f"
+},
+"de/app/gesunde-fru-hstu-ck-rezepte-app-1501745717/": {
+"lastmod": "2026-10-13",
+"sha256": "0064757d4ef1e539ac9f002f56e324448e7adc5c5086a769a5808872b2c756e4"
+},
+"de/app/gesunde-rezepte-essensplaner-1437702503/": {
+"lastmod": "2026-10-13",
+"sha256": "8cd430fa63602e3b79e4fd66c4641d8bd75c2686fe5835db053e1c5f086bb6b8"
+},
+"de/app/gesunde-rezepte-essensplaner-6746402789/": {
+"lastmod": "2026-10-13",
+"sha256": "cd8b29757085a34efaa8d7ee9935fa68ca18a75bc07edc702a185dca9aa33639"
+},
+"de/app/gesunde-rezepte-kochbuch-6460934945/": {
+"lastmod": "2026-10-13",
+"sha256": "174cf32e4537fdc43233f51cd6ad4dc88e879ba98d5a11bcfcf74b0b6d63471e"
+},
+"de/app/gesunde-rezepte-zum-abnehmen-1587162790/": {
+"lastmod": "2026-10-13",
+"sha256": "039103d21f9f088072a852d260f5d79f3ba70fb4e13c1c401dd143703689d0c0"
+},
+"de/app/gesunde-und-einfache-rezepte-1286293692/": {
+"lastmod": "2026-10-13",
+"sha256": "c005d775d83b32b6dec8813c05e93f24cdb66f90aaf94e832b8f9f268ddbd2c7"
+},
+"de/app/gesundes-rezeptbuch-1131174924/": {
+"lastmod": "2026-10-13",
+"sha256": "117c3bee0cc572096b7011d4b1285f1d587cf66829f906d7cee3066af460e6a3"
+},
+"de/app/gewichtsverlust-rezeptbuch-1140344326/": {
+"lastmod": "2026-10-13",
+"sha256": "1443e285c6de2d88b3ab2c01e83783ff61232ce1dda1c99a3dc92d3de46421e4"
+},
+"de/app/global-cooking-recipe-matcher-6762706219/": {
+"lastmod": "2026-10-13",
+"sha256": "54756c6bb273fef87a1ba09a18bb40b722bd42b8ed10081bc1cff17af864ac7c"
+},
+"de/app/gluten-free-rezepte-magazin-6596728334/": {
+"lastmod": "2026-10-13",
+"sha256": "38abe1551ee2167a9e6ae8064338a7ef7317cfc19ebba821ce57bbd077441311"
+},
+"de/app/gluten-snap-scanner-rezepte-6745230673/": {
+"lastmod": "2026-10-13",
+"sha256": "30d1b85f4e20c71707baaa08902272332e36cbfc01e7419ce1ab66781c3c629f"
+},
+"de/app/glyka-mischer-index-diabetes-1087424868/": {
+"lastmod": "2026-10-13",
+"sha256": "77ffe995c9bf3ae586302e98007882365931c71597d414e3b69ec1e26e8028b4"
+},
+"de/app/gobbo-ku-hlschrank-scanner-6766119398/": {
+"lastmod": "2026-10-13",
+"sha256": "eadea7293a584ca776fb8e9bc637706866cf5c35519713d41f5c1c90d9978803"
+},
+"de/app/goomy-speichere-deine-rezepte-6753683618/": {
+"lastmod": "2026-10-13",
+"sha256": "6ce7f8f8fd6464f94e08bba0900e9bb14afe99eef796e3bb949bae133d35cf2e"
+},
+"de/app/gourmet-host-rezepte-menu-s-6758515201/": {
+"lastmod": "2026-10-13",
+"sha256": "72a1111fba566efda70ceac74ce4553c6f1773f8e50a80a60a50ebed68b6e511"
+},
+"de/app/green-kitchen-466252999/": {
+"lastmod": "2026-10-13",
+"sha256": "8ea830ceda596dcecfedaa3825be974c94fe3a0a59bb7a5d51122750b621ea12"
+},
+"de/app/gronda-rezepte-fu-r-ko-che-1164423781/": {
+"lastmod": "2026-10-13",
+"sha256": "86ba2fbf38d710f04f613844e1828d2971b7a8e7727b3ca3fd63ff06c8320821"
+},
+"de/app/grosh-intelligente-liste-966118217/": {
+"lastmod": "2026-10-13",
+"sha256": "5254d400d67ee62ba27e453825bc45f3b407675d8329a577ad71d14a5402f560"
+},
+"de/app/gustino-rezepte-kochbuch-6774185280/": {
+"lastmod": "2026-10-13",
+"sha256": "a4b3a7217f88066a7f2bed75d88af1f70c89b26df42d7bb9d50bdf74a47846ca"
+},
+"de/app/gymky-fitness-ki-erna-hrung-6470682855/": {
+"lastmod": "2026-10-13",
+"sha256": "7628f2d45fcf125dcd61fba2d6b8f89e90f9677fb7e8963ce8e918802c4f0fa4"
+},
+"de/app/haltbarkeitsbuddy-6758527286/": {
+"lastmod": "2026-10-13",
+"sha256": "a1b1fc73f69542af5157190b39b06632c83f1b31fcef7555882f302cbf0ae1fe"
+},
+"de/app/haltbo-6799687662/": {
+"lastmod": "2026-10-13",
+"sha256": "38a9546de2a35262417ef3e3aa788aee85dfe0b3285cd64c93b0f3c2241bbcba"
+},
+"de/app/happi-rezepte-die-bleiben-6761826373/": {
+"lastmod": "2026-10-13",
+"sha256": "56511e5ecfd284cfa9fbe5f0f69d81865fc1d16560fa8c310dd9a5ee8226c8ce"
+},
+"de/app/haushaltsplaner-homzie-6739814562/": {
+"lastmod": "2026-10-13",
+"sha256": "95eabb035a35a4a36659b47090e229498cc309eb44a7c0d504b4805040961310"
+},
+"de/app/heissluftfritteuse-rezepte-1598056628/": {
+"lastmod": "2026-10-13",
+"sha256": "dd527a491d82ddce26554756d72b66c031e9591a1a8026906259e7752aeb9d87"
+},
+"de/app/heissluftfritteuse-umrechner-6764600062/": {
+"lastmod": "2026-10-13",
+"sha256": "57ad14eb7aef19af968dacbfe884a417a5691ff96dd1fc62a44d45696ba07607"
+},
+"de/app/heissluftfritteusen-rezepte-6529527563/": {
+"lastmod": "2026-10-13",
+"sha256": "2461f3607ea30b2100f1f11f9873f8103a113b1c5a8a353080a896ca96fea30a"
+},
+"de/app/hireci-rezepte-speichern-6794981988/": {
+"lastmod": "2026-10-13",
+"sha256": "5358352b00ffb9040b67c9bd6f6458916964f2b6e72dc8f4f37f07c639de9765"
+},
+"de/app/histamin-fructose-co-419098758/": {
+"lastmod": "2026-10-13",
+"sha256": "9c4596127835e51dbee91a0b669afda451d97cddbab6a56e67957d36c5a12495"
+},
+"de/app/histaminintoleranz-scanner-6761553753/": {
+"lastmod": "2026-10-13",
+"sha256": "14a1cff9d45c66e858f727e42766a6595bdbdf8f088f3a0e281545f4e12b9376"
+},
+"de/app/hmly-vorra-te-rezepte-plan-6758858235/": {
+"lastmod": "2026-10-13",
+"sha256": "310fc7571c8a8f37a60f22ac7b59b4cc540f351900dda81e73105295b8f679ad"
+},
+"de/app/honeydew-rezepte-kochbuch-6714449541/": {
+"lastmod": "2026-10-13",
+"sha256": "5fb11bd834883d161e37cdc42d70a89d74738c1bce1a21b2b25f1094521cc3c2"
+},
+"de/app/icook-essensplaner-rezepte-1434244144/": {
+"lastmod": "2026-10-13",
+"sha256": "a3a322d2d55a1284da4d44e6fb2fd3f06d205bc75670cf50579f483a8844a84e"
+},
+"de/app/incipe-rezepte-kochen-1575544584/": {
+"lastmod": "2026-10-13",
+"sha256": "bc600931570f04e556a48ac4a5f2dd0c6bdbbaca142c4e799a3d47f444003c9d"
+},
+"de/app/infridge-ai-rezept-generator-6757303696/": {
+"lastmod": "2026-10-13",
+"sha256": "abae9279569d6af866c48a9be8c8246e9f5f663ffed93455385dae35c2e4e426"
+},
+"de/app/inhaltsstoffe-scanner-ryla-6749587214/": {
+"lastmod": "2026-10-13",
+"sha256": "cce136866878741f84585b031f7d6e133d3bdc9134b4b2683993a73f468d4b3b"
+},
+"de/app/inspiced-rezepte-verwalten-1564772851/": {
+"lastmod": "2026-10-13",
+"sha256": "197e371e7815ab6965522766736af59cab7f6d74121d2733c399c0536f2ded6b"
+},
+"de/app/instadish-6760105070/": {
+"lastmod": "2026-10-13",
+"sha256": "8739a53ef1e233227bcd2a16a5014d9396d99c902f91eff19f6840d7a5898f9b"
+},
+"de/app/intervallfasten-zum-abnehmen-1442203676/": {
+"lastmod": "2026-10-13",
+"sha256": "b784e48dc7aa4f592544b72d8811865362a140d2016928dc0699b552ad2db419"
+},
+"de/app/ishelf-vorrat-mhd-tracker-1599742693/": {
+"lastmod": "2026-10-13",
+"sha256": "14d2658479c8ebd894a5320a27730f14074528319e147bd841cba21872a1f055"
+},
+"de/app/italienische-rezepte-app-1501680260/": {
+"lastmod": "2026-10-13",
+"sha256": "ad8c1dc8e43199c84bb1b3386bde1c49722ee6f95b70113985f22b875282bb9a"
+},
+"de/app/japanisch-kochen-rezepte-1499945427/": {
+"lastmod": "2026-10-13",
+"sha256": "303f3f0f9c7bcd392c872ae920178f7edc163694bc0a59d91450f6a43d665cbd"
+},
+"de/app/kalo-kalorien-za-hler-dia-t-6744622118/": {
+"lastmod": "2026-10-13",
+"sha256": "b96d5409975519c6eac9b9908e5a32c9a79873568a0ba1c8a5b42c250a7debf3"
+},
+"de/app/kalorie-ai-erna-hrung-6753868370/": {
+"lastmod": "2026-10-13",
+"sha256": "75ab1702285f5e175b165d313d91e614e12d29f15a948437d5b886b9782079ca"
+},
+"de/app/kalorien-za-hler-abnehmen-arise-549217094/": {
+"lastmod": "2026-10-13",
+"sha256": "1f521b92ba22b2dda91f585e1751d6dab05b1310e98d1505af36940958f5456e"
+},
+"de/app/kalorienrezept-buch-1157389983/": {
+"lastmod": "2026-10-13",
+"sha256": "c122f936bae6c998ab747c3c57e23e6856258c8fa4ffa12986d95a567824010b"
+},
+"de/app/kalorienza-hler-ai-1121789860/": {
+"lastmod": "2026-10-13",
+"sha256": "0988bb474e84dcaeb33abe504d45a9650af3ad24244e15c72c3f62ba336af5c9"
+},
+"de/app/kalorienza-hler-von-getfit-1348259279/": {
+"lastmod": "2026-10-13",
+"sha256": "e97121721ce86a81144e7bec6bdaf03814d81c3964fd37eaae2d394c687960f4"
+},
+"de/app/keepo-lebensmittel-im-griff-6753361821/": {
+"lastmod": "2026-10-13",
+"sha256": "dc4951a5a409b1b1fca7634bd543a6b2648266caad914a5394d697559f885f58"
+},
+"de/app/keeto-keto-carb-tracker-6753916868/": {
+"lastmod": "2026-10-13",
+"sha256": "5d280f43551fdbc7e17e8cd44c8dca8205c0a12b5fe2bd5ed8e109555e74ab21"
+},
+"de/app/kenki-ki-dia-t-kraft-log-6751200526/": {
+"lastmod": "2026-10-13",
+"sha256": "dbe126a1359935e106ae21167b93ccd45e3fc046727e968aeedea6c8925e022f"
+},
+"de/app/keto-dia-t-app-kalorienza-hler-6445883237/": {
+"lastmod": "2026-10-13",
+"sha256": "e8fa5216866696af0516ab00d2b488235a28916dcd8b6a927c1f4b4d527d8f33"
+},
+"de/app/keto-dia-t-low-carb-rezepte-6502717997/": {
+"lastmod": "2026-10-13",
+"sha256": "24b2d8b68c1f5ce9d449bc984a407910deb732ce45945903f2205e6a42364368"
+},
+"de/app/keto-dia-t-rezepte-1157455937/": {
+"lastmod": "2026-10-13",
+"sha256": "431ef24ae82905b0f51b65bd3bf70ae18e5d24a3fb1ef25364cee14435bc3515"
+},
+"de/app/keto-diet-carb-tracker-meals-1499044130/": {
+"lastmod": "2026-10-13",
+"sha256": "4340a3b24f010c1c4c897c772adf4e567b0420ec1a5c4a08f89243f4bcd899be"
+},
+"de/app/keto-kit-low-carb-keto-dia-t-1466180330/": {
+"lastmod": "2026-10-13",
+"sha256": "2ba07e55413c4514ee6e7f1922d3fea7596d5d6f6a451f2a784c61e499c70896"
+},
+"de/app/keto-manager-keto-dia-t-app-1475764462/": {
+"lastmod": "2026-10-13",
+"sha256": "4a3418c59a09cb861f53630db54dd8e74cc85bbcbfe558d2138e178356cb9679"
+},
+"de/app/keto-rezepte-ketogene-dia-t-1538893247/": {
+"lastmod": "2026-10-13",
+"sha256": "a62c9bd7e45ee80cb4d1422f54876779ea31e69de73678e6baefa86367712a89"
+},
+"de/app/keto-vegetarische-dia-t-rezepte-1634429086/": {
+"lastmod": "2026-10-13",
+"sha256": "4598af365936492c23e9e36fe3a9984aeb3b85e461078dbb9b84c48c0685310a"
+},
+"de/app/ketogene-dia-trezepte-pro-1479183137/": {
+"lastmod": "2026-10-13",
+"sha256": "4ca23da34ddcd911df1625c06ebb6107c5bd0e859bcc294bf6032e7059f78e42"
+},
+"de/app/ki-chef-rezepte-essensplaner-6760600773/": {
+"lastmod": "2026-10-13",
+"sha256": "9f4bd011f08c1149663dfdf00c0ccae411d536ad4f4d039272de5a8dedeb0ad0"
+},
+"de/app/ki-erna-hrungstagebuch-nutrevo-6746171538/": {
+"lastmod": "2026-10-13",
+"sha256": "084600281fdbbe5cbedd6bcbcef7631e22081a088261069f0bf8f201a7b74f6b"
+},
+"de/app/ki-kalorienza-hler-fitcounter-6498909414/": {
+"lastmod": "2026-10-13",
+"sha256": "8116ea30f5892548679e776c3bf2cfae07aaef7d53179a4b7050c84972ee69b5"
+},
+"de/app/ki-koch-rezepte-essensplan-6753792784/": {
+"lastmod": "2026-10-13",
+"sha256": "fe18425ac7d64d0e269de8d2262b002e0223c68b9575e27d0979e990f575af7a"
+},
+"de/app/ki-rezept-generator-kochen-6781527479/": {
+"lastmod": "2026-10-13",
+"sha256": "ea4c93ea80cbab9f5bb10b722bc98bdf81cf7e4c4872363a978e9fa6b3b24a60"
+},
+"de/app/ki-rezepte-chat-smartchefai-6792277222/": {
+"lastmod": "2026-10-13",
+"sha256": "4977a57822fd8d9cbfb18717d5ad948ac9c616e62f8e362a89192291e83a319e"
+},
+"de/app/ki-rezepte-planer-chefgpt-6748065537/": {
+"lastmod": "2026-10-13",
+"sha256": "03361f849f5b24fcb8c33e974557fba15427ff688a08d77bbb929c810d0416d2"
+},
+"de/app/kids-am-tisch-1252631002/": {
+"lastmod": "2026-10-13",
+"sha256": "10a4d116941ae9ed558d409ad784099cddccb35ac306514bdf9d7817f6709093"
+},
+"de/app/kipin-linkspeicher-notizen-6790818563/": {
+"lastmod": "2026-10-13",
+"sha256": "ef49a03ef28c22ecf102f00585d286feb4a67c2f2871beeea6472757c16f79b8"
+},
+"de/app/kiplou-einkauf-budget-6761068274/": {
+"lastmod": "2026-10-13",
+"sha256": "d022b61b58b68678f02c5d663d50fb18adc044e98fc6ef044bd0c323c274b530"
+},
+"de/app/kitchef-rezepte-kochen-6738958339/": {
+"lastmod": "2026-10-13",
+"sha256": "0ef685456512b18b27999a6ad43f41bc3e141a57db91d6c1c2b24d43cb0f24e7"
+},
+"de/app/kitchen-stories-rezepte-kochen-771068291/": {
+"lastmod": "2026-10-13",
+"sha256": "116ee9108bdb9141ca07402142e604da27c1fdb5f3e5733ddffdf8e17c4e7db8"
+},
+"de/app/kitchen-vault-rezepte-6761520486/": {
+"lastmod": "2026-10-13",
+"sha256": "dcae92cabd589d83d3ea400b6489ec5c28b7e9cb62b1262bae68859f8f07af25"
+},
+"de/app/kitchenbook-pro-559505390/": {
+"lastmod": "2026-10-13",
+"sha256": "df986886477a0900c0502388cb945afa81f0fe655e01d8bd15842bf1c72f8b6d"
+},
+"de/app/kitchencost-rezeptkosten-6756592070/": {
+"lastmod": "2026-10-13",
+"sha256": "d33232f9fe72ce0531c9ab403d4526aea5b6bd4cfc015f5acd84304bbf59f625"
+},
+"de/app/kitchenheroes-vorrat-rezept-6745468967/": {
+"lastmod": "2026-10-13",
+"sha256": "e96179acf0b09b89fd122898bbac57bb38afa4501a167f1a3bc438f99ece3857"
+},
+"de/app/kitchenpal-bestandsverfolgung-1084982489/": {
+"lastmod": "2026-10-13",
+"sha256": "8d22c3f6d61586aa4e4b8d9d1324a344d92f99eaaae669bbda0890b7d4b2acdf"
+},
+"de/app/klem-ki-kalorien-za-hler-6758241747/": {
+"lastmod": "2026-10-13",
+"sha256": "29236799bbd8283b928c2296a1de0c82b004545652dc5467c65ecc2cd01dac87"
+},
+"de/app/kluligo-by-klugeapps-6748579936/": {
+"lastmod": "2026-10-13",
+"sha256": "883c625261558e58ba29884b39cd5f0e0f3ed89eb0a7d44d2bfc732f92c10135"
+},
+"de/app/ko-rbchen-rezeptverwaltung-1193354063/": {
+"lastmod": "2026-10-13",
+"sha256": "61fbe2d041a37adbd3488a15d3c1a034aab7267c1a79eccbcd94b8984bcfcedf"
+},
+"de/app/kochbuch-app-von-cora-health-6474123733/": {
+"lastmod": "2026-10-13",
+"sha256": "5dc226c7c5115b2175783b73143ef4f45f9cca5d778f360bc3ea0735a99f0c03"
+},
+"de/app/kochbuch-mahlzeitplaner-6446027117/": {
+"lastmod": "2026-10-13",
+"sha256": "2269c5ee0b6abfaa409460aaf45e0f793efe4009029bc8e14313cf50e2374933"
+},
+"de/app/kochbuch-rezepte-speicher-6741009040/": {
+"lastmod": "2026-10-13",
+"sha256": "a43d7992f61406782aae2adf03970511ed755eee2361674a1d9ac63efce829c9"
+},
+"de/app/kochbuch-rezepte-speichern-1441949165/": {
+"lastmod": "2026-10-13",
+"sha256": "76db5b300606c777165468bea8e7a8b98ca4e151a847a34494fa2d88c19e2a52"
+},
+"de/app/kochbuch-rezepte-speichern-6737635309/": {
+"lastmod": "2026-10-13",
+"sha256": "96e4ef81a71d33c7c69e969026052afd476becae9df8ec5c9c78b1bd67baa8cc"
+},
+"de/app/kochen-rezepte-rezeptgenerator-6733245097/": {
+"lastmod": "2026-10-13",
+"sha256": "a5c7c1ff00f10e29578f8b045c61e1e2f28b661f18bd7bb6b97acc6a7eb41194"
+},
+"de/app/kochku-nste-tipps-rezept-1556365351/": {
+"lastmod": "2026-10-13",
+"sha256": "05029d4c137c69ce4cddd947d4d4baeb83fa1525683e1d1d4f2023cf3797bbd4"
+},
+"de/app/kochrezepte-kitchy-6746128642/": {
+"lastmod": "2026-10-13",
+"sha256": "f14a1f154d165a35b77b5df3793b1a5016dcacb96a4ef8741ac5565424786786"
+},
+"de/app/konditor-428814090/": {
+"lastmod": "2026-10-13",
+"sha256": "a06d24c0221fcd2c0a9dc99ae76d1562d972fa121c7b92a3960b26cb85327685"
+},
+"de/app/kooking-rezeptorganisator-6764635428/": {
+"lastmod": "2026-10-13",
+"sha256": "820f2c447e531d6092642e0c0d4af08fd12ce0e45512a9d758e77c742b66e5e2"
+},
+"de/app/kptncook-rezepte-kochen-795495986/": {
+"lastmod": "2026-10-13",
+"sha256": "3604664772339db18e4c7993e7a82dce68069f1a2c7ca961ef086ef0eeeb5f23"
+},
+"de/app/ku-chenkompass-fu-r-mealie-6759402066/": {
+"lastmod": "2026-10-13",
+"sha256": "5a4ed3e6b48970afa5d6a2420862e8a87ef450a8769f313ae9b8843ef83b15e1"
+},
+"de/app/ku-chenscha-tze-ki-ku-chenhelfer-6755601182/": {
+"lastmod": "2026-10-13",
+"sha256": "5a50f5f9d29148a96354f9e3b828d6c86d9da561ac000c323f4b2d408b1695d2"
+},
+"de/app/ku-chenschatz-dein-kochbuch-6758549254/": {
+"lastmod": "2026-10-13",
+"sha256": "3d16498877220c7fabd1d8767542c8cb4543c60a056a504a07d17b72751c67c4"
+},
+"de/app/ku-hlschrank-ki-scan-6757185053/": {
+"lastmod": "2026-10-13",
+"sha256": "acac3648519b21a091c5fe016a500665572eedf894f337424a1726c227688424"
+},
+"de/app/ku-hlschrank-rezepte-ai-6756927748/": {
+"lastmod": "2026-10-13",
+"sha256": "e3e3437421076ac3d68e22b21ddac2ae4b5846df0fe02ea0e8d33e1ca5dbeafc"
+},
+"de/app/kuchen-rezepte-back-guide-1469174767/": {
+"lastmod": "2026-10-13",
+"sha256": "f60791eab05bb8af4c9d7da02590c7f95c5a32e908b2dc29c54bfa2b3a7405a4"
+},
+"de/app/kuchenrezepte-offline-6472646521/": {
+"lastmod": "2026-10-13",
+"sha256": "d1ad54ce835a0477973b30c59640819643b1bcb58ecebcf53f9a95f32c211ff0"
+},
+"de/app/kurkum-rezeptbuch-1575901044/": {
+"lastmod": "2026-10-13",
+"sha256": "2e605c1d4aafd9096e1985ec029ea4a5349815c99281c1fd376762cb9c3c4cdf"
+},
+"de/app/kuskus-rezepte-speichern-6759342397/": {
+"lastmod": "2026-10-13",
+"sha256": "a6b26343f94fe29757922f97fdde646618a545dce03226c5b1ee6ce8c332307b"
+},
+"de/app/ladle-rezepte-essensplan-6760197380/": {
+"lastmod": "2026-10-13",
+"sha256": "f4200b5fb15742a1bf8191b465e6b39ff44e12ff60d679653669d37dc62a34a1"
+},
+"de/app/lapatisserie-rezepte-backen-1463439230/": {
+"lastmod": "2026-10-13",
+"sha256": "b35804dbd94e40b0f06522cb725194bcd708db65ab3d15ffc9fdaf2a5677cfd8"
+},
+"de/app/lazy-sous-abendessenrad-6760213445/": {
+"lastmod": "2026-10-13",
+"sha256": "805441f0415508de7c7d692b9429ab7ed37e411b7d3e4ff274a7280220266f5d"
+},
+"de/app/le-menu-6593681550/": {
+"lastmod": "2026-10-13",
+"sha256": "8c57f93c1b69c321b0ce0ae2898cd47c909faf323afdcb68036e9ee7de99fa1d"
+},
+"de/app/lebensmittel-scanner-analyse-6746719700/": {
+"lastmod": "2026-10-13",
+"sha256": "7609c50af09c5d06669334f784963cb62b10a60063a18f4535b576e743d02fc7"
+},
+"de/app/lebensmittel-scanner-vorrat-6747364499/": {
+"lastmod": "2026-10-13",
+"sha256": "0bca87430963568d3a333b127dc910281ea1a0841aae5590226db4865e7a8475"
+},
+"de/app/lecker-langsamere-herdrezepte-1220759897/": {
+"lastmod": "2026-10-13",
+"sha256": "03d041a92e2e1d3ecd04666d85b90977c200cbccae5100e3897a9a486ab4745b"
+},
+"de/app/lecker-rezepte-fu-r-jeden-tag-545648266/": {
+"lastmod": "2026-10-13",
+"sha256": "fd184d71391b037a5597c5007f75b2f5779f8e152d3374f03736b9314a845802"
+},
+"de/app/leckere-paleo-rezepte-1220761629/": {
+"lastmod": "2026-10-13",
+"sha256": "a001bd525907feea1d3fb3ac8eaf27aae6266abd4f016cc1dc94a4154110b86f"
+},
+"de/app/leftovercooking-was-koche-ich-6474693502/": {
+"lastmod": "2026-10-13",
+"sha256": "5eac0245fe7220b3491987eadcd03d77812154d887ad7344dec009a7fca63d16"
+},
+"de/app/levain-1572641630/": {
+"lastmod": "2026-10-13",
+"sha256": "ff6ea05eb527d74be0bd7bef70f8017cf3a10119131a191a4d91b5e017e2b2e5"
+},
+"de/app/lidavita-6504367031/": {
+"lastmod": "2026-10-13",
+"sha256": "df795b3208080238df0d86de7637e0655d3e95363dfb822e749febaeffb70651"
+},
+"de/app/lilara-familien-essensplaner-6751917561/": {
+"lastmod": "2026-10-13",
+"sha256": "84a1dcfd06714d055ee013732a540fed030e42ae3c156112ef923885a978e228"
+},
+"de/app/listme-6744246119/": {
+"lastmod": "2026-10-13",
+"sha256": "f4522bb4ddd6ccd0a671ec8ee13c8ec7f6ed0a18182c0007aa730b58d554ad85"
+},
+"de/app/little-foodie-start-solids-6450508838/": {
+"lastmod": "2026-10-13",
+"sha256": "16def32b360789eeca176c800ce6471612c773a7d5d3785ea218f56b7ef451b5"
+},
+"de/app/livo-die-haushaltsapp-6503068759/": {
+"lastmod": "2026-10-13",
+"sha256": "e873a9a6e1b6f4fb1a95003091aa1ebeab99bb1274a452b9df7d2f88bb2f87c1"
+},
+"de/app/lloyd-deine-ki-superkraft-588199307/": {
+"lastmod": "2026-10-13",
+"sha256": "7481eea9c9a674ce5b3167100729134ff4e7c39f0014965c82da46949937dcb6"
+},
+"de/app/logfast-ki-essensplaner-6760369326/": {
+"lastmod": "2026-10-13",
+"sha256": "6693f39596b23cf3a4b884b6895551cb1b90399191be5693679943dc13d8ee99"
+},
+"de/app/low-carb-dia-t-rezepte-855563791/": {
+"lastmod": "2026-10-13",
+"sha256": "1614a158746933302ae98aec9c6a0a1928c90c4b9cf85b2ac04257e47472a1c9"
+},
+"de/app/low-carb-rezept-des-tages-1026134261/": {
+"lastmod": "2026-10-13",
+"sha256": "223c8dabc5b0ccc2a344ed809abe3d3713831cfc334eb8cc5ff8d5a95ee7f5e6"
+},
+"de/app/low-carb-rezepte-1542946766/": {
+"lastmod": "2026-10-13",
+"sha256": "ad8746fcd17d900b51629e308dd73d089dfdb39b572106f20514885626c98cf0"
+},
+"de/app/low-carb-rezepte-abnehm-app-1573754795/": {
+"lastmod": "2026-10-13",
+"sha256": "2596b8624d5a7de9d5511f339d0c5f644c724ceb6e73eec5c0ed9f47c6babbbf"
+},
+"de/app/low-carb-rezepte-dia-t-app-1249682242/": {
+"lastmod": "2026-10-13",
+"sha256": "72fe267cc02ba1d53901e4a504a2f559c86a4cef99655a53e3f96172141fb666"
+},
+"de/app/low-carb-tracker-dia-t-rezepte-1500891588/": {
+"lastmod": "2026-10-13",
+"sha256": "ab7ce60be8a1bcd984500d1b183c9d45fdd61844e0b1f84cbbe80ea889cd023c"
+},
+"de/app/macroremix-recipe-remixer-6788236810/": {
+"lastmod": "2026-10-13",
+"sha256": "a425122813192ddad7cd3567a912b510c54524e6a18d96b8322c88720e25d449"
+},
+"de/app/mahlzait-ki-kalorienza-hler-6747400456/": {
+"lastmod": "2026-10-13",
+"sha256": "0f901bf9a85105d06f61701bba8d57b0d20efabe0c5dfb4321edaf917436b1c7"
+},
+"de/app/maik-mein-ai-kochbuch-6758913216/": {
+"lastmod": "2026-10-13",
+"sha256": "314f4e01f6a587238a5e60f00fcd6d801ff9e642351ad4500a15a4bee2a03acb"
+},
+"de/app/maincourse-rezepte-kochbuch-6758990872/": {
+"lastmod": "2026-10-13",
+"sha256": "08c5785687da81da89567fdfa759866609cfdf86fbed2990d095fd71b464c035"
+},
+"de/app/makitra-rezeptbuch-1502916823/": {
+"lastmod": "2026-10-13",
+"sha256": "b6178725c29daf49be50d3631656c719e1955a8aee933eb04e880106dcd31832"
+},
+"de/app/mama-zuckerfrei-rezepte-6514306976/": {
+"lastmod": "2026-10-13",
+"sha256": "ee5a666d1ec43f214ad00861365bf34637e048e5ef9a268bd790f54d51098780"
+},
+"de/app/mampf-plan-6784985528/": {
+"lastmod": "2026-10-13",
+"sha256": "c9aae32295398d7226ad87daf2bb1f5e96f2fa1960f3f8e0d0733fb479b43891"
+},
+"de/app/mampfplan-6760910358/": {
+"lastmod": "2026-10-13",
+"sha256": "640969841c89c99372a7d09370fdf523f3141746b740f7fde7f539e74a49fddc"
+},
+"de/app/mandu-koch-was-da-ist-6753137320/": {
+"lastmod": "2026-10-13",
+"sha256": "1a49f0196fcd6b280f1cc83bdc7a868d038dc27337c9108b839e8b018970f75f"
+},
+"de/app/mangerate-rezeptmanager-6739449635/": {
+"lastmod": "2026-10-13",
+"sha256": "224b49e6ef8edbeff0e0325656144e65a85c664b21f36219ef4a151323af6c7e"
+},
+"de/app/mangflow-rezepte-kochen-6759288417/": {
+"lastmod": "2026-10-13",
+"sha256": "6cd3d42f4e3a40bcf76110f9fe117e2716608b6931bc5146bea6b067fb2ea788"
+},
+"de/app/marble-essensplan-kochbuch-6766787487/": {
+"lastmod": "2026-10-13",
+"sha256": "7c1caaa4f04f7ad84efba3d34687f23423f75a9ab32ba6a37428f601f48741cd"
+},
+"de/app/marinate-rezept-manager-6761084770/": {
+"lastmod": "2026-10-13",
+"sha256": "4fd73c3b45c7496e0e6bd7e25e83b70c4ca9c73b519c3f10ed01114dc0b0dc6c"
+},
+"de/app/matredo-rezepte-einkaufen-6768097021/": {
+"lastmod": "2026-10-13",
+"sha256": "b84b04cce92213b9bc44362450f2f143512105d560fba9205e1d2bf7d738becb"
+},
+"de/app/maya-ki-rezepte-kochen-6749386118/": {
+"lastmod": "2026-10-13",
+"sha256": "4e03e20f8e845c05cc14ae91d559c281570965bd492de67e8a7b8fe146c493b2"
+},
+"de/app/meal-ai-kochrezepte-6754349611/": {
+"lastmod": "2026-10-13",
+"sha256": "dfc55aacc62c943c699ca1c846d21acc1a04cea2059b77af467a3f3de19bb7e3"
+},
+"de/app/meal-ai-rezepte-kalorien-6746159654/": {
+"lastmod": "2026-10-13",
+"sha256": "1ab11c59af9aca3ed2176f01243f1a2705a461d7c638ce05fe82f0867f4ce660"
+},
+"de/app/meal-engine-ki-dia-t-coach-6761684060/": {
+"lastmod": "2026-10-13",
+"sha256": "eb8897f8a4709ddfe9b2c8cf0329549a2fbae7d534baa23fe0744501c25200bf"
+},
+"de/app/meal-prep-planer-vorkochen-6757205669/": {
+"lastmod": "2026-10-13",
+"sha256": "543f2847981413ef7f3543430239e305be9e462967045e412206b6bca4d327c7"
+},
+"de/app/mealaura-einfacher-6753142948/": {
+"lastmod": "2026-10-13",
+"sha256": "56bbce8fbbc15f1079028df1e4fed843734239e48a16cc54f9545c6e7c8b7173"
+},
+"de/app/mealio-kochrezepte-6760898975/": {
+"lastmod": "2026-10-13",
+"sha256": "4bbe1d918ed69f775ac0400673f23003d924ba4bae3582723541c61b24f981c8"
+},
+"de/app/meally-rezepte-kochbuch-6757699100/": {
+"lastmod": "2026-10-13",
+"sha256": "022dd67a471ea101b4f5c8bed0ef6d4d9b463f8f02a10140667e7448853a506a"
+},
+"de/app/mealmate-kalorien-tracker-6740268220/": {
+"lastmod": "2026-10-13",
+"sha256": "01c756e4bafadee43259d0b41ed8ee2376b7f63889f7da30a4fac05d752c53db"
+},
+"de/app/mealme-was-kann-ich-essen-1578329313/": {
+"lastmod": "2026-10-13",
+"sha256": "ac80cb97e7ed63985187d1ba2a9c7d06b268c5c32464548dbb521c1d05073a83"
+},
+"de/app/mealprapp-6471120057/": {
+"lastmod": "2026-10-13",
+"sha256": "8f5731009ecd446febceae5eb3678e8492bd03efd7c359006dd95f22d01d0766"
+},
+"de/app/mealswipe-schnelle-rezepte-6450959198/": {
+"lastmod": "2026-10-13",
+"sha256": "d62a25547f31331472398de22ccc27901fd6503d4d74832ce7d46bf57f8c6f75"
+},
+"de/app/mealtime-rezepte-planer-6758350120/": {
+"lastmod": "2026-10-13",
+"sha256": "854e955bd117812fa2ae873d2f7f9af9300093583d736125856c501afaa7803f"
+},
+"de/app/mealtime-rezepte-speichern-6759633681/": {
+"lastmod": "2026-10-13",
+"sha256": "94216a5d28dabac906a61bbae5f6643276d10a9e2e5b6813d088c0ff46718fee"
+},
+"de/app/mediterrane-dia-t-rezepte-6664058056/": {
+"lastmod": "2026-10-13",
+"sha256": "88e356b39df1b36265e7979e8d535bca1366772152f761b114aa8383521e6066"
+},
+"de/app/mediterrane-dia-t-rezepte-app-797221304/": {
+"lastmod": "2026-10-13",
+"sha256": "835f9dda189a68fe563707fb58ece7e1a03a3c9c801b1609f2b1ef74a5443760"
+},
+"de/app/megusta-club-rezepte-plan-6759932481/": {
+"lastmod": "2026-10-13",
+"sha256": "ca52a2d6bd6fd381f48122b562337e627e0bb208d6378b65cf3d979938cb6a5c"
+},
+"de/app/mein-rezeptebuch-1582999186/": {
+"lastmod": "2026-10-13",
+"sha256": "636287de9820038b84a55bf0b2c0dcd287970b608a22e566ac962e04207542f1"
+},
+"de/app/meine-rezepte-1071813036/": {
+"lastmod": "2026-10-13",
+"sha256": "c0a9babfac55d5eeb28f47838ab3debd25b61f344bf9ad3def33c057e9d8ae7d"
+},
+"de/app/menu365-6504488972/": {
+"lastmod": "2026-10-13",
+"sha256": "9ebcfcd5537621c69b01a1379958735eb8d695fb01c96d4696a04a20f1950b69"
+},
+"de/app/menumagic-smarte-erna-hrung-6748640960/": {
+"lastmod": "2026-10-13",
+"sha256": "85e580fbad744fbc70af72639b5788348c30d02064dc456b7dad51304c26c402"
+},
+"de/app/meshi-plan-mealie-app-6754854918/": {
+"lastmod": "2026-10-13",
+"sha256": "a1ead2fafd16ac6e8bdc3b71d9ede781b61cbfcedaf85df8562a0d26a7a3bcb5"
+},
+"de/app/mimba-erna-hrung-fu-r-schwangere-1633501121/": {
+"lastmod": "2026-10-13",
+"sha256": "4edfee5f12a23f67f78a5959f1c4407f491627ebb95a462a169527d644cc5ba9"
+},
+"de/app/minoms-rezeptbox-1555720371/": {
+"lastmod": "2026-10-13",
+"sha256": "290bc7761759d5e30714b5d755f5ccf42b1de3a0eb3c2eade90be1c010c1baf1"
+},
+"de/app/mise-ki-rezeptbuch-kochen-6760411308/": {
+"lastmod": "2026-10-13",
+"sha256": "cd5f551d261ad1afbd79ac2ea788f04acaae9006344fff37c2dcb627bdca7d59"
+},
+"de/app/mise-ki-rezepte-essensplan-6769213569/": {
+"lastmod": "2026-10-13",
+"sha256": "50671221b1e0c2ba3175021e0ced4559e73a4dc2691a123d42733df54d57d570"
+},
+"de/app/mise-rezeptbuch-kochbuch-6759269090/": {
+"lastmod": "2026-10-13",
+"sha256": "c35116ccaa50c82fe4b325d795280933554a84ddd5ef0f349ffb610b84921b7f"
+},
+"de/app/mise-rezepte-kochbuch-6770274805/": {
+"lastmod": "2026-10-13",
+"sha256": "42e4ff41465b66dc8cc39cf16cf21e8b88a4643b1f828ff0d29274b68c2793d0"
+},
+"de/app/mise-rezepte-speichern-6788331332/": {
+"lastmod": "2026-10-13",
+"sha256": "89d78d3e2ffd402bc8d01764f99b865150416d9062f6952b0ad7d59fb7bbb5ca"
+},
+"de/app/miso-cook-rezepte-kochbuch-6757978247/": {
+"lastmod": "2026-10-13",
+"sha256": "dfb8bb93306e085263db40b3e7333cfbd07b4d0241ad425c4c9ae87d71710684"
+},
+"de/app/miso-recipe-keeper-6756516262/": {
+"lastmod": "2026-10-13",
+"sha256": "9f59a0212d6a264932233c294d871a44af2e79b4da7506d8c91398c38ed6d113"
+},
+"de/app/mittelmeer-dia-t-essensplan-1598055899/": {
+"lastmod": "2026-10-13",
+"sha256": "ca96c62445692d5b45823d384b92e094eebfc35b24b619b2ed97fd47f7e4d1bc"
+},
+"de/app/mixbuch-thermi-kochassistent-6743100604/": {
+"lastmod": "2026-10-13",
+"sha256": "9ff7ae4f55f2e9822d831d1f1b107b6c5b7dd00aba7c19b653a4fe18202e27ae"
+},
+"de/app/mixgenuss-1643532655/": {
+"lastmod": "2026-10-13",
+"sha256": "e3aa9264de0811c03e3a1aeaaf2164e19e912a9b56460d6e263d10d562797126"
+},
+"de/app/momplan-6755446969/": {
+"lastmod": "2026-10-13",
+"sha256": "706017cc8bcc9252876b1bbf3c793228aa861c00acd23fc1825c9c3ddf01a09b"
+},
+"de/app/mon-ig-bas-ia-index-glyce-mique-6752621791/": {
+"lastmod": "2026-10-13",
+"sha256": "2141df56111693cae627f708348f2497d987b8e415af9fcbf87db7e19d4b959c"
+},
+"de/app/monu-erna-hrung-rezepte-plan-1512133595/": {
+"lastmod": "2026-10-13",
+"sha256": "8706e7a0fc4d08e75ccb4618156f21d127fab452bb33db29dcb4e8bbcf6d9353"
+},
+"de/app/my-cookbook-all-your-recipes-1641356421/": {
+"lastmod": "2026-10-13",
+"sha256": "b267a45371c991a033b185f64ea190e04609db65b34c832091a9a9d7813f2e64"
+},
+"de/app/my-low-carb-1620299684/": {
+"lastmod": "2026-10-13",
+"sha256": "a8616b58a6e550bdfcb04b8083201bd21bd3ae5923c01ea531b79441d49b9fb3"
+},
+"de/app/my-plate-kalorien-scanner-6743085871/": {
+"lastmod": "2026-10-13",
+"sha256": "855e6135cc069a7935c194b8bc3966b31032d18038caab97a8862847cfafdcda"
+},
+"de/app/my-recinote-rezepte-einkauf-6752902180/": {
+"lastmod": "2026-10-13",
+"sha256": "0461dce29339590d6a536717e7673c1cf1f80ab4b7b5216adff41f64242def31"
+},
+"de/app/my-recipe-box-kochbuch-rezept-1195541934/": {
+"lastmod": "2026-10-13",
+"sha256": "65880a056afe53e2286aac70fd9060882a1caa4b23b753f2a1805c69220a51b8"
+},
+"de/app/my-recipe-notebook-6754462300/": {
+"lastmod": "2026-10-13",
+"sha256": "c649ff1e3dfe0a399ba1910ec8a6cc7ad659410deb63a6865a161d02750f0d49"
+},
+"de/app/mycookingpals-rezeptbuch-6755522761/": {
+"lastmod": "2026-10-13",
+"sha256": "9f8447835d8093804e537ff327053c8aa74053e962ce6b8bcfafa8de047cebb0"
+},
+"de/app/myfitnesspal-kalorien-tracker-341232718/": {
+"lastmod": "2026-10-13",
+"sha256": "b384ddfea7a5ce4f99b48d4719f2cf8cf7203da4c1838a4c01c2b4d7b4f33b52"
+},
+"de/app/myfoody-kalorien-per-foto-6785505143/": {
+"lastmod": "2026-10-13",
+"sha256": "f23fee32ac0fab53856d97436af862d86a9c1ab535872488707df4c42cfbfba2"
+},
+"de/app/mynestplan-familienplaner-6756941217/": {
+"lastmod": "2026-10-13",
+"sha256": "1dbb9e6f85d361f11b86c7ab8872bf0f1462825cd56a8bcc3457a9cf809deef3"
+},
+"de/app/mypolly-smarte-einkaufsliste-6633430581/": {
+"lastmod": "2026-10-13",
+"sha256": "a63c57dba54516ebb2a9ef147e9cdcfd9f081217bb2f3c5353553aeb5dfdb77a"
+},
+"de/app/myrecipe-rezepte-speichern-6757368997/": {
+"lastmod": "2026-10-13",
+"sha256": "a5b4d0864b4105a6042dbcda14fc2ee012b785f9d30fe36146b5be44bd07256b"
+},
+"de/app/na-hrwertcheck-gesund-essen-621496642/": {
+"lastmod": "2026-10-13",
+"sha256": "acd9775c72ab46e39a21ce8c28a0ebf3da13bc38876bbc47940fe557e1482b92"
+},
+"de/app/nieren-dia-t-tracker-kidneypal-1523371555/": {
+"lastmod": "2026-10-13",
+"sha256": "644d6664dc987ebdd3b4eb0c6dfd87b41cd0111756814d9fede20283036282df"
+},
+"de/app/no-ra-ki-essensplan-prep-6764143242/": {
+"lastmod": "2026-10-13",
+"sha256": "8e02ab1aa79841b895d3c10bb21a10b42360dd1f51e8151bd60f68bdd31a17e5"
+},
+"de/app/nosh-ai-rezepte-und-erna-hrung-6749610047/": {
+"lastmod": "2026-10-13",
+"sha256": "d6892cbae794e84eed4d0c55e1ee031f5b2ee953e9ce683b256bed4293ddddf2"
+},
+"de/app/nourio-rezepte-speichern-ki-6787101883/": {
+"lastmod": "2026-10-13",
+"sha256": "3396a682a3cf405bf5095287befb4b475613d8bc1c22bc035bc9285430519387"
+},
+"de/app/nutrai-dia-t-kalorien-6746746820/": {
+"lastmod": "2026-10-13",
+"sha256": "d4278781d48f76b38b3f245c9ad905c82e9ae1d7ae0a11ed2835a57926c147d7"
+},
+"de/app/nutrify-ai-kalorienza-hler-6737628384/": {
+"lastmod": "2026-10-13",
+"sha256": "44aabbf0f6433778477b2d550dbe29ddad9f9e5dbe7c327d125f7d96e5733618"
+},
+"de/app/nutrilini-familienerna-hrung-1631103039/": {
+"lastmod": "2026-10-13",
+"sha256": "aeea0138fd90c554621d773198935150b8cf87fa9a2e33d6f8cb1bf7d39820be"
+},
+"de/app/nutrily-6502874468/": {
+"lastmod": "2026-10-13",
+"sha256": "761232ee7224da0fcdabc716407dbb220bad76eac4727d29a0970cdcbe04e861"
+},
+"de/app/nutriplan-essensplaner-6752868143/": {
+"lastmod": "2026-10-13",
+"sha256": "2c41e39b6bb0c5394ef2ce7386978b076eba243cd99765f8c06659a02818bb0a"
+},
+"de/app/nutriscan-ai-kalorienza-hler-6736640839/": {
+"lastmod": "2026-10-13",
+"sha256": "7f2c92632a8600f37797324f2f75f7a10906215eb9b99d7d539de24ae6043d19"
+},
+"de/app/nutrition-kalorienza-hler-6504527361/": {
+"lastmod": "2026-10-13",
+"sha256": "def6db5d8dbfd639c1b04d4642a92556a699ea795bf01e5c998b4f0e5a60b126"
+},
+"de/app/nutrola-ki-kalorien-za-hler-6752298588/": {
+"lastmod": "2026-10-13",
+"sha256": "08982408f614fec91f2d33a7fff3e9d95f09e253bf2b4d88216aec7e13543805"
+},
+"de/app/olivers-glutenfreie-welt-6695735499/": {
+"lastmod": "2026-10-13",
+"sha256": "f58250d7e2dffbbd79bd52598fc35231d3bbeb51434b2663602d20ba2428f353"
+},
+"de/app/olivia-kalorien-fit-rezepte-6745644675/": {
+"lastmod": "2026-10-13",
+"sha256": "d6074fcf6960e54bf17cc1ce6193d13fdc4b7a280fc97c1e2c60e8fc59c12f6e"
+},
+"de/app/olly-rezepte-speichern-6759987107/": {
+"lastmod": "2026-10-13",
+"sha256": "a09adf8456896d92835142013ca0f86a887fea25930b033419a96a219f9a0693"
+},
+"de/app/omniteca-alles-speichern-6777974992/": {
+"lastmod": "2026-10-13",
+"sha256": "84adec2e49424b4f12a9fe0f4faf9843b8031c078a51c600ae08af714856d38e"
+},
+"de/app/organic-meals-gesund-abnehmen-1593030112/": {
+"lastmod": "2026-10-13",
+"sha256": "40969719a7a39b0cdc851d39dc3ff2ca2da81b58839d4cf6edc30e7db5def52a"
+},
+"de/app/origineats-rezepte-kochbuch-6762737453/": {
+"lastmod": "2026-10-13",
+"sha256": "01bce3fbc210b60a6758d70e37365e75ee038ffae918efc7abf6e5d0b14a65c5"
+},
+"de/app/osta-rezepte-speichern-6739286231/": {
+"lastmod": "2026-10-13",
+"sha256": "97df59971b561b30a86fa9c502d3852dba3759d0c1b0187c1efac653c1e9bb19"
+},
+"de/app/oxipur-gicht-und-nierensteine-1136215457/": {
+"lastmod": "2026-10-13",
+"sha256": "99a959e18f71a8ce39316866555e6d401bf1a0a48baaf226a619a0fa7df579af"
+},
+"de/app/pala-o-rezepte-gesunde-erna-hru-1145757734/": {
+"lastmod": "2026-10-13",
+"sha256": "cabfee4b0b52ba7294e275b9300f0913d3427709921a6e5dac5eb86a2e57b642"
+},
+"de/app/paleo-dia-t-rezepte-plan-1501293324/": {
+"lastmod": "2026-10-13",
+"sha256": "18742a87968e61f29e0a95ad3a896c92bdce4be24da8b7e819d0662a3096583a"
+},
+"de/app/pam-1540604002/": {
+"lastmod": "2026-10-13",
+"sha256": "fa40abcadffb08064c91cd8a4f41cdd305313cdb904f2052f2ffb89c8cdf93f9"
+},
+"de/app/panly-batch-cooking-rezepte-6756827448/": {
+"lastmod": "2026-10-13",
+"sha256": "1782995fbe7532d605482e5c7dd2794176ef84f7533ff7f447b67bb272c05aef"
+},
+"de/app/pantrist-einkaufsliste-1531156635/": {
+"lastmod": "2026-10-13",
+"sha256": "66ceb82aea5c584ae88e1db728ec7ea114abd669292a19325d2126f921f4060c"
+},
+"de/app/pantry-ki-ku-hlschrank-rezept-6764119821/": {
+"lastmod": "2026-10-13",
+"sha256": "f9ddf076c2f18068f11283679602e8ef457ec267bd507e70213dc76e7065dc1c"
+},
+"de/app/pantry-ku-chen-manager-6780212050/": {
+"lastmod": "2026-10-13",
+"sha256": "02fe4158f221de9e6f35382b1b8cbb744d0dec446d64b26a0aa1da9f8d8a3b59"
+},
+"de/app/pantry-pic-foto-zu-rezept-6746350523/": {
+"lastmod": "2026-10-13",
+"sha256": "83c5de500a548f5cbcf482c83be2275e0dede6f7de81cb5eb408a1842295f2ab"
+},
+"de/app/pantry-speisekammer-im-handy-1541163843/": {
+"lastmod": "2026-10-13",
+"sha256": "ee789e22b1f8ef370fb66b6da0107283f3d59c3d0f6479190debb8f7f9021710"
+},
+"de/app/pantryai-rezepte-speichern-6747031054/": {
+"lastmod": "2026-10-13",
+"sha256": "a504836c5684c3686a4baf40ca04f7059401dd9e5f8a624cf5e6a18895a8471d"
+},
+"de/app/pantrychef-rezeptgenerator-6502942383/": {
+"lastmod": "2026-10-13",
+"sha256": "d05c72aa2aaae6bb128e309d77a90fb6d898ed63ba359b99e9ca6babce017b59"
+},
+"de/app/pantrypal-vorratskammer-6772953937/": {
+"lastmod": "2026-10-13",
+"sha256": "2cd058596f8f7d344623d0fac8b18e2086a15a11af5ce734bd224916b43c7043"
+},
+"de/app/paper-chef-6759010838/": {
+"lastmod": "2026-10-13",
+"sha256": "388f4be1a4ef81b030f26aafd113a5c3cda8519274f3599ff949c887d5f5518f"
+},
+"de/app/paprika-ihr-rezeptbuch-6747945574/": {
+"lastmod": "2026-10-13",
+"sha256": "160ed903167051adc7a4b18e5cf9a2c6531397a6e4cfdeccd31f3d066dc505ae"
+},
+"de/app/pare-rezepthalter-planer-6761906102/": {
+"lastmod": "2026-10-13",
+"sha256": "9ccb7ddfe794463f900399d2c89a05459e186c84e58f9dbd9a6a81ef69d9e5dd"
+},
+"de/app/parrotpal-kalorien-za-hler-6462694790/": {
+"lastmod": "2026-10-13",
+"sha256": "5d22bfe3785650b9a474d34778263dc656b459768c1c5d07e5d22a7c3bdca87f"
+},
+"de/app/passta-essensplaner-ohne-rest-6786741738/": {
+"lastmod": "2026-10-13",
+"sha256": "02d4a199ccc17dc3afb6f174a3fc934b6f055caf3259488ea9e0b32b626bb586"
+},
+"de/app/pasto-rezepte-allergene-6770714828/": {
+"lastmod": "2026-10-13",
+"sha256": "37b379bf1c31d7b32990565ef798a465bcf85db898898b1e5f1ab5e3fd02da48"
+},
+"de/app/pastry-chef-pro-428829875/": {
+"lastmod": "2026-10-13",
+"sha256": "367a9e1ed10383039fc41efeea19992f855c27b55317651f392235594c150b24"
+},
+"de/app/pauli-universal-1457543831/": {
+"lastmod": "2026-10-13",
+"sha256": "7ed70a694d601f95f08a18c65e3202cc13de5425d1031d2d3298a2b7d7337855"
+},
+"de/app/pentola-spezialita-t-des-chefs-6483004727/": {
+"lastmod": "2026-10-13",
+"sha256": "8e026c5f2cda8a794e40b42e9466ead05e1b02329e14f1e4b662eb9f69247370"
+},
+"de/app/pep-gesunde-rezepte-app-983973815/": {
+"lastmod": "2026-10-13",
+"sha256": "20d9337bd13b2221826dbbe214767d6e6078ba18656bb7881457e74d85c9b558"
+},
+"de/app/pepe-kochbuch-partner-6755343295/": {
+"lastmod": "2026-10-13",
+"sha256": "fd6142a8fe3379e90fc1b3cfbe5a70ca187f1f26597098a5712f8f9ee9535968"
+},
+"de/app/pestle-rezeptmanager-1574776971/": {
+"lastmod": "2026-10-13",
+"sha256": "b06cc0cb2facb2bdf0c0712a938c1c9c05cdd1cd61e2163dc198ae6abe981fbf"
+},
+"de/app/pizzateig-rechner-6762281735/": {
+"lastmod": "2026-10-13",
+"sha256": "782c099ab1afe1fc2fcd564a5ab6ac2a71959573496962ac4ac89eaaa1bace51"
+},
+"de/app/planbite-1560212665/": {
+"lastmod": "2026-10-13",
+"sha256": "da8643aaf141712acc99cb1cee68315544c62f45f2c4d18f5b4179239db7e943"
+},
+"de/app/plannymeals-rezepte-sammeln-6752878077/": {
+"lastmod": "2026-10-13",
+"sha256": "bfc7a37e5db6f6f7d6a998601c6f506cf2bb1e7f3701879eabcc52eaa41ee213"
+},
+"de/app/plato-rezepte-essensplan-6756822741/": {
+"lastmod": "2026-10-13",
+"sha256": "58f7a439e16fba2ad59c427c4b2dc8cf22ffd0daeb7e493173e6d5cfa83c76c7"
+},
+"de/app/plum-rezept-saver-6496861616/": {
+"lastmod": "2026-10-13",
+"sha256": "16bd9494db6c76ec6896323f98495fae91358485aea337848e95128fe272e136"
+},
+"de/app/potluck-your-recipe-cookbook-1462903763/": {
+"lastmod": "2026-10-13",
+"sha256": "33181af0b33287ce6f2a388b3112210e16be46596955dff2dc97ff5b9db95c8e"
+},
+"de/app/prep-ai-recipe-generator-6760414268/": {
+"lastmod": "2026-10-13",
+"sha256": "884aae308a1ca6ff7b3b4daf36acb4a24b0b8d9049be465de39d7373456f5e73"
+},
+"de/app/privatecookbook-rezept-manager-6757075325/": {
+"lastmod": "2026-10-13",
+"sha256": "d5b74f1d684f0e7ae883beab7e956d0d54aaacd24f700e217b4ca3983c81cc3c"
+},
+"de/app/prompt-en-place-6760935094/": {
+"lastmod": "2026-10-13",
+"sha256": "fd369b6760ed21b28f480b1690c75ba52a2d5ac5b915e895d7347e249071c90f"
+},
+"de/app/protein-essensplaner-gram-6787090489/": {
+"lastmod": "2026-10-13",
+"sha256": "3e2c8d001982f6c851153c94a9642ac6db6613b5685dfc4278409fca817a7d34"
+},
+"de/app/proteinchef-988782801/": {
+"lastmod": "2026-10-13",
+"sha256": "036500777f3220622bd9631071c532c967047352122cbfbc1272281f2f6e4366"
+},
+"de/app/realrecipe-rezepte-speichern-6758808571/": {
+"lastmod": "2026-10-13",
+"sha256": "42ae4be4d6fe563bc9950e21e5421edc241a4245ad42c821ce43a238a25a1434"
+},
+"de/app/recaipy-rezepte-speichern-6745095790/": {
+"lastmod": "2026-10-13",
+"sha256": "e1a558a3238b2119026ce629e184c6953fb8e68a05e2108c8795ffd60606a28e"
+},
+"de/app/receptar-6761210472/": {
+"lastmod": "2026-10-13",
+"sha256": "c4f77d367a3175fee5347e8cdd831889e253417a1094b35e98d8aa0c80608c80"
+},
+"de/app/receptico-rezepte-kochen-6752615161/": {
+"lastmod": "2026-10-13",
+"sha256": "1d621453cc046e04bee707a0a4ebcbadf1c509d595b41da3b55818151eb5633d"
+},
+"de/app/receptify-kochen-einkaufen-6760366708/": {
+"lastmod": "2026-10-13",
+"sha256": "244a2e94487634df54fd5367c4eb8fa38a20016c5626a46b869b2f0d8fc447c8"
+},
+"de/app/receptly-rezepte-speichern-6758713596/": {
+"lastmod": "2026-10-13",
+"sha256": "beafda9e96b421175815035844b190bcb2a89c67a192ae3c74e19dece5b18948"
+},
+"de/app/recetto-6764886436/": {
+"lastmod": "2026-10-13",
+"sha256": "303f8f2d549bfe445311ffb6ba5c69c15de130d34af95b71503fe2bc4ddfffc5"
+},
+"de/app/reci-ai-rezept-kochen-6774965194/": {
+"lastmod": "2026-10-13",
+"sha256": "2e015377d4b3c18dacac746a04821976ad87005a7695e57ccf7e0ad5ae7c61d2"
+},
+"de/app/recibites-rezept-essensplaner-6760729049/": {
+"lastmod": "2026-10-13",
+"sha256": "2cfefe51e50f3f65b89742908357dd83c912d047943d5a253197cc74d1a483a4"
+},
+"de/app/recibuddy-rezepte-kochen-6749272749/": {
+"lastmod": "2026-10-13",
+"sha256": "793b6c9a517bdae3d7cbea7915a99809f42bcd1eb6a31ebd93449482cf7757f2"
+},
+"de/app/recimarry-personal-recipe-book-6747362878/": {
+"lastmod": "2026-10-13",
+"sha256": "97651294bc67c3d769e6c44d2cc66e5d5b2d46e4cede1b278beee5f8e3df82e5"
+},
+"de/app/recime-rezepte-speichern-1593779280/": {
+"lastmod": "2026-10-13",
+"sha256": "32c5e4891c2ba91db19d15375ae51c2d8ec2473ce67b7eaf5a70ac18d3394ade"
+},
+"de/app/recip-ai-ki-rezepte-planer-6759184657/": {
+"lastmod": "2026-10-13",
+"sha256": "ac12d042aa53987a634bc13956f2f2af94ab3d1eec467a26a603f9081f216736"
+},
+"de/app/recipe-catch-scannen-ordnen-6796647808/": {
+"lastmod": "2026-10-13",
+"sha256": "09fb0806496cd5f03f9f3b53712c9074e1510dce6afd64d2294eb8af827792af"
+},
+"de/app/recipe-gallery-kochbuch-634675138/": {
+"lastmod": "2026-10-13",
+"sha256": "4e46c71ca1bc8c6e89e99383b3fca2273b2a1c8adf33818f7d409d35faca2290"
+},
+"de/app/recipe-grab-video-zu-rezept-6770461608/": {
+"lastmod": "2026-10-13",
+"sha256": "5847581d84129674247f8f954e9281b8152e33acbcd33cc68316d66a03e846b4"
+},
+"de/app/recipe-keeper-974683711/": {
+"lastmod": "2026-10-13",
+"sha256": "679d71d104291ece79c47495cc92d1250d670f2d55e49f2aa2f65dc760041b7c"
+},
+"de/app/recipe-keeper-card-6772566214/": {
+"lastmod": "2026-10-13",
+"sha256": "6ec64481cd7ac3a05d416f035dd1aa289ad8bef728a442f9e1e837bebf8d96ce"
+},
+"de/app/recipe-keeper-cooklet-6760195284/": {
+"lastmod": "2026-10-13",
+"sha256": "3ede469c8d7a92ae382842bfb83092fda29c1ff0482dedec23401ea6ee6028d6"
+},
+"de/app/recipe-notes-my-cookbook-6740270378/": {
+"lastmod": "2026-10-13",
+"sha256": "f81e676ff10f98d0d70f8dcf8a563e6937d179e6918866cd75f0ec3dbc550459"
+},
+"de/app/recipe-one-rezeptverwalter-6743317601/": {
+"lastmod": "2026-10-13",
+"sha256": "9867d8390ba5f34a3271c9c3974be32329824a41702d38fd7c4d85470884b54b"
+},
+"de/app/recipe-wizard-chef-6502964550/": {
+"lastmod": "2026-10-13",
+"sha256": "164daca6ae0f5f08d13d59b8c7235160801eec247cac221cca081716d051a472"
+},
+"de/app/recipea-ki-rezepte-sammler-6761544075/": {
+"lastmod": "2026-10-13",
+"sha256": "a3bc5d9e4ded095328a3c69c9b53e33c9d40ead9099397feceb0a4ef130702a4"
+},
+"de/app/recipechef-rezepte-verwalten-1563767649/": {
+"lastmod": "2026-10-13",
+"sha256": "157076f76f0ce3a8ea36369d1fa2dea49ab0bb50fe8199c202252350f4eefcdc"
+},
+"de/app/recipegenie-rezepte-vorrat-6753361476/": {
+"lastmod": "2026-10-13",
+"sha256": "143ffcdfcbda3a1a1d55ef85bf6f514826edd339270b094ffd5adf77f16a92eb"
+},
+"de/app/recipeinbox-rezept-speicher-6766694174/": {
+"lastmod": "2026-10-13",
+"sha256": "df38b57607672ae013d85c64425a79f47f21acd8ff2ca92ac0232658bacee887"
+},
+"de/app/recipekeeper-familienkochbuch-6761615340/": {
+"lastmod": "2026-10-13",
+"sha256": "19630e8946c416403a42d0972c9792c86acb13f4046a66412713d9d4e7e420ee"
+},
+"de/app/recipekeeper-org-6759565945/": {
+"lastmod": "2026-10-13",
+"sha256": "a1c24681866c096ac12910e31e033d93bded25b6c903f536c025920b100ff5d1"
+},
+"de/app/recipept-6450139064/": {
+"lastmod": "2026-10-13",
+"sha256": "71603bd6456d7592a8ab9e97a2ca154f1d1b984e13d7669108960aa10362d00c"
+},
+"de/app/recipesmanagerpro-6757433129/": {
+"lastmod": "2026-10-13",
+"sha256": "a2664e8439b1319a43a0028310e2cf56475d0fa939a69680f1c8898e6e9cf792"
+},
+"de/app/recipesnap-rezepte-einkauf-6757262733/": {
+"lastmod": "2026-10-13",
+"sha256": "e99a3813a8abd08c06447f0161ef2ba5d159433f3eba8072365a272b8993fe6f"
+},
+"de/app/recipevault-recipe-keeper-6758783243/": {
+"lastmod": "2026-10-13",
+"sha256": "cdd54f8c1a54b55b507b5b7b4a154921fdc11e60cbf9eb7159c401d5913e708b"
+},
+"de/app/recipezy-recipe-organizer-6759985207/": {
+"lastmod": "2026-10-13",
+"sha256": "8a71c110d5d30b03d1d010995f567959484b31448c9da8ef6f6ce1d2f94fee62"
+},
+"de/app/recipic-mein-kochbuch-6746692787/": {
+"lastmod": "2026-10-13",
+"sha256": "725d0a7a42c5370abfd5ce638c06d591fb4d6b1e64055c473b5243382c925c85"
+},
+"de/app/recipify-5000-recipes-6505066990/": {
+"lastmod": "2026-10-13",
+"sha256": "68a60296ba778c16ee834f7c1cade4c2473df0065f40d004af38a0609de314dc"
+},
+"de/app/recipify-kochrezepte-6741334865/": {
+"lastmod": "2026-10-13",
+"sha256": "2ae823a07727f13f14f56f4db5d06730226fb748f1f94953ebe37d8a6092da0c"
+},
+"de/app/recipin-speichern-finden-6745559183/": {
+"lastmod": "2026-10-13",
+"sha256": "2f4991600565f6152a50928333df0353de8b9f5ba1641fdd2e9ad13e21ec181b"
+},
+"de/app/recipool-6755876823/": {
+"lastmod": "2026-10-13",
+"sha256": "d3c65c21e82aba39462c0c943dc0cf1eab51e5cbb7f0ecb79d5387b68909f674"
+},
+"de/app/recippa-ki-rezeptsammlung-6770222120/": {
+"lastmod": "2026-10-13",
+"sha256": "53973fe4ceec700ca178124b6e602a39c3e38a980cd441910791b4602fc1e62a"
+},
+"de/app/recisaver-rezepte-speichern-6789108167/": {
+"lastmod": "2026-10-13",
+"sha256": "72525e19fdcefa14febb544d7559715de4909dd3af99cf430d8936e47cfa7618"
+},
+"de/app/reelmeal-rezepte-aus-videos-6757530030/": {
+"lastmod": "2026-10-13",
+"sha256": "c222bd8c39df2f5a7bf19d42946cbeab6a4762cfecc81074bc85c3bed818c8a8"
+},
+"de/app/reelmeal-virale-rezepte-6749771343/": {
+"lastmod": "2026-10-13",
+"sha256": "6a75a5123fbe33263c8057b5be9a22f2c218e29679b2b65b8d6a90dccfc3d95c"
+},
+"de/app/resimply-video-zu-rezept-6752250718/": {
+"lastmod": "2026-10-13",
+"sha256": "1ecbff97b271fde453e5bcf5ba100f707b9569b413775d94caa2c064413e8ee9"
+},
+"de/app/restegourmet-rezeptsuche-ki-1594663463/": {
+"lastmod": "2026-10-13",
+"sha256": "8c154ab9ed08c0994e9c4939d24d9be02ce6d42ac1b3942ed9d757776efcbde4"
+},
+"de/app/restezauber-ki-reste-rezepte-6773112519/": {
+"lastmod": "2026-10-13",
+"sha256": "32f6e39920abe72d21f88f3b36f54deddaf0b4677381f95f533c4fdf584f40b2"
+},
+"de/app/rezappte-rezepte-planung-6755952838/": {
+"lastmod": "2026-10-13",
+"sha256": "c04b3dc67f573509cd1f830851f60b856d621afd4a2fa606e63261bff093a14b"
+},
+"de/app/rezept-aus-video-snappy-6760303677/": {
+"lastmod": "2026-10-13",
+"sha256": "c0b7e3d1cb8b0e6608faa77bf64412d893f9fa222e8079681da82264f2174d38"
+},
+"de/app/rezept-des-tages-koch-rezepte-691060536/": {
+"lastmod": "2026-10-13",
+"sha256": "5037d4a1a126425c392c8ab5ae2f3d87178fe40f5606acca1a7c39a9b8bb9b99"
+},
+"de/app/rezept-manager-recipe-bro-6740056091/": {
+"lastmod": "2026-10-13",
+"sha256": "386c9788ce96b88c0f18b7691652f4ccaae33bed704a56ffd31c54f97869a812"
+},
+"de/app/rezept-organizer-simmr-6746423883/": {
+"lastmod": "2026-10-13",
+"sha256": "27b515015197c29c1b4759d8b7b9e5eb69351793834c23430a134470df127934"
+},
+"de/app/rezept-roulette-1672402270/": {
+"lastmod": "2026-10-13",
+"sha256": "8a7f7d7b19968dbf289bc2bc77f3a1de933ea3bc799987a65101cca1519d255c"
+},
+"de/app/rezeptbuch-cookmarks-6477822146/": {
+"lastmod": "2026-10-13",
+"sha256": "58289be61e60186ab32caf0b5f0ebac56bf255cf404f526078f4f13d4913a04d"
+},
+"de/app/rezeptbuch-ki-scanner-6797092095/": {
+"lastmod": "2026-10-13",
+"sha256": "6f05441b2602a47eb763f1fdc3d896ea996b581848f19e84e0d55f03e2ff8db0"
+},
+"de/app/rezeptbuch-kuk-6746354163/": {
+"lastmod": "2026-10-13",
+"sha256": "9d7701cc9c4969cfd5bc5cee7f87ee03d7a86ceb2b4f774e024461f4b9118c9e"
+},
+"de/app/rezeptbuch-rezepte-speichern-6772211038/": {
+"lastmod": "2026-10-13",
+"sha256": "4255212eb689ffbd26a2580bb06abe45e0e773662c1a100a164add5575a2e78e"
+},
+"de/app/rezepte-aus-zutaten-1627002077/": {
+"lastmod": "2026-10-13",
+"sha256": "07543a9655f0b9699c357126d611a45a612db07784ab9bf89f4f618aa462b572"
+},
+"de/app/rezepte-essensplan-cookpal-6759237167/": {
+"lastmod": "2026-10-13",
+"sha256": "0cd3ffa4f42729617eabbfbe29b1b17f9e4ab6ba8a973fa33a926b39af5d82f4"
+},
+"de/app/rezepte-essensplan-receply-6757369631/": {
+"lastmod": "2026-10-13",
+"sha256": "69e20b053721332b94126f1db2aa54006cd9f1e7b0e008fedc09e9f7b8e77f43"
+},
+"de/app/rezepte-fu-r-diabetiker-6478070141/": {
+"lastmod": "2026-10-13",
+"sha256": "4a6dc3f6b5ecb046e23ed7437f3be34fc9e9e6aead2d2d9712fe4aae1e547c12"
+},
+"de/app/rezepte-kochbuch-926089917/": {
+"lastmod": "2026-10-13",
+"sha256": "a5753840d13a1e0e0132c77a242bc50155efd3a94294132099f47c356e78f6fb"
+},
+"de/app/rezepte-kochbuch-chefbook-6760856199/": {
+"lastmod": "2026-10-13",
+"sha256": "bfa9867b358414d132eccd56a9712f74cf5846dc2cd9f819c8bda7ed2243d29b"
+},
+"de/app/rezepte-kochbuch-recipeel-6761394700/": {
+"lastmod": "2026-10-13",
+"sha256": "1f3c8ce965a779b629868625e5b6a1c611a34ae851bd84af1b0563d08d22459b"
+},
+"de/app/rezepte-kochen-ki-kochideen-6747708223/": {
+"lastmod": "2026-10-13",
+"sha256": "21c2fd5655282c9c24439e4293afa29413ceb153c61795375f003fd029976bfa"
+},
+"de/app/rezepte-kochen-planer-6758573980/": {
+"lastmod": "2026-10-13",
+"sha256": "e2eb724c9f7ad9d2468e543fc61e47b28f9db850f1f59ee44b37a7bebdeeb3e5"
+},
+"de/app/rezepte-meal-plans-kuri-1510387870/": {
+"lastmod": "2026-10-13",
+"sha256": "2d14683054e0b85c70bb46c96f91077e1a2ee8749f978418b4f7dc16c61031ab"
+},
+"de/app/rezepte-nach-zutaten-6755593910/": {
+"lastmod": "2026-10-13",
+"sha256": "8236b2eb975e721368758dce5b09ab6bc465b45e9059aa688f1efe06f3cbcfad"
+},
+"de/app/rezepte-organizer-recigen-6752374123/": {
+"lastmod": "2026-10-13",
+"sha256": "ba1cf0dba6655f9285e4cbb7adb1936a2fd9aec51312a972b14bf03d222ad558"
+},
+"de/app/rezepte-speichern-kochbuch-6759796752/": {
+"lastmod": "2026-10-13",
+"sha256": "882c393dd5b8f95c81e9e68fccbdb890f4de57c9f52b537bd76bbead62e32c85"
+},
+"de/app/rezepte-speichern-mr-cook-6472448949/": {
+"lastmod": "2026-10-13",
+"sha256": "a644e457623c644a5f396144b6ad6b545f6f5453697db97b8452a7f81a4a4ea7"
+},
+"de/app/rezepte-speichern-organizeat-1059211083/": {
+"lastmod": "2026-10-13",
+"sha256": "f412740564bed42b26ae826239287a966df257c2cf5ba8ca91bccf5f13213ebc"
+},
+"de/app/rezepte-speichern-recipal-6755356383/": {
+"lastmod": "2026-10-13",
+"sha256": "47f1056a49e33023c9ddde830f5f157c10adca7d11cc0abdd56008bf292fe43e"
+},
+"de/app/rezepte-speichern-recipesnap-6749500813/": {
+"lastmod": "2026-10-13",
+"sha256": "ae017b5318c8d4fa0d6829da95a382b7452b9b63d8470c3c81960d9676854373"
+},
+"de/app/rezepte-speichern-recipy-6754534120/": {
+"lastmod": "2026-10-13",
+"sha256": "0ead8d0186df247be891c18a47f244ee47b19bcac5e662e54285ed19a93b48fd"
+},
+"de/app/rezepte-verwalten-chef-kats-6739225693/": {
+"lastmod": "2026-10-13",
+"sha256": "2f4473e1ada10b68ec4bdcf010d46b57cbf3ff66280b478ad438c53f65fdcff9"
+},
+"de/app/rezepte-verwalten-mit-taste-1621869968/": {
+"lastmod": "2026-10-13",
+"sha256": "b0835d4b45b3d20e4466805e91128efaa3e0f75b1891d2fd4a7de9a6304dc28e"
+},
+"de/app/rezepte-verwalten-recify-6738006990/": {
+"lastmod": "2026-10-13",
+"sha256": "6e0cd0f868de12d329b1c0809e745bc792223a21b2c85dc961440e0240b4f12b"
+},
+"de/app/rezepte-verwalten-recipics-6740248018/": {
+"lastmod": "2026-10-13",
+"sha256": "5b3923f09e7cfa3fa51475db4b6a7e5e634f5b1f814d54db4c288e6a652b4d90"
+},
+"de/app/rezepte-von-bild-der-frau-1249279575/": {
+"lastmod": "2026-10-13",
+"sha256": "e53b63cdf0808f017254f1c34fddc105e2a1461ac565de4dd42a8eeb0ba2b6bf"
+},
+"de/app/rezepte-was-kann-ich-essen-6742485790/": {
+"lastmod": "2026-10-13",
+"sha256": "64cd4e38aade80a3835d298abf544623136a26113bb041f796163a6a919d4fe9"
+},
+"de/app/rezepte-zum-abnehmen-6451357111/": {
+"lastmod": "2026-10-13",
+"sha256": "888159cd1df6563689fdc5c16faa86ba23955b1c22d8dc387471f638839009af"
+},
+"de/app/rezepte-zum-kochen-kochbuch-1673078434/": {
+"lastmod": "2026-10-13",
+"sha256": "cad2c9079725341cd63378402c1b2c1febc155b84ef91aa6aeba0606533033df"
+},
+"de/app/rezepte-zutaten-fotografieren-6759405160/": {
+"lastmod": "2026-10-13",
+"sha256": "3868ffc76a0a87e12f674f12aade8ec412a18c99e4780da83705e82a2680c699"
+},
+"de/app/rezeptebox-ki-rezeptemanager-6739981616/": {
+"lastmod": "2026-10-13",
+"sha256": "643ab80f5281551c611b907e8bf378009ee8c54a27c1fc3b796107f44de1cc96"
+},
+"de/app/rezeptebuch-pantry-6757268102/": {
+"lastmod": "2026-10-13",
+"sha256": "6e087df2165dc7b00b8985424218a5696b0a2d022871ee0ed0afa8151b6b4d41"
+},
+"de/app/rezeptfabrik-essen-kochen-6752861994/": {
+"lastmod": "2026-10-13",
+"sha256": "a4120396fbb827f7e780412a1bd03535c88d8431b619db5665d7cfe77e550090"
+},
+"de/app/rezeptkalender-essensplaner-1329462150/": {
+"lastmod": "2026-10-13",
+"sha256": "19394ba8cc6ee18765b2a862d0d29fac718ab6042612b9750271340f00f85010"
+},
+"de/app/rezeptkarte-1593354120/": {
+"lastmod": "2026-10-13",
+"sha256": "e60e5e54040617c96dcac006251fc2fbfeb43c7ca29f94a30e217ae2496b935a"
+},
+"de/app/rezeptnotiz-mein-kochbuch-6771642994/": {
+"lastmod": "2026-10-13",
+"sha256": "9d84a0d6cfd37bc4cd375b4dfc3d624c9b830afbe049bfb8e0d3436eed77d866"
+},
+"de/app/rezeptschatz-rezepte-sammeln-6769813066/": {
+"lastmod": "2026-10-13",
+"sha256": "2a4d7c984abf4d0f44fbcec9a13128f1bfec45051ed38c2ddb799865629baa47"
+},
+"de/app/rezepttresor-rezepte-sammeln-6744275802/": {
+"lastmod": "2026-10-13",
+"sha256": "da4c661191e7b1cde944722b8b1bc8fbab62738556dea8a966b8520f50258532"
+},
+"de/app/rezeptverwaltung-recipebee-6757370845/": {
+"lastmod": "2026-10-13",
+"sha256": "3ef4706cf17199b72ee8525c78bb4bfe3b563d24397abec96c5adcd2673fd2d3"
+},
+"de/app/rezpi-6767167043/": {
+"lastmod": "2026-10-13",
+"sha256": "bff43c196a695c8e4872995e3c031e0ea2d7ac12676d538387e1b6171e392843"
+},
+"de/app/rh-abnehmen-fu-r-frauen-40-6464588020/": {
+"lastmod": "2026-10-13",
+"sha256": "dc1e4c3c16c3887cd242937be780386a9e0e5a73d2fc8585b662885cadb31047"
+},
+"de/app/roboterkoch-schnelle-rezepte-6449947190/": {
+"lastmod": "2026-10-13",
+"sha256": "45f6f7acda62f89aac4b6af73c650cce97467e98af4e1e18ffd663e8a9be5975"
+},
+"de/app/sa-ure-basen-tracker-1544940161/": {
+"lastmod": "2026-10-13",
+"sha256": "4aa789c03937f0e1919fcd28836afbf5ae57e05babee707ed5c27e8c437082c9"
+},
+"de/app/salat-rezepte-gesunde-ku-che-1460794188/": {
+"lastmod": "2026-10-13",
+"sha256": "6bd463a42cf26c2eb7a40e53ed1ff8b25c700101c532db1a24a4fc766265b5a4"
+},
+"de/app/salat-rezepte-gesundes-essen-6755809955/": {
+"lastmod": "2026-10-13",
+"sha256": "94e5b0ccacfb23e851826d9c39fb36aa9df0f5456c650e8515e4202a07e7459e"
+},
+"de/app/salmo-meal-plans-recipes-1627521718/": {
+"lastmod": "2026-10-13",
+"sha256": "4d600c500973273dbe9c1cd972520249f8c197cd41949cac5de5604038c2ed99"
+},
+"de/app/samsung-food-1133637674/": {
+"lastmod": "2026-10-13",
+"sha256": "6d3743102940eea0f6c3736fcea8134432ed444aa91b1545c9d49a028deb747f"
+},
+"de/app/satio-ai-kalorienza-hler-6762407942/": {
+"lastmod": "2026-10-13",
+"sha256": "c1fa742c7634206e835fa76a8acaf467b5705a610e5bad369a6c069c0ca49d10"
+},
+"de/app/sauerteig-brot-back-stoppuhr-1515034685/": {
+"lastmod": "2026-10-13",
+"sha256": "786ca43846e55dd1b8e964b32ce696775751fcba2b9204fc6f8d98a6accfcbc2"
+},
+"de/app/savor-kochbuch-meal-prep-6757436040/": {
+"lastmod": "2026-10-13",
+"sha256": "f8754592b2cb1b3cd61cabd859cc4375efc83dadccfa0ae58e6660858a93d49a"
+},
+"de/app/schlaukorb-angebote-sparen-6763761390/": {
+"lastmod": "2026-10-13",
+"sha256": "f3ac3ae917858769fdf53c91a2a3e352cc5dc336f8cefbdd0eb6ecc7c3df4643"
+},
+"de/app/schmecko-6759646196/": {
+"lastmod": "2026-10-13",
+"sha256": "45e26d82f0f5df32f97ec10920e63e26511355fe0a154e1d077fcfdbe28bfe0d"
+},
+"de/app/schwangerschaft-erna-hrungsplan-1609066460/": {
+"lastmod": "2026-10-13",
+"sha256": "ed20f628a7f738a8b1d5bc1e814a1661279e47016aedf174e3410970b987074a"
+},
+"de/app/screenclips-screenshot-ordner-6771277332/": {
+"lastmod": "2026-10-13",
+"sha256": "45a66435b796393308d4b304d4895fa8928618b89bc79e11ef5365fc2d41d14b"
+},
+"de/app/sevenly-wochenplan-essen-6780859754/": {
+"lastmod": "2026-10-13",
+"sha256": "09fc62adb701de09c1b2058a41639127dcaa722b9038f0eaf301ae277c68f0fc"
+},
+"de/app/shuffya-6752770270/": {
+"lastmod": "2026-10-13",
+"sha256": "5ae15bfeb1ae758e6fc4409d0a13c771ff4910a402885128a61cd7f0d9d85596"
+},
+"de/app/sichef-menu-planer-1627453941/": {
+"lastmod": "2026-10-13",
+"sha256": "0f86d7e8332e4ebfc75ca8384eb774bd9447e0d9dafaf0d069034c828db3fce4"
+},
+"de/app/simple-vegan-rezepte-plan-1481847560/": {
+"lastmod": "2026-10-13",
+"sha256": "d539c18b0d7e9b4d830c640e1167e38e28c36e4d2637527442b5f6957027aa11"
+},
+"de/app/simplify-meals-6478633344/": {
+"lastmod": "2026-10-13",
+"sha256": "36dc11ec414c0feb6edbd4f6cb11cde22f8d9fdddf3c4cdc1b65d20b38c98f7f"
+},
+"de/app/simply-smoothies-975605998/": {
+"lastmod": "2026-10-13",
+"sha256": "6162b9ce345c10d4d044a5e7af30f2576c6e35ab5708ca530278e27c67bffc81"
+},
+"de/app/slow-cooker-rezepte-6467406840/": {
+"lastmod": "2026-10-13",
+"sha256": "fb0fb6b7c9fcd3c9d51e0061c3b52af6417118325d566d51baa5625bce6630de"
+},
+"de/app/smaki-ki-rezepte-vorrat-6759931305/": {
+"lastmod": "2026-10-13",
+"sha256": "fbfafe5d6a3900023fd2549276f9dbf4ed4d1ecee45a32aa57017e7a2e877190"
+},
+"de/app/smoothie-love-1053216390/": {
+"lastmod": "2026-10-13",
+"sha256": "a782c7177f260568010b6276b5b2a78e7bde2e3a00c882bfed48690a81ddb5a3"
+},
+"de/app/snakkn-rezepte-kochbuch-6758838257/": {
+"lastmod": "2026-10-13",
+"sha256": "426d12c3d35b13f2d6f7c5a609a2e515a113518ee1ac074bde594b22b88c6b5d"
+},
+"de/app/snapfeast-the-ai-recipe-app-6477333217/": {
+"lastmod": "2026-10-13",
+"sha256": "0fdf99deec10f2e3ed6ebc97f1047d3f99ae8bde80a605466e0296bbf416ab39"
+},
+"de/app/snaprecipe-ki-nahrungsscanner-6747600809/": {
+"lastmod": "2026-10-13",
+"sha256": "1b8721b83be19a8fbaef819db02be56bdb501e50279591deb1221313554e53b5"
+},
+"de/app/snapsavor-6758155396/": {
+"lastmod": "2026-10-13",
+"sha256": "c57651b6d728e712a2cbe09a95468337a0cda6ff02d82280557f953277f60ea5"
+},
+"de/app/snaptocook-mahlzeiten-rezepte-6740854829/": {
+"lastmod": "2026-10-13",
+"sha256": "a1150e9338a8beddf954f25f903035165547aaaa45bf24d874951ef2d4d07931"
+},
+"de/app/so-isst-italien-6479791764/": {
+"lastmod": "2026-10-13",
+"sha256": "79e72d66f92f3c080f97023610d7a05f465f4eb8977e834a2b5b68389652f7e5"
+},
+"de/app/socialchef-rezepte-merken-6749963444/": {
+"lastmod": "2026-10-13",
+"sha256": "73666479919ba6cb77c974e7e81a3f27ec66615ead55be12c87b0c6c1948678b"
+},
+"de/app/someyum-was-koche-ich-heute-6748638722/": {
+"lastmod": "2026-10-13",
+"sha256": "83449efbb2c4a6b065ecec87d0b7ba86235d433e830171514b73fa2d34352fcf"
+},
+"de/app/soups-kochen-rezepte-1469174907/": {
+"lastmod": "2026-10-13",
+"sha256": "d07f685d5846ff0453a55f5b7bf5f811cf579bab8d3ce5e87b4f4cf84ed53e97"
+},
+"de/app/souschefai-rezeptbewahrer-6479343704/": {
+"lastmod": "2026-10-13",
+"sha256": "71462c5a28dcd8643607a70b9fdbba5a3f9ca4c6106188c2e9f19f9cd327bb9c"
+},
+"de/app/sparchef-rezepte-angebote-6761787117/": {
+"lastmod": "2026-10-13",
+"sha256": "75c3d7ae8e8a9071027ca293257bb1f2e45b72a07346819d79d121793af7be73"
+},
+"de/app/speiseplaner-rezepte-mealo-6446801414/": {
+"lastmod": "2026-10-13",
+"sha256": "40f2a51b4bcd6f5f010a0ac39680f3b107a4fd4bab9a7a2eb81a9cc53691b019"
+},
+"de/app/steamhaus-6448120529/": {
+"lastmod": "2026-10-13",
+"sha256": "359c514c88d23032c23ed8cb180989aee4e4baab012db17d5b6b6b2aac6e95be"
+},
+"de/app/stowfy-rezepte-kochbuch-6786766872/": {
+"lastmod": "2026-10-13",
+"sha256": "e6c5789df78ef32e2412cca762527ff39157efadb22696f2bcf59c78d86b106d"
+},
+"de/app/sugarfree-ai-macro-tracker-6753879525/": {
+"lastmod": "2026-10-13",
+"sha256": "951f8280b6dc32055b4904941ccd33487bf7ae640aad6b1000dd9f745633f71f"
+},
+"de/app/supercook-track-calorie-recipe-6743327665/": {
+"lastmod": "2026-10-13",
+"sha256": "caf681dfa76ffbc82d9de7e16bd1b689c6ef923f069d6a9268d85f770ffa56d8"
+},
+"de/app/superkitchen-6775865953/": {
+"lastmod": "2026-10-13",
+"sha256": "5c4b8ef933737951d7175e150cdd74ef13f8e26b32cbcc9bcbfabb3b9a1b9f94"
+},
+"de/app/swoodie-kalorienza-hler-ki-6759469278/": {
+"lastmod": "2026-10-13",
+"sha256": "ecb72d47db361e7610f49e20568476aa0419335f8c5cbc0e0787cb38f2559860"
+},
+"de/app/tamped-kaffee-tagebuch-timer-6761858870/": {
+"lastmod": "2026-10-13",
+"sha256": "430ae20e2f34260ec666e89ccae37ec473fd50bf5773974ffc0ff7a399f24e7b"
+},
+"de/app/tamrap-thai-rezepte-6760958318/": {
+"lastmod": "2026-10-13",
+"sha256": "c97b8d0d03408cdace9e8c857c35ae21a8efe3d419aa4d4b296309b0b41e4f8c"
+},
+"de/app/tanjas-glutenfrei-6680193745/": {
+"lastmod": "2026-10-13",
+"sha256": "67c82e499a69368ab1a73332b90c1bbd6695c549fafdf223e5f2f4b440182014"
+},
+"de/app/tastebot-ai-recipe-maker-6755075238/": {
+"lastmod": "2026-10-13",
+"sha256": "657690777d5e38ff58c09a2489562aa70c11061b91e8538195565edaec39ea70"
+},
+"de/app/tastebuddy-rezepte-speichern-6554007741/": {
+"lastmod": "2026-10-13",
+"sha256": "60826b9d25553dfb77cb99fcdd28a643206ece2b2c050cd4ba6cbf3ef9ccfa5f"
+},
+"de/app/tasty-1217456898/": {
+"lastmod": "2026-10-13",
+"sha256": "f57c4e7d2e8782aa9ec74f89d0a1ce9b7b0add1936ac79aeebd7d0682b4aeb82"
+},
+"de/app/tasty-ai-rezepte-essensplaner-6740646196/": {
+"lastmod": "2026-10-13",
+"sha256": "ebb15c4d3012ee250259f952db3ac71d1ab19c0c98400b9c5059ffbc3e6d0ebe"
+},
+"de/app/tellerino-essensplan-liste-6788662435/": {
+"lastmod": "2026-10-13",
+"sha256": "6ae40c794639c2c1b1223008e458009bcf5a033362761ac8a630c75794cc7ac1"
+},
+"de/app/the-chef-ai-6758263678/": {
+"lastmod": "2026-10-13",
+"sha256": "59d83f356f43a5a487816607ef19d05bd8877edb9bac188bfe6dcff20eb5cba8"
+},
+"de/app/the-golden-circle-kochkurse-1608260127/": {
+"lastmod": "2026-10-13",
+"sha256": "f933aa37c566c52f0ab5e476b3093219905e0810b688c27eff1802180d8437f8"
+},
+"de/app/the-recipes-app-6745904570/": {
+"lastmod": "2026-10-13",
+"sha256": "aafc5948c6ab73d915e902bde710c49988dc2a6707c06c24eeb2e4789de114e1"
+},
+"de/app/thermify-rezepte-umwandeln-6770676459/": {
+"lastmod": "2026-10-13",
+"sha256": "a6bcb47301b69f03cf9798cda53c00eddcf6b1eb222fad67ac98b6d1cf0c0ab2"
+},
+"de/app/timpy-su-sse-kuchenba-ckerei-2-6502041946/": {
+"lastmod": "2026-10-13",
+"sha256": "7305be743e55ef9b89764dcdb05a5883f8bde53225664c20f5973c7a74c79e87"
+},
+"de/app/tinyrecipe-ai-rezepte-vorrat-6749379823/": {
+"lastmod": "2026-10-13",
+"sha256": "c43995aafda551dff5d8d0ace40ae5c303a4bf2a36fef1e8a9f37b6c8cc97614"
+},
+"de/app/tipsy-cocktails-rezepte-6584513153/": {
+"lastmod": "2026-10-13",
+"sha256": "acb160cd5221fc8db8a0cee3db5679f71fe6405b221f64c51a25c06481b914c7"
+},
+"de/app/tofu-vegane-rezepte-6761143218/": {
+"lastmod": "2026-10-13",
+"sha256": "73d587dfc439844962215149fc4826c110faa39f07e17a4e1f6976f26978e0e8"
+},
+"de/app/tookandcook-rezept-scanner-ki-6754985130/": {
+"lastmod": "2026-10-13",
+"sha256": "511492889b4ce578a905a9f3dd26e0e2eb9f4e3601a4d65f605ecdd831b63061"
+},
+"de/app/tortija-erna-hrungspla-ne-6444732767/": {
+"lastmod": "2026-10-13",
+"sha256": "cc188d9a04873ca54b861d63b84febb82c0061059739042bba8a6857594a0f06"
+},
+"de/app/trawl-rezepte-scannen-6758914682/": {
+"lastmod": "2026-10-13",
+"sha256": "bbf6cbb3d04b220a0093e127934ab5d92247e24216b7032b973cdef24d62f433"
+},
+"de/app/turbo-abnehmen-in-30-tagen-1528161127/": {
+"lastmod": "2026-10-13",
+"sha256": "6ebe430e32f3267eb4c651f5de0d870d41604e04a155dc092ea0674bbeb10ba0"
+},
+"de/app/ultralist-einkaufsliste-uvm-6753651193/": {
+"lastmod": "2026-10-13",
+"sha256": "f4943eb3db843e638aed3329914c126ced3737450b5e0debbbba924059f53344"
+},
+"de/app/umami-rezeptmanager-1597523594/": {
+"lastmod": "2026-10-13",
+"sha256": "89294aa07545762b91a47fe8c097fcfee638bb21607ecd81812393647076a44c"
+},
+"de/app/unsere-rezepte-1644180815/": {
+"lastmod": "2026-10-13",
+"sha256": "00ca8d599d1bf4ab383e0114303a1563022bc567d0ad38304598ea444023d51b"
+},
+"de/app/upfit-erna-hrungsplan-app-1490447345/": {
+"lastmod": "2026-10-13",
+"sha256": "95118c808458757107938a4acc3122213a353b85a64389f57045853bf381eac8"
+},
+"de/app/valea-abnehmen-fu-r-frauen-6447756234/": {
+"lastmod": "2026-10-13",
+"sha256": "66af28f547454d79d0dccdfa1902ee823e8e60ebcb4f7d250011ff9f79fb7254"
+},
+"de/app/vanillacrunnch-1633474579/": {
+"lastmod": "2026-10-13",
+"sha256": "eff69b0172dfd52cbba6692da8bd8b758d4a86532806f9331ab821c18e5815d9"
+},
+"de/app/vegan-cheffrey-rezepte-kochen-1586358751/": {
+"lastmod": "2026-10-13",
+"sha256": "3e6af974362ea3e20f172240b3f5a118dcb8eb17de29fdd6f6f5804c71072338"
+},
+"de/app/vegane-erna-hrung-rezepte-1601193642/": {
+"lastmod": "2026-10-13",
+"sha256": "c61ec0ba3f56983e90e93feb70d0bfb80f21381ec4dbb7248565bab0ba73be84"
+},
+"de/app/vegane-rezepte-ki-koch-6468933599/": {
+"lastmod": "2026-10-13",
+"sha256": "ca1b30de8541591c96416b5601f462c7ca20c57c9adab2d408422cf6d1259212"
+},
+"de/app/vegane-rezepte-kochbuch-6470455492/": {
+"lastmod": "2026-10-13",
+"sha256": "c73e5d881e203589f3923495d59ef655711a220fd4f012f60c4ba674ae041207"
+},
+"de/app/vesla-rezepte-einkaufsliste-6794808619/": {
+"lastmod": "2026-10-13",
+"sha256": "f187132ac6e4ebbe6d5fbbbcbc4a2820476981c9913a2f87ba2ca0fb7c7dcee9"
+},
+"de/app/vibetaste-ki-rezepte-kochen-6762099586/": {
+"lastmod": "2026-10-13",
+"sha256": "11cf2ca0473f44cdfa83218dd8ffa0fea23e04040be73553c6f9be857d33e63d"
+},
+"de/app/vorino-rezepte-vorrat-6773908534/": {
+"lastmod": "2026-10-13",
+"sha256": "47b257a8ddf0a16c8c655c21610b11c1f5d1c1922d670ab022b2f043394605a5"
+},
+"de/app/vorratskammer-6670480023/": {
+"lastmod": "2026-10-13",
+"sha256": "27ec03ff739b230be6b2fdc088bcf4a30ea3d3e2b1c5794039667a949aefc3ef"
+},
+"de/app/vule-kochbuch-rezeptplaner-6758163430/": {
+"lastmod": "2026-10-13",
+"sha256": "195861a6d72949e5be01c4b2412f675253a8dc0ec084e07898e487dd945fae07"
+},
+"de/app/warenkorb-listen-erstellen-6739962305/": {
+"lastmod": "2026-10-13",
+"sha256": "c358303b4f132674f2a10f31fd20ef1abf3c3931ba92de6353519aab0e45ddb9"
+},
+"de/app/was-kann-ich-essen-whatscook-6478971593/": {
+"lastmod": "2026-10-13",
+"sha256": "ffc7e1a0dd4ca1cdc4ddd866f9f92099291b240348374eb59fbef9a395046d46"
+},
+"de/app/was-kann-ich-kochen-chef-pepo-6544808319/": {
+"lastmod": "2026-10-13",
+"sha256": "84af032b6263fa4f5c4e46478266ec04487557169bae64a01480e4a73b2e8992"
+},
+"de/app/was-koche-ich-heute-uppetite-6759005212/": {
+"lastmod": "2026-10-13",
+"sha256": "2c6cf8bb154322259b7354a40f626fcadb863ea255f1552a234982590d558721"
+},
+"de/app/was-soll-ich-essen-ki-rezepte-6737979923/": {
+"lastmod": "2026-10-13",
+"sha256": "863eeaa264b3fadbf829cda88a4184acf30e18039f5e45487b354ee8991fb707"
+},
+"de/app/wechef-mein-rezeptbuch-6737542752/": {
+"lastmod": "2026-10-13",
+"sha256": "11efcb3a359077710b742cb9c17fef090334a68a332e3036a7206c52825d0ef9"
+},
+"de/app/wecipe-rezept-import-6760599090/": {
+"lastmod": "2026-10-13",
+"sha256": "e5070ea01e97a9407f3bdb7e45e427192c6396c15618afdc0a66c606a08ce089"
+},
+"de/app/weightwatchers-programm-331308914/": {
+"lastmod": "2026-10-13",
+"sha256": "b09217b09bcadce4d3f154f0fea1a83767221936eb901a0b496de13b38f062ef"
+},
+"de/app/whatdo-6761447625/": {
+"lastmod": "2026-10-13",
+"sha256": "a17a05e8da870b26ca9def2a8dfd77356e3cb2d09bf6547f5c36763bb4a559c6"
+},
+"de/app/wmf-1611372740/": {
+"lastmod": "2026-10-13",
+"sha256": "2a4462c84e4cfe05c21d61524f7c78bab7a964223dcaf8c53464ab95c3b42813"
+},
+"de/app/wochenkoch-ki-essensplaner-6792372420/": {
+"lastmod": "2026-10-13",
+"sha256": "420d622cb8a96b3b464a6e40e594f866eaf2bd5e1a47a62cb6dafd95da01715d"
+},
+"de/app/wochenplan-essen-6789627677/": {
+"lastmod": "2026-10-13",
+"sha256": "187f06bf98766f39ff9f311fe163545b2f586dd351e784b41acec705eb670b8f"
+},
+"de/app/wochenplan-essensplaner-6460821436/": {
+"lastmod": "2026-10-13",
+"sha256": "aef0a2fd3565481cdcc24575d3d9444116197925a86cf3bc182531035a75c209"
+},
+"de/app/wochenplaner-essen-menu-plan-1619509620/": {
+"lastmod": "2026-10-13",
+"sha256": "d90635b658ef59d2597f56d58a5cdf9f0dc3b3cbe3011b54ee406bd19179cb69"
+},
+"de/app/wombite-kitchen-6759089382/": {
+"lastmod": "2026-10-13",
+"sha256": "58b47313304a8551946c766e69e0ab0e9b8d7d4475e1174bfb24fc062da2b8c7"
+},
+"de/app/yazio-kalorien-za-hler-dia-t-946099227/": {
+"lastmod": "2026-10-13",
+"sha256": "1bca215e74c6d613557c4197f58444360fbc43afbfecdf2305fbc9c8a621f0aa"
+},
+"de/app/yeniyo-cook-your-ingredients-1661283584/": {
+"lastmod": "2026-10-13",
+"sha256": "dd471dd44a8232ee6b132a411f8d26fd82d8a67c3dea6d45f897cf136571fb34"
+},
+"de/app/yoomla-rezepte-verwalten-6748003406/": {
+"lastmod": "2026-10-13",
+"sha256": "001ce7295e83d4ff69014727bc3cc69e90ffd0887ce1947fb8f3a0a969c80b0f"
+},
+"de/app/youmeal-rezept-organizer-6753148494/": {
+"lastmod": "2026-10-13",
+"sha256": "548181ac6110a5770bf7e448a19ffd4a43aabb35f811ec760777b2a1746c6508"
+},
+"de/app/yum-einfache-gute-rezepte-6743663182/": {
+"lastmod": "2026-10-13",
+"sha256": "9ae873549fad1e1444c7b181d57ed651c955132eec6ab66be7724834fc5168ee"
+},
+"de/app/yumclip-6778013618/": {
+"lastmod": "2026-10-13",
+"sha256": "688ea66732d19c6d9a26423161e1d58a4356410942a02ee24b2b70588136c6f5"
+},
+"de/app/yumeo-privates-rezeptbuch-6657975436/": {
+"lastmod": "2026-10-13",
+"sha256": "ce2cfcf5ed5cdb661d5a7655cb1a1a9203aba2d694d6fbf113bf4f911a95ebe5"
+},
+"de/app/yumio-ki-rezepte-6799709345/": {
+"lastmod": "2026-10-13",
+"sha256": "41ab8ec0f2e63a8312f17ebe1a6ad7c0dc72b74ba782d0efe36c5f74011286f9"
+},
+"de/app/yumishare-rezept-organizer-6786800998/": {
+"lastmod": "2026-10-13",
+"sha256": "5262bf8a0d43f52f57cc2b2ab3828387501898e654b82804985e2ac24bb3774c"
+},
+"de/app/yummi-ai-rezepte-kochbuch-6758921605/": {
+"lastmod": "2026-10-13",
+"sha256": "f901c680cbd0bd9365e506173c108aa6466b131f6e055291b6718ed848430d31"
+},
+"de/app/yummi-rezept-manager-6741091088/": {
+"lastmod": "2026-10-13",
+"sha256": "85d27fc1b7c7afd459d3958be0e8186660c2d701d1953719ee00248e097c8869"
+},
+"de/app/yummjar-rezepte-verwalten-6751714040/": {
+"lastmod": "2026-10-13",
+"sha256": "8f03b23d16b90b89bfd9337c0725a91d2b217c91625d3ef5bef9c3fac6847d5e"
+},
+"de/app/yummy-rezepte-einkaufsliste-6764014689/": {
+"lastmod": "2026-10-13",
+"sha256": "90a5b8753f2678944f94b5361a62f361f66d879d6bdd155d2a42f142474ff526"
+},
+"de/app/yumsnap-rezepte-per-foto-6757703161/": {
+"lastmod": "2026-10-13",
+"sha256": "fa41d588efb19e211fd049c4637918f0c5c3329a9f49a7a0475057f34a798711"
+},
+"de/app/zastillia-rezepte-einkauf-6761322310/": {
+"lastmod": "2026-10-13",
+"sha256": "724da323b74e2efd8f89c610b4703ae7220ffa937598a1975e1b6395681928f1"
+},
+"de/app/zaubermix-fu-r-monsieur-cuisine-1609948419/": {
+"lastmod": "2026-10-13",
+"sha256": "1524af74bcaf479d27539467b3c1dd81ed2c5ec71efff0230fdc6d3c32c44244"
+},
+"de/app/zaubertopf-rezepte-1483568611/": {
+"lastmod": "2026-10-13",
+"sha256": "1d595abdb60775b0d1c2891f9087dc945f264b491803b3ea1b2df0e659c33abf"
+},
+"de/app/zava-rezepte-essensplaner-6756044698/": {
+"lastmod": "2026-10-13",
+"sha256": "10a0cf52155eba20f87188806c524bff777816cae8bff9e9f6beaa477a2c3451"
+},
+"de/app/zerocrumbs-6744575551/": {
+"lastmod": "2026-10-13",
+"sha256": "14ef9d3362df517c24183543e7185bda82c5d5d430c955dee5244030ed3b3676"
+},
+"de/app/zettelku-che-ai-6763764154/": {
+"lastmod": "2026-10-13",
+"sha256": "fae74306c7f10d9ae042bddd8a682dba38c0a462677cfc10ba37329732936e85"
+},
+"de/app/zutaten-rezepte-ki-6758778084/": {
+"lastmod": "2026-10-13",
+"sha256": "027a6dd05a0b36496e847e2a06449ec94044bd9fae7b25c2fc5f4c1976bf90e5"
+},
+"de/frage/app-eigene-rezepte-sammeln-und-verwalten.html": {
+"lastmod": "2026-10-13",
+"sha256": "d1fa8d20001754b672d83621b83ea902897c2aa5eea43771467dc5bd0a78d118"
+},
+"de/frage/app-rezepte-von-webseiten-speichern.html": {
+"lastmod": "2026-10-13",
+"sha256": "eea3e10ab772e4ec409d3346f3bbda96d2b823195dc42ca3b234e2721f583c19"
+},
+"de/frage/gratis-rezept-app-was-kostet-sie-wirklich.html": {
+"lastmod": "2026-10-13",
+"sha256": "cd862e68f394a59a823d1a178d30bf64479572833b370cfa986af07308e71f79"
+},
+"de/frage/rezept-app-einmalig-bezahlen-statt-abo.html": {
+"lastmod": "2026-10-13",
+"sha256": "77618eecb27fcce41d76884c75883a829f51e9f0cb13b68b001fe9fe5dc27746"
+},
+"de/frage/rezept-app-ohne-abo-und-ohne-in-app-kaeufe.html": {
+"lastmod": "2026-10-13",
+"sha256": "6653e3482386adcffb6409c034856d3eda3ef4dac8b6a19f0486575ad5b1ca4e"
+},
+"de/frage/rezept-apps-lange-nicht-aktualisiert.html": {
+"lastmod": "2026-10-13",
+"sha256": "4d466c47428ccfb403494ac9be42cbdec5d690aea7b6b9b0c2c6f095d780f041"
+},
+"de/frage/welche-rezept-app-wird-noch-gepflegt.html": {
+"lastmod": "2026-10-13",
+"sha256": "31236364c3d8dc73af7c956050dfb0f46292a5f0fb721e6035a211acf261b886"
+},
+"funding.html": {
+"lastmod": "2026-10-14",
+"sha256": "b8526da967af651fe284fd9f9b523cf47786793aaeb142945c2147ac179a2d91"
+},
+"impressum.html": {
+"lastmod": "2026-10-10",
+"sha256": "7639e28abe9d307a9f5e371e01e70835d615cb581486233fdc2bb9e2f86307ef"
+},
+"manifest.html": {
+"lastmod": "2026-10-10",
+"sha256": "c5b9c026121a91ceef12c3ef3154aafb5513c4d4a398180e2102d353d1aa8312"
+},
+"manifesto.html": {
+"lastmod": "2026-10-10",
+"sha256": "ae109340ec5279c80b2b6f539da463db0ba2cbe51b11c87f863f0530300af475"
+},
+"methode.html": {
+"lastmod": "2026-10-13",
+"sha256": "21f03390eec8c345697b8dc16a72d606ddc1f7b03af7ade29e8abee03d453f6b"
+},
+"paper.html": {
+"lastmod": "2026-10-10",
+"sha256": "245d7330e466d14cebe50a3a0bf6625390ed47d549e59c7159e3545e944780cf"
+},
+"second-category.html": {
+"lastmod": "2026-10-10",
+"sha256": "a3d7bf9595f029a6bd218cf22eca93ba4df4a2fa25d0251a1212d615842cfbf3"
+},
+"thesis.html": {
+"lastmod": "2026-10-10",
+"sha256": "444524f1249133e6d284c819d037fcf6915004a7a88d505a275456783cd334e6"
+}
+}
