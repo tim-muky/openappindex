@@ -79,3 +79,7 @@ study/frame/
 study/records/
 worker/dns-backup-*.json
 worker/deploy-logs/
+
+# Google Play working data (descriptions are copyrighted); public exports go to play/data/public/
+play/data/*.json
+!play/data/public/
