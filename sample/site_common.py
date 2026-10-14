@@ -103,7 +103,9 @@ wir korrigieren datiert und nachvollziehbar. · <a href="{base}/impressum.html">
 <a href="{base}/datenschutz.html">Datenschutz</a> ·
 <a href="{base}/methode.html">Methode</a> &middot;
 <a href="{base}/manifest.html">Manifest</a> &middot;
-<a href="{base}/paper.html">Working Paper</a></p>
+<a href="{base}/paper.html">Working Paper</a> &middot;
+<a href="{base}/data/">Daten</a> &middot;
+<a href="{base}/thesis.html">These</a></p>
 </footer>
 </div></body></html>"""
 

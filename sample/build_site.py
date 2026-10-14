@@ -135,6 +135,11 @@ AZ_POS = {a["trackId"]: i for i, a in enumerate(AZ)}
 BY_SELLER = {}
 for _a in AZ: BY_SELLER.setdefault(_a.get("sellerName"), []).append(_a)
 
+# Which question pages list this app (filled by qpage). App pages are written after the
+# question pages so each can link to them: on 2026-10-14 the question pages had one
+# internal link each.
+QMEMBER = {}
+
 def related(a):
     i = AZ_POS[a["trackId"]]
     prv, nxt = AZ[i-1], AZ[(i+1) % len(AZ)]
@@ -143,6 +148,11 @@ def related(a):
     if same:
         out += (f"<p>Weitere Apps von {esc(a.get('sellerName'))}: "
                 + ", ".join(f"<a href='{BASE}/de/app/{b['slug']}/'>{esc(b['trackName'])}</a>" for b in same) + ".</p>")
+    qs = QMEMBER.get(a["trackId"], [])
+    if qs:
+        label = dict(QS)
+        out += ("<p>Diese App steht in den Antworten auf: "
+                + " · ".join(f"<a href='{BASE}/de/frage/{fn}.html'>{esc(label.get(fn, fn))}</a>" for fn in qs) + "</p>")
     out += (f"<p>Alphabetisch davor: <a href='{BASE}/de/app/{prv['slug']}/'>{esc(prv['trackName'])}</a> · "
             f"danach: <a href='{BASE}/de/app/{nxt['slug']}/'>{esc(nxt['trackName'])}</a> · "
             f"<a href='{BASE}/de/app/'>alle {len(apps)} Apps von A bis Z</a></p>")
@@ -264,7 +274,6 @@ Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen S
     page(f"de/app/{a['slug']}/index.html", ttl, dsc,
          body, f'<script type="application/ld+json">{ld}</script>')
 
-for a in apps: app_page(a)
 
 # The A–Z index /de/app/ — 404'd until 2026-10-14, though every breadcrumb pointed at it.
 def _letter(a):
@@ -316,6 +325,8 @@ def qpage(fn, title, h1, question, rule, listed, desc, answer, extra=lambda a: "
             f"In-App-Käufe am {DATA_STAND}. Apps, die Apples Schnittstelle bei der letzten Lesung nicht mehr "
             f"lieferte, sind nicht aufgeführt. "
             f"<a href='{BASE}/de/app/'>Alle Apps von A bis Z</a>.</p>")
+    for a in listed:
+        QMEMBER.setdefault(a["trackId"], []).append(fn)
     page(f"de/frage/{fn}.html", title, desc, body,
          "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld))
 
@@ -473,6 +484,9 @@ QS = [("welche-rezept-app-wird-noch-gepflegt","Welche Rezept-App wird noch gepfl
       ("app-rezepte-von-webseiten-speichern","Welche speichern Rezepte von Webseiten?"),
       ("app-eigene-rezepte-sammeln-und-verwalten","Welche verwalten eigene Rezepte?")]
 
+# App pages after the question pages, so related() can link to them (2026-10-14).
+for a in apps: app_page(a)
+
 # ---------------- weekly changelog (GAL-578) ----------------
 # Rendered only when data/public/changelog/*.json exists; until then the site is byte-identical.
 build_changelog.SLUGS = {a["trackId"]: a["slug"] for a in apps}
@@ -495,7 +509,8 @@ Dieser Index trägt die öffentlich verfügbaren Antworten zusammen, mit Datum u
 {cl_link}<h2>Datenbestand</h2>
 <p><strong>{len(apps)} Apps</strong> im deutschen App Store, deren eigene Store-Beschreibung sie als Rezept- oder
 Koch-App ausweist. Für <strong>{withiap}</strong> davon sind die auf der Produktseite ausgewiesenen In-App-Käufe
-erfasst. Stand: {DATA_STAND}.</p>
+erfasst. Stand: {DATA_STAND}.
+Der vollständige Datensatz steht offen zum Download: <a href="{BASE}/data/">Daten und DOI</a>.</p>
 <div class="rule">Keine Platzierung ist käuflich, zu keinem Preis. Wer uns finanziert, ist öffentlich
 (<a href="{BASE}/funding.html">Finanzierungsregeln</a>, englisch).
 Diese Seiten enthalten keine Nutzerrezensionen und keine Bewertungen — nur datierte Tatsachen mit Quellenangabe.</div>"""
@@ -682,7 +697,12 @@ DATASET_LD = {"@context":"https://schema.org","@type":"Dataset",
     "keywords":["app store","in-app purchases","price transparency","search recall","Germany"],
     "distribution":[{"@type":"DataDownload","encodingFormat":"application/json",
                      "contentUrl":f"{BASE}/data/{fn}","name":fn} for fn,_,_ in _served],
-    "isBasedOn":"https://github.com/tim-muky/openappindex"}
+    "isBasedOn":"https://github.com/tim-muky/openappindex",
+    # Archived copies, so search engines can tie the site to its DOI and mirror (2026-10-14).
+    "identifier":"https://doi.org/10.5281/zenodo.23367150",
+    "sameAs":["https://doi.org/10.5281/zenodo.23367150",
+              "https://huggingface.co/datasets/openappindex/app-store-de"]}
+DATASET_LD["creator"]["sameAs"] = "https://orcid.org/0009-0008-9701-5140"
 page("data/index.html", "Datensatz — openAPPindex",
      "Der offene Datensatz hinter openAPPindex: Store-Fakten zu Rezept- und Schlaf-Apps im deutschen App Store, CC BY 4.0.",
      f"""<nav class='bc'><a href='{BASE}/'>openAPPindex</a> › Daten</nav>
