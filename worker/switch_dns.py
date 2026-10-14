@@ -58,7 +58,7 @@ def vercel_records(zid):
 
 def served_by():
     try:
-        req = urllib.request.Request(f"https://{ZONE}/", method="HEAD", headers={"User-Agent": "openAPPindex-launch-check"})
+        req = urllib.request.Request(f"https://{ZONE}/", method="HEAD", headers={"User-Agent": "openAPPindex-launchcheck-bot"})
         h = urllib.request.urlopen(req, timeout=15).headers
         return "vercel" if h.get("x-vercel-id") else ("cloudflare-worker" if h.get("cf-ray") else h.get("server"))
     except Exception as e:
@@ -97,7 +97,7 @@ def switch():
     print(f"served by: {served_by()} ({time.time() - t0:.0f} s after the delete)")
     for p in CHECK_PATHS:
         try:
-            s = urllib.request.urlopen(urllib.request.Request(f"https://{ZONE}{p}", headers={"User-Agent": "openAPPindex-launch-check"}), timeout=20).status
+            s = urllib.request.urlopen(urllib.request.Request(f"https://{ZONE}{p}", headers={"User-Agent": "openAPPindex-launchcheck-bot"}), timeout=20).status
         except urllib.error.HTTPError as e:
             s = e.code
         print(f"  {s} {p}")

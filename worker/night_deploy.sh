@@ -42,7 +42,7 @@ paths = re.findall(r"<loc>https://openappindex\.org([^<]*)</loc>", open("/Users/
 def st(p):
     for _ in range(3):
         try:
-            return urllib.request.urlopen(urllib.request.Request("https://openappindex.org" + p, headers={"User-Agent": "openAPPindex-deploy-check"}), timeout=20).status
+            return urllib.request.urlopen(urllib.request.Request("https://openappindex.org" + p, headers={"User-Agent": "openAPPindex-deploycheck-bot"}), timeout=20).status
         except urllib.error.HTTPError as e:
             code = e.code
         except Exception:
