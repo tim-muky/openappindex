@@ -3,9 +3,8 @@
 #
 # NOTE: Zenodo reads .zenodo.json, not this file, when both exist. Keep the two in step.
 #
-# PLACEHOLDER — before the first release:
-#   (ORCID added 2026-10-06.)
-#   After Zenodo mints the DOI, uncomment the `doi:` / `identifiers:` block and fill it in.
+# DOI: the concept DOI below resolves to the latest archived version (v0.1.0, 2026-10-14:
+# 10.5281/zenodo.23367151). The paper's own record (publish/zenodo-paper.json) is not created yet.
 
 cff-version: 1.2.0
 message: >-
@@ -36,7 +35,7 @@ keywords:
   - platform markets
   - gatekeepers
   - open data
-# doi: "10.5281/zenodo.XXXXXXX"   # PLACEHOLDER — concept DOI from Zenodo after the first release
+doi: "10.5281/zenodo.23367150"
 preferred-citation:
   type: report
   title: "Search Without Recall: Preliminary Evidence on Discovery Failure and Price Opacity in a Mobile Application Market"

@@ -140,6 +140,11 @@ hidden.
   apps. **App descriptions and release-note text are deliberately excluded**: they are the
   copyright of their developers, and republishing them wholesale would contradict the rule
   this project applies to its own pages. Regenerate them locally if you need them.
+- **Archived and citable**: every release is archived on Zenodo, concept DOI
+  [10.5281/zenodo.23367150](https://doi.org/10.5281/zenodo.23367150) (v0.1.0 of 2026-10-14:
+  [10.5281/zenodo.23367151](https://doi.org/10.5281/zenodo.23367151)). The dataset, both
+  categories, is also on Hugging Face:
+  [openappindex/app-store-de](https://huggingface.co/datasets/openappindex/app-store-de).
 
 ## Corrections
 
