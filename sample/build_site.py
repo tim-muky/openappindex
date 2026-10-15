@@ -158,6 +158,20 @@ def related(a):
             f"<a href='{BASE}/de/app/'>alle {len(apps)} Apps von A bis Z</a></p>")
     return out
 
+TITLE_MAX = 70   # Bing Site Scan, 2026-10-15: 64 of 250 scanned pages had titles that were too long
+
+def app_title(name, fact):
+    """The fact is never cut. The brand is added only if it fits; an over-long app name is
+    shortened at a word boundary. The page itself always shows the full name."""
+    brand = " | openAPPindex"
+    if len(name) + len(fact) + len(brand) <= TITLE_MAX:
+        return name + fact + brand
+    if len(name) + len(fact) <= TITLE_MAX:
+        return name + fact
+    room = TITLE_MAX - len(fact) - 1
+    short = name[:room].rsplit(" ", 1)[0].rstrip(" -–:,&") if " " in name[:room] else name[:room]
+    return short + "…" + fact
+
 def app_page(a):
     d, name = a["days"], a["trackName"]
     upd = f"{de_date(a.get('currentVersionReleaseDate'))} ({de_elapsed(d)})"
@@ -258,17 +272,17 @@ sprechen wir nicht aus.</p>
 Sie zeigt datierte Tatsachen aus öffentlichen Store-Daten. Den Schluss ziehen Sie.</div>"""
     upd_de = de_date(a.get("currentVersionReleaseDate"))
     if a["iaps"] and a["iap_min"] is not None:
-        ttl = f"{name}: In-App-Käufe {eur_range(a['iap_min'], a['iap_max'])} | openAPPindex"
+        ttl = app_title(name, f": In-App-Käufe {eur_range(a['iap_min'], a['iap_max'])}")
         dsc = (f"Im Store als „{a.get('formattedPrice')}“ gelistet, tatsächlich {len(a['iaps'])} "
                f"In-App-Käufe von {eur_range(a['iap_min'], a['iap_max'])}. Zuletzt aktualisiert am "
                f"{upd_de}. Datierte Store-Fakten, keine Bewertung.")
     elif a["price_known"]:
-        ttl = f"{name}: keine In-App-Käufe ausgewiesen | openAPPindex"
+        ttl = app_title(name, ": keine In-App-Käufe ausgewiesen")
         dsc = (f"Im Store als „{a.get('formattedPrice')}“ gelistet; auf der Produktseite sind keine "
                f"In-App-Käufe ausgewiesen. Zuletzt aktualisiert am {upd_de}. Datierte Store-Fakten, "
                f"keine Bewertung.")
     else:
-        ttl = f"{name} — zuletzt aktualisiert {upd_de} | openAPPindex"
+        ttl = app_title(name, f" — zuletzt aktualisiert {upd_de}")
         dsc = (f"{name}: zuletzt aktualisiert am {upd_de}, Version {a.get('version')}. In-App-Käufe "
                f"nicht erhoben — nicht geschätzt. Datierte Store-Fakten, keine Bewertung.")
     page(f"de/app/{a['slug']}/index.html", ttl, dsc,
