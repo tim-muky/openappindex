@@ -70,8 +70,15 @@ def get(url):
                 time.sleep(BACKOFF); continue
             return e.code, ""
         except Exception as e:
-            print(f"  network error {type(e).__name__}, retry", flush=True); time.sleep(30)
+            print(f"  {datetime.now():%H:%M} network error {type(e).__name__}, retry", flush=True); time.sleep(30)
     return 0, ""
+
+def network_up():
+    try:
+        urllib.request.urlopen(urllib.request.Request("https://example.com", headers={"User-Agent": UA}), timeout=15)
+        return True
+    except Exception:
+        return False
 
 DETAILS = re.compile(r'/store/apps/details\?id=([\w.]+)')
 DEVLINK = re.compile(r'href="(/store/apps/(?:dev|developer)\?id=[^"&]+)')
@@ -136,14 +143,35 @@ def run(pilot=None):
         hop = s["hop"]
         todo = [p for p, h in s["hop_of"].items() if h == hop and p not in s["apps"]]
         print(f"hop {hop}: {len(todo)} app pages to read", flush=True)
+        fails = 0
         for p in todo:
             st, h = get(f"https://play.google.com/store/apps/details?id={p}&hl=de&gl=DE")
-            s["apps"][p] = parse_app(p, h) if st == 200 and h else {"pkg": p, "http": st, "read_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+            if st == 404:      # app gone or not available in Germany: a real answer, recorded
+                s["apps"][p] = {"pkg": p, "http": 404, "read_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+            elif st == 200 and h:
+                s["apps"][p] = parse_app(p, h); fails = 0
+            else:              # no answer: stays unread and is retried, never counted as "not in category"
+                att = s.setdefault("attempts", {}); att[p] = att.get(p, 0) + 1
+                if att[p] >= 3 and network_up():   # three failures while the network works: record as unreadable
+                    s["apps"][p] = {"pkg": p, "http": st, "unreadable": True,
+                                    "read_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+                    continue
+                fails += 1
+                if fails >= 10:
+                    why = "network down" if not network_up() else "Play not answering our crawler"
+                    print(f"  {datetime.now():%H:%M} 10 failed reads in a row ({why}), pausing 30 min", flush=True)
+                    s["log"].append({"at": datetime.now().isoformat(timespec="seconds"), "event": "pause", "why": why})
+                    save(s); time.sleep(BACKOFF); fails = 0
+                continue
             n += 1
             if n % 20 == 0:
                 save(s); print(f"  read {n} pages", flush=True)
             if pilot and n >= pilot:
                 save(s); print(f"pilot limit {pilot} reached"); return
+        unread = [p for p, h in s["hop_of"].items() if h == hop and p not in s["apps"]]
+        if unread:
+            print(f"hop {hop}: {len(unread)} pages still unread, reading them again before closing the hop", flush=True)
+            save(s); continue
         # expand from in-category apps of this hop: similar apps and developer pages
         hop_apps = [s["apps"][p] for p, h in s["hop_of"].items() if h == hop and p in s["apps"]]
         cat = [r for r in hop_apps if in_cat(r)]
@@ -154,6 +182,8 @@ def run(pilot=None):
             dp = r.get("dev_page")
             if dp and dp not in s["dev_pages_done"]:
                 st, h = get("https://play.google.com" + dp + "&hl=de&gl=DE")
+                if st != 200:      # not done: retried at the next expansion
+                    continue
                 for q in dict.fromkeys(DETAILS.findall(h)):
                     s["hop_of"].setdefault(q, hop + 1)
                 s["dev_pages_done"].append(dp); n += 1

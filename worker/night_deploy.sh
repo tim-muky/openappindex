@@ -22,7 +22,17 @@ echo "$(date '+%F %T') start"
 cd $REPO/sample && python3 build_site.py | tail -2 || { echo "BUILD FAILED - nothing deployed"; exit 1; }
 
 cd $REPO/worker
-PREV=$(npx wrangler deployments list 2>/dev/null | grep -o '(100%) [0-9a-f-]\{36\}' | tail -1 | awk '{print $2}')
+PREV=""
+for i in 1 2 3 4 5 6 7 8 9 10; do
+  if curl -s -m 15 -o /dev/null https://example.com; then
+    PREV=$(npx wrangler deployments list 2>/dev/null | grep -o '(100%) [0-9a-f-]\{36\}' | tail -1 | awk '{print $2}')
+    [[ -n "$PREV" ]] && break
+    echo "$(date '+%F %T') network up, but the live version could not be read (try $i)"
+  else
+    echo "$(date '+%F %T') no network (try $i)"
+  fi
+  sleep 60
+done
 echo "live version before deploy: ${PREV:-unknown}"
 [[ -z "$PREV" ]] && { echo "Could not read the live version - not deploying without a rollback target"; exit 1; }
 
