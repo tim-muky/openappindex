@@ -36,6 +36,8 @@ The study protocol and the questionnaire were fixed and published before the fir
 - [Study protocol](https://openappindex.org/study/protocol.html), frozen on 22 October 2026
 - [The questionnaire as fielded](https://openappindex.org/study/questionnaire.html)
 - [Privacy notice](https://openappindex.org/study/privacy.html)
+- Archived with a DOI: [10.5281/zenodo.23557438](https://doi.org/10.5281/zenodo.23557438), from the
+  public commit tagged `study-freeze-2026-10-22`
 
 ## Who runs it
 
