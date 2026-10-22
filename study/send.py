@@ -21,8 +21,8 @@ Spam thresholds (decided with Tim, 2026-10-20: "we don't want to burn the addres
 - seed copies to Tim's own mailboxes (~/.config/study_seeds) go out inside every day's run, so a
   move to the spam folder is seen the same day (mailbox.org reports no spam complaints);
 - the day stops at the first rejection that reads like a block (spam, policy, reputation, rate
-  limit) and at any server error; --send refuses on weekends, and when more than 5% of the previous
-  batch bounced (hard bounces read from the mailbox first).
+  limit) and at any server error; --send refuses when more than 5% of the previous batch bounced
+  (hard bounces read from the mailbox first). Weekends: SEND_WEEKENDS (on since 2026-10-22).
 
 What is stored, and what is not (privacy notice §3.1–3.2):
 - tokens.json: token → group, nothing else. The order is shuffled per batch and there are no times,
@@ -52,6 +52,7 @@ PREVIEW = os.path.join(FR, "preview")
 NO_ROUTE = ("none", "nxdomain", "null-mx")   # domain results that mean "cannot receive mail"
 MAX_BOUNCE = 0.05                            # stop the ramp above this hard-bounce rate
 REMIND_AFTER = 14                            # days from invitation to the one reminder
+SEND_WEEKENDS = True                         # Tim, 2026-10-22: send on Saturdays and Sundays too
 DAILY_TOTAL = [100, 100, 130, 160, 200]      # all emails per day, by week since the first batch
 REMINDED = os.path.join(FR, "reminded.json")
 BLOCK_WORDS = re.compile(r"spam|block|blacklist|blocklist|reputation|policy|denied|abuse|rate.?limit|too many", re.I)
@@ -249,7 +250,7 @@ def plan():
     day0 = date.fromisoformat(st["batches"][0]["date"]) if st.get("batches") else date.today()
     d, i, left, batches, queued, due, days, last_inv, last_rem = date.today(), st["days"], len(q), [], set(), [], 0, None, None
     while left > 0 or due or len(queued) < len(batches):
-        if d.weekday() < 5:
+        if SEND_WEEKENDS or d.weekday() < 5:
             for b, n in batches:
                 if b not in queued and (d - b).days >= REMIND_AFTER:
                     due.append([b, n]); queued.add(b)
@@ -395,7 +396,9 @@ def records():
     return out
 
 NO_WORDS = re.compile(r"^\s*(no|nein|no\.|nein\.|no thanks|no, thanks|nein danke|unsubscribe|remove me|stop)\s*[.!]?\s*$", re.I)
-AUTO_SUBJECT = re.compile(r"^(auto:|automatic reply|automatische antwort|out of office|abwesenheit|autoreply)", re.I)
+AUTO_SUBJECT = re.compile(r"^(auto:|automatic reply|automatische antwort|out of office|abwesenheit|autoreply|"
+                          r"inquiry received|request received|we.ve received|we have received|ticket|"
+                          r"\[?(case|ticket|request) ?#|anfrage erhalten|ihre anfrage|eingangsbest)", re.I)
 
 def first_line(msg):
     """The first line the person wrote: plain text, above any quoted text."""
@@ -434,7 +437,8 @@ def inbox():
             new_seen.add(mid)
             subject = (msg.get("Subject") or "").strip()
             if (msg.get("Auto-Submitted", "no").lower() != "no" or msg.get("X-Autoreply")
-                    or AUTO_SUBJECT.match(subject)):
+                    or (msg.get("Precedence") or "").lower() in ("auto_reply", "bulk", "junk")
+                    or AUTO_SUBJECT.match(re.sub(r"^((re|aw|fwd?|wg):\s*)+", "", subject, flags=re.I))):
                 counts["auto-reply"] += 1
             elif subject.lower() in ("no", "nein") or NO_WORDS.match(first_line(msg)):
                 optout(sender)
@@ -473,8 +477,8 @@ def send(force=False):
     st = load(STATE, {"days": 0, "last": None})
     if st.get("last") == date.today().isoformat():
         sys.exit("Already sent today.")
-    if date.today().weekday() >= 5 and not force:
-        sys.exit("Weekend: no batch (inboxes at work read mail on weekdays). --force to override.")
+    if date.today().weekday() >= 5 and not (SEND_WEEKENDS or force):
+        sys.exit("Weekend: no batch. --force to override.")
     rate = bounces(quiet=False)
     if rate is not None and rate > MAX_BOUNCE and not force:
         sys.exit(f"The last batch bounced at {rate:.1%} (limit {MAX_BOUNCE:.0%}). Stop and look at the "
