@@ -824,9 +824,38 @@ def repo_href(h):
     target = posixpath.normpath(posixpath.join("docs", h))
     return f"{REPO}/{'tree' if h.endswith('/') else 'blob'}/main/{target}"
 
-def md_html(md):
+def rich_list(lines, inline):
+    """Lists as the study pages write them (rich=True only, so no older page changes): items
+    may wrap onto indented lines, nest by indentation, and be numbered; "[ ]" / "[x]" at the
+    start of an item are checkboxes."""
+    items = []
+    for l in lines:
+        m = re.match(r"^(\s*)(- |\d+\. )(.*)$", l)
+        if m:
+            items.append([len(m.group(1)), m.group(2) != "- ", m.group(3)])
+        elif items:
+            items[-1][2] += " " + l.strip()
+    html, stack = [], []
+    for ind, ordered, text in items:
+        while stack and ind < stack[-1][0]:
+            html.append(f"</li></{stack.pop()[1]}>")
+        if stack and ind == stack[-1][0]:
+            html.append("</li>")
+        else:
+            stack.append((ind, "ol" if ordered else "ul"))
+            # the site's stylesheet hides <ol> markers (it uses ordered lists for rankings)
+            html.append('<ol style="list-style:decimal;padding-left:1.4em">' if ordered else "<ul>")
+        text = re.sub(r"^\[x\] ", "\u2611 ", re.sub(r"^\[ \] ", "\u2610 ", text))
+        html.append(f"<li>{inline(text)}")
+    while stack:
+        html.append(f"</li></{stack.pop()[1]}>")
+    return "".join(html)
+
+def md_html(md, rich=False):
     def inline(t):
         t = esc(t)
+        if rich:                                    # study pages: `code` spans (file names, IDs)
+            t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
         t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
         t = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", t)
         t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: f'<a href="{repo_href(m.group(2))}">{m.group(1)}</a>', t)
@@ -851,6 +880,8 @@ def md_html(md):
             out.append(f"<h2>{inline(lines[0][3:])}</h2>")
         elif lines[0].startswith("# "):
             out.append(f"<h1>{inline(lines[0][2:])}</h1>")
+        elif rich and re.match(r"\s*(- |\d+\. )", lines[0]):
+            out.append(rich_list(lines, inline))
         elif all(l.lstrip().startswith("- ") for l in lines):
             out.append("<ul>" + "".join(f"<li>{inline(l.lstrip()[2:])}</li>" for l in lines) + "</ul>")
         elif all(l.startswith("|") for l in lines):
@@ -902,6 +933,40 @@ for _fn, _out, _title, _desc, _other in (
     _md = open(os.path.join(_docs, _fn), encoding="utf-8").read()
     page(_out, _title, _desc, _other + md_html(_md), lang="de" if _fn.endswith("-de.md") else "en")
 
+# Developer study "The cost of being found" (/study/). Published only from the freeze on: the
+# freeze commit moves the protocol into docs/, so no build before it can publish these pages.
+# study/frame/ and study/records/ (addresses, contracts) are never read here.
+_study = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "study")
+STUDY_PAGES = []
+if os.path.exists(os.path.join(_docs, "developer-study-protocol.md")):
+    _study_nav = ('<p class="src"><a href="/study/">The study</a> · <a href="/study/protocol.html">Protocol</a> · '
+                  '<a href="/study/questionnaire.html">Questionnaire</a> · '
+                  '<a href="/study/privacy.html">Privacy notice</a></p>')
+    for _src, _out, _title, _desc in (
+        (os.path.join(_study, "index.md"), "study/index.html",
+         "The cost of being found: a study of app publishers — openAPPindex",
+         "How do new and small apps get found, and what does it cost their publishers? A 12-minute survey; "
+         "protocol and questionnaire published before the first answer."),
+        (os.path.join(_docs, "developer-study-protocol.md"), "study/protocol.html",
+         "Study protocol: The cost of being found — openAPPindex",
+         "The pre-registered protocol: research questions, predictions, sample, analysis and reporting rules, "
+         "frozen before the survey opened."),
+        (os.path.join(_study, "questionnaire.md"), "study/questionnaire.html",
+         "The questionnaire as fielded: The cost of being found — openAPPindex",
+         "Every question, answer option and skip rule of the survey, generated from the code that built the form."),
+        (os.path.join(_study, "privacy.md"), "study/privacy.html",
+         "Privacy notice: The cost of being found — openAPPindex",
+         "What personal data the study processes, why, on what basis, for how long, and your rights.")):
+        page(_out, _title, _desc, _study_nav + md_html(open(_src, encoding="utf-8").read(), rich=True), lang="en")
+        STUDY_PAGES.append(_out[:-len("index.html")] if _out.endswith("index.html") else _out)
+    with open(f"{OUT}/llms.txt", "a", encoding="utf-8") as _f:
+        _f.write(f"""
+## Developer study (open 22 Oct 2026 – 31 Jan 2027)
+- [The cost of being found: a survey of app publishers]({BASE}/study/): how new and small apps get found, and what it costs. Pre-registered.
+- [Study protocol, frozen before the first answer]({BASE}/study/protocol.html)
+- [The questionnaire as fielded]({BASE}/study/questionnaire.html)
+""")
+
 # IndexNow ownership key (Bing et al.). Stable across rebuilds by design — a
 # changed key reads as a change of ownership. This only serves the proof file
 # the protocol requires; run indexnow_submit.py after each deploy to submit.
@@ -941,7 +1006,7 @@ else:
 # classified as low-value, which would suppress the good pages too.
 urls = ["", "de/", "methode.html", "impressum.html", "manifest.html", "manifesto.html", "paper.html",
         "second-category.html", "funding.html", "thesis.html", "datenschutz.html", "de/app/", "data/"] + [f"de/frage/{f}.html" for f,_ in QS] \
-       + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]]
+       + [f"de/app/{a['slug']}/" for a in apps if a["iaps"]] + STUDY_PAGES
 # GAL-553: lastmod is the date a page's content last changed, not the build clock.
 # Each submitted page is hashed with its day-relative phrases ("vor 3 Tagen") removed,
 # and the date moves only when the hash does. lastmod.json is tracked, so the dates

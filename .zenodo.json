@@ -24,7 +24,9 @@
     "JEL D82",
     "JEL D83",
     "JEL L13",
-    "JEL L86"
+    "JEL L86",
+    "pre-registration",
+    "survey"
   ],
   "related_identifiers": [
     {
@@ -35,6 +37,11 @@
     {
       "identifier": "https://openappindex.org/methode.html",
       "relation": "isDocumentedBy"
+    },
+    {
+      "identifier": "https://openappindex.org/study/protocol.html",
+      "relation": "isDocumentedBy"
     }
-  ]
+  ],
+  "notes": "Versions tagged study-freeze-* archive pre-registrations. study-freeze-2026-10-22 froze the developer study \"The cost of being found\": its protocol (docs/developer-study-protocol.md), questionnaire (study/survey.py, study/questionnaire.md) and study pages, before the first answer."
 }

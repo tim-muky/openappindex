@@ -70,8 +70,9 @@ gate-verdict-draft-*.md
 developer-study-protocol-draft.md
 developer-study-survey-draft.md
 
-# Developer study instrument -- public only at the freeze (2026-12-01)
-study/
+# Developer study: public since the freeze (2026-10-22, tag study-freeze-2026-10-22).
+# The Tally dump gets new random IDs on every build; the canonical form is committed instead.
+study/tally_blocks.json
 
 # Study contact list and contracts -- personal data, NEVER published, not even when
 # study/ is opened at the freeze. The frame is deleted when the survey closes (2027-01-31).

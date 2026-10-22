@@ -1,0 +1,2962 @@
+[
+ {
+  "type": "FORM_TITLE",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "The cost of being found"
+    ]
+   ],
+   "title": "The cost of being found"
+  }
+ },
+ {
+  "type": "HIDDEN_FIELDS",
+  "payload": {
+   "hiddenFields": [
+    {
+     "name": "token"
+    },
+    {
+     "name": "channel"
+    },
+    {
+     "name": "group"
+    }
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "A short survey of app publishers, above all new and small ones. About 12 minutes."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "This survey asks app publishers how people actually find their apps, and what it costs to be found. There are no right answers, and \"don't know\" is a useful one: how much publishers know about their own install sources is part of what we want to learn."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "What happens with your answers"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• Results are published in aggregate in an open research paper (spring 2027). The aggregated results are also released as open data under the Creative Commons Attribution licence (CC BY 4.0): anyone may reuse them, as long as they name the source. Individual answers are never released."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• Your answers are anonymous unless you choose otherwise. The survey does not ask for your email address, and a name is asked only if you want to be quoted by name. At the end you can allow us to compare your answers with the public data we measured for your app; only then do we ask for its App Store link. Quotes from your free-text answer are used only if you explicitly allow it."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• Raw answers are seen only by the study lead and are deleted 12 months after the paper is published. The answers are analysed with the help of an AI service (Claude, by Anthropic), which receives them only after the name and App Store link fields have been removed. Please don't write personal details into free-text answers. Details are in the privacy notice."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• Nothing is for sale and nothing is asked of you beyond the answers. Taking part changes nothing about how your app appears in openAPPindex."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• You can skip any question. \"Don't know\" is always a valid answer."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "• You can withdraw your consent at any time, with effect for the future (GDPR Art. 7(3)), by emailing tim@study.openappindex.org. Because answers are anonymous, we can find yours only if you tell us your App Store link or roughly when you answered."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Everyone who takes part and leaves an email address at the end receives the paper before it is published, and the results for their app category."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Who runs this"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Tim Meyerdierks, openAPPindex (openappindex.org), Berlin. Before this, ten years as COO of a mid-sized marketing company in Berlin, Bonial.com (kaufDA in Germany), spending millions of euros on app installs every year. He also publishes small apps himself (e.g. galleybook.com); they are excluded from the study. The study protocol was fixed and published before the survey opened: https://openappindex.org/study/protocol.html"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Privacy notice: https://openappindex.org/study/privacy.html"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Consent"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": true,
+   "name": "C1",
+   "text": "I have read this and agree to take part."
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 1,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Screening"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Have you published (or helped publish) at least one app on Apple's App Store?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S1",
+   "text": "Yes"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S1",
+   "text": "No"
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "isHidden": true,
+   "safeHTMLSchema": [
+    [
+     "Thank you — this survey is only for people who have published an app on the App Store. You can close this page."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Which best describes you? Please answer the rest of the survey about one app, ideally your most recent one. If you were invited by email, please answer about the app named in the email."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S2",
+   "text": "Solo developer"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S2",
+   "text": "Small team (2–10)"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S2",
+   "text": "Company or studio (11+)"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "S2",
+   "text": "Agency publishing for clients"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "S2",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "showBlocks": [
+       "<id>"
+      ]
+     },
+     "type": "SHOW_BLOCKS"
+    },
+    {
+     "type": "HIDE_BUTTON_TO_DISABLE_COMPLETION"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "S1",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "AND"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 2,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Your app"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "In which year was this app first released?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "2026"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "2025"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "2024"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "2023"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "2022 or earlier"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A1",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "What category is it in on the App Store?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Food & Drink"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Health & Fitness"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Lifestyle"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Productivity"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Education"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Games"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 6,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "A2",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How does it earn money? (choose all that apply)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A3",
+   "text": "Paid download"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A3",
+   "text": "Subscription"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A3",
+   "text": "One-time in-app purchase"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A3",
+   "text": "Ads"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A3",
+   "text": "Free, no revenue"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 5,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "A3",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "On which platforms is it available? (choose all that apply)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A4",
+   "text": "iOS"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A4",
+   "text": "Android (Google Play)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A4",
+   "text": "Android (other stores, e.g. F-Droid)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A4",
+   "text": "Web"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "A4",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How many apps have you published in total, including this one?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A5",
+   "text": "1"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A5",
+   "text": "2–3"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A5",
+   "text": "4–10"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A5",
+   "text": "More than 10"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Is the app still available on the App Store?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A6",
+   "text": "Yes"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A6",
+   "text": "No, I removed it"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A6",
+   "text": "No, Apple removed it"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "A6",
+   "text": "Not sure"
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "If the app is no longer available, you are just as welcome: please answer about it as it was."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 3,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Being found"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How did your app get its first 100 users? (choose all that apply)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "App Store search"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Featured or browsed in the App Store"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Paid ads"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Social media (organic)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "My own website, blog or newsletter"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Friends, family, colleagues"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 6,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "A community or forum"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 7,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Press or reviews"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 8,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "It never reached 100 users"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 9,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 10,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "D1",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Roughly what share of your app's first-time downloads comes from App Store search? If you can, look it up: in App Store Connect Analytics, the Source Type breakdown shows \"App Store Search\". Use the last 90 days."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "0–9%"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "10–24%"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "25–49%"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "50–74%"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "75–100%"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Where does that figure come from?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2a",
+   "text": "App Store Connect analytics"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2a",
+   "text": "Another analytics tool"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2a",
+   "text": "My own estimate"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Of your App Store search downloads, roughly how many come from people searching for your app's name rather than for a general term (like \"recipe app\")?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "Almost all"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "More than half"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "About half"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "Less than half"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "Almost none"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D2b",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "hideBlocks": [
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>"
+      ]
+     },
+     "type": "HIDE_BLOCKS"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "D2",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "AND"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "And where do the rest noticeably come from? (choose all that apply; \"App Store Browse\", \"App Referrer\" and \"Web Referrer\" are App Store Connect source types)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "App Store Browse (featuring, charts, categories)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "Apple Ads"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "App Referrer (links in other apps, incl. social apps)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "Web Referrer (links on websites)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "Paid ads outside Apple (Meta, TikTok, Google…)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "Word of mouth"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 6,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D3",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Do you know which App Store search terms your app currently appears for?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D4",
+   "text": "Yes, I check regularly"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D4",
+   "text": "Roughly"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D4",
+   "text": "No"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D4",
+   "text": "Not sure what that means"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How many hours per month do you spend on App Store optimisation (title, subtitle, keywords, screenshots)?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D5",
+   "text": "None"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D5",
+   "text": "Under 2"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D5",
+   "text": "2–10"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D5",
+   "text": "More than 10"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D5",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Have you ever searched the App Store for the obvious words for your app and not found it?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D6",
+   "text": "Yes, and it still isn't there"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D6",
+   "text": "Yes, but it is now"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D6",
+   "text": "No, it shows up"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "D6",
+   "text": "Never checked"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 4,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Paying to be found"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Have you paid for ads to get installs? (choose all that apply)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "No, never"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "Apple Ads (App Store search ads)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "Meta (Instagram, Facebook)"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "TikTok"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "Google"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M1",
+   "text": "Influencers or creators"
+  }
+ },
+ {
+  "type": "CHECKBOX",
+  "payload": {
+   "hasOtherOption": true,
+   "index": 6,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": true,
+   "isRequired": false,
+   "name": "M1",
+   "text": "Other"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "In a typical month with ads running, how much did you spend? (or the equivalent in your currency)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "Under €100"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "€100–499"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "€500–1,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "€2,000–9,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "€10,000–49,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "€50,000 or more"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 6,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M2",
+   "text": "Prefer not to say"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Since you started, has the cost of getting one new user through ads…"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M3",
+   "text": "Risen a lot"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M3",
+   "text": "Risen somewhat"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M3",
+   "text": "Stayed about the same"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M3",
+   "text": "Fallen"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M3",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Did paid ads pay for themselves (did the users they brought in earn back what they cost)?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M4",
+   "text": "Yes"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M4",
+   "text": "Roughly"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M4",
+   "text": "No, they cost more than they earned"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M4",
+   "text": "Too early to say"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "M4",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Have you stopped paid ads, and if so, why? (optional)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXTAREA",
+  "payload": {
+   "isHidden": false,
+   "isRequired": false,
+   "name": "M5"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "hideBlocks": [
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>",
+       "<id>"
+      ]
+     },
+     "type": "HIDE_BLOCKS"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "CONTAINS",
+      "field": {
+       "questionType": "CHECKBOXES",
+       "title": "M1",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "AND"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 5,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Where the app stands"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How many total installs (downloads) has the app had, roughly?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "Under 100"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "100–999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "1,000–9,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "10,000–99,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "100,000–999,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "1–10 million"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 6,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "More than 10 million"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 7,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O1",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "How many people use it in a typical month?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "Under 50"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "50–499"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "500–4,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "5,000–9,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "10,000–49,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 5,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "50,000–99,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 6,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "100,000–249,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 7,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "250,000–499,999"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 8,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "500,000 or more"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 9,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O2",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Does the app cover its own costs (including your time, if you count it)?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O3",
+   "text": "Yes, it makes a profit"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O3",
+   "text": "It covers its costs"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O3",
+   "text": "No"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O3",
+   "text": "It isn't meant to earn money"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O3",
+   "text": "Prefer not to say"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "In the last 24 months, have you introduced or raised paid tiers (subscriptions, in-app purchases)?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O4",
+   "text": "Introduced"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O4",
+   "text": "Raised prices"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O4",
+   "text": "Both"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O4",
+   "text": "Neither"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 4,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "O4",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": true,
+   "safeHTMLSchema": [
+    [
+     "If you introduced or raised them: what was the main reason? (optional)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXTAREA",
+  "payload": {
+   "isHidden": true,
+   "isRequired": false,
+   "name": "O4a"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "showBlocks": [
+       "<id>",
+       "<id>"
+      ]
+     },
+     "type": "SHOW_BLOCKS"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "O4",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    },
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "O4",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    },
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "O4",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "OR"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 6,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "AI assistants"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Have you seen any installs or visitors that you can trace to AI assistants (ChatGPT, Perplexity, Claude, Gemini, etc.)? In App Store Connect Analytics, they can appear as web referrers such as chatgpt.com or perplexity.ai."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI1",
+   "text": "Yes, noticeably"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI1",
+   "text": "A few"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI1",
+   "text": "None"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI1",
+   "text": "I couldn't tell"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Do you expect AI assistants to matter for how people find apps in the next two years?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI2",
+   "text": "A lot"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI2",
+   "text": "Somewhat"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI2",
+   "text": "Not really"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 3,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "AI2",
+   "text": "Don't know"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 7,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Your statement (optional)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "Is there anything you'd like to tell us about getting your app found: your experience, your background, what you would change? (up to ~300 words)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXTAREA",
+  "payload": {
+   "isHidden": false,
+   "isRequired": false,
+   "name": "F1"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "May we quote from your answer above?"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "F2",
+   "text": "No"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "F2",
+   "text": "Yes, anonymously"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 2,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "F2",
+   "text": "Yes, with my name or studio name"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": true,
+   "safeHTMLSchema": [
+    [
+     "If you'd like to be named: name or studio name"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "INPUT_TEXT",
+  "payload": {
+   "isHidden": true,
+   "isRequired": false,
+   "name": "F2a"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "showBlocks": [
+       "<id>",
+       "<id>"
+      ]
+     },
+     "type": "SHOW_BLOCKS"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "F2",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "AND"
+  }
+ },
+ {
+  "type": "PAGE_BREAK",
+  "payload": {
+   "index": 8,
+   "isFirst": false,
+   "isLast": false
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Linking to measured data (optional)"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": false,
+   "safeHTMLSchema": [
+    [
+     "May we compare your answers with the public data openAPPindex measured for your app (for example, whether it appeared for the obvious search)? Your app will not be named in any result."
+    ]
+   ]
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 0,
+   "isFirst": true,
+   "isLast": false,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "L2",
+   "text": "Yes"
+  }
+ },
+ {
+  "type": "MULTIPLE_CHOICE_OPTION",
+  "payload": {
+   "hasOtherOption": false,
+   "index": 1,
+   "isFirst": false,
+   "isLast": true,
+   "isOtherOption": false,
+   "isRequired": false,
+   "name": "L2",
+   "text": "No"
+  }
+ },
+ {
+  "type": "TITLE",
+  "payload": {
+   "isHidden": true,
+   "safeHTMLSchema": [
+    [
+     "Thank you. Please paste your app's App Store link, so we can find it in our data. It starts with https://apps.apple.com/"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "INPUT_LINK",
+  "payload": {
+   "isHidden": true,
+   "isRequired": false,
+   "name": "L1"
+  }
+ },
+ {
+  "type": "CONDITIONAL_LOGIC",
+  "payload": {
+   "actions": [
+    {
+     "payload": {
+      "showBlocks": [
+       "<id>",
+       "<id>"
+      ]
+     },
+     "type": "SHOW_BLOCKS"
+    }
+   ],
+   "conditionals": [
+    {
+     "payload": {
+      "comparison": "IS",
+      "field": {
+       "questionType": "MULTIPLE_CHOICE",
+       "title": "L2",
+       "type": "INPUT_FIELD"
+      },
+      "value": "<id>"
+     },
+     "type": "SINGLE"
+    }
+   ],
+   "logicalOperator": "AND"
+  }
+ },
+ {
+  "type": "HEADING_3",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Results"
+    ]
+   ]
+  }
+ },
+ {
+  "type": "TEXT",
+  "payload": {
+   "safeHTMLSchema": [
+    [
+     "Would you like the paper before it is published, and the results for your app category? Leave your email address in a separate short form — it is not connected to your answers in any way: https://tally.so/r/Mekb9Y"
+    ]
+   ]
+  }
+ }
+]
