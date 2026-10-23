@@ -10,7 +10,7 @@
     python3 study/send.py --optout ADDRESS    # a "no" reply: never write again, delete the address now
     python3 study/send.py --inbox             # read replies (IMAP, read-only): apply clear "no"s, count the rest
     python3 study/send.py --erase             # 31 January 2027: move the address list and sending records to the Trash
-    python3 study/send.py --send              # today's invitations (20 → 40 → 60 → 80 → 100 per sending day),
+    python3 study/send.py --send [--resume]   # today's invitations (20 → 40 → 60 → 80 → 100 per sending day),
                                               # each address re-checked on its page first, plus the
                                               # reminders due (14 days after each batch)
 
@@ -473,9 +473,17 @@ def erase(force=False):
     print("Now: empty the Trash; delete the sent invitations, reminders and replies in mailbox.org;\n"
           "the results form (Tally Mekb9Y) once the paper is sent, by 31 January 2028; optout.json on 31 January 2028.")
 
-def send(force=False):
+def send(force=False, resume=False):
+    """resume: finish a day that a dropped connection cut off (the daily job always passes it).
+    A day stopped by a rejection that reads like a block is never resumed without --force."""
     st = load(STATE, {"days": 0, "last": None})
-    if st.get("last") == date.today().isoformat():
+    today = date.today().isoformat()
+    sent_today = sum(b["end"] - b["start"] for b in st.get("batches", []) if b["date"] == today)
+    stop = st.get("stopped") or {}
+    if stop.get("kind") == "block" and not force:
+        sys.exit(f"Stopped on {stop.get('date')} by a rejection that reads like a block ({stop.get('reason')}). "
+                 "Look before sending more; --force to override.")
+    if st.get("last") == today and not (resume and stop.get("date") == today):
         sys.exit("Already sent today.")
     if date.today().weekday() >= 5 and not (SEND_WEEKENDS or force):
         sys.exit("Weekend: no batch. --force to override.")
@@ -484,9 +492,11 @@ def send(force=False):
         sys.exit(f"The last batch bounced at {rate:.1%} (limit {MAX_BOUNCE:.0%}). Stop and look at the "
                  "address list before sending more; --force to override.")
     key = hmac_key()
-    total = daily_total(st)
-    reminders = due_reminders(st, key)[:total]
-    n = max(0, min(RAMP[min(st["days"], len(RAMP) - 1)], total - len(reminders)))
+    resuming = resume and stop.get("date") == today
+    total = daily_total(st) - (sent_today if resuming else 0)
+    reminders = due_reminders(st, key)[:max(0, total)]
+    ramp_day = st["days"] - 1 if (resuming and sent_today) else st["days"]
+    n = max(0, min(RAMP[min(ramp_day, len(RAMP) - 1)] - (sent_today if resuming else 0), total - len(reminders)))
     q, _ = queue()
     random.shuffle(q)
     batch, stale = [], []
@@ -523,13 +533,13 @@ def send(force=False):
                     code, msg = next(iter(e.recipients.values()))
                     text = ADDR_RE.sub("<address>", msg.decode("utf-8", "replace") if isinstance(msg, bytes) else str(msg))
                     if BLOCK_WORDS.search(text):
-                        stopped = f"rejection that reads like a block: {code} {text[:160]}"
+                        stopped = ("block", f"{code} {text[:160]}")
                         break
                     if kind != "seed":
                         refused.append(fp)              # rejected at once: a bounce
                     continue
                 except (smtplib.SMTPResponseException, smtplib.SMTPServerDisconnected) as e:
-                    stopped = f"server error: {ADDR_RE.sub('<address>', str(e))[:160]}"
+                    stopped = ("server", ADDR_RE.sub('<address>', str(e))[:160])
                     break
                 if kind == "invite":
                     sent.append(fp)
@@ -552,13 +562,20 @@ def send(force=False):
         batches = st.get("batches", [])
         if len(sent) > start:
             batches = batches + [{"date": date.today().isoformat(), "start": start, "end": len(sent)}]
-        if len(sent) > start or n_rem:
-            save(STATE, {**st, "days": st["days"] + (len(sent) > start), "last": date.today().isoformat(),
-                         "batches": batches})
+        new_day = len(sent) > start and not (resuming and sent_today)
+        st_new = {**st, "days": st["days"] + new_day, "batches": batches}
+        if len(sent) > start or n_rem or stopped:
+            st_new["last"] = today
+        if stopped:
+            st_new["stopped"] = {"date": today, "kind": stopped[0], "reason": stopped[1]}
+        else:
+            st_new.pop("stopped", None)
+        save(STATE, st_new)
         print(f"day {st['days'] + 1}: {len(sent) - start} invitations, {n_rem} reminders sent, "
               f"{len(refused)} refused at once, {len(q) - (len(sent) - start) - len(refused)} not yet invited")
     if stopped:
-        sys.exit(f"STOPPED for today, {stopped}. Look before the next run.")
+        sys.exit(f"STOPPED ({stopped[0]}): {stopped[1]}. " + ("Look before the next run." if stopped[0] == "block"
+                 else "The next run of the job finishes the day (--resume)."))
 
 if __name__ == "__main__":
     a = sys.argv[1:]
@@ -570,5 +587,12 @@ if __name__ == "__main__":
     elif a[:1] == ["--optout"] and len(a) == 2: optout(a[1])
     elif a[:1] == ["--inbox"]: inbox()
     elif a[:1] == ["--erase"]: erase(force="--force" in a)
-    elif a[:1] == ["--send"]: send(force="--force" in a)
+    elif a[:1] == ["--send"]:
+        import fcntl                              # one sending run at a time (hourly job + manual runs)
+        lock = open(os.path.join(FR, ".send.lock"), "w")
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            sys.exit("Another sending run is in progress.")
+        send(force="--force" in a, resume="--resume" in a)
     else: sys.exit(__doc__)
