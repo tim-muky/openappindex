@@ -38,7 +38,7 @@ What is stored, and what is not (privacy notice §3.1–3.2):
 SMTP: mailbox.org, From tim@study.openappindex.org. The login is read from ~/.config/mailbox_user
 and the password from ~/.config/mailbox_app_password (an app password Tim creates; never printed).
 """
-import json, os, re, sys, hmac, hashlib, random, secrets, smtplib, ssl, time, urllib.parse, urllib.request, email.utils
+import json, os, re, sys, hmac, hashlib, random, secrets, smtplib, ssl, time, urllib.parse, urllib.request, email, email.utils
 from email.message import EmailMessage
 from email.utils import formataddr, make_msgid, formatdate
 from datetime import date
@@ -50,7 +50,13 @@ TOKENS, SENT, OPTOUT, STATE = (os.path.join(FR, f) for f in ("tokens.json", "sen
 BOUNCED, DOMAINS, STALE = (os.path.join(FR, f) for f in ("bounced.json", "domains.json", "stale.json"))
 PREVIEW = os.path.join(FR, "preview")
 NO_ROUTE = ("none", "nxdomain", "null-mx")   # domain results that mean "cannot receive mail"
-MAX_BOUNCE = 0.05                            # stop the ramp above this hard-bounce rate
+MAX_BOUNCE = 0.05                            # stop the ramp above this hard-bounce rate ...
+BOUNCE_WINDOW = 100                          # ... over the last 100 invitations
+SPAM_STOP = 2                                # spam verdicts in one day that stop sending
+SPAM_VERDICT = re.compile(r"spam|junk mail|blacklist|blocklist|reputation", re.I)
+# Providers that rejected the new sender as spam (Yandex, 2026-10-23): their addresses go last.
+STRICT_MX = ("yandex", "mail.ru")
+STRICT_DOMAINS = ("yandex.ru", "yandex.com", "ya.ru", "mail.ru", "bk.ru", "inbox.ru", "list.ru")
 REMIND_AFTER = 14                            # days from invitation to the one reminder
 SEND_WEEKENDS = True                         # Tim, 2026-10-22: send on Saturdays and Sundays too
 DAILY_TOTAL = [100, 100, 130, 160, 200]      # all emails per day, by week since the first batch
@@ -284,30 +290,54 @@ def test(addr):
     print(f"one sample sent to {addr} (token 'TEST', channel 'pretest', not logged)")
 
 def failed_recipients(msg):
-    """Hard-failed recipients in a delivery status notification (RFC 3464): Action failed, 5.x.x."""
+    """Hard failures in a delivery status notification (RFC 3464), Action failed and 5.x.x. For
+    each: every address it may name (Final- and Original-Recipient, and the To of the returned
+    message, which is ours even when the address forwarded elsewhere), and whether the refusal
+    reads as a spam verdict."""
+    returned_to = []
+    for part in msg.walk():
+        ct = part.get_content_type()
+        try:
+            if ct == "message/rfc822":
+                inner = part.get_payload(0)
+            elif ct == "text/rfc822-headers":
+                inner = email.message_from_string(part.get_payload(decode=True).decode("utf-8", "replace"))
+            else:
+                continue
+            returned_to += [a.lower() for _, a in email.utils.getaddresses(inner.get_all("To", []))]
+        except Exception:
+            pass
     out = []
     for part in msg.walk():
         if part.get_content_type() != "message/delivery-status":
             continue
         for block in part.get_payload():
             action, status = (block.get("Action") or "").lower(), block.get("Status") or ""
-            rcpt = (block.get("Final-Recipient") or block.get("Original-Recipient") or "").partition(";")[2]
-            if rcpt.strip() and action.startswith("failed") and status.startswith("5"):
-                out.append(rcpt.strip().strip("<>").lower())
+            if not (action.startswith("failed") and status.startswith("5")):
+                continue
+            named = {x.partition(";")[2].strip().strip("<>").lower()
+                     for x in (block.get("Final-Recipient") or "", block.get("Original-Recipient") or "") if ";" in x}
+            out.append((named | set(returned_to), bool(SPAM_VERDICT.search(block.get("Diagnostic-Code") or ""))))
     return out
 
 def bounces(quiet=False):
     """Read delivery-failure reports from the mailbox, read-only (nothing is marked as read or
     moved), and record each hard-failed address as a fingerprint. Returns the hard-bounce rate
-    of the last batch, or None if no batch was sent yet."""
-    import imaplib, email
+    over the last BOUNCE_WINDOW invitations (one small batch is too noisy: on 2026-10-24, 2 dead
+    addresses in 39 tripped a per-batch brake), or None if nothing was sent yet. Spam verdicts
+    per day are left in bounces.spam_by_day for the spam brake."""
+    import imaplib
+    from collections import Counter
     st = load(STATE, {"days": 0})
+    bounces.spam_by_day = Counter()
     if not st.get("batches"):
         return None
     pw = secret("mailbox_app_password")
     if not pw:
         sys.exit("No app password at ~/.config/mailbox_app_password.")
     key = hmac_key()
+    sent = load(SENT, [])
+    sent_set = set(sent)
     since = date.fromisoformat(st["batches"][0]["date"]).strftime("%d-%b-%Y")
     found = set()
     with imaplib.IMAP4_SSL(IMAP_HOST) as m:
@@ -318,17 +348,21 @@ def bounces(quiet=False):
             _, ids = m.search(None, "SINCE", since, "OR", "FROM", "mailer-daemon", "FROM", "postmaster")
             for i in ids[0].split():
                 _, data = m.fetch(i, "(BODY.PEEK[])")
-                found.update(failed_recipients(email.message_from_bytes(data[0][1])))
-    sent = load(SENT, [])
-    fps = {fingerprint(a, key) for a in found} & set(sent)    # only addresses we actually wrote to
-    bounced = sorted(set(load(BOUNCED, [])) | fps)
+                msg = email.message_from_bytes(data[0][1])
+                when = email.utils.parsedate_to_datetime(msg["Date"]).date().isoformat() if msg["Date"] else ""
+                for named, spam in failed_recipients(msg):
+                    hit = {fingerprint(a, key) for a in named} & sent_set   # only addresses we wrote to
+                    found |= hit
+                    if spam and hit:
+                        bounces.spam_by_day[when] += 1
+    bounced = sorted(set(load(BOUNCED, [])) | found)
     save(BOUNCED, bounced)
-    last = st["batches"][-1]
-    batch = set(sent[last["start"]:last["end"]])
-    rate = len(batch & set(bounced)) / len(batch) if batch else 0.0
+    window = sent[-BOUNCE_WINDOW:]
+    n_bad = len(set(window) & set(bounced))
+    rate = n_bad / len(window) if window else 0.0
     if not quiet:
-        print(f"hard bounces recorded: {len(bounced)} of {len(sent)} sent; "
-              f"last batch ({last['date']}): {len(batch & set(bounced))}/{len(batch)} = {rate:.1%}")
+        print(f"hard bounces recorded: {len(bounced)} of {len(sent)} sent; last {len(window)} invitations: "
+              f"{n_bad} = {rate:.1%}; spam verdicts by day: {dict(bounces.spam_by_day) or 'none'}")
     return rate
 
 def optout(addr):
@@ -422,7 +456,7 @@ def inbox():
     pw = secret("mailbox_app_password") or sys.exit("No app password at ~/.config/mailbox_app_password.")
     seen = set(load(os.path.join(FR, "inbox_seen.json"), []))
     since = date.fromisoformat(st["batches"][0]["date"]).strftime("%d-%b-%Y")
-    counts, new_seen = {"no (applied)": 0, "auto-reply": 0, "to read": 0}, set()
+    counts, new_seen = {"no (applied)": 0, "auto-reply": 0, "DMARC report": 0, "to read": 0}, set()
     with imaplib.IMAP4_SSL(IMAP_HOST) as m:
         m.login(secret(SMTP_USER_FILE) or sys.exit("No login at ~/.config/mailbox_user."), pw)
         m.select("INBOX", readonly=True)
@@ -436,7 +470,9 @@ def inbox():
                 continue
             new_seen.add(mid)
             subject = (msg.get("Subject") or "").strip()
-            if (msg.get("Auto-Submitted", "no").lower() != "no" or msg.get("X-Autoreply")
+            if re.match(r"(\[preview\] )?report domain: ", subject, re.I):
+                counts["DMARC report"] += 1             # aggregate authentication reports (rua)
+            elif (msg.get("Auto-Submitted", "no").lower() != "no" or msg.get("X-Autoreply")
                     or (msg.get("Precedence") or "").lower() in ("auto_reply", "bulk", "junk")
                     or AUTO_SUBJECT.match(re.sub(r"^((re|aw|fwd?|wg):\s*)+", "", subject, flags=re.I))):
                 counts["auto-reply"] += 1
@@ -489,8 +525,13 @@ def send(force=False, resume=False):
         sys.exit("Weekend: no batch. --force to override.")
     rate = bounces(quiet=False)
     if rate is not None and rate > MAX_BOUNCE and not force:
-        sys.exit(f"The last batch bounced at {rate:.1%} (limit {MAX_BOUNCE:.0%}). Stop and look at the "
-                 "address list before sending more; --force to override.")
+        sys.exit(f"The last {BOUNCE_WINDOW} invitations bounced at {rate:.1%} (limit {MAX_BOUNCE:.0%}). Stop and "
+                 "look at the address list before sending more; --force to override.")
+    last_run = (st.get("batches") or [{"date": today}])[-1]["date"]
+    recent_spam = sum(n for d, n in getattr(bounces, "spam_by_day", {}).items() if d >= last_run)
+    if recent_spam >= SPAM_STOP and not force:
+        sys.exit(f"{recent_spam} spam verdicts since the last run ({last_run}). Stop and look before sending "
+                 "more; --force to override.")
     key = hmac_key()
     resuming = resume and stop.get("date") == today
     total = daily_total(st) - (sent_today if resuming else 0)
@@ -499,6 +540,9 @@ def send(force=False, resume=False):
     n = max(0, min(RAMP[min(ramp_day, len(RAMP) - 1)] - (sent_today if resuming else 0), total - len(reminders)))
     q, _ = queue()
     random.shuffle(q)
+    mx = load(os.path.join(FR, "mx_hosts.json"), {})
+    q.sort(key=lambda d: any(k in mx.get(domain_of(d["email"]), "") for k in STRICT_MX)
+                         or domain_of(d["email"]).endswith(STRICT_DOMAINS))      # strict providers last
     batch, stale = [], []
     for d in q[:3 * n]:                         # re-check on the source page, today
         if len(batch) == n:
