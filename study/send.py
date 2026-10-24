@@ -50,8 +50,9 @@ TOKENS, SENT, OPTOUT, STATE = (os.path.join(FR, f) for f in ("tokens.json", "sen
 BOUNCED, DOMAINS, STALE = (os.path.join(FR, f) for f in ("bounced.json", "domains.json", "stale.json"))
 PREVIEW = os.path.join(FR, "preview")
 NO_ROUTE = ("none", "nxdomain", "null-mx")   # domain results that mean "cannot receive mail"
-MAX_BOUNCE = 0.05                            # stop the ramp above this hard-bounce rate ...
-BOUNCE_WINDOW = 100                          # ... over the last 100 invitations
+MAX_BOUNCE = 0.05                            # hold the ramp above this hard-bounce rate ...
+HOLD_STOP = 0.10                             # ... and stop sending above this one (Tim, 2026-10-24)
+BOUNCE_WINDOW = 100                          # both over the last 100 invitations
 SPAM_STOP = 2                                # spam verdicts in one day that stop sending
 SPAM_VERDICT = re.compile(r"spam|junk mail|blacklist|blocklist|reputation", re.I)
 # Providers that rejected the new sender as spam (Yandex, 2026-10-23): their addresses go last.
@@ -254,7 +255,7 @@ def plan():
     from datetime import timedelta
     st = load(STATE, {"days": 0})
     day0 = date.fromisoformat(st["batches"][0]["date"]) if st.get("batches") else date.today()
-    d, i, left, batches, queued, due, days, last_inv, last_rem = date.today(), st["days"], len(q), [], set(), [], 0, None, None
+    d, i, left, batches, queued, due, days, last_inv, last_rem = date.today(), st["days"] - st.get("held", 0), len(q), [], set(), [], 0, None, None
     while left > 0 or due or len(queued) < len(batches):
         if SEND_WEEKENDS or d.weekday() < 5:
             for b, n in batches:
@@ -524,9 +525,14 @@ def send(force=False, resume=False):
     if date.today().weekday() >= 5 and not (SEND_WEEKENDS or force):
         sys.exit("Weekend: no batch. --force to override.")
     rate = bounces(quiet=False)
-    if rate is not None and rate > MAX_BOUNCE and not force:
-        sys.exit(f"The last {BOUNCE_WINDOW} invitations bounced at {rate:.1%} (limit {MAX_BOUNCE:.0%}). Stop and "
+    if rate is not None and rate > HOLD_STOP and not force:
+        sys.exit(f"The last {BOUNCE_WINDOW} invitations bounced at {rate:.1%} (limit {HOLD_STOP:.0%}). Stop and "
                  "look at the address list before sending more; --force to override.")
+    # Between the two limits the day sends as many invitations as the last one: on 2026-10-24, 4 of
+    # 6 bounces were dead or misconfigured addresses on developers' pages, not verdicts on the email.
+    held = rate is not None and rate > MAX_BOUNCE and not force
+    if held:
+        print(f"bounce rate {rate:.1%} is above {MAX_BOUNCE:.0%}: the ramp holds at the last day's number", flush=True)
     last_run = (st.get("batches") or [{"date": today}])[-1]["date"]
     recent_spam = sum(n for d, n in getattr(bounces, "spam_by_day", {}).items() if d >= last_run)
     if recent_spam >= SPAM_STOP and not force:
@@ -536,7 +542,8 @@ def send(force=False, resume=False):
     resuming = resume and stop.get("date") == today
     total = daily_total(st) - (sent_today if resuming else 0)
     reminders = due_reminders(st, key)[:max(0, total)]
-    ramp_day = st["days"] - 1 if (resuming and sent_today) else st["days"]
+    step = st["days"] - st.get("held", 0)       # ramp steps taken; a held day takes none
+    ramp_day = max(0, step - 1) if (held or (resuming and sent_today)) else step
     n = max(0, min(RAMP[min(ramp_day, len(RAMP) - 1)] - (sent_today if resuming else 0), total - len(reminders)))
     q, _ = queue()
     random.shuffle(q)
@@ -607,7 +614,8 @@ def send(force=False, resume=False):
         if len(sent) > start:
             batches = batches + [{"date": date.today().isoformat(), "start": start, "end": len(sent)}]
         new_day = len(sent) > start and not (resuming and sent_today)
-        st_new = {**st, "days": st["days"] + new_day, "batches": batches}
+        st_new = {**st, "days": st["days"] + new_day, "held": st.get("held", 0) + (new_day and held),
+                  "batches": batches}
         if len(sent) > start or n_rem or stopped:
             st_new["last"] = today
         if stopped:
