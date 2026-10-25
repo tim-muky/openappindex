@@ -49,7 +49,9 @@ FRAME, EMAILS = os.path.join(FR, "frame.json"), os.path.join(FR, "emails.json")
 TOKENS, SENT, OPTOUT, STATE = (os.path.join(FR, f) for f in ("tokens.json", "sent.json", "optout.json", "send_state.json"))
 BOUNCED, DOMAINS, STALE = (os.path.join(FR, f) for f in ("bounced.json", "domains.json", "stale.json"))
 PREVIEW = os.path.join(FR, "preview")
-NO_ROUTE = ("none", "nxdomain", "null-mx")   # domain results that mean "cannot receive mail"
+# Domain results that mean "cannot receive mail". A domain with no MX, only a website address
+# (RFC 5321's implicit MX), is one too: on 2026-10-23/25 all three such domains timed out on port 25.
+NO_ROUTE = ("none", "nxdomain", "null-mx", "a", "aaaa")
 MAX_BOUNCE = 0.05                            # hold the ramp above this hard-bounce rate ...
 HOLD_STOP = 0.10                             # ... and stop sending above this one (Tim, 2026-10-24)
 BOUNCE_WINDOW = 100                          # both over the last 100 invitations
@@ -182,7 +184,8 @@ def queue(check_domains=True):
     return q, shared
 
 def mail_route(dom):
-    """Does the domain accept mail: MX, else an address record (RFC 5321 implicit MX)?
+    """Does the domain accept mail: MX, else an address record (RFC 5321 implicit MX, which
+    NO_ROUTE treats as no mail)?
     Asked over DNS-over-HTTPS because the VPN's resolver answers NXDOMAIN to every MX query,
     which would wrongly drop every address. None = could not tell (kept, asked again later)."""
     for t, want in (("MX", 15), ("A", 1), ("AAAA", 28)):
