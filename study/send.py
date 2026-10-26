@@ -436,7 +436,8 @@ def records():
 NO_WORDS = re.compile(r"^\s*(no|nein|no\.|nein\.|no thanks|no, thanks|nein danke|unsubscribe|remove me|stop)\s*[.!]?\s*$", re.I)
 AUTO_SUBJECT = re.compile(r"^(auto:|automatic reply|automatische antwort|out of office|abwesenheit|autoreply|"
                           r"inquiry received|request received|we.ve received|we have received|ticket|"
-                          r"\[?(case|ticket|request) ?#|anfrage erhalten|ihre anfrage|eingangsbest)", re.I)
+                          r"\[?(case|ticket|request) ?#|anfrage erhalten|ihre anfrage|eingangsbest|"
+                          r"ihre nachricht|\[[^\]]*support\])", re.I)
 
 def first_line(msg):
     """The first line the person wrote: plain text, above any quoted text."""
