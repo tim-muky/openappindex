@@ -294,7 +294,8 @@ def test(addr):
     print(f"one sample sent to {addr} (token 'TEST', channel 'pretest', not logged)")
 
 def failed_recipients(msg):
-    """Hard failures in a delivery status notification (RFC 3464), Action failed and 5.x.x. For
+    """Hard failures in a delivery status notification (RFC 3464): Action failed, whether a 5.x.x
+    refusal or a 4.x.x the server stopped retrying (a domain with no mail server, 2026-10-26). For
     each: every address it may name (Final- and Original-Recipient, and the To of the returned
     message, which is ours even when the address forwarded elsewhere), and whether the refusal
     reads as a spam verdict."""
@@ -316,8 +317,8 @@ def failed_recipients(msg):
         if part.get_content_type() != "message/delivery-status":
             continue
         for block in part.get_payload():
-            action, status = (block.get("Action") or "").lower(), block.get("Status") or ""
-            if not (action.startswith("failed") and status.startswith("5")):
+            action = (block.get("Action") or "").lower()
+            if not action.startswith("failed"):
                 continue
             named = {x.partition(";")[2].strip().strip("<>").lower()
                      for x in (block.get("Final-Recipient") or "", block.get("Original-Recipient") or "") if ";" in x}
