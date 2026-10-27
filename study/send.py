@@ -4,8 +4,8 @@
 
     python3 study/send.py --plan              # who would get which email; counts only, nothing sent
     python3 study/send.py --check             # does each address's domain accept mail? (DNS only, nothing sent)
-    python3 study/send.py --preview 5         # write 5 rendered emails to study/frame/preview/, nothing sent
-    python3 study/send.py --test ADDRESS      # send ONE rendered sample to ADDRESS (Tim's own), no token logged
+    python3 study/send.py --preview 5 [B]     # write 5 rendered emails (text A or B) to study/frame/preview/, nothing sent
+    python3 study/send.py --test ADDRESS [B]  # send ONE rendered sample to ADDRESS (Tim's own), no token logged
     python3 study/send.py --bounces           # read delivery-failure reports (IMAP, read-only); never retry those
     python3 study/send.py --optout ADDRESS    # a "no" reply: never write again, delete the address now
     python3 study/send.py --inbox             # read replies (IMAP, read-only): apply clear "no"s, count the rest
@@ -94,6 +94,36 @@ To be clear about what this is not: nothing is for sale, and nothing is asked of
 Before openAPPindex I was COO of a mid-sized marketing company in Berlin, Bonial.com (kaufDA in Germany), for ten years, and spent millions of euros on app installs every year. I also publish small apps myself (e.g. galleybook.com); they are excluded from this study.
 
 I won't spam you: I'll send one short reminder in about two weeks, and nothing after that. If you'd rather not hear from me again, reply "no" and I'll delete your address.
+
+Thank you,
+Tim
+
+Tim Meyerdierks
+openappindex.org · {study_page}
+
+{footer}
+"""
+
+# Second invitation text (Tim, 2026-10-27): shorter, without the maintainer's background, and
+# framed around the aim of the study. Each invitation gets A or B at random (protocol,
+# amendment 1); the version is recorded with the token. B_SHARE = 0 sends A only.
+B_SHARE = 0.5
+SUBJECT_B = "Help lower the barriers for new apps: a 12-minute research survey"
+BODY_B = """Hello,
+
+What does it take for a new app to be found, and what does it cost? Today that is discussed with numbers from big publishers and tool vendors; new and small publishers are rarely asked.
+
+openAPPindex (openappindex.org) is an independent, open index of the App Store. Your app {app} is one of the {category} apps we measured in the German App Store, and now we are asking the publishers.
+
+The aim is a more equal app ecosystem: open numbers that let everyone, not only those with big budgets, see the barriers to entry and lower them. Your answers make that possible.
+
+The survey takes about 12 minutes and doesn't ask who you are. All results are published openly, as a research paper with the aggregated data under CC BY 4.0:
+
+{link}
+
+Nothing is for sale, and nothing is asked of you beyond the answers. Taking part (or not) changes nothing about how your app appears in the index. Everyone who takes part can receive the paper first.
+
+One short reminder follows in about two weeks, nothing after that. If you'd rather not hear from me again, reply "no" and I'll delete your address.
 
 Thank you,
 Tim
@@ -222,17 +252,18 @@ def check():
     print(f"dropped as undeliverable: {sum(n for r, n in by_addr.items() if r in NO_ROUTE)}; "
           f"unknown (kept, re-checked next run): {by_addr.get(None, 0)}")
 
-def render(d, token, reminder=False, channel=None):
+def render(d, token, reminder=False, channel=None, version="A"):
     params = {"token": token, "channel": channel or ("email-reminder" if reminder else "email"), "group": d["group"]}
     link = SURVEY + "?" + urllib.parse.urlencode(params)
     footer = FOOTER.format(page_words=PAGE_WORDS.get(d["page"], "your website"), source=d["source"],
                            from_addr=FROM_ADDR, privacy=PRIVACY)
-    body = (REMINDER_BODY if reminder else BODY).format(app=d["app"], category=CATEGORY[d["cat"]], link=link,
-                                                        study_page=STUDY_PAGE, footer=footer)
+    text, subject = ((REMINDER_BODY, REMINDER_SUBJECT) if reminder else
+                     (BODY_B, SUBJECT_B) if version == "B" else (BODY, SUBJECT))
+    body = text.format(app=d["app"], category=CATEGORY[d["cat"]], link=link, study_page=STUDY_PAGE, footer=footer)
     m = EmailMessage()
     m["From"] = formataddr((FROM_NAME, FROM_ADDR))
     m["To"] = d["email"]
-    m["Subject"] = REMINDER_SUBJECT if reminder else SUBJECT
+    m["Subject"] = subject
     m["Date"] = formatdate(localtime=True)
     m["Message-ID"] = make_msgid(domain="study.openappindex.org")
     m["List-Unsubscribe"] = f"<mailto:{FROM_ADDR}?subject=no>"
@@ -276,22 +307,23 @@ def plan():
     print(f"daily total by week {DAILY_TOTAL}, invitations ramp {RAMP}, reminders after {REMIND_AFTER} days")
     print(f"if sending started today: last invitations {last_inv}, last reminders {last_rem}, {days} sending days")
 
-def preview(n):
+def preview(n, version="A"):
     q, _ = queue()
     os.makedirs(PREVIEW, exist_ok=True)
     random.seed(1)
     for i, d in enumerate(random.sample(q, min(n, len(q))), 1):
-        open(os.path.join(PREVIEW, f"{i:02}.eml"), "w", encoding="utf-8").write(render(d, "PREVIEW").as_string())
-    print(f"{min(n, len(q))} previews in {PREVIEW} (token 'PREVIEW', nothing sent, nothing logged)")
+        open(os.path.join(PREVIEW, f"{i:02}{version}.eml"), "w", encoding="utf-8").write(
+            render(d, "PREVIEW", version=version).as_string())
+    print(f"{min(n, len(q))} previews of text {version} in {PREVIEW} (token 'PREVIEW', nothing sent, nothing logged)")
 
-def test(addr):
+def test(addr, version="A"):
     """One rendered invitation to Tim's own address. Its link carries channel=pretest, so an
     answer given through it is excluded from the results like the pretest's."""
     q, _ = queue()
     d = {**q[0], "email": addr}
     with smtp() as s:
-        s.send_message(render(d, "TEST", channel="pretest"))
-    print(f"one sample sent to {addr} (token 'TEST', channel 'pretest', not logged)")
+        s.send_message(render(d, "TEST", channel="pretest", version=version))
+    print(f"one sample of text {version} sent to {addr} (token 'TEST', channel 'pretest', not logged)")
 
 def failed_recipients(msg):
     """Hard failures in a delivery status notification (RFC 3464): Action failed, whether a 5.x.x
@@ -566,25 +598,30 @@ def send(force=False, resume=False):
             stale.append(fingerprint(d["email"], key))
     if stale:
         save(STALE, sorted(set(load(STALE, [])) | set(stale)))
-    jobs = [(d, "invite") for d in batch] + [(d, "remind") for d in reminders]
-    seeds = [l.strip() for l in (secret("study_seeds") or "").splitlines() if "@" in l]
+    n_b = round(len(batch) * B_SHARE)           # text B for an exact share of the day, at random
+    versions = ["B"] * n_b + ["A"] * (len(batch) - n_b)
+    random.shuffle(versions)
+    jobs = [(d, "invite", v) for d, v in zip(batch, versions)] + [(d, "remind", None) for d in reminders]
+    seeds = [(l.strip(), v) for l in (secret("study_seeds") or "").splitlines() if "@" in l
+             for v in sorted(set(versions) or {"A"})]    # each seed gets every text sent today
     sample = (batch or reminders or q or [None])[0]
     if sample:
-        for k, addr in enumerate(seeds):        # spread through the run, like any other recipient
-            jobs.insert((k + 1) * len(jobs) // (len(seeds) + 1), ({**sample, "email": addr}, "seed"))
-    print(f"today (daily total {total}): {len(batch)} invitations (re-checked; {len(stale)} no longer "
-          f"published), {len(reminders)} reminders, {len(seeds)} seed copies", flush=True)
+        for k, (addr, v) in enumerate(seeds):   # spread through the run, like any other recipient
+            jobs.insert((k + 1) * len(jobs) // (len(seeds) + 1), ({**sample, "email": addr}, "seed", v))
+    print(f"today (daily total {total}): {len(batch)} invitations ({len(batch) - n_b} text A, {n_b} text B; "
+          f"re-checked, {len(stale)} no longer published), {len(reminders)} reminders, {len(seeds)} seed copies",
+          flush=True)
     sent, tokens, new_tokens = load(SENT, []), load(TOKENS, []), []
     reminded = load(REMINDED, [])
     start, n_rem, refused, stopped = len(sent), 0, [], None
     try:
         with smtp() as s:
-            for i, (d, kind) in enumerate(jobs, 1):
+            for i, (d, kind, version) in enumerate(jobs, 1):
                 token = "SEED" if kind == "seed" else secrets.token_urlsafe(9)
                 fp = fingerprint(d["email"], key)
                 try:
                     s.send_message(render(d, token, reminder=(kind == "remind"),
-                                          channel="pretest" if kind == "seed" else None))
+                                          channel="pretest" if kind == "seed" else None, version=version))
                 except smtplib.SMTPRecipientsRefused as e:
                     code, msg = next(iter(e.recipients.values()))
                     text = ADDR_RE.sub("<address>", msg.decode("utf-8", "replace") if isinstance(msg, bytes) else str(msg))
@@ -606,7 +643,8 @@ def send(force=False, resume=False):
                     save(REMINDED, reminded)
                 if kind != "seed":
                     new_tokens.append({"token": token, "group": d["group"],
-                                       "channel": "email-reminder" if kind == "remind" else "email"})
+                                       "channel": "email-reminder" if kind == "remind" else "email",
+                                       **({"version": version} if kind == "invite" else {})})
                 print(f"  {i}/{len(jobs)}", flush=True)
                 if i < len(jobs):
                     time.sleep(random.uniform(*GAP))
@@ -638,8 +676,8 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if a[:1] == ["--plan"]: plan()
     elif a[:1] == ["--check"]: check()
-    elif a[:1] == ["--preview"]: preview(int(a[1]) if len(a) > 1 else 5)
-    elif a[:1] == ["--test"] and len(a) == 2: test(a[1])
+    elif a[:1] == ["--preview"]: preview(int(a[1]) if len(a) > 1 else 5, a[2] if len(a) > 2 else "A")
+    elif a[:1] == ["--test"] and len(a) in (2, 3): test(a[1], a[2] if len(a) == 3 else "A")
     elif a[:1] == ["--bounces"]: bounces()
     elif a[:1] == ["--optout"] and len(a) == 2: optout(a[1])
     elif a[:1] == ["--inbox"]: inbox()

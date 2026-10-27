@@ -454,3 +454,24 @@ funded time.
   correction then follows as a dated amendment.
 - The maintainer publishes an app in one of the categories; galleybook is excluded from the sample,
   and his own experience is cited as his, never pooled.
+
+## Amendments
+
+### Amendment 1 (2026-10-27, before the invitations of 2026-10-28): a second invitation text, assigned at random
+
+- **Why.** The first 340 invitations (22–27 October, all with the original text) brought one survey
+  answer.
+- **What.** From 2026-10-28, each invitation gets the original text (A) or a second text (B) at
+  random, half and half within each day's batch. B leaves out the maintainer's background and
+  states the aim of the study: open numbers that let everyone see the barriers to entry for new
+  apps and lower them. Like A, it states no finding about how apps get found. It says that nothing
+  is asked for or sold and that taking part doesn't affect the index, and it carries the privacy
+  notice and the opt-out. Both texts are in `study/send.py`. The reminder is the same for both.
+- **What is recorded.** The sending script adds the text version to the token list
+  (token → group, version). It still never stores which address received which token.
+- **Analysis.**
+  - The response rate per text (answers with a valid email token ÷ invitations) is reported with
+    its interval.
+  - Answers through both texts count toward P1–P6, because the text is assigned at random.
+  - B states an aim, so it may attract or prime publishers who share that aim. P1–P3 are therefore
+    also reported per text where n allows. A difference is reported, not corrected.

@@ -33,7 +33,8 @@ is welcome, including publishers of apps that are no longer available.
 
 The study protocol and the questionnaire were fixed and published before the first answer:
 
-- [Study protocol](https://openappindex.org/study/protocol.html), frozen on 22 October 2026
+- [Study protocol](https://openappindex.org/study/protocol.html), frozen on 22 October 2026;
+  amendment 1 of 27 October 2026 adds a second invitation text, assigned at random
 - [The questionnaire as fielded](https://openappindex.org/study/questionnaire.html)
 - [Privacy notice](https://openappindex.org/study/privacy.html)
 - Archived with a DOI: [10.5281/zenodo.23557438](https://doi.org/10.5281/zenodo.23557438), from the
