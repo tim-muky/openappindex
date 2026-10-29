@@ -10,7 +10,7 @@ only. No survey answer is read here, and the results form is never joined to the
         invitation text, as counted copies; see sample/build_site.py), and
         study/snapshot-example.jpg, a picture of it for community posts.
 
-    python3 study/snapshot.py --opens [DAYS]
+    python3 study/snapshot.py --opens [DAYS]     # default: since amendment 2 went live
         How often the example was opened, per link (a, b = invitation texts, r = reminder,
         c = community posts, t = test copies), from the site's anonymous request log: page
         fetches, and stylesheet loads, which a browser showing the page makes and a mail scanner
@@ -303,12 +303,15 @@ def participant(arg):
     chrome(page, base + ".pdf", "pdf")
     print(f"{tid}: {s['app']} → {base}.pdf")
 
-def opens(days=30):
+LIVE = "2026-10-29 22:00:00"                # UTC: just after amendment 2 went live (21:46) and its page checks
+
+def opens(days=None):
     links = {"a": "text A", "b": "text B", "r": "reminder", "c": "community", "t": "test copies", "": "study page"}
     paths = [f"/study/snapshot-example{'-' + v if v else ''}.html" for v in links] + \
             [f"/study/snapshot-open-{v}.css" for v in links if v]
     sql = (f"SELECT blob1 AS path, blob2 AS class, SUM(_sample_interval) AS hits FROM openappindex_requests "
-           f"WHERE timestamp > NOW() - INTERVAL '{int(days)}' DAY AND blob1 IN ({', '.join(repr(x) for x in paths)}) "
+           f"WHERE timestamp > " + (f"NOW() - INTERVAL '{int(days)}' DAY" if days else f"toDateTime('{LIVE}')") +
+           f" AND blob1 IN ({', '.join(repr(x) for x in paths)}) "
            f"GROUP BY path, class FORMAT JSON")
     token = open(os.path.expanduser("~/.config/cloudflare_analytics_token")).read().strip()
     req = urllib.request.Request("https://api.cloudflare.com/client/v4/accounts/346420fbb345201f091a6daf86735346"
@@ -319,7 +322,8 @@ def opens(days=30):
     sent = {v.lower(): sum(1 for t in tokens if t.get("version") == v and "address" in t)    # from amendment 2 on
             for v in ("A", "B")}
     sent["r"] = sum(1 for t in tokens if t.get("channel") == "email-reminder")
-    print(f"Example snapshot, last {days} days: page fetches (people / bots) and stylesheet loads")
+    print(f"Example snapshot, {f'last {days} days' if days else 'since amendment 2 went live'}: "
+          "page fetches (people / bots) and stylesheet loads")
     for v, label in links.items():
         page = f"/study/snapshot-example{'-' + v if v else ''}.html"
         hits = {r["class"]: int(float(r["hits"])) for r in rows if r["path"] == page}
