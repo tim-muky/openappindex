@@ -959,6 +959,21 @@ if os.path.exists(os.path.join(_docs, "developer-study-protocol.md")):
          "What personal data the study processes, why, on what basis, for how long, and your rights.")):
         page(_out, _title, _desc, _study_nav + md_html(open(_src, encoding="utf-8").read(), rich=True), lang="en")
         STUDY_PAGES.append(_out[:-len("index.html")] if _out.endswith("index.html") else _out)
+    # The example snapshot offered to participants (amendment 2) keeps its own design. Each
+    # invitation text links its own copy (a, b, r = reminder, c = community posts, t = test
+    # copies), so the anonymous request log counts opens per text. The copies are not indexed, and
+    # each loads its own empty stylesheet: a browser showing the page fetches it, a mail scanner
+    # that only checks the link usually does not.
+    shutil.copyfile(os.path.join(_study, "snapshot-example.html"), os.path.join(OUT, "study", "snapshot-example.html"))
+    _ex = open(os.path.join(_study, "snapshot-example.html"), encoding="utf-8").read()
+    for _v in "abrct":
+        open(os.path.join(OUT, "study", f"snapshot-example-{_v}.html"), "w", encoding="utf-8").write(_ex.replace(
+            "</head>", f'<link rel="canonical" href="{BASE}/study/snapshot-example.html">'
+                       f'<meta name="robots" content="noindex"><link rel="stylesheet" href="/study/snapshot-open-{_v}.css">'
+                       "</head>", 1))
+        open(os.path.join(OUT, "study", f"snapshot-open-{_v}.css"), "w", encoding="utf-8").write(
+            f"/* example snapshot, link {_v}: counted, empty */\n")
+    STUDY_PAGES.append("study/snapshot-example.html")
     with open(f"{OUT}/llms.txt", "a", encoding="utf-8") as _f:
         _f.write(f"""
 ## Developer study (open 22 Oct 2026 – 31 Jan 2027)

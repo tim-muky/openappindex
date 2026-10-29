@@ -25,8 +25,9 @@ Spam thresholds (decided with Tim, 2026-10-20: "we don't want to burn the addres
   (hard bounces read from the mailbox first). Weekends: SEND_WEEKENDS (on since 2026-10-22).
 
 What is stored, and what is not (privacy notice §3.1–3.2):
-- tokens.json: token → group, nothing else. The order is shuffled per batch and there are no times,
-  so a token cannot be matched to an address by position or timestamp.
+- tokens.json: token → group, and for invitations the text version (amendment 1) and whether the
+  address was a generic inbox or a personal one (amendment 2), nothing else. The order is shuffled
+  per batch and there are no times, so a token cannot be matched to an address by position or timestamp.
 - sent.json: keyed HMAC of each address that was written to, so nobody is written twice. It does
   not record which token went to which address.
 - optout.json: keyed HMAC of addresses that replied "no", kept after the list is deleted so they are
@@ -68,6 +69,21 @@ BLOCK_WORDS = re.compile(r"spam|block|blacklist|blocklist|reputation|policy|deni
 ADDR_RE = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 
 SURVEY = "https://tally.so/r/obr9AP"
+# The example snapshot is linked, not attached (Tim, 2026-10-29). Each text links its own copy
+# (a, b, r = reminder, t = test copies), so the anonymous request log counts opens per text; the
+# link names the text, never the recipient.
+EXAMPLE = "https://openappindex.org/study/snapshot-example-{v}.html"
+# A generic inbox (support@, info@ ...) reaches a helpdesk more often than the developer. Where the
+# developer also publishes a personal address on their own domain, or a freemail address on their
+# own site, the invitation goes there (amendment 2). Never to an address on another domain: those
+# are often the developer's lawyer, agency or platform.
+GENERIC = re.compile(r"^(support|help|helpdesk|info|contact|kontakt|hello|hallo|hi|hey|service|kundenservice|"
+                     r"feedback|team|apps?|admin|office|buero|mail|email|dev|developers?|devs|privacy|datenschutz|"
+                     r"dsb|dpo|gdpr|legal|law|recht|abuse|security|noreply|no-reply|donotreply|press|presse|media|"
+                     r"pr|sales|vertrieb|marketing|billing|accounts?|invoices?|rechnung|jobs|careers|hr|partners?|"
+                     r"business|biz|studio|general|enquiries|inquiries|questions|care|cs|social|news|newsletter|"
+                     r"webmaster|postmaster|hostmaster|root|orders?|shop|store|bestellung|customer\w*|"
+                     r"(support|info|contact|hello|app|team|feedback)[\w.-]*)$", re.I)
 STUDY_PAGE = "https://openappindex.org/study/"
 PRIVACY = "https://openappindex.org/study/privacy.html"
 FROM_NAME, FROM_ADDR = "Tim Meyerdierks (openAPPindex)", "tim@study.openappindex.org"
@@ -89,7 +105,9 @@ I'm running a short survey of app publishers, above all new and small ones: how 
 
 Survey: {link}
 
-To be clear about what this is not: nothing is for sale, and nothing is asked of you beyond the answers. Taking part (or not) changes nothing about how your app appears in the index. Everyone who takes part can receive the paper before it is published, plus the results for their category.
+{snapshot}
+
+To be clear about what this is not: nothing is for sale, and nothing is asked of you beyond the answers. Taking part (or not) changes nothing about how your app appears in the index.
 
 Before openAPPindex I was COO of a mid-sized marketing company in Berlin, Bonial.com (kaufDA in Germany), for ten years, and spent millions of euros on app installs every year. I also publish small apps myself (e.g. galleybook.com); they are excluded from this study.
 
@@ -121,7 +139,9 @@ The survey takes about 12 minutes and doesn't ask who you are. All results are p
 
 {link}
 
-Nothing is for sale, and nothing is asked of you beyond the answers. Taking part (or not) changes nothing about how your app appears in the index. Everyone who takes part can receive the paper first.
+{snapshot}
+
+Nothing is for sale, and nothing is asked of you beyond the answers. Taking part (or not) changes nothing about how your app appears in the index.
 
 One short reminder follows in about two weeks, nothing after that. If you'd rather not hear from me again, reply "no" and I'll delete your address.
 
@@ -144,6 +164,8 @@ If you have already taken part: thank you, and please ignore this email. The sur
 If you haven't yet, it takes about 12 minutes and is open until 31 January 2027:
 {link}
 
+{snapshot}
+
 Nothing is for sale, and nothing is asked of you beyond the answers. This is the last email you'll get from me about the study.
 
 Thank you,
@@ -154,6 +176,11 @@ openappindex.org · {study_page}
 
 {footer}
 """
+
+# Amendment 2 (2026-10-30): the same paragraph in both texts and in the reminder.
+SNAPSHOT = """What you get back: a one-page snapshot of how {app} shows up in our measurements, with its position for the most obvious search, how many of 25 common searches find it, and its rank among similar apps. Here is an example with a fictional app: {example}
+
+To get yours, and the paper before it is published, leave your email address and app link in the separate form at the end of the survey. It is not connected to your answers."""
 
 FOOTER = """--
 Why you're receiving this, and your data: I found this address on {page_words} ({source}), where you publish it as a contact for your app, and checked that it was still there on the day of the invitation. I use it only for the invitation and one reminder, on the basis of a legitimate interest in independent research, published openly (GDPR Art. 6(1)(f)). Only my email provider (mailbox.org) processes it for me. It is deleted when the survey closes (31 January 2027), or straight away if you reply "no". Controller: Tim Meyerdierks, Sonnenburger Straße 54, 10437 Berlin, Germany; {from_addr}. You have the right to access, rectification, erasure, restriction and objection, and to complain to a data protection authority. Full notice: {privacy}"""
@@ -188,7 +215,9 @@ def domain_of(addr):
 def queue(check_domains=True):
     """One entry per address: the first developer record that published it (frame order is
     stable), minus opt-outs, bounces, addresses already written to, and (after --check)
-    addresses whose domain cannot receive mail."""
+    addresses whose domain cannot receive mail. A generic inbox gives way to a personal address
+    of the same developer where there is one (amendment 2); if that one was already written to
+    or said no, the developer is skipped."""
     frame = load(FRAME, None)["developers"]
     emails = load(EMAILS, {})
     key = hmac_key()
@@ -206,12 +235,44 @@ def queue(check_domains=True):
         seen.add(addr)
         if fingerprint(addr, key) in skip:
             continue
-        if domain_of(addr) in dead:
+        entry = {**d, "email": addr, "source": e["source"], "page": e["page"],
+                 "address": "generic" if GENERIC.match(addr.partition("@")[0]) else "personal"}
+        alt = personal_alternate(addr, e.get("alternates") or []) if entry["address"] == "generic" else None
+        if alt:
+            if alt[0] in seen or fingerprint(alt[0], key) in skip:
+                continue
+            seen.add(alt[0])
+            entry.update(email=alt[0], source=alt[1], page=page_kind(alt[1]), address="personal")
+        if domain_of(entry["email"]) in dead:
             no_route += 1
             continue
-        q.append({**d, "email": addr, "source": e["source"], "page": e["page"]})
+        q.append(entry)
     queue.no_route = no_route
     return q, shared
+
+def personal_alternate(primary, alternates):
+    """The first personal address among a record's alternates that is on the developer's own
+    domain, or a freemail address published on the developer's own site; else None."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import contacts
+    own = contacts.regdomain(domain_of(primary))
+    for a, src in alternates:
+        a = a.strip().lower()
+        lp, dom = a.partition("@")[0], domain_of(a)
+        if GENERIC.match(lp) or not re.search(r"[a-z]{2}", lp):
+            continue
+        if contacts.regdomain(dom) == own or (
+                dom in contacts.FREEMAIL and contacts.regdomain(urllib.parse.urlparse(src).netloc) == own):
+            return a, src
+    return None
+
+def page_kind(url):
+    path = urllib.parse.urlparse(url).path.lower()
+    for kind, words in (("privacy", ("privacy", "datenschutz")), ("support", ("support", "help", "hilfe", "faq")),
+                        ("contact", ("contact", "kontakt"))):
+        if any(w in path for w in words):
+            return kind
+    return "website"
 
 def mail_route(dom):
     """Does the domain accept mail: MX, else an address record (RFC 5321 implicit MX, which
@@ -259,7 +320,10 @@ def render(d, token, reminder=False, channel=None, version="A"):
                            from_addr=FROM_ADDR, privacy=PRIVACY)
     text, subject = ((REMINDER_BODY, REMINDER_SUBJECT) if reminder else
                      (BODY_B, SUBJECT_B) if version == "B" else (BODY, SUBJECT))
-    body = text.format(app=d["app"], category=CATEGORY[d["cat"]], link=link, study_page=STUDY_PAGE, footer=footer)
+    v = "t" if channel == "pretest" else "r" if reminder else version.lower()
+    snapshot = SNAPSHOT.format(app=d["app"], example=EXAMPLE.format(v=v))
+    body = text.format(app=d["app"], category=CATEGORY[d["cat"]], link=link, study_page=STUDY_PAGE,
+                       footer=footer, snapshot=snapshot)
     m = EmailMessage()
     m["From"] = formataddr((FROM_NAME, FROM_ADDR))
     m["To"] = d["email"]
@@ -609,6 +673,7 @@ def send(force=False, resume=False):
         for k, (addr, v) in enumerate(seeds):   # spread through the run, like any other recipient
             jobs.insert((k + 1) * len(jobs) // (len(seeds) + 1), ({**sample, "email": addr}, "seed", v))
     print(f"today (daily total {total}): {len(batch)} invitations ({len(batch) - n_b} text A, {n_b} text B; "
+          f"{sum(d['address'] == 'personal' for d in batch)} to personal addresses; "
           f"re-checked, {len(stale)} no longer published), {len(reminders)} reminders, {len(seeds)} seed copies",
           flush=True)
     sent, tokens, new_tokens = load(SENT, []), load(TOKENS, []), []
@@ -644,7 +709,7 @@ def send(force=False, resume=False):
                 if kind != "seed":
                     new_tokens.append({"token": token, "group": d["group"],
                                        "channel": "email-reminder" if kind == "remind" else "email",
-                                       **({"version": version} if kind == "invite" else {})})
+                                       **({"version": version, "address": d["address"]} if kind == "invite" else {})})
                 print(f"  {i}/{len(jobs)}", flush=True)
                 if i < len(jobs):
                     time.sleep(random.uniform(*GAP))

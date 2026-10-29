@@ -1,7 +1,7 @@
 # Privacy notice: "The cost of being found"
 
-*A study of app publishers, above all new and small ones, by openAPPindex. Version 1.0 ·
-22 October 2026, the day the study opens.*
+*A study of app publishers, above all new and small ones, by openAPPindex. Version 1.1 ·
+30 October 2026 (version 1.0: 22 October 2026, the day the study opens; see section 7).*
 
 This notice explains what personal data the study processes, why, on what legal basis, and what
 rights you have. It follows Articles 13 and 14 of the EU General Data Protection Regulation (GDPR).
@@ -21,7 +21,7 @@ found. It has three parts:
 
 1. an invitation email, and at most one reminder;
 2. an online survey that does not ask who you are;
-3. a separate, optional form for receiving the results.
+3. a separate, optional form for receiving the results and a snapshot of your app.
 
 Taking part is voluntary. Not taking part has no consequences of any kind.
 
@@ -40,7 +40,12 @@ protocol was published before the survey opened:
 - **Sources:**
   - the address: your own website, or your app's support or privacy page, where you publish it as
     a contact for the app. The invitation email names the exact page. On the day we write to
-    you, we check that the address is still published there.
+    you, we check that the address is still published there. Where you publish both a general
+    inbox (such as support@ or info@) and a personal address on your own domain or website, we
+    write to the personal one, because a general inbox often reaches a helpdesk rather than you.
+  - The link to the example snapshot in the email shows only which email text it came from, so
+    that openappindex.org can count how often the example is opened per text. It does not
+    identify you, and the count holds no IP address (see openappindex.org/datenschutz.html).
   - everything else: your app's public App Store listing.
 - **Purpose:** to invite you to take part, and to send one reminder about two weeks later. The
   survey is anonymous, so the reminder goes to everyone we invited, including people who have
@@ -49,7 +54,8 @@ protocol was published before the survey opened:
   are discovered, published openly). We consider that interest to outweigh yours because:
   - the address is one you publish as a contact for your app;
   - we write at most twice, and never again after that;
-  - nothing is offered or sold;
+  - nothing is sold, and the only thing offered is the study's own output (the paper, and a
+    snapshot of your app's public App Store data);
   - you can object at any time with a one-word reply.
 - **Storage:**
   - The address list is deleted when the survey closes on **31 January 2027**, or your address
@@ -93,8 +99,11 @@ protocol was published before the survey opened:
 
 ### 3.3 The results form (optional)
 
-- **Data:** your email address and your app category.
-- **Purpose:** to send you the paper before publication and the results for your category.
+- **Data:** your email address, your app category and, if you add it, your app's App Store link.
+- **Purpose:** to send you the paper before publication and the results for your category, and,
+  if you added the link, a one-page snapshot of how your app shows up in openAPPindex's
+  measurements. The snapshot is made only from public App Store data and never from your survey
+  answers. Snapshots are possible for apps in the two categories the index measured.
 - **Legal basis:** your consent, Art. 6(1)(a) GDPR.
 - **Separation:** this is a separate form and is not connected to your survey answers. It is never
   shared with the AI service.
@@ -162,3 +171,10 @@ No decisions are made about you by automated means, and no profiles are created.
 
 If this notice changes during the study, the new version is published here with its date, and
 the previous version stays available.
+
+- **Version 1.1, 30 October 2026:** personal address preferred over a general inbox, and the
+  example link counted per email text (3.1); the snapshot and the optional App Store link in the
+  results form (3.3). Study protocol, amendment 2.
+- **Version 1.0, 22 October 2026:** archived with the frozen study
+  ([DOI 10.5281/zenodo.23557438](https://doi.org/10.5281/zenodo.23557438);
+  [the file at the freeze](https://github.com/tim-muky/openappindex/blob/study-freeze-2026-10-22/study/privacy.md)).

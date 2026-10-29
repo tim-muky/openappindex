@@ -28,13 +28,19 @@ is welcome, including publishers of apps that are no longer available.
   nothing about how your app appears in openAPPindex.
 - **Results are open:** an open research paper, with the aggregated data under CC BY 4.0.
   Participants who want it receive the paper before publication.
+- **A snapshot of your app:** participants can also get a one-page snapshot of how their app
+  shows up in our measurements: its position for the most obvious search, how many of 25 common
+  searches find it, and its rank among similar apps. It is made from public App Store data only,
+  never from survey answers. [See an example](https://openappindex.org/study/snapshot-example.html)
+  (a fictional app).
 
 ## Published before the survey opened
 
 The study protocol and the questionnaire were fixed and published before the first answer:
 
 - [Study protocol](https://openappindex.org/study/protocol.html), frozen on 22 October 2026;
-  amendment 1 of 27 October 2026 adds a second invitation text, assigned at random
+  amendment 1 of 27 October 2026 adds a second invitation text, assigned at random; amendment 2
+  of 30 October 2026 adds the snapshot offer and changes how addresses are chosen
 - [The questionnaire as fielded](https://openappindex.org/study/questionnaire.html)
 - [Privacy notice](https://openappindex.org/study/privacy.html)
 - Archived with a DOI: [10.5281/zenodo.23557438](https://doi.org/10.5281/zenodo.23557438), from the

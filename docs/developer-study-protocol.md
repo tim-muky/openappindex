@@ -475,3 +475,56 @@ funded time.
   - Answers through both texts count toward P1–P6, because the text is assigned at random.
   - B states an aim, so it may attract or prime publishers who share that aim. P1–P3 are therefore
     also reported per text where n allows. A difference is reported, not corrected.
+
+### Amendment 2 (2026-10-29, before the invitations of 2026-10-30): a snapshot for participants, personal addresses, linked open-channel answers
+
+- **Why.** After 521 invitations (22–29 October), 2 answers had come in through the email links
+  (0.4%). At that rate the target group stays far below the n ≥ 30 that P1–P6 need (§3). Many
+  invitations reach a helpdesk rather than the developer: 24 of the first 521 brought an automatic
+  or helpdesk confirmation and 3 a reply from support staff. By the rule in `study/send.py`,
+  1,866 of the 2,860 addresses (65%) are general inboxes (support@, info@, hello@ …).
+- **A snapshot for participants.**
+  - Everyone who takes part can ask for a one-page snapshot of how their app shows up in the
+    index's measurements: its position for the obvious search, how many of the category's 25
+    searches find it (read again on the day the snapshot is made), how the index reached it
+    (search or the "similar apps" graph), and its rank by number of ratings among apps of the
+    category released in the same year. It is made from public App Store data only, by
+    `study/snapshot.py`, never from survey answers.
+  - It is requested in the separate results form, which gets an optional App Store link field
+    (R3). The results form stays unconnected to the survey (§5); privacy notice version 1.1.
+  - From 2026-10-30 both invitation texts (A and B) and the reminder carry the same paragraph
+    offering it, with a link to an example of a fictional app (`/study/snapshot-example.html`).
+    The example shows one app's numbers and no share of any population, so the invitation still
+    states no finding (§11).
+  - Each text links its own copy of the example (`-a`, `-b`, `-r` for the reminder), so the site's
+    anonymous request log counts how often it is opened per text. The link names the text, never
+    the recipient. Two counts are reported: page fetches, and loads of the page's stylesheet,
+    which a browser showing the page makes and a mail scanner that only checks the link usually
+    does not.
+  - The snapshot reaches a participant only after they have answered, so it cannot influence
+    their own answers. The offer may attract publishers who care about their visibility. The
+    response rate and P1–P3 are therefore reported separately for invitations before and from
+    2026-10-30 where n allows. This is a comparison over time, not a randomised one. A and B stay
+    randomised within each day, so their comparison (amendment 1) is reported for both periods.
+- **Personal addresses before general inboxes.**
+  - For developers not yet invited: where a developer publishes both a general inbox and a
+    personal address on their own domain, or a freemail address on their own website, the
+    invitation goes to the personal address. Addresses on another domain are never used; they
+    often belong to the developer's lawyer, agency or platform. If the personal address was
+    already written to or said "no", the developer is skipped. On 2026-10-29 this affects 128 of
+    the 2,219 developers not yet invited.
+  - The token list records the address type (token → group, version, address type: generic or
+    personal). It still never stores which address received which token.
+  - The response rate is reported per address type, as a description: address type is not
+    assigned at random.
+- **Linked open-channel answers in a second reading.**
+  - Open-channel answers (study page, communities, press) whose respondent consented to linkage
+    (L2) and gave a usable App Store link (L1) of an app in the target group are counted toward
+    P1–P6 in a second reading. Group membership is checked against the frame's rule (§4) for that
+    app.
+  - The pre-registered reading, email-token answers only, stays the primary one and is reported
+    first. The second reading is reported beside it, each with its n.
+  - If two linked answers name the same app, the first is kept.
+- **Sending time.** From 2026-10-30 the daily batch starts at 14:00 Berlin time instead of 10:00,
+  so it reaches publishers in the Americas in their morning. It is recorded because response
+  rates are compared over time.

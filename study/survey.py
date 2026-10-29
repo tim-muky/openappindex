@@ -257,11 +257,16 @@ def blocks():
 RESULTS_FORM = [
     ("text", None, "Leave your email address to receive the paper \"The cost of being found\" before it is "
                    "published (spring 2027), and the aggregated results for your app category.", None),
+    ("text", None, "Add your app's App Store link, and we also send you a one-page snapshot of how your app shows "
+                   "up in our measurements, within about a week. Example: "
+                   "https://openappindex.org/study/snapshot-example.html (snapshots are possible for apps in the "
+                   "two categories we measured, cooking and sleep/meditation).", None),
     ("text", None, "This form is separate from the survey: your address is not connected to your answers. It is "
-                   "used only to send you the paper and the results, and deleted afterwards (by 31 January 2028 "
-                   "at the latest). Privacy notice: https://openappindex.org/study/privacy.html", None),
+                   "used only to send you the snapshot, the paper and the results, and deleted afterwards (by 31 "
+                   "January 2028 at the latest). Privacy notice: https://openappindex.org/study/privacy.html", None),
     ("email", "R1", "Email address", None),
     ("single", "R2", "Which app category is your app in?", ["Food & Drink / cooking", "Sleep, meditation, wellbeing", "Other"]),
+    ("link", "R3", "Your app's App Store link (optional, for your snapshot). It starts with https://apps.apple.com/", None),
 ]
 
 SETTINGS = {"language": "en", "hasProgressBar": True, "hasPartialSubmissions": False, "saveForLater": False,
