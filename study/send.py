@@ -574,11 +574,14 @@ def inbox():
             subject = (msg.get("Subject") or "").strip()
             if re.match(r"(\[preview\] )?report domain: ", subject, re.I):
                 counts["DMARC report"] += 1             # aggregate authentication reports (rua)
+            elif subject.lower() in ("no", "nein"):     # List-Unsubscribe; Apple Mail marks it auto-replied
+                optout(sender)
+                counts["no (applied)"] += 1
             elif (msg.get("Auto-Submitted", "no").lower() != "no" or msg.get("X-Autoreply")
                     or (msg.get("Precedence") or "").lower() in ("auto_reply", "bulk", "junk")
                     or AUTO_SUBJECT.match(re.sub(r"^((re|aw|fwd?|wg):\s*)+", "", subject, flags=re.I))):
                 counts["auto-reply"] += 1
-            elif subject.lower() in ("no", "nein") or NO_WORDS.match(first_line(msg)):
+            elif NO_WORDS.match(first_line(msg)):
                 optout(sender)
                 counts["no (applied)"] += 1
             else:
