@@ -221,8 +221,7 @@ def queue(check_domains=True):
     frame = load(FRAME, None)["developers"]
     emails = load(EMAILS, {})
     key = hmac_key()
-    done = set(load(SENT, []))
-    skip = done | set(load(OPTOUT, [])) | set(load(BOUNCED, [])) | set(load(STALE, []))
+    skip = set(load(SENT, [])) | set(load(OPTOUT, [])) | set(load(BOUNCED, [])) | set(load(STALE, []))
     dead = {d for d, r in load(DOMAINS, {}).items() if r in NO_ROUTE} if check_domains else set()
     seen, q, shared, no_route = set(), [], 0, 0
     for d in frame:
@@ -236,9 +235,6 @@ def queue(check_domains=True):
         seen.add(addr)
         if fingerprint(addr, key) in skip:
             continue
-        if any(fingerprint(a.strip().lower(), key) in done for a, _ in e.get("alternates") or []
-               if re.match(r"u00[0-9a-f]{2}", a.strip().lower())):
-            continue        # written to before at the escaped spelling of its alternate (until 2026-11-02)
         entry = {**d, "email": addr, "source": e["source"], "page": e["page"],
                  "address": "generic" if GENERIC.match(addr.partition("@")[0]) else "personal"}
         alt = personal_alternate(addr, e.get("alternates") or []) if entry["address"] == "generic" else None
