@@ -524,7 +524,8 @@ def due_reminders(st, key):
     return [d for _, d in sorted(recs, key=lambda x: x[0])]
 
 def records():
-    """Every address in the list once, with its first developer record (as in queue())."""
+    """Every address in the list once, with its first developer record (as in queue()), then the
+    personal alternates queue() may have written to instead (amendment 2), with their own source."""
     frame, emails, seen, out = load(FRAME, None)["developers"], load(EMAILS, {}), set(), []
     for d in frame:
         e = emails.get(d["key"], {})
@@ -532,6 +533,13 @@ def records():
         if addr and addr not in seen:
             seen.add(addr)
             out.append({**d, "email": addr, "source": e["source"], "page": e["page"]})
+    for d in frame:
+        e = emails.get(d["key"], {})
+        addr = (e.get("email") or "").strip().lower()
+        alt = personal_alternate(addr, e.get("alternates") or []) if GENERIC.match(addr.partition("@")[0]) else None
+        if alt and alt[0] not in seen:
+            seen.add(alt[0])
+            out.append({**d, "email": alt[0], "source": alt[1], "page": page_kind(alt[1])})
     return out
 
 NO_WORDS = re.compile(r"^\s*(no|nein|no\.|nein\.|no thanks|no, thanks|nein danke|unsubscribe|remove me|stop)\s*[.!]?\s*$", re.I)
