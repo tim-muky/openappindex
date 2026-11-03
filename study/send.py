@@ -468,7 +468,9 @@ def bounces(quiet=False):
 
 def optout(addr):
     """A "no" reply: the address is never written to again, and is deleted from the address
-    list now (privacy notice). Only its keyed fingerprint is kept."""
+    list now (privacy notice). Only its keyed fingerprint is kept. A "no" from the personal
+    address queue() wrote to instead of the generic one removes the whole record, so that no
+    other alternate of the same developer stands in for it."""
     addr = addr.strip().lower()
     fp = fingerprint(addr, hmac_key())
     oo = load(OPTOUT, [])
@@ -476,14 +478,19 @@ def optout(addr):
         save(OPTOUT, oo + [fp])
     emails, n = load(EMAILS, {}), 0
     for v in emails.values():
-        if (v.get("email") or "").lower() == addr:
-            v.update(email=None, removed="opt-out")
+        prim = (v.get("email") or "").lower()
+        alt = personal_alternate(prim, v.get("alternates") or []) if GENERIC.match(prim.partition("@")[0]) else None
+        if prim == addr or (alt and alt[0] == addr):
+            v.update(email=None, removed="opt-out", alternates=[])
             v.pop("source", None)
             n += 1
         if v.get("alternates"):
             v["alternates"] = [a for a in v["alternates"] if a[0].lower() != addr]
     save(EMAILS, emails)
     print(f"opt-out recorded; the address was removed from {n} record(s) of the address list")
+    if fp not in set(load(SENT, [])):
+        print("  no invitation went to this address: the \"no\" answers one sent to another address,"
+              " which needs its own --optout")
 
 def still_published(d):
     """Re-collect the address on the day it is used (GDPR Art. 14(3)): fetch the page it was
