@@ -342,6 +342,19 @@ def smtp():
     s.login(secret(SMTP_USER_FILE) or sys.exit("No login at ~/.config/mailbox_user."), pw)
     return s
 
+def send_one(msg):
+    """One email over its own connection. A connection held open through the 25–70 s gaps died
+    silently whenever the VPN reconnected, and the next email waited out the timeout (2026-11-03,
+    2026-11-06). A failed QUIT after the server took the email doesn't count as a failure."""
+    s = smtp()
+    try:
+        s.send_message(msg)
+    finally:
+        try:
+            s.quit()
+        except OSError:
+            s.close()
+
 def plan():
     q, shared = queue()
     from collections import Counter
@@ -698,39 +711,38 @@ def send(force=False, resume=False):
     reminded = load(REMINDED, [])
     start, n_rem, refused, stopped = len(sent), 0, [], None
     try:
-        with smtp() as s:
-            for i, (d, kind, version) in enumerate(jobs, 1):
-                token = "SEED" if kind == "seed" else secrets.token_urlsafe(9)
-                fp = fingerprint(d["email"], key)
-                try:
-                    s.send_message(render(d, token, reminder=(kind == "remind"),
-                                          channel="pretest" if kind == "seed" else None, version=version))
-                except smtplib.SMTPRecipientsRefused as e:
-                    code, msg = next(iter(e.recipients.values()))
-                    text = ADDR_RE.sub("<address>", msg.decode("utf-8", "replace") if isinstance(msg, bytes) else str(msg))
-                    if BLOCK_WORDS.search(text):
-                        stopped = ("block", f"{code} {text[:160]}")
-                        break
-                    if kind != "seed":
-                        refused.append(fp)              # rejected at once: a bounce
-                    continue
-                except (smtplib.SMTPResponseException, smtplib.SMTPServerDisconnected) as e:
-                    stopped = ("server", ADDR_RE.sub('<address>', str(e))[:160])
+        for i, (d, kind, version) in enumerate(jobs, 1):
+            token = "SEED" if kind == "seed" else secrets.token_urlsafe(9)
+            fp = fingerprint(d["email"], key)
+            try:
+                send_one(render(d, token, reminder=(kind == "remind"),
+                                channel="pretest" if kind == "seed" else None, version=version))
+            except smtplib.SMTPRecipientsRefused as e:
+                code, msg = next(iter(e.recipients.values()))
+                text = ADDR_RE.sub("<address>", msg.decode("utf-8", "replace") if isinstance(msg, bytes) else str(msg))
+                if BLOCK_WORDS.search(text):
+                    stopped = ("block", f"{code} {text[:160]}")
                     break
-                if kind == "invite":
-                    sent.append(fp)
-                    save(SENT, sent)
-                elif kind == "remind":
-                    reminded.append(fp)
-                    n_rem += 1
-                    save(REMINDED, reminded)
                 if kind != "seed":
-                    new_tokens.append({"token": token, "group": d["group"],
-                                       "channel": "email-reminder" if kind == "remind" else "email",
-                                       **({"version": version, "address": d["address"]} if kind == "invite" else {})})
-                print(f"  {i}/{len(jobs)}", flush=True)
-                if i < len(jobs):
-                    time.sleep(random.uniform(*GAP))
+                    refused.append(fp)              # rejected at once: a bounce
+                continue
+            except (smtplib.SMTPResponseException, OSError) as e:   # incl. a dropped or refused connection
+                stopped = ("server", ADDR_RE.sub('<address>', str(e))[:160])
+                break
+            if kind == "invite":
+                sent.append(fp)
+                save(SENT, sent)
+            elif kind == "remind":
+                reminded.append(fp)
+                n_rem += 1
+                save(REMINDED, reminded)
+            if kind != "seed":
+                new_tokens.append({"token": token, "group": d["group"],
+                                   "channel": "email-reminder" if kind == "remind" else "email",
+                                   **({"version": version, "address": d["address"]} if kind == "invite" else {})})
+            print(f"  {i}/{len(jobs)}", flush=True)
+            if i < len(jobs):
+                time.sleep(random.uniform(*GAP))
     finally:                                    # a dropped connection still leaves a true record
         random.shuffle(new_tokens)              # no order to match against
         save(TOKENS, tokens + new_tokens)
